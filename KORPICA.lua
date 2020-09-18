@@ -79,6 +79,14 @@ else
 return false 
 end 
 end
+function BasicHassan(msg)
+local hash = database:sismember(bot_id.."korpica:Basic:Hassan"..msg.chat_id_, msg.sender_user_id_) 
+if hash or Devkorpica(msg) or DevBot(msg) then 
+return true 
+else 
+return false 
+end 
+end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."korpica:Constructor"..msg.chat_id_, msg.sender_user_id_) 
 if hash or Devkorpica(msg) or DevBot(msg) or BasicConstructor(msg) then    
@@ -123,6 +131,8 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = true  
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = true  
+elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
+var = true
 elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
 var = true
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
@@ -141,7 +151,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(970017493) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(665877797) then  
+if tonumber(user_id) == tonumber(665877797) then  
 var = 'أبنمؤيد'
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
@@ -149,7 +159,9 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = "البوت"
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = database:get(bot_id.."korpica:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
+elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
+var = database:get(bot_id.."korpica:BasicHassan:Rd"..chat_id) or "المالك"
+elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:Constructor:Rd"..chat_id) or "المنشئ"  
@@ -2653,7 +2665,7 @@ Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المطورين
 return false 
 end
 
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2670,7 +2682,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and BasicConstructor(msg) then  
+if text and text:match("^رفع منشئ اساسي @(.*)$") and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2696,7 +2708,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي (%d+)$") and BasicConstructor(msg) then  
+if text and text:match("^رفع منشئ اساسي (%d+)$") and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2711,7 +2723,7 @@ database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته منشئ اساسي")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2728,7 +2740,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and BasicConstructor(msg) then  
+if text and text:match("^تنزيل منشئ اساسي @(.*)$") and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2751,7 +2763,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and BasicConstructor(msg) then  
+if text and text:match("^تنزيل منشئ اساسي (%d+)$") and BasicHassan(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6152,6 +6164,7 @@ local Text= [[
 - `#game` > المجوهرات
 - `#AddMem` > عدد الجهات
 - `#Description` > تعليق الصوره
+- قناه كلايش الايدي @id_kora
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -6829,16 +6842,8 @@ database:del(bot_id..'korpica:Add:Memp'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '܁༯┆تم مسح جميع جهاتك المضافه '
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "مجوهراتي" then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end 
+
+if text == "مجوهراتي" then 
 local Num = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 if Num == 0 then 
 Text = "܁༯┆لم تلعب اي لعبه للحصول على جواهر"
@@ -6847,16 +6852,7 @@ Text = "܁༯┆عدد جواهر التي رحبتها هي *~ { "..Num.." } م
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text and text:match("^بيع مجوهراتي (%d+)$") then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text and text:match("^بيع مجوهراتي (%d+)$") then
 local NUMPY = text:match("^بيع مجوهراتي (%d+)$") 
 if tonumber(NUMPY) == tonumber(0) then
 send(msg.chat_id_,msg.id_,"\n*܁༯┆لا استطيع البيع اقل من 1 *") 
@@ -7315,15 +7311,13 @@ end
 return false
 end
 Text = [[
-𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝖾𝖺𝗆 𝗄𝗈𝗋𝖺𝗉𝗂𝖼𝖺 ،♥️𓂇
-•••••••••••••••••••••••𓆃
-⿻ - [𝗄𝗈𝗋𝖺𝗉𝗂𝖼𝖺 𝗍𝖾𝖺𝗆](t.me/korpica)
-•••••••••••••••••••••••𓆃
-⿻ - [𝗂𝗇𝖿𝗈𝗋𝗆𝖺𝗍𝗂𝗈𝗇 𝗄𝗈𝗋𝖺𝗉𝗂𝖼𝖺](https://t.me/infokora)
-•••••••••••••••••••••••𓆃
-⿻ - [𝖼𝗁𝖺𝗇𝖾𝗅](https://t.me/XIXI_11)
-•••••••••••••••••••••••𓆃
-⿻ - [𝖽𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 𖤍](https://t.me/BB63BB)
+WeLCoMe TeAM KOrAPiCa ∴
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
+༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
+༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
+༯┆[ChAnEl](https://t.me/XIXI_11) ∴
+༯┆[DeVeLoPeR](https://t.me/BB63BB) ∴
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7746,7 +7740,7 @@ return false
 end
 Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تفعيل المجموعه ~ '..chat.title_..'')
 database:sadd(bot_id..'korpica:Chek:Groups',msg.chat_id_)  
-database:sadd(bot_id..'korpica:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
+database:sadd(bot_id..'korpica:Basic:Hassan'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NumMember = data.member_count_
 local NameChat = chat.title_
