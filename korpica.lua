@@ -151,7 +151,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(970017493) then  
 var = 'مطور السورس'
-if tonumber(user_id) == tonumber(665877797) then  
+elseif tonumber(user_id) == tonumber(665877797) then  
 var = 'أبنمؤيد'
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
@@ -6164,7 +6164,6 @@ local Text= [[
 - `#game` > المجوهرات
 - `#AddMem` > عدد الجهات
 - `#Description` > تعليق الصوره
-- قناه كلايش الايدي @id_kora
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
