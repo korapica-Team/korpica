@@ -7060,8 +7060,8 @@ if text == ("تحديث السورس") and Devkorpica(msg) then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
 dofile('korpica.lua')  
 return false
 end
@@ -8268,8 +8268,8 @@ if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
 dofile('korpica.lua')  
 return false
 end
