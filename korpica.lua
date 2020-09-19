@@ -7329,10 +7329,10 @@ end
 Text = [[
 WeLCoMe TeAM KOrAPiCa ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-(http://t.me/korpica)[༯┆KOrAPiCa TeAm] ∴
-(https://t.me/infokora)[༯┆INfO KOrAPiCa] ∴
-(https://t.me/XIXI_11)[༯┆ChAnEl] ∴
-(https://t.me/BB63BB)[༯┆DeVeLoPeR] ∴
+༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
+༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
+༯┆[ChAnEl](https://t.me/XIXI_11) ∴
+༯┆[DeVeLoPeR](https://t.me/BB63BB) ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
