@@ -6230,10 +6230,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'܁༯┆'..Description..'\n܁༯┆ايديك » '..Id..'\n܁༯┆معرفك » '..UserName_User..'\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'𓌹 ⚚ '..Description..'\n𓌹 ⚚ 𝗂𝖽 ま » '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま  '..UserName_User..'\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま  '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚  𝗆𝖺𝗌𝗀 ま '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'܁༯┆ليس لديك صوره \n'..'\n*܁༯┆ايديك » '..Id..'\n܁༯┆معرفك »* ['..UserName_User..']*\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'𓌹 ⚚ ليس لديك صوره \n'..'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま * ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -6249,32 +6249,14 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*܁༯┆ايديك » '..Id..'\n܁༯┆معرفك »* ['..UserName_User..']*\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま* ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
 end
 end
 end,nil)   
 end,nil)   
 end
 end
-if text == 'تعطيل التنظيف' and BasicConstructor(msg) then   
-if database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
-database:del(bot_id..'Lock:delmsg'..msg.chat_id_) 
-Text = '\n܁༯┆ تم تعطيل التنظيف' 
-else
-Text = '\n܁༯┆بالتاكيد تم تعطيل التنظيف'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تفعيل التنظيف' and BasicConstructor(msg) then  
-if not database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
-database:set(bot_id..'Lock:delmsg'..msg.chat_id_,true) 
-Text = '\n܁༯┆ تم تفعيل التنظيف' 
-else
-Text = '\n܁༯┆بالتاكيد تم تفعيل التنظيف'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text and text:match('^تنظيف (%d+)$') and Constructor(msg) and database:get(bot_id..'Lock:delmsg'..msg.chat_id_) then                
+if text and text:match('^تنظيف (%d+)$') and Addictive(msg) then    
 local Number = tonumber(text:match('^تنظيف (%d+)$')) 
 if Number > 1000 then 
 send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع تنضيف اكثر من *~ 1000* رساله') 
@@ -7345,16 +7327,13 @@ end
 return false
 end
 Text = [[
-*- Black Team .*
- — — — — — — — — — 
-     
-[܁༯┆ BLacK 𝖲𝗈𝗎𝗋𝖼𝖾  .](http://t.me/korpica)
-     
-[܁༯┆ ToolS BLacK .](https://t.me/joinchat/AAAAAFPp_oZNV4U3n91zRQ)
-     
-[܁༯┆ 𝖳WSL Source BLacK .](http://t.me/TwSLBlackBot)
-     
-[܁༯┆   𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖥𝗋𝗈𝗆 𝖸𝗈𝗎𝗍𝖾𝖻 .](http://t.me/YOOTBOT)
+WeLCoMe TeAM KOrAPiCa ∴
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
+(http://t.me/korpica)[༯┆KOrAPiCa TeAm] ∴
+(https://t.me/infokora)[༯┆INfO KOrAPiCa] ∴
+(https://t.me/XIXI_11)[༯┆ChAnEl] ∴
+(https://t.me/BB63BB)[༯┆DeVeLoPeR] ∴
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
