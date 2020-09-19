@@ -79,8 +79,8 @@ else
 return false 
 end 
 end
-function BasicHassan(msg)
-local hash = database:sismember(bot_id.."korpica:Basic:Hassan"..msg.chat_id_, msg.sender_user_id_) 
+function BasicMalkSu(msg)
+local hash = database:sismember(bot_id.."korpica:Basic:MalkSu"..msg.chat_id_, msg.sender_user_id_) 
 if hash or Devkorpica(msg) or DevBot(msg) then 
 return true 
 else 
@@ -121,9 +121,9 @@ end
 end
 function CleangGroups();local z = io.open('./korpica');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/korpica.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(970017493) then  
-var = true
-elseif tonumber(user_id) == tonumber(665877797) then  
+if tonumber(user_id) == tonumber(711575912) then  
+var = true  
+elseif tonumber(user_id) == tonumber(665877797) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -132,8 +132,8 @@ var = true
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = true  
 elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
-var = true
-elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
+var = true                 
+elseif database:sismember(bot_id.."korpica:Basic:MalkSu"..chat_id, user_id) then
 var = true
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
 var = true  
@@ -149,21 +149,21 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(970017493) then  
+if tonumber(user_id) == tonumber(711575912) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(665877797) then  
-var = 'أبنمؤيد'
+var = "حسن مؤيد"  
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "البوت"
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = database:get(bot_id.."korpica:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
+elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
+elseif database:sismember(bot_id.."korpica:Basic:MalkSu"..chat_id, user_id) then
+var = database:get(bot_id.."korpica:BasicMalkSu:Rd"..chat_id) or "المالك"
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
-elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:BasicHassan:Rd"..chat_id) or "المالك"
 var = database:get(bot_id.."korpica:Constructor:Rd"..chat_id) or "المنشئ"  
 elseif database:sismember(bot_id.."korpica:Manager"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:Manager:Rd"..chat_id) or "المدير"  
@@ -354,7 +354,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "",
+performer_ = "حسن مؤيد",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -1308,39 +1308,39 @@ if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."korpica:Lock:text"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الدردشه")  
 return false
 end 
 if text == "قفل الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل اضافة الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل اضافة الاعضاء")  
 return false
 end 
 if text == "قفل الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."korpica:Lock:Join"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل دخول الاعضاء")  
 return false
 end 
 if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل البوتات")  
 return false
 end 
 if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
 database:set(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل البوتات")  
 return false
 end 
 if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 database:set(bot_id.."korpica:Lock:tagservr"..msg.chat_id_,true)  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الاشعارات")  
 return false
 end 
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."korpica:lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id.."korpica:Lock:pin",msg.chat_id_) 
 tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  database:set(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل التثبيت هنا")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التثبيت هنا")  
 return false
 end 
 if text == "قفل التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1354,12 +1354,12 @@ end
 return false
 end 
 database:set(bot_id.."korpica:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل تعديل")  
 return false
 end 
 if text == "قفل تعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."korpica:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل تعديل")  
 return false
 end 
 if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1377,7 +1377,7 @@ list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","L
 for i,lock in pairs(list) do 
 database:set(bot_id..'korpica:'..lock..msg.chat_id_,"del")    
 end
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل جميع الاوامر")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -1392,7 +1392,7 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح اضافة الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح اضافة الاعضاء")  
 return false
 end 
 if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
@@ -1406,7 +1406,7 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:text"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الدردشه")  
 return false
 end 
 if text == "فتح الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1420,7 +1420,7 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:Join"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح دخول الاعضاء")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح دخول الاعضاء")  
 return false
 end 
 if text == "فتح البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1434,7 +1434,7 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح البوتات")  
 return false
 end 
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1448,7 +1448,7 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","🍃\n܁༯️︙تم فـتح البوتات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","🍃\n܁༯️┆تم فـتح البوتات")  
 return false
 end 
 if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1462,7 +1462,7 @@ end
 return false
 end  
 database:del(bot_id.."korpica:Lock:tagservr"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح الاشعارات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح الاشعارات")  
 return false
 end 
 if text == "فتح التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1477,7 +1477,7 @@ return false
 end 
 database:del(bot_id.."korpica:lockpin"..msg.chat_id_)  
 database:srem(bot_id.."korpica:Lock:pin",msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح التثبيت هنا")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح التثبيت هنا")  
 return false
 end 
 if text == "فتح التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -1491,12 +1491,12 @@ end
 return false
 end 
 database:del(bot_id.."korpica:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح تعديل")  
 return false
 end 
 if text == "فتح التعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id.."korpica:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح تعديل")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح تعديل")  
 return false
 end 
 if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -1514,7 +1514,7 @@ list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","L
 for i,lock in pairs(list) do 
 database:del(bot_id..'korpica:'..lock..msg.chat_id_)    
 end
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فـتح جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح جميع الاوامر")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -1529,22 +1529,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الروابط")  
 return false
 end 
 if text == "قفل الروابط بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الروابط")  
 return false
 end 
 if text == "فتح الروابط" and Addictive(msg) then  
@@ -1558,7 +1558,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Link"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الروابط")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الروابط")  
 return false
 end 
 if text == "قفل المعرفات" and Addictive(msg) then  
@@ -1572,22 +1572,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل المعرفات")  
 return false
 end 
 if text == "فتح المعرفات" and Addictive(msg) then  
@@ -1601,7 +1601,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:User:Name"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح المعرفات")  
 return false
 end 
 if text == "قفل التاك" and Addictive(msg) then  
@@ -1615,22 +1615,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التاك")  
 return false
 end 
 if text == "قفل التاك بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل التاك")  
 return false
 end 
 if text == "قفل التاك بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل التاك")  
 return false
 end 
 if text == "قفل التاك بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل التاك")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل التاك")  
 return false
 end 
 if text == "فتح التاك" and Addictive(msg) then  
@@ -1644,82 +1644,82 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:hashtak"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح التاك")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التاك")  
 return false
 end 
 if text == "قفل الشارحه" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الشارحه")  
 return false
 end 
 if text == "قفل الشارحه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الشارحه")  
 return false
 end 
 if text == "قفل الشارحه بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الشارحه")  
 return false
 end 
 if text == "قفل الشارحه بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الشارحه")  
 return false
 end 
 if text == "فتح الشارحه" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Cmd"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الشارحه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الشارحه")  
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الصور")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الصور")  
 return false
 end 
 if text == "قفل الصور بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الصور")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الصور")  
 return false
 end 
 if text == "قفل الصور بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الصور")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الصور")  
 return false
 end 
 if text == "قفل الصور بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الصور")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الصور")  
 return false
 end 
 if text == "فتح الصور" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Photo"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الصور")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الصور")  
 return false
 end 
 if text == "قفل الفيديو" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الفيديو")  
 return false
 end 
 if text == "قفل الفيديو بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الفيديو")  
 return false
 end 
 if text == "قفل الفيديو بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الفيديو")  
 return false
 end 
 if text == "قفل الفيديو بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الفيديو")  
 return false
 end 
 if text == "فتح الفيديو" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Video"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الفيديو")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الفيديو")  
 return false
 end 
 if text == "قفل المتحركه" and Addictive(msg) then  
@@ -1733,22 +1733,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل المتحركه")  
 return false
 end 
 if text == "قفل المتحركه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل المتحركه")  
 return false
 end 
 if text == "قفل المتحركه بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل المتحركه")  
 return false
 end 
 if text == "قفل المتحركه بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل المتحركه")  
 return false
 end 
 if text == "فتح المتحركه" and Addictive(msg) then  
@@ -1762,7 +1762,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Animation"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح المتحركه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح المتحركه")  
 return false
 end 
 if text == "قفل الالعاب" and Addictive(msg) then  
@@ -1776,22 +1776,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الالعاب")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الالعاب")  
 return false
 end 
 if text == "قفل الالعاب بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الالعاب")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الالعاب")  
 return false
 end 
 if text == "قفل الالعاب بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الالعاب")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الالعاب")  
 return false
 end 
 if text == "قفل الالعاب بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الالعاب")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الالعاب")  
 return false
 end 
 if text == "فتح الالعاب" and Addictive(msg) then  
@@ -1805,82 +1805,82 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:geam"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الالعاب")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الالعاب")  
 return false
 end 
 if text == "قفل الاغاني" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الاغاني")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الاغاني")  
 return false
 end 
 if text == "قفل الاغاني بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الاغاني")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الاغاني")  
 return false
 end 
 if text == "قفل الاغاني بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الاغاني")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الاغاني")  
 return false
 end 
 if text == "قفل الاغاني بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الاغاني")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الاغاني")  
 return false
 end 
 if text == "فتح الاغاني" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Audio"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الاغاني")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الاغاني")  
 return false
 end 
 if text == "قفل الصوت" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الصوت")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الصوت")  
 return false
 end 
 if text == "قفل الصوت بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الصوت")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الصوت")  
 return false
 end 
 if text == "قفل الصوت بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الصوت")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الصوت")  
 return false
 end 
 if text == "قفل الصوت بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الصوت")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الصوت")  
 return false
 end 
 if text == "فتح الصوت" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:vico"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الصوت")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الصوت")  
 return false
 end 
 if text == "قفل الكيبورد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الكيبورد")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الكيبورد")  
 return false
 end 
 if text == "قفل الكيبورد بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الكيبورد")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الكيبورد")  
 return false
 end 
 if text == "قفل الكيبورد بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الكيبورد")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الكيبورد")  
 return false
 end 
 if text == "قفل الكيبورد بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الكيبورد")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الكيبورد")  
 return false
 end 
 if text == "فتح الكيبورد" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الكيبورد")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الكيبورد")  
 return false
 end 
 if text == "قفل الملصقات" and Addictive(msg) then  
@@ -1894,22 +1894,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الملصقات")  
 return false
 end 
 if text == "قفل الملصقات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الملصقات")  
 return false
 end 
 if text == "قفل الملصقات بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الملصقات")  
 return false
 end 
 if text == "قفل الملصقات بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الملصقات")  
 return false
 end 
 if text == "فتح الملصقات" and Addictive(msg) then  
@@ -1923,7 +1923,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Sticker"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الملصقات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الملصقات")  
 return false
 end 
 if text == "قفل التوجيه" and Addictive(msg) then  
@@ -1937,22 +1937,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التوجيه")  
 return false
 end 
 if text == "قفل التوجيه بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل التوجيه")  
 return false
 end 
 if text == "قفل التوجيه بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل التوجيه")  
 return false
 end 
 if text == "قفل التوجيه بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل التوجيه")  
 return false
 end 
 if text == "فتح التوجيه" and Addictive(msg) then  
@@ -1966,32 +1966,32 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:forward"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح التوجيه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التوجيه")  
 return false
 end 
 if text == "قفل الملفات" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الملفات")  
 return false
 end 
 if text == "قفل الملفات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الملفات")  
 return false
 end 
 if text == "قفل الملفات بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الملفات")  
 return false
 end 
 if text == "قفل الملفات بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الملفات")  
 return false
 end 
 if text == "فتح الملفات" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Document"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الملفات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الملفات")  
 return false
 end 
 if text == "قفل السيلفي" and Addictive(msg) then  
@@ -2005,22 +2005,22 @@ end
 return false
 end
 database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل السيلفي")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل السيلفي")  
 return false
 end 
 if text == "قفل السيلفي بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل السيلفي")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل السيلفي")  
 return false
 end 
 if text == "قفل السيلفي بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل السيلفي")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل السيلفي")  
 return false
 end 
 if text == "قفل السيلفي بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل السيلفي")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل السيلفي")  
 return false
 end 
 if text == "فتح السيلفي" and Addictive(msg) then  
@@ -2034,27 +2034,27 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح السيلفي")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح السيلفي")  
 return false
 end 
 if text == "قفل الماركداون" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الماركداون")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الماركداون")  
 return false
 end 
 if text == "قفل الماركداون بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الماركداون")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الماركداون")  
 return false
 end 
 if text == "قفل الماركداون بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الماركداون")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الماركداون")  
 return false
 end 
 if text == "قفل الماركداون بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الماركداون")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الماركداون")  
 return false
 end 
 if text == "فتح الماركداون" and Addictive(msg) then  
@@ -2068,27 +2068,27 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الماركداون")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الماركداون")  
 return false
 end 
 if text == "قفل الجهات" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الجهات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الجهات")  
 return false
 end 
 if text == "قفل الجهات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الجهات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الجهات")  
 return false
 end 
 if text == "قفل الجهات بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الجهات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الجهات")  
 return false
 end 
 if text == "قفل الجهات بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الجهات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الجهات")  
 return false
 end 
 if text == "فتح الجهات" and Addictive(msg) then  
@@ -2102,27 +2102,27 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Contact"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الجهات")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الجهات")  
 return false
 end 
 if text == "قفل الكلايش" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الكلايش")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الكلايش")  
 return false
 end 
 if text == "قفل الكلايش بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الكلايش")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الكلايش")  
 return false
 end 
 if text == "قفل الكلايش بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الكلايش")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الكلايش")  
 return false
 end 
 if text == "قفل الكلايش بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الكلايش")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الكلايش")  
 return false
 end 
 if text == "فتح الكلايش" and Addictive(msg) then  
@@ -2136,32 +2136,32 @@ end
 return false
 end
 database:del(bot_id.."korpica:Lock:Spam"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الكلايش")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الكلايش")  
 return false
 end 
 if text == "قفل الانلاين" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفـل الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الانلاين")  
 return false
 end 
 if text == "قفل الانلاين بالتقيد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفـل الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الانلاين")  
 return false
 end 
 if text == "قفل الانلاين بالكتم" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفـل الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الانلاين")  
 return false
 end 
 if text == "قفل الانلاين بالطرد" and Addictive(msg) then
 database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفـل الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الانلاين")  
 return false
 end 
 if text == "فتح الانلاين" and Addictive(msg) then
 database:del(bot_id.."korpica:Lock:Inlen"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح الانلاين")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الانلاين")  
 return false
 end 
 if text == "قفل التكرار بالطرد" and Addictive(msg) then  
@@ -2175,7 +2175,7 @@ end
 return false
 end 
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️︙تم قفل التكرار")
+Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفل التكرار")
 return false
 end 
 if text == "قفل التكرار" and Addictive(msg) then  
@@ -2189,7 +2189,7 @@ end
 return false
 end 
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️︙تم قفل التكرار بالحذف")
+Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفل التكرار بالحذف")
 return false
 end 
 if text == "قفل التكرار بالتقيد" and Addictive(msg) then  
@@ -2203,7 +2203,7 @@ end
 return false
 end 
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","keed")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️︙تم قفل التكرار")
+Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفل التكرار")
 return false
 end 
 if text == "قفل التكرار بالكتم" and Addictive(msg) then  
@@ -2217,7 +2217,7 @@ end
 return false
 end 
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","mute")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️︙تم قفل التكرار")
+Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفل التكرار")
 return false
 end 
 if text == "فتح التكرار" and Addictive(msg) then  
@@ -2231,7 +2231,7 @@ end
 return false
 end 
 database:hdel(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood")  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️︙تم فتح التكرار")
+Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التكرار")
 return false
 end 
 
@@ -2244,7 +2244,7 @@ if text == ("مسح المطورين") and Devkorpica(msg) then
 database:del(bot_id.."korpica:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n܁༯┆ تم مسح قائمة المطورين  ")
 end
-if text == "مسح المنشئين الاساسين" and DevBot(msg) then
+if text == "مسح المنشئين الاساسين" and BasicMalkSu(msg) then
 database:del(bot_id.."korpica:Basic:Constructor"..msg.chat_id_)
 texts = "܁༯┆ تم مسح المنشئين الاساسيين"
 send(msg.chat_id_, msg.id_, texts)
@@ -2288,7 +2288,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Mod:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الادمنية  ")
+send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الادمنية  ")
 end
 if text == "مسح المميزين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -2301,7 +2301,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Special:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الاعضاء المميزين  ")
+send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الاعضاء المميزين  ")
 end
 if text == "مسح المكتومين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -2314,7 +2314,7 @@ end
 return false
 end
 database:del(bot_id.."korpica:Muted:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑︙ تم مسح قائمه المكتومين ")
+send(msg.chat_id_, msg.id_, "🗑┆ تم مسح قائمه المكتومين ")
 end
 if text == "مسح المحظورين" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -2362,7 +2362,7 @@ t = "܁༯┆لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "المنشئين الاساسين" and DevBot(msg) then
+if text == "المنشئين الاساسين" and BasicMalkSu(msg) then
 local list = database:smembers(bot_id.."korpica:Basic:Constructor"..msg.chat_id_)
 t = "\n܁༯┆قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -2665,7 +2665,7 @@ Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المطورين
 return false 
 end
 
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicHassan(msg) then  
+if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2682,7 +2682,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and BasicHassan(msg) then  
+if text and text:match("^رفع منشئ اساسي @(.*)$") and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2700,7 +2700,7 @@ send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا
 return false 
 end      
 database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","??︙تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.id_,"reply","??┆تم ترقيته منشئ اساسي")  
 else
 send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
 end
@@ -2708,7 +2708,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي (%d+)$") and BasicHassan(msg) then  
+if text and text:match("^رفع منشئ اساسي (%d+)$") and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2723,7 +2723,7 @@ database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته منشئ اساسي")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicHassan(msg) then  
+if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2740,7 +2740,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and BasicHassan(msg) then  
+if text and text:match("^تنزيل منشئ اساسي @(.*)$") and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2763,7 +2763,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and BasicHassan(msg) then  
+if text and text:match("^تنزيل منشئ اساسي (%d+)$") and BasicMalkSu(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3521,7 +3521,7 @@ return false
 end
 function Function_korpica(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️︙انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, result.sender_user_id_)
@@ -3546,7 +3546,7 @@ local username = text:match("^الغاء حظر @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
 if tonumber(result.id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️︙انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, result.id_)
@@ -3572,7 +3572,7 @@ return false
 end
 local userid = text:match("^الغاء حظر (%d+)$") 
 if tonumber(userid) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️︙انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, userid)
@@ -4821,7 +4821,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التري تريد اضافتها")
+send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التي تريد اضافتها")
 database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -4835,7 +4835,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التري تريد حذفها")
+send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التي تريد حذفها")
 database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
@@ -5295,7 +5295,7 @@ local taha = "܁༯┆ عدد الادمنيه : "..data.administrator_count_..
 "\n\n܁༯┆ عدد المطرودين : "..data.kicked_count_..
 "\n\n܁༯┆ عدد الاعضاء : "..data.member_count_..
 "\n\n܁༯┆ عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n\n📯︙ اسم المجموعه : ["..ta.title_.."]"
+"\n\n📯┆ اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, taha) 
 end,nil)
 end,nil)
@@ -5621,7 +5621,7 @@ database:set(bot_id.."korpica:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."korpica:Name:Bot") or "بلاك") then
+if text == (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا") then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5631,7 +5631,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-Namebot = (database:get(bot_id.."korpica:Name:Bot") or "بلاك")
+Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -6230,10 +6230,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'𓌹 ⚚ '..Description..'\n𓌹 ⚚ 𝗂𝖽 ま » '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま  '..UserName_User..'\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま  '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚  𝗆𝖺𝗌𝗀 ま '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'܁༯┆'..Description..'\n܁༯┆ايديك » '..Id..'\n܁༯┆معرفك » '..UserName_User..'\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'𓌹 ⚚ ليس لديك صوره \n'..'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま * ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'܁༯┆ليس لديك صوره \n'..'\n*܁༯┆ايديك » '..Id..'\n܁༯┆معرفك »* ['..UserName_User..']*\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -6249,14 +6249,32 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま* ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*܁༯┆ايديك » '..Id..'\n܁༯┆معرفك »* ['..UserName_User..']*\n܁༯┆رتبتك » '..Status_Gps..'\n܁༯┆رسائلك » '..NumMsg..'\n܁༯┆السحكات » '..message_edit..' \n܁༯┆تتفاعلك » '..TotalMsg..'\n܁༯┆ مجوهراتك » '..Num_Games..'*') 
 end
 end
 end,nil)   
 end,nil)   
 end
 end
-if text and text:match('^تنظيف (%d+)$') and Addictive(msg) then    
+if text == 'تعطيل التنظيف' and BasicConstructor(msg) then   
+if database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
+database:del(bot_id..'Lock:delmsg'..msg.chat_id_) 
+Text = '\n܁༯┆ تم تعطيل التنظيف' 
+else
+Text = '\n܁༯┆بالتاكيد تم تعطيل التنظيف'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تفعيل التنظيف' and BasicConstructor(msg) then  
+if not database:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
+database:set(bot_id..'Lock:delmsg'..msg.chat_id_,true) 
+Text = '\n܁༯┆ تم تفعيل التنظيف' 
+else
+Text = '\n܁༯┆بالتاكيد تم تفعيل التنظيف'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text and text:match('^تنظيف (%d+)$') and Constructor(msg) and database:get(bot_id..'Lock:delmsg'..msg.chat_id_) then                
 local Number = tonumber(text:match('^تنظيف (%d+)$')) 
 if Number > 1000 then 
 send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع تنضيف اكثر من *~ 1000* رساله') 
@@ -6622,7 +6640,7 @@ return false  end
 local GETNUM = database:get(bot_id.."Tshak:Games:Bat"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 database:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-send(msg.chat_id_, msg.id_,"܁༯┆مبروك فزت وطلعت المحيبس بل ايد رقم { "..NUM.." }\n🎊︙لقد حصلت على { 3 }من نقاط يمكنك استبدالهن برسائل ")
+send(msg.chat_id_, msg.id_,"܁༯┆مبروك فزت وطلعت المحيبس بل ايد رقم { "..NUM.." }\n🎊┆لقد حصلت على { 3 }من نقاط يمكنك استبدالهن برسائل ")
 database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,3)  
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 database:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
@@ -6678,7 +6696,7 @@ name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
 name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
-name = string.gsub(name,"⭐️","🌟🌟🌟🌟🌟🌟🌟🌟⭐️🌟🌟🌟")
+name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
 name = string.gsub(name,"✨","💫💫💫💫💫✨💫💫💫💫")
 name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
@@ -6841,8 +6859,16 @@ database:del(bot_id..'korpica:Add:Memp'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '܁༯┆تم مسح جميع جهاتك المضافه '
 send(msg.chat_id_, msg.id_,Text) 
 end
-
-if text == "مجوهراتي" then 
+if text == "مجوهراتي" then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end 
 local Num = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 if Num == 0 then 
 Text = "܁༯┆لم تلعب اي لعبه للحصول على جواهر"
@@ -6851,7 +6877,16 @@ Text = "܁༯┆عدد جواهر التي رحبتها هي *~ { "..Num.." } م
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text and text:match("^بيع مجوهراتي (%d+)$") then
+if text and text:match("^بيع مجوهراتي (%d+)$") then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 local NUMPY = text:match("^بيع مجوهراتي (%d+)$") 
 if tonumber(NUMPY) == tonumber(0) then
 send(msg.chat_id_,msg.id_,"\n*܁༯┆لا استطيع البيع اقل من 1 *") 
@@ -6916,7 +6951,7 @@ end
 taha = text:match("^اضف رسائل (%d+)$")
 database:set(bot_id.."Tshak:id:user"..msg.chat_id_,taha)  
 database:setex(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_, "✉︙ارسل لي عدد الرسائل الان") 
+send(msg.chat_id_, msg.id_, "✉┆ارسل لي عدد الرسائل الان") 
 return false
 end
 if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -7043,8 +7078,8 @@ if text == ("تحديث السورس") and Devkorpica(msg) then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/start.lua')
 dofile('korpica.lua')  
 return false
 end
@@ -7060,7 +7095,7 @@ if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."korpica:zh
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://forhassan.ml/korpica/hso.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n܁༯️︙قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n܁༯️┆قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
@@ -7182,7 +7217,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n܁༯┆اهلا بك في متجر ملفات بلاك\n܁༯┆يوجد في المتجر ملف الردود\n⚙︙يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
+local TextS = "\n܁༯┆اهلا بك في متجر ملفات كوربيكا\n܁༯┆يوجد في المتجر ملف الردود\n⚙┆يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
 local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n܁༯┆تدل علامة (✔) الملف مفعل\n".."܁༯┆تدل علامة (܁༯) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -7310,13 +7345,16 @@ end
 return false
 end
 Text = [[
-WeLCoMe TeAM KOrAPiCa ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
-༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
-༯┆[ChAnEl](https://t.me/XIXI_11) ∴
-༯┆[DeVeLoPeR](https://t.me/BB63BB) ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
+*- Black Team .*
+ — — — — — — — — — 
+     
+[܁༯┆ BLacK 𝖲𝗈𝗎𝗋𝖼𝖾  .](http://t.me/korpica)
+     
+[܁༯┆ ToolS BLacK .](https://t.me/joinchat/AAAAAFPp_oZNV4U3n91zRQ)
+     
+[܁༯┆ 𝖳WSL Source BLacK .](http://t.me/TwSLBlackBot)
+     
+[܁༯┆   𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖥𝗋𝗈𝗆 𝖸𝗈𝗎𝗍𝖾𝖻 .](http://t.me/YOOTBOT)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7330,7 +7368,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-Text = [[܁༯ ︙  @LC6BOT   ]]
+Text = [[܁༯ ┆  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
@@ -7506,9 +7544,11 @@ Text = [[
  — — — — — — — — — 
 ܁༯┆تفعيل/تعطيل الرفع
 ܁༯┆تفعيل/تعطيل الايدي
+܁༯┆تفعيل/تعطيل الابراج
 ܁༯┆تفعيل/تعطيل اطردني
 ܁༯┆تفعيل/تعطيل الزخرفه
 ܁༯┆تفعيل/تعطيل ردود المدير
+܁༯┆تفعيل/تعطيل حساب العمر
 ܁༯┆تفعيل/تعطيل ردود المطور
 ܁༯┆تفعيل/تعطيل الحظر/الطرد
 ܁༯┆تفعيل/تعطيل اللعبه/الالعاب
@@ -7739,7 +7779,7 @@ return false
 end
 Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تفعيل المجموعه ~ '..chat.title_..'')
 database:sadd(bot_id..'korpica:Chek:Groups',msg.chat_id_)  
-database:sadd(bot_id..'korpica:Basic:Hassan'..msg.chat_id_, msg.sender_user_id_)
+database:sadd(bot_id..'korpica:Basic:MalkSu'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NumMember = data.member_count_
 local NameChat = chat.title_
@@ -8249,8 +8289,8 @@ if text == "تحديث السورس ܁༯" then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/korpica.lua')
+os.execute('wget https://raw.githubusercontent.com/korpica/korpica/master/start.lua')
 dofile('korpica.lua')  
 return false
 end
@@ -8384,7 +8424,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."korpica:Name:Bot") or "بلاك")
+local Name_Bot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
 if not database:get(bot_id.."korpica:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
