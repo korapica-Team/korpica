@@ -131,9 +131,9 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = true  
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = true  
-elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
-var = true
 elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
+var = true
+elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
 var = true
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
 var = true  
@@ -159,11 +159,11 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = "البوت"
 elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
 var = database:get(bot_id.."korpica:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:BasicHassan:Rd"..chat_id) or "المالك"
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
+elseif database:sismember(bot_id.."korpica:Basic:Hassan"..chat_id, user_id) then
+var = database:get(bot_id.."korpica:BasicHassan:Rd"..chat_id) or "المالك"
 var = database:get(bot_id.."korpica:Constructor:Rd"..chat_id) or "المنشئ"  
 elseif database:sismember(bot_id.."korpica:Manager"..chat_id, user_id) then
 var = database:get(bot_id.."korpica:Manager:Rd"..chat_id) or "المدير"  
