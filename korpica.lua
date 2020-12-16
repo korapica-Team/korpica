@@ -7319,8 +7319,8 @@ WeLCoMe TeAM KOrAPiCa ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
 ༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
-༯┆[ChAnEl](https://t.me/XIXI_11) ∴
-༯┆[DeVeLoPeR](https://t.me/BB63BB) ∴
+༯┆[ChAnEl](https://t.me/H6HHHH) ∴
+༯┆[DeVeLoPeR](https://t.me/iE1BOT) ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
