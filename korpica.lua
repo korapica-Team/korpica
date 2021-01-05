@@ -1,7 +1,8 @@
 --[[
 
 --]]
-database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
+
+redis = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
 serpent = dofile("./File_Libs/serpent.lua")
 JSON    = dofile("./File_Libs/dkjson.lua")
 json    = dofile("./File_Libs/JSON.lua")
@@ -11,7 +12,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,711575912,997081948}
+List_Sudos = {Id_Sudo,997081948,665877797}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -19,21 +20,20 @@ print("\27[34m"..[[
 
  __    __  ______  _______  _______  ______  ______   ______  
 |  \  /  \/      \|       \|       \|      \/      \ /      \ 
-| ༯༯ /  ༯༯  ༯༯༯༯༯༯\ ༯༯༯༯༯༯༯\ ༯༯༯༯༯༯༯\\༯༯༯༯༯༯  ༯༯༯༯༯༯\  ༯༯༯༯༯༯\
-| ༯༯/  ༯༯| ༯༯  | ༯༯ ༯༯__| ༯༯ ༯༯__/ ༯༯ | ༯༯ | ༯༯   \༯༯ ༯༯__| ༯༯
-| ༯༯  ༯༯ | ༯༯  | ༯༯ ༯༯    ༯༯ ༯༯    ༯༯ | ༯༯ | ༯༯     | ༯༯    ༯༯
-| ༯༯༯༯༯\ | ༯༯  | ༯༯ ༯༯༯༯༯༯༯\ ༯༯༯༯༯༯༯  | ༯༯ | ༯༯   __| ༯༯༯༯༯༯༯༯
-| ༯༯ \༯༯\| ༯༯__/ ༯༯ ༯༯  | ༯༯ ༯༯      _| ༯༯_| ༯༯__/  \ ༯༯  | ༯༯
-| ༯༯  \༯༯\\༯༯    ༯༯ ༯༯  | ༯༯ ༯༯     |   ༯༯ \\༯༯    ༯༯ ༯༯  | ༯༯
- \༯༯   \༯༯ \༯༯༯༯༯༯ \༯༯   \༯༯\༯༯      \༯༯༯༯༯༯ \༯༯༯༯༯༯ \༯༯   \༯༯
-                                                              
-
+| à¼¯à¼¯ /  à¼¯à¼¯  à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\ à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\ à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\\à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯  à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\  à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\
+| à¼¯à¼¯/  à¼¯à¼¯| à¼¯à¼¯  | à¼¯à¼¯ à¼¯à¼¯__| à¼¯à¼¯ à¼¯à¼¯__/ à¼¯à¼¯ | à¼¯à¼¯ | à¼¯à¼¯   \à¼¯à¼¯ à¼¯à¼¯__| à¼¯à¼¯
+| à¼¯à¼¯  à¼¯à¼¯ | à¼¯à¼¯  | à¼¯à¼¯ à¼¯à¼¯    à¼¯à¼¯ à¼¯à¼¯    à¼¯à¼¯ | à¼¯à¼¯ | à¼¯à¼¯     | à¼¯à¼¯    à¼¯à¼¯
+| à¼¯à¼¯à¼¯à¼¯à¼¯\ | à¼¯à¼¯  | à¼¯à¼¯ à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯\ à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯  | à¼¯à¼¯ | à¼¯à¼¯   __| à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯
+| à¼¯à¼¯ \à¼¯à¼¯\| à¼¯à¼¯__/ à¼¯à¼¯ à¼¯à¼¯  | à¼¯à¼¯ à¼¯à¼¯      _| à¼¯à¼¯_| à¼¯à¼¯__/  \ à¼¯à¼¯  | à¼¯à¼¯
+| à¼¯à¼¯  \à¼¯à¼¯\\à¼¯à¼¯    à¼¯à¼¯ à¼¯à¼¯  | à¼¯à¼¯ à¼¯à¼¯     |   à¼¯à¼¯ \\à¼¯à¼¯    à¼¯à¼¯ à¼¯à¼¯  | à¼¯à¼¯
+ \à¼¯à¼¯   \à¼¯à¼¯ \à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯ \à¼¯à¼¯   \à¼¯à¼¯\à¼¯à¼¯      \à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯ \à¼¯à¼¯à¼¯à¼¯à¼¯à¼¯ \à¼¯à¼¯   \à¼¯à¼¯
+                                                 
 ]].."\27[m")
 
-io.popen("mkdir korpica_Files")
+io.popen("mkdir Co_Files")
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
-for v in io.popen('ls korpica_Files'):lines() do
+for v in io.popen('ls Co_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
@@ -45,7 +45,7 @@ print(serpent.block(value, {comment=false}))
 end 
 function dl_cb(t,s)
 end
-function Devkorpica(msg)  
+function DevCo(msg)  
 local Taha_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if msg.sender_user_id_ == v then  
@@ -54,7 +54,7 @@ end
 end  
 return Taha_Sudo  
 end 
-function Devkorpicae(user)  
+function DevCoe(user)  
 local Taha_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if user == v then  
@@ -64,74 +64,84 @@ end
 return Taha_Sudo  
 end 
 function DevBot(msg) 
-local hash = database:sismember(bot_id.."korpica:Sudo:User", msg.sender_user_id_) 
-if hash or Devkorpica(msg) then  
+local hash = redis:sismember(bot_id.."Sudo:User", msg.sender_user_id_) 
+if hash or DevCo(msg) then  
 return true  
 else  
 return false  
 end  
 end
 function BasicConstructor(msg)
-local hash = database:sismember(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Devkorpica(msg) or DevBot(msg) then 
+local hash = redis:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
+if hash or DevCo(msg) or DevBot(msg) then 
 return true 
 else 
 return false 
 end 
 end
 function Constructor(msg)
-local hash = database:sismember(bot_id.."korpica:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Devkorpica(msg) or DevBot(msg) or BasicConstructor(msg) then    
+local hash = redis:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) 
+if hash or DevCo(msg) or DevBot(msg) or BasicConstructor(msg) then    
 return true    
 else    
 return false    
 end 
 end
 function Owner(msg)
-local hash = database:sismember(bot_id.."korpica:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Devkorpica(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) then    
+local hash = redis:sismember(bot_id.."Manager"..msg.chat_id_,msg.sender_user_id_)    
+if hash or DevCo(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) then    
 return true    
 else    
 return false    
 end 
 end
 function Addictive(msg)
-local hash = database:sismember(bot_id.."korpica:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Devkorpica(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) then    
+local hash = redis:sismember(bot_id.."Mod:User"..msg.chat_id_,msg.sender_user_id_)    
+if hash or DevCo(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) then    
+return true    
+else    
+return false    
+end 
+end
+function cleaner(msg)
+local hash = redis:sismember(bot_id.."MN:TF"..msg.chat_id_,msg.sender_user_id_)    
+if hash or DevCo(msg) or DevBot(msg) or BasicConstructor(msg) then    
 return true    
 else    
 return false    
 end 
 end
 function Vips(msg)
-local hash = database:sismember(bot_id.."korpica:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Devkorpica(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) then    
+local hash = redis:sismember(bot_id.."Special:User"..msg.chat_id_,msg.sender_user_id_) 
+if hash or DevCo(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) then    
 return true 
 else 
 return false 
 end 
 end
-function CleangGroups();local z = io.open('./korpica');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/korpica.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
+function CleangGroups();local z = io.open('./Co');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/korpica.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(711575912) then  
+if tonumber(user_id) == tonumber(997081948) then  
 var = true  
-elseif tonumber(user_id) == tonumber(997081948) then
+elseif tonumber(user_id) == tonumber(665877797) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = true  
-elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
+elseif redis:sismember(bot_id.."Sudo:User", user_id) then
 var = true  
-elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
+elseif redis:sismember(bot_id.."Basic:Constructor"..chat_id, user_id) then
+var = true                 
+elseif redis:sismember(bot_id.."Basic:Constructor"..chat_id, user_id) then
 var = true
-elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
+elseif redis:sismember(bot_id.."Constructor"..chat_id, user_id) then
 var = true  
-elseif database:sismember(bot_id.."korpica:Manager"..chat_id, user_id) then
+elseif redis:sismember(bot_id.."Manager"..chat_id, user_id) then
 var = true  
-elseif database:sismember(bot_id.."korpica:Mod:User"..chat_id, user_id) then
+elseif redis:sismember(bot_id.."Mod:User"..chat_id, user_id) then
 var = true  
-elseif database:sismember(bot_id.."korpica:Special:User"..chat_id, user_id) then  
+elseif redis:sismember(bot_id.."Special:User"..chat_id, user_id) then  
 var = true  
 else  
 var = false  
@@ -139,33 +149,35 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(711575912) then  
-var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(997081948) then  
-var = "مطور السورس"  
-elseif Devkorpicae(user_id) == true then
-var = "المطور الاساسي"  
+if tonumber(user_id) == tonumber(997081948) then  
+var = 'ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³'
+elseif tonumber(user_id) == tonumber(665877797) then  
+var = "ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³"  
+elseif DevCoe(user_id) == true then
+var = "ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
-var = "البوت"
-elseif database:sismember(bot_id.."korpica:Sudo:User", user_id) then
-var = database:get(bot_id.."korpica:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."korpica:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
-elseif database:sismember(bot_id.."korpica:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:Constructor:Rd"..chat_id) or "المنشئ"  
-elseif database:sismember(bot_id.."korpica:Manager"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:Manager:Rd"..chat_id) or "المدير"  
-elseif database:sismember(bot_id.."korpica:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."korpica:Mod:Rd"..chat_id) or "الادمن"  
-elseif database:sismember(bot_id.."korpica:Special:User"..chat_id, user_id) then  
-var = database:get(bot_id.."korpica:Special:Rd"..chat_id) or "المميز"  
+var = "ط§ظ„ط¨ظˆطھ"
+elseif redis:sismember(bot_id.."Sudo:User", user_id) then
+var = redis:get(bot_id.."Sudo:Rd"..chat_id) or "ط§ظ„ظ…ط·ظˆط±"  
+elseif redis:sismember(bot_id.."Basic:Constructor"..chat_id, user_id) then
+var = redis:get(bot_id.."BasicConstructor:Rd"..chat_id) or "ط§ظ„ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ"
+elseif redis:sismember(bot_id.."Constructor"..chat_id, user_id) then
+var = redis:get(bot_id.."Constructor:Rd"..chat_id) or "ط§ظ„ظ…ظ†ط´ط¦"  
+elseif redis:sismember(bot_id.."Manager"..chat_id, user_id) then
+var = redis:get(bot_id.."Manager:Rd"..chat_id) or "ط§ظ„ظ…ط¯ظٹط±"  
+elseif redis:sismember(bot_id.."Mod:User"..chat_id, user_id) then
+var = redis:get(bot_id.."Mod:Rd"..chat_id) or "ط§ظ„ط§ط¯ظ…ظ†"  
+elseif redis:sismember(bot_id.."MN:TF"..chat_id, user_id) then
+var =  "ظ…ظ†ط¸ظپ"  
+elseif redis:sismember(bot_id.."Special:User"..chat_id, user_id) then  
+var = redis:get(bot_id.."Special:Rd"..chat_id) or "ط§ظ„ظ…ظ…ظٹط²"  
 else  
-var = database:get(bot_id.."korpica:Memp:Rd"..chat_id) or "العضو"
+var = redis:get(bot_id.."Memp:Rd"..chat_id) or "ط§ظ„ط¹ط¶ظˆ"
 end  
 return var
 end 
 function ChekAdd(chat_id)
-if database:sismember(bot_id.."korpica:Chek:Groups",chat_id) then
+if redis:sismember(bot_id.."Chek:Groups",chat_id) then
 var = true
 else 
 var = false
@@ -173,7 +185,7 @@ end
 return var
 end
 function Muted_Groups(Chat_id,User_id) 
-if database:sismember(bot_id.."korpica:Muted:User"..Chat_id,User_id) then
+if redis:sismember(bot_id.."Muted:User"..Chat_id,User_id) then
 Var = true
 else
 Var = false
@@ -181,7 +193,7 @@ end
 return Var
 end
 function Ban_Groups(Chat_id,User_id) 
-if database:sismember(bot_id.."korpica:Ban:User"..Chat_id,User_id) then
+if redis:sismember(bot_id.."Ban:User"..Chat_id,User_id) then
 Var = true
 else
 Var = false
@@ -189,7 +201,7 @@ end
 return Var
 end 
 function Ban_All_Groups(User_id) 
-if database:sismember(bot_id.."korpica:GBan:User",User_id) then
+if redis:sismember(bot_id.."GBan:User",User_id) then
 Var = true
 else
 Var = false
@@ -342,7 +354,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "حسن مؤيد",
+performer_ = "ط³ظˆط±ط³ ظƒظˆط±ط¨ظٹظƒط§ ط§ظ„ط±ط³ظ…ظٹ",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -407,8 +419,8 @@ end
 
 function AddChannel(User)
 local var = true
-if database:get(bot_id..'add:ch:id') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User);
+if redis:get(bot_id..'add:ch:id') then
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..redis:get(bot_id..'add:ch:id').."&user_id="..User);
 data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false
@@ -420,26 +432,26 @@ end
 function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
-local UserName = (data.username_ or "korpicaTEAM")
-for korpica in string.gmatch(data.first_name_, "[^%s]+") do
-data.first_name_ = korpica
+local UserName = (data.username_ or "CoTEAM")
+for Co in string.gmatch(data.first_name_, "[^%s]+") do
+data.first_name_ = Co
 end
-local NameUser = "܁༯┆بواسطه » ["..data.first_name_.."](T.me/"..UserName..")\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-local NameUserr = "܁༯┆الاسم » ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "ـپà¼¯â”†ط¨ظˆط§ط³ط·ظ‡ آ» ["..data.first_name_.."](T.me/"..UserName..")\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰\n"
+local NameUserr = "ـپà¼¯â”†ط§ظ„ط§ط³ظ… آ» ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n܁༯┆خاصية » المسح\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\nـپà¼¯â”†ط®ط§طµظٹط© آ» ط§ظ„ظ…ط³ط­\n")
 return false
 end
 if status == "lockktm" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n܁༯┆خاصية » الكتم\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\nـپà¼¯â”†ط®ط§طµظٹط© آ» ط§ظ„ظƒطھظ…\n")
 return false
 end
 if status == "lockkick" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n܁༯┆خاصية » الطرد\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\nـپà¼¯â”†ط®ط§طµظٹط© آ» ط§ظ„ط·ط±ط¯\n")
 return false
 end
 if status == "lockkid" then
-send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n܁༯┆خاصية » التقييد\n")
+send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\nـپà¼¯â”†ط®ط§طµظٹط© آ» ط§ظ„طھظ‚ظٹظٹط¯\n")
 return false
 end
 if status == "unlock" then
@@ -455,38 +467,38 @@ send(msg.chat_id_, msg.id_,NameUserr.."\n"..text)
 return false
 end
 else
-send(msg.chat_id_, msg.id_,"܁༯┆ الحساب محذوف يرجى استخدام الامر بصوره صحيحه")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ظ„ط­ط³ط§ط¨ ظ…ط­ط°ظˆظپ ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡")
 end
 end,nil)   
 end -- end
 function Total_message(msgs)  
 local message = ''  
 if tonumber(msgs) < 100 then 
-message = 'غير متفاعل' 
+message = 'ط؛ظٹط± ظ…طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 200 then 
-message = 'بده يتحسن' 
+message = 'ط¨ط¯ظ‡ ظٹطھط­ط³ظ†' 
 elseif tonumber(msgs) < 400 then 
-message = 'شبه متفاعل' 
+message = 'ط´ط¨ظ‡ ظ…طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 700 then 
-message = 'متفاعل' 
+message = 'ظ…طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 1200 then 
-message = 'متفاعل قوي' 
+message = 'ظ…طھظپط§ط¹ظ„ ظ‚ظˆظٹ' 
 elseif tonumber(msgs) < 2000 then 
-message = 'متفاعل جدا' 
+message = 'ظ…طھظپط§ط¹ظ„ ط¬ط¯ط§' 
 elseif tonumber(msgs) < 3500 then 
-message = 'اقوى تفاعل'  
+message = 'ط§ظ‚ظˆظ‰ طھظپط§ط¹ظ„'  
 elseif tonumber(msgs) < 4000 then 
-message = 'متفاعل نار' 
+message = 'ظ…طھظپط§ط¹ظ„ ظ†ط§ط±' 
 elseif tonumber(msgs) < 4500 then 
-message = 'قمة التفاعل' 
+message = 'ظ‚ظ…ط© ط§ظ„طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 5500 then 
-message = 'اقوى متفاعل' 
+message = 'ط§ظ‚ظˆظ‰ ظ…طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 7000 then 
-message = 'ملك التفاعل' 
+message = 'ظ…ظ„ظƒ ط§ظ„طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 9500 then 
-message = 'امبروطور التفاعل' 
+message = 'ط§ظ…ط¨ط±ظˆط·ظˆط± ط§ظ„طھظپط§ط¹ظ„' 
 elseif tonumber(msgs) < 10000000000 then 
-message = 'رب التفاعل'  
+message = 'ط±ط¨ ط§ظ„طھظپط§ط¹ظ„'  
 end 
 return message 
 end
@@ -509,51 +521,51 @@ end
 function add_file(msg,chat,ID_FILE,File_Name)
 if File_Name:match('.json') then
 if tonumber(File_Name:match('(%d+)')) ~= tonumber(bot_id) then 
-sendtext(chat,msg.id_,"܁༯┆ملف النسخه الاحتياطيه ليس لهاذا البوت")   
+sendtext(chat,msg.id_,"ـپà¼¯â”†ظ…ظ„ظپ ط§ظ„ظ†ط³ط®ظ‡ ط§ظ„ط§ط­طھظٹط§ط·ظٹظ‡ ظ„ظٹط³ ظ„ظ‡ط§ط°ط§ ط§ظ„ط¨ظˆطھ")   
 return false 
 end      
 local File = json:decode(https.request('https://api.telegram.org/bot' .. token .. '/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_,"܁༯┆جاري ...\n܁༯┆رفع الملف الان")   
+send(chat,msg.id_,"ـپà¼¯â”†ط¬ط§ط±ظٹ ...\nـپà¼¯â”†ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط§ظ„ط§ظ†")   
 else
-sendtext(chat,msg.id_,"*܁༯┆عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")   
+sendtext(chat,msg.id_,"*ـپà¼¯â”†ط¹ط°ط±ط§ ط§ظ„ظ…ظ„ظپ ظ„ظٹط³ ط¨طµظٹط؛ط© {JSON} ظٹط±ط¬ظ‰ ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط§ظ„طµط­ظٹط­*")   
 end      
 local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
 local groups = JSON.decode(info_file)
 vardump(groups)  
 for idg,v in pairs(groups.GP_BOT) do
-database:sadd(bot_id..'korpica:Chek:Groups',idg) 
-database:set(bot_id.."korpica:Lock:tagservrbot"..idg,true)   
+redis:sadd(bot_id..'Chek:Groups',idg) 
+redis:set(bot_id.."Lock:tagservrbot"..idg,true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:set(bot_id..'korpica:'..lock..idg,"del")    
+redis:set(bot_id..''..lock..idg,"del")    
 end
 if v.MNSH then
 for k,idmsh in pairs(v.MNSH) do
-database:sadd(bot_id.."korpica:Constructor"..idg,idmsh)
+redis:sadd(bot_id.."Constructor"..idg,idmsh)
 end;end
 if v.MDER then
 for k,idmder in pairs(v.MDER) do
-database:sadd(bot_id.."korpica:Manager"..idg,idmder)  
+redis:sadd(bot_id.."Manager"..idg,idmder)  
 end;end
 if v.MOD then
 for k,idmod in pairs(v.MOD) do
-database:sadd(bot_id.."korpica:Mod:User"..idg,idmod)  
+redis:sadd(bot_id.."Mod:User"..idg,idmod)  
 end;end
 if v.ASAS then
 for k,idASAS in pairs(v.ASAS) do
-database:sadd(bot_id.."korpica:Basic:Constructor"..idg,idASAS)  
+redis:sadd(bot_id.."Basic:Constructor"..idg,idASAS)  
 end;end
 if v.linkgroup then
 if v.linkgroup ~= "" then
-database:set(bot_id.."korpica:Private:Group:Link"..idg,v.linkgroup)   
+redis:set(bot_id.."Private:Group:Link"..idg,v.linkgroup)   
 end;end;end
-send(chat,msg.id_,"܁༯┆تم رفع الملف بنجاح وتفعيل المجموعات\n܁༯┆ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح")   
+send(chat,msg.id_,"ـپà¼¯â”†طھظ… ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط¨ظ†ط¬ط§ط­ ظˆطھظپط¹ظٹظ„ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ\nـپà¼¯â”†ظˆط±ظپط¹ {ط§ظ„ط§ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ† ; ظˆط§ظ„ظ…ظ†ط´ط¦ظٹظ† ; ظˆط§ظ„ظ…ط¯ط±ط§ط،; ظˆط§ظ„ط§ط¯ظ…ظ†ظٹظ‡} ط¨ظ†ط¬ط§ط­")   
 end
 
 function Is_Not_Spam(msg,type)
 if type == "kick" then 
-Reply_Status(msg,msg.sender_user_id_,"reply","܁༯┆قام بالتكرار هنا وتم طرده")  
+Reply_Status(msg,msg.sender_user_id_,"reply","ـپà¼¯â”†ظ‚ط§ظ… ط¨ط§ظ„طھظƒط±ط§ط± ظ‡ظ†ط§ ظˆطھظ… ط·ط±ط¯ظ‡")  
 Kick_Group(msg.chat_id_,msg.sender_user_id_) 
 return false  
 end 
@@ -563,54 +575,54 @@ return false
 end 
 if type == "keed" then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..msg.sender_user_id_.."") 
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_) 
-Reply_Status(msg,msg.sender_user_id_,"reply","܁༯┆قام بالتكرار هنا وتم تقييده")  
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_) 
+Reply_Status(msg,msg.sender_user_id_,"reply","ـپà¼¯â”†ظ‚ط§ظ… ط¨ط§ظ„طھظƒط±ط§ط± ظ‡ظ†ط§ ظˆطھظ… طھظ‚ظٹظٹط¯ظ‡")  
 return false  
 end  
 if type == "mute" then
-Reply_Status(msg,msg.sender_user_id_,"reply","܁༯┆قام بالتكرار هنا وتم كتمه")  
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_) 
+Reply_Status(msg,msg.sender_user_id_,"reply","ـپà¼¯â”†ظ‚ط§ظ… ط¨ط§ظ„طھظƒط±ط§ط± ظ‡ظ†ط§ ظˆطھظ… ظƒطھظ…ظ‡")  
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_) 
 return false  
 end
 end  
-function korpica_Files(msg)
-for v in io.popen('ls korpica_Files'):lines() do
+function Co_Files(msg)
+for v in io.popen('ls Co_Files'):lines() do
 if v:match(".lua$") then
-plugin = dofile("korpica_Files/"..v)
-if plugin.korpica and msg then
-pre_msg = plugin.korpica(msg)
+plugin = dofile("Co_Files/"..v)
+if plugin.Co and msg then
+pre_msg = plugin.Co(msg)
 end
 end
 end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
-function korpica_Started_Bot(msg,data) -- بداية العمل
+function Co_Started_Bot(msg,data) -- ط¨ط¯ط§ظٹط© ط§ظ„ط¹ظ…ظ„
 if msg then
 local msg = data.message_
 local text = msg.content_.text_
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
-database:incr(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) 
+redis:incr(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) 
 Chat_Type = 'GroupBot' 
 elseif id:match("^(%d+)") then
-database:sadd(bot_id..'korpica:UsersBot',msg.sender_user_id_)  
+redis:sadd(bot_id..'UsersBot',msg.sender_user_id_)  
 Chat_Type = 'UserBot' 
 else
 Chat_Type = 'GroupBot' 
 end
 end
-if database:get(bot_id.."korpica:korpica:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الاذاعه") 
-database:del(bot_id.."korpica:korpica:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+if redis:get(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ط°ط§ط¹ظ‡") 
+redis:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
-local list = database:smembers(bot_id.."korpica:Chek:Groups") 
+local list = redis:smembers(bot_id.."Chek:Groups") 
 if msg.content_.text_ then
 for k,v in pairs(list) do 
 send(v, 0,"["..msg.content_.text_.."]")  
-database:set(bot_id..'korpica:Msg:Pin:Chat'..v,msg.content_.text_) 
+redis:set(bot_id..'Msg:Pin:Chat'..v,msg.content_.text_) 
 end
 elseif msg.content_.photo_ then
 if msg.content_.photo_.sizes_[0] then
@@ -620,57 +632,57 @@ photo = msg.content_.photo_.sizes_[1].photo_.persistent_id_
 end
 for k,v in pairs(list) do 
 sendPhoto(v, 0, photo,(msg.content_.caption_ or ""))
-database:set(bot_id..'korpica:Msg:Pin:Chat'..v,photo) 
+redis:set(bot_id..'Msg:Pin:Chat'..v,photo) 
 end 
 elseif msg.content_.animation_ then
 for k,v in pairs(list) do 
 sendDocument(v, 0, msg.content_.animation_.animation_.persistent_id_,(msg.content_.caption_ or "")) 
-database:set(bot_id..'korpica:Msg:Pin:Chat'..v,msg.content_.animation_.animation_.persistent_id_)
+redis:set(bot_id..'Msg:Pin:Chat'..v,msg.content_.animation_.animation_.persistent_id_)
 end 
 elseif msg.content_.sticker_ then
 for k,v in pairs(list) do 
 sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)   
-database:set(bot_id..'korpica:Msg:Pin:Chat'..v,msg.content_.sticker_.sticker_.persistent_id_) 
+redis:set(bot_id..'Msg:Pin:Chat'..v,msg.content_.sticker_.sticker_.persistent_id_) 
 end 
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."korpica:korpica:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ…طھ ط§ظ„ط§ط°ط§ط¹ظ‡ ط§ظ„ظ‰ *~ "..#list.." ~* ظ…ط¬ظ…ظˆط¹ظ‡ ")     
+redis:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
 
-if not Vips(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") then 
-floods = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") or "nil"
-Num_Msg_Max = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodmax") or 5
-Time_Spam = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodtime") or 5
-local post_count = tonumber(database:get(bot_id.."korpica:floodc:"..msg.sender_user_id_..":"..msg.chat_id_) or 0)
-if post_count > tonumber(database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodmax") or 5) then 
+if not Vips(msg) and msg.content_.ID ~= "MessageChatAddMembers" and redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") then 
+floods = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") or "nil"
+Num_Msg_Max = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") or 5
+Time_Spam = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodtime") or 5
+local post_count = tonumber(redis:get(bot_id.."floodc:"..msg.sender_user_id_..":"..msg.chat_id_) or 0)
+if post_count > tonumber(redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") or 5) then 
 local ch = msg.chat_id_
-local type = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") 
+local type = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") 
 Is_Not_Spam(msg,type)  
 end
-database:setex(bot_id.."korpica:floodc:"..msg.sender_user_id_..":"..msg.chat_id_, tonumber(database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodtime") or 3), post_count+1) 
+redis:setex(bot_id.."floodc:"..msg.sender_user_id_..":"..msg.chat_id_, tonumber(redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodtime") or 3), post_count+1) 
 local edit_id = data.text_ or "nil"  
 Num_Msg_Max = 5
-if database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodmax") then
-Num_Msg_Max = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodmax") 
+if redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") then
+Num_Msg_Max = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") 
 end
-if database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodtime") then
-Time_Spam = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodtime") 
+if redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodtime") then
+Time_Spam = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodtime") 
 end 
 end 
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."korpica:Lock:text"..msg.chat_id_) and not Vips(msg) then       
+if redis:get(bot_id.."Lock:text"..msg.chat_id_) and not Vips(msg) then       
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})   
 return false     
 end     
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then 
-database:incr(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) 
+redis:incr(bot_id.."Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) 
 end
 if msg.content_.ID == "MessageChatAddMembers" and not Vips(msg) then   
-if database:get(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_) == "kick" then
+if redis:get(bot_id.."Lock:AddMempar"..msg.chat_id_) == "kick" then
 local mem_id = msg.content_.members_  
 for i=0,#mem_id do  
 Kick_Group(msg.chat_id_,mem_id[i].id_)
@@ -679,7 +691,7 @@ end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatJoinByLink" and not Vips(msg) then 
-if database:get(bot_id.."korpica:Lock:Join"..msg.chat_id_) == "kick" then
+if redis:get(bot_id.."Lock:Join"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 return false  
 end
@@ -687,96 +699,96 @@ end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.caption_ then 
 if msg.content_.caption_:match("@[%a%d_]+") or msg.content_.caption_:match("@(.+)") then  
-if database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("@[%a%d_]+") or text and text:match("@(.+)") then    
-if database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.caption_ then 
 if msg.content_.caption_:match("#[%a%d_]+") or msg.content_.caption_:match("#(.+)") then 
-if database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("#[%a%d_]+") or text and text:match("#(.+)") then
-if database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.caption_ then 
 if msg.content_.caption_:match("/[%a%d_]+") or msg.content_.caption_:match("/(.+)") then  
-if database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("/[%a%d_]+") or text and text:match("/(.+)") then
-if database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "del" and not Vips(msg) then    
+if redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "del" and not Vips(msg) then    
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ked" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ked" and not Vips(msg) then    
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "kick" and not Vips(msg) then    
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "kick" and not Vips(msg) then    
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ktm" and not Vips(msg) then    
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ktm" and not Vips(msg) then    
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
@@ -784,16 +796,16 @@ end
 if msg.content_.caption_ then 
 if not Vips(msg) then 
 if msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.content_.caption_:match("[Hh][Tt][Tt][Pp]://") or msg.content_.caption_:match("[Ww][Ww][Ww].") or msg.content_.caption_:match(".[Cc][Oo][Mm]") or msg.content_.caption_:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or msg.content_.caption_:match(".[Pp][Ee]") or msg.content_.caption_:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.content_.caption_:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/") or msg.content_.caption_:match("[Tt].[Mm][Ee]/") then 
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "del" and not Vips(msg) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "del" and not Vips(msg) then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ked" and not Vips(msg) then
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ked" and not Vips(msg) then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "kick" and not Vips(msg) then
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "kick" and not Vips(msg) then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ktm" and not Vips(msg) then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ktm" and not Vips(msg) then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
@@ -801,185 +813,185 @@ end
 end
 --------------------------------------------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or text and text:match("[Hh][Tt][Tt][Pp][Ss]://") or text and text:match("[Hh][Tt][Tt][Pp]://") or text and text:match("[Ww][Ww][Ww].") or text and text:match(".[Cc][Oo][Mm]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or text and text:match(".[Pp][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/") or text and text:match("[Tt].[Mm][Ee]/") and not Vips(msg) then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "del" and not Vips(msg) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "del" and not Vips(msg) then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ked" and not Vips(msg) then 
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ked" and not Vips(msg) then 
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "kick" and not Vips(msg) then
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "kick" and not Vips(msg) then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ktm" and not Vips(msg) then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ktm" and not Vips(msg) then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessagePhoto" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageVideo" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageAnimation" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.game_ and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageAudio" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Audio"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Audio"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Audio"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Audio"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Audio"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Audio"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Audio"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Audio"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageVoice" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.reply_markup_ and msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageSticker" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.forward_info_ and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 return false
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageDocument" and not Vips(msg) then     
-if database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageUnsupported" and not Vips(msg) then      
-if database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
@@ -988,16 +1000,16 @@ if msg.content_.entities_ then
 if msg.content_.entities_[0] then 
 if msg.content_.entities_[0] and msg.content_.entities_[0].ID == "MessageEntityUrl" or msg.content_.entities_[0].ID == "MessageEntityTextUrl" then      
 if not Vips(msg) then
-if database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end  
@@ -1006,16 +1018,16 @@ end
 end 
 
 if tonumber(msg.via_bot_user_id_) ~= 0 and not Vips(msg) then
-if database:get(bot_id.."korpica:Lock:Inlen"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Inlen"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Inlen"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Inlen"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Inlen"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Inlen"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Inlen"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Inlen"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end 
@@ -1023,16 +1035,16 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageContact" and not Vips(msg) then      
-if database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "del" then
+if redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "del" then
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "ked" then
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "ked" then
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "kick" then
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "kick" then
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "ktm" then
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "ktm" then
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
@@ -1041,32 +1053,32 @@ if msg.content_.text_ and not Vips(msg) then
 local _nl, ctrl_ = string.gsub(text, "%c", "")  
 local _nl, real_ = string.gsub(text, "%d", "")   
 sens = 400  
-if database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "del" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
+if redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "del" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "ked" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "ked" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
 RestrictChat(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "kick" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "kick" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
 Kick_Group(msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "ktm" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_,msg.sender_user_id_)
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "ktm" and string.len(msg.content_.text_) > (sens) or ctrl_ > (sens) or real_ > (sens) then 
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
 end
 end
 --------------------------------------------------------------------------------------------------------------
-local status_welcome = database:get(bot_id.."korpica:Chek:Welcome"..msg.chat_id_)
-if status_welcome and not database:get(bot_id.."korpica:Lock:tagservr"..msg.chat_id_) then
+local status_welcome = redis:get(bot_id.."Chek:Welcome"..msg.chat_id_)
+if status_welcome and not redis:get(bot_id.."Lock:tagservr"..msg.chat_id_) then
 if msg.content_.ID == "MessageChatJoinByLink" then
 tdcli_function({ID = "GetUser",user_id_=msg.sender_user_id_},function(extra,result) 
-local GetWelcomeGroup = database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_)  
+local GetWelcomeGroup = redis:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)  
 if GetWelcomeGroup then 
 t = GetWelcomeGroup
 else  
-t = "\n• نورت حبي \n•  name \n• user" 
+t = "\nâ€¢ ظ†ظˆط±طھ ط­ط¨ظٹ \nâ€¢  name \nâ€¢ user" 
 end 
 t = t:gsub("name",result.first_name_) 
-t = t:gsub("user",("@"..result.username_ or "لا يوجد")) 
+t = t:gsub("user",("@"..result.username_ or "ظ„ط§ ظٹظˆط¬ط¯")) 
 send(msg.chat_id_, msg.id_,t)
 end,nil) 
 end 
@@ -1074,17 +1086,17 @@ end
 -------------------------------------------------------
 if msg.content_.ID == "MessagePinMessage" then
 if Constructor(msg) or tonumber(msg.sender_user_id_) == tonumber(bot_id) then 
-database:set(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_,msg.content_.message_id_)
+redis:set(bot_id.."Pin:Id:Msg"..msg.chat_id_,msg.content_.message_id_)
 else
-local Msg_Pin = database:get(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_)
-if Msg_Pin and database:get(bot_id.."korpica:lockpin"..msg.chat_id_) then
+local Msg_Pin = redis:get(bot_id.."Pin:Id:Msg"..msg.chat_id_)
+if Msg_Pin and redis:get(bot_id.."lockpin"..msg.chat_id_) then
 PinMessage(msg.chat_id_,Msg_Pin)
 end
 end
 end
 ------------------------------------------------------
 if msg.content_.photo_ then  
-if database:get(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if redis:get(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) then 
 if msg.content_.photo_.sizes_[3] then  
 photo_id = msg.content_.photo_.sizes_[3].photo_.persistent_id_ 
 else 
@@ -1092,66 +1104,66 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end 
 tdcli_function ({ID = "ChangeChatPhoto",chat_id_ = msg.chat_id_,photo_ = getInputFile(photo_id) }, function(arg,data)   
 if data.code_ == 3 then
-send(msg.chat_id_, msg.id_,"܁༯┆عذرا البوت ليس ادمن يرجى ترقيتي والمحاوله لاحقا") 
-database:del(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ ظˆط§ظ„ظ…ط­ط§ظˆظ„ظ‡ ظ„ط§ط­ظ‚ط§") 
+redis:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 return false  end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية تغيير معلومات المجموعه يرجى المحاوله لاحقا") 
-database:del(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© طھط؛ظٹظٹط± ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ظٹط±ط¬ظ‰ ط§ظ„ظ…ط­ط§ظˆظ„ظ‡ ظ„ط§ط­ظ‚ط§") 
+redis:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 else
-send(msg.chat_id_, msg.id_,"܁༯┆تم تغيير صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط؛ظٹظٹط± طµظˆط±ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 end
 end, nil) 
-database:del(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
+redis:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 end   
 end
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."korpica:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
-if text == "الغاء" then 
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء وضع الوصف") 
-database:del(bot_id.."korpica:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
+if redis:get(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
+if text == "ط§ظ„ط؛ط§ط،" then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ظˆط¶ط¹ ط§ظ„ظˆطµظپ") 
+redis:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
 return false  
 end 
-database:del(bot_id.."korpica:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+redis:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 https.request("https://api.telegram.org/bot"..token.."/setChatDescription?chat_id="..msg.chat_id_.."&description="..text) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تغيير وصف المجموعه")   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط؛ظٹظٹط± ظˆطµظپ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")   
 return false  
 end 
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."korpica:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text == "الغاء" then 
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء حفظ الترحيب") 
-database:del(bot_id.."korpica:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+if redis:get(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ط§ظ„طھط±ط­ظٹط¨") 
+redis:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."korpica:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
-database:set(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم حفظ ترحيب المجموعه")   
+redis:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+redis:set(bot_id.."Get:Welcome:Group"..msg.chat_id_,text) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ طھط±ط­ظٹط¨ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")   
 return false   
 end
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."korpica:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
-if text == "الغاء" then
-send(msg.chat_id_,msg.id_,"܁༯┆تم الغاء حفظ الرابط")       
-database:del(bot_id.."korpica:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
+if redis:get(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
+if text == "ط§ظ„ط؛ط§ط،" then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ط§ظ„ط±ط§ط¨ط·")       
+redis:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false
 end
 if text and text:match("(https://telegram.me/joinchat/%S+)") or text and text:match("(https://t.me/joinchat/%S+)") then     
 local Link = text:match("(https://telegram.me/joinchat/%S+)") or text:match("(https://t.me/joinchat/%S+)")   
-database:set(bot_id.."korpica:Private:Group:Link"..msg.chat_id_,Link)
-send(msg.chat_id_,msg.id_,"܁༯┆تم حفظ الرابط بنجاح")       
-database:del(bot_id.."korpica:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
+redis:set(bot_id.."Private:Group:Link"..msg.chat_id_,Link)
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ ط§ظ„ط±ط§ط¨ط· ط¨ظ†ط¬ط§ط­")       
+redis:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false 
 end
 end 
 
-if database:get(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الاذاعه للخاص") 
-database:del(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+if redis:get(bot_id.."Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ط°ط§ط¹ظ‡ ظ„ظ„ط®ط§طµ") 
+redis:del(bot_id.."Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
-local list = database:smembers(bot_id..'korpica:UsersBot')  
+local list = redis:smembers(bot_id..'UsersBot')  
 if msg.content_.text_ then
 for k,v in pairs(list) do 
 send(v, 0,"["..msg.content_.text_.."]")  
@@ -1174,18 +1186,18 @@ for k,v in pairs(list) do
 sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)   
 end 
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تمت الاذاعه الى *~ "..#list.." ~* مشترك في الخاص ")     
-database:del(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ…طھ ط§ظ„ط§ط°ط§ط¹ظ‡ ط§ظ„ظ‰ *~ "..#list.." ~* ظ…ط´طھط±ظƒ ظپظٹ ط§ظ„ط®ط§طµ ")     
+redis:del(bot_id.."Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
-if database:get(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الاذاعه") 
-database:del(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+if redis:get(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ط°ط§ط¹ظ‡") 
+redis:del(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
-local list = database:smembers(bot_id.."korpica:Chek:Groups") 
+local list = redis:smembers(bot_id.."Chek:Groups") 
 if msg.content_.text_ then
 for k,v in pairs(list) do 
 send(v, 0,"["..msg.content_.text_.."]")  
@@ -1208,19 +1220,19 @@ for k,v in pairs(list) do
 sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)   
 end 
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ…طھ ط§ظ„ط§ط°ط§ط¹ظ‡ ط§ظ„ظ‰ *~ "..#list.." ~* ظ…ط¬ظ…ظˆط¹ظ‡ ")     
+redis:del(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
-if database:get(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الاذاعه") 
-database:del(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+if redis:get(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ط°ط§ط¹ظ‡") 
+redis:del(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
-local list = database:smembers(bot_id.."korpica:Chek:Groups")   
+local list = redis:smembers(bot_id.."Chek:Groups")   
 for k,v in pairs(list) do  
 tdcli_function({ID="ForwardMessages",
 chat_id_ = v,
@@ -1229,19 +1241,19 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_,"܁༯┆تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
-database:del(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ…طھ ط§ظ„ط§ط°ط§ط¹ظ‡ ط§ظ„ظ‰ *~ "..#list.." ~* ظ…ط¬ظ…ظˆط¹ظ‡ ")     
+redis:del(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 return false
 end
-if database:get(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الاذاعه") 
-database:del(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+if redis:get(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ط°ط§ط¹ظ‡") 
+redis:del(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
-local list = database:smembers(bot_id.."korpica:UsersBot")   
+local list = redis:smembers(bot_id.."UsersBot")   
 for k,v in pairs(list) do  
 tdcli_function({ID="ForwardMessages",
 chat_id_ = v,
@@ -1250,1078 +1262,1072 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_,"܁༯┆تمت الاذاعه الى *~ "..#list.." ~* مشترك في الخاص ")     
-database:del(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ…طھ ط§ظ„ط§ط°ط§ط¹ظ‡ ط§ظ„ظ‰ *~ "..#list.." ~* ظ…ط´طھط±ظƒ ظپظٹ ط§ظ„ط®ط§طµ ")     
+redis:del(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 return false
 end
 
 --------------------------------------------------------------------------------------------------------------
 if text and not Vips(msg) then  
-local korpica_Msg = database:get(bot_id.."korpica:Add:Filter:Rp2"..text..msg.chat_id_)   
-if korpica_Msg then    
-Reply_Status(msg,msg.sender_user_id_,"reply","܁༯┆"..korpica_Msg)  
+local Co_Msg = redis:get(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)   
+if Co_Msg then    
+Reply_Status(msg,msg.sender_user_id_,"reply","ـپà¼¯â”†"..Co_Msg)  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
 end
-if database:get(bot_id.."korpica:Set:Name:Bot"..msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ܁༯" then   
-send(msg.chat_id_, msg.id_,"܁༯┆ تم الغاء حفظ اسم البوت") 
-database:del(bot_id.."korpica:Set:Name:Bot"..msg.sender_user_id_) 
+if redis:get(bot_id.."Set:Name:Bot"..msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" or text == "ط§ظ„ط؛ط§ط، âŒ”" then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ط§ط³ظ… ط§ظ„ط¨ظˆطھ") 
+redis:del(bot_id.."Set:Name:Bot"..msg.sender_user_id_) 
 return false  
 end 
-database:del(bot_id.."korpica:Set:Name:Bot"..msg.sender_user_id_) 
-database:set(bot_id.."korpica:Name:Bot",text) 
-send(msg.chat_id_, msg.id_, "܁༯┆ تم حفظ اسم البوت")  
+redis:del(bot_id.."Set:Name:Bot"..msg.sender_user_id_) 
+redis:set(bot_id.."Name:Bot",text) 
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”† طھظ… ط­ظپط¸ ط§ط³ظ… ط§ظ„ط¨ظˆطھ")  
 return false
 end 
-if text and database:get(bot_id.."korpica:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
-database:set(bot_id.."korpica:Set:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الامر الجديد")  
-database:del(bot_id.."korpica:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
-database:set(bot_id.."korpica:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_,"true1") 
+if text and redis:get(bot_id.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
+redis:set(bot_id.."Set:Cmd:Group:New"..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ…ط± ط§ظ„ط¬ط¯ظٹط¯")  
+redis:del(bot_id.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
+redis:set(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_,"true1") 
 return false
 end
-if text and database:get(bot_id.."korpica:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_) == "true1" then
-local NewCmd = database:get(bot_id.."korpica:Set:Cmd:Group:New"..msg.chat_id_)
-database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
-database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"܁༯┆تم حفظ الامر")  
-database:del(bot_id.."korpica:Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
+if text and redis:get(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_) == "true1" then
+local NewCmd = redis:get(bot_id.."Set:Cmd:Group:New"..msg.chat_id_)
+redis:set(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
+redis:sadd(bot_id.."List:Cmd:Group:New"..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ ط§ظ„ط§ظ…ط±")  
+redis:del(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
-if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
-database:set(bot_id.."korpica:Lock:text"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الدردشه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¯ط±ط¯ط´ظ‡" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
+redis:set(bot_id.."Lock:text"..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¯ط±ط¯ط´ظ‡")  
 return false
 end 
-if text == "قفل الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل اضافة الاعضاء")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط¶ط§ظپظ‡" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id.."Lock:AddMempar"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ط¶ط§ظپط© ط§ظ„ط§ط¹ط¶ط§ط،")  
 return false
 end 
-if text == "قفل الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."korpica:Lock:Join"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل دخول الاعضاء")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¯ط®ظˆظ„" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id.."Lock:Join"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط¯ط®ظˆظ„ ط§ظ„ط§ط¹ط¶ط§ط،")  
 return false
 end 
-if text == "قفل البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل البوتات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¨ظˆطھط§طھ" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id.."Lock:Bot:kick"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¨ظˆطھط§طھ")  
 return false
 end 
-if text == "قفل البوتات بالطرد" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
-database:set(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل البوتات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¨ظˆطھط§طھ ط¨ط§ظ„ط·ط±ط¯" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id.."Lock:Bot:kick"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¨ظˆطھط§طھ")  
 return false
 end 
-if text == "قفل الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-database:set(bot_id.."korpica:Lock:tagservr"..msg.chat_id_,true)  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الاشعارات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط´ط¹ط§ط±ط§طھ" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+redis:set(bot_id.."Lock:tagservr"..msg.chat_id_,true)  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ط´ط¹ط§ط±ط§طھ")  
 return false
 end 
-if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
-database:set(bot_id.."korpica:lockpin"..msg.chat_id_, true) 
-database:sadd(bot_id.."korpica:Lock:pin",msg.chat_id_) 
-tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  database:set(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التثبيت هنا")  
+if text == "ظ‚ظپظ„ ط§ظ„طھط«ط¨ظٹطھ" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+redis:set(bot_id.."lockpin"..msg.chat_id_, true) 
+redis:sadd(bot_id.."Lock:pin",msg.chat_id_) 
+tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  redis:set(bot_id.."Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھط«ط¨ظٹطھ ظ‡ظ†ط§")  
 return false
 end 
-if text == "قفل التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھط¹ط¯ظٹظ„" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:set(bot_id.."korpica:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل تعديل")  
+redis:set(bot_id.."Lock:edit"..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ طھط¹ط¯ظٹظ„")  
 return false
 end 
-if text == "قفل تعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
-database:set(bot_id.."korpica:Lock:edit"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل تعديل")  
+if text == "ظ‚ظپظ„ طھط¹ط¯ظٹظ„ ط§ظ„ظ…ظٹط¯ظٹط§" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+redis:set(bot_id.."Lock:edit"..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ طھط¹ط¯ظٹظ„")  
 return false
 end 
-if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظ„" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end  
-database:set(bot_id.."korpica:Lock:tagservrbot"..msg.chat_id_,true)   
+redis:set(bot_id.."Lock:tagservrbot"..msg.chat_id_,true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:set(bot_id..'korpica:'..lock..msg.chat_id_,"del")    
+redis:set(bot_id..''..lock..msg.chat_id_,"del")    
 end
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط¬ظ…ظٹط¹ ط§ظ„ط§ظˆط§ظ…ط±")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
-if text == "فتح الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط§ط¶ط§ظپظ‡" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح اضافة الاعضاء")  
+redis:del(bot_id.."Lock:AddMempar"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ط¶ط§ظپط© ط§ظ„ط§ط¹ط¶ط§ط،")  
 return false
 end 
-if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
+if text == "ظپطھط­ ط§ظ„ط¯ط±ط¯ط´ظ‡" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:text"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الدردشه")  
+redis:del(bot_id.."Lock:text"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط¯ط±ط¯ط´ظ‡")  
 return false
 end 
-if text == "فتح الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط¯ط®ظˆظ„" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:Join"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح دخول الاعضاء")  
+redis:del(bot_id.."Lock:Join"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط¯ط®ظˆظ„ ط§ظ„ط§ط¹ط¶ط§ط،")  
 return false
 end 
-if text == "فتح البوتات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط¨ظˆطھط§طھ" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح البوتات")  
+redis:del(bot_id.."Lock:Bot:kick"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ ط§ظ„ط¨ظˆطھط§طھ")  
 return false
 end 
-if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط¨ظˆطھط§طھ " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","🍃\n܁༯️┆تم فـتح البوتات")  
+redis:del(bot_id.."Lock:Bot:kick"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","ًںچƒ\nâŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ ط§ظ„ط¨ظˆطھط§طھ")  
 return false
 end 
-if text == "فتح الاشعارات" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط§ط´ط¹ط§ط±ط§طھ" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end  
-database:del(bot_id.."korpica:Lock:tagservr"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح الاشعارات")  
+redis:del(bot_id.."Lock:tagservr"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ ط§ظ„ط§ط´ط¹ط§ط±ط§طھ")  
 return false
 end 
-if text == "فتح التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text == "ظپطھط­ ط§ظ„طھط«ط¨ظٹطھ" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:lockpin"..msg.chat_id_)  
-database:srem(bot_id.."korpica:Lock:pin",msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح التثبيت هنا")  
+redis:del(bot_id.."lockpin"..msg.chat_id_)  
+redis:srem(bot_id.."Lock:pin",msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ ط§ظ„طھط«ط¨ظٹطھ ظ‡ظ†ط§")  
 return false
 end 
-if text == "فتح التعديل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text == "ظپطھط­ ط§ظ„طھط¹ط¯ظٹظ„" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح تعديل")  
+redis:del(bot_id.."Lock:edit"..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ طھط¹ط¯ظٹظ„")  
 return false
 end 
-if text == "فتح التعديل الميديا" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
-database:del(bot_id.."korpica:Lock:edit"..msg.chat_id_) 
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح تعديل")  
+if text == "ظپطھط­ ط§ظ„طھط¹ط¯ظٹظ„ ط§ظ„ظ…ظٹط¯ظٹط§" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+redis:del(bot_id.."Lock:edit"..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ طھط¹ط¯ظٹظ„")  
 return false
 end 
-if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ظƒظ„" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:del(bot_id.."korpica:Lock:tagservrbot"..msg.chat_id_)   
+redis:del(bot_id.."Lock:tagservrbot"..msg.chat_id_)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:del(bot_id..'korpica:'..lock..msg.chat_id_)    
+redis:del(bot_id..''..lock..msg.chat_id_)    
 end
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فـتح جميع الاوامر")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپظ€طھط­ ط¬ظ…ظٹط¹ ط§ظ„ط§ظˆط§ظ…ط±")  
 return false
 end 
 --------------------------------------------------------------------------------------------------------------
-if text == "قفل الروابط" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ط±ظˆط§ط¨ط·" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الروابط")  
+redis:set(bot_id.."Lock:Link"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط±ظˆط§ط¨ط·")  
 return false
 end 
-if text == "قفل الروابط بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الروابط")  
+if text == "ظ‚ظپظ„ ط§ظ„ط±ظˆط§ط¨ط· ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Link"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط±ظˆط§ط¨ط·")  
 return false
 end 
-if text == "قفل الروابط بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الروابط")  
+if text == "ظ‚ظپظ„ ط§ظ„ط±ظˆط§ط¨ط· ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Link"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط±ظˆط§ط¨ط·")  
 return false
 end 
-if text == "قفل الروابط بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الروابط")  
+if text == "ظ‚ظپظ„ ط§ظ„ط±ظˆط§ط¨ط· ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Link"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط±ظˆط§ط¨ط·")  
 return false
 end 
-if text == "فتح الروابط" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط±ظˆط§ط¨ط·" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:Link"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الروابط")  
+redis:del(bot_id.."Lock:Link"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط±ظˆط§ط¨ط·")  
 return false
 end 
-if text == "قفل المعرفات" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل المعرفات")  
+redis:set(bot_id.."Lock:User:Name"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ")  
 return false
 end 
-if text == "قفل المعرفات بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل المعرفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:User:Name"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ")  
 return false
 end 
-if text == "قفل المعرفات بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل المعرفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:User:Name"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ")  
 return false
 end 
-if text == "قفل المعرفات بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل المعرفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:User:Name"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط¹ط±ظپط§طھ")  
 return false
 end 
-if text == "فتح المعرفات" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ظ…ط¹ط±ظپط§طھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:User:Name"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح المعرفات")  
+redis:del(bot_id.."Lock:User:Name"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظ…ط¹ط±ظپط§طھ")  
 return false
 end 
-if text == "قفل التاك" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھط§ظƒ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التاك")  
+redis:set(bot_id.."Lock:hashtak"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھط§ظƒ")  
 return false
 end 
-if text == "قفل التاك بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل التاك")  
+if text == "ظ‚ظپظ„ ط§ظ„طھط§ظƒ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:hashtak"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھط§ظƒ")  
 return false
 end 
-if text == "قفل التاك بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل التاك")  
+if text == "ظ‚ظپظ„ ط§ظ„طھط§ظƒ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:hashtak"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھط§ظƒ")  
 return false
 end 
-if text == "قفل التاك بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:hashtak"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل التاك")  
+if text == "ظ‚ظپظ„ ط§ظ„طھط§ظƒ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:hashtak"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھط§ظƒ")  
 return false
 end 
-if text == "فتح التاك" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„طھط§ظƒ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:hashtak"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التاك")  
+redis:del(bot_id.."Lock:hashtak"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„طھط§ظƒ")  
 return false
 end 
-if text == "قفل الشارحه" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الشارحه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط´ط§ط±ط­ظ‡" and Addictive(msg) then
+redis:set(bot_id.."Lock:Cmd"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط´ط§ط±ط­ظ‡")  
 return false
 end 
-if text == "قفل الشارحه بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الشارحه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط´ط§ط±ط­ظ‡ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Cmd"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط´ط§ط±ط­ظ‡")  
 return false
 end 
-if text == "قفل الشارحه بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الشارحه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط´ط§ط±ط­ظ‡ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Cmd"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط´ط§ط±ط­ظ‡")  
 return false
 end 
-if text == "قفل الشارحه بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Cmd"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الشارحه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط´ط§ط±ط­ظ‡ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Cmd"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط´ط§ط±ط­ظ‡")  
 return false
 end 
-if text == "فتح الشارحه" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Cmd"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الشارحه")  
+if text == "ظپطھط­ ط§ظ„ط´ط§ط±ط­ظ‡" and Addictive(msg) then
+redis:del(bot_id.."Lock:Cmd"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط´ط§ط±ط­ظ‡")  
 return false
 end 
-if text == "قفل الصور"and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الصور")  
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆط±"and Addictive(msg) then
+redis:set(bot_id.."Lock:Photo"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆط±")  
 return false
 end 
-if text == "قفل الصور بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الصور")  
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆط± ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Photo"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆط±")  
 return false
 end 
-if text == "قفل الصور بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الصور")  
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆط± ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Photo"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆط±")  
 return false
 end 
-if text == "قفل الصور بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Photo"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الصور")  
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆط± ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Photo"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆط±")  
 return false
 end 
-if text == "فتح الصور" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Photo"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الصور")  
+if text == "ظپطھط­ ط§ظ„طµظˆط±" and Addictive(msg) then
+redis:del(bot_id.."Lock:Photo"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„طµظˆط±")  
 return false
 end 
-if text == "قفل الفيديو" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الفيديو")  
+if text == "ظ‚ظپظ„ ط§ظ„ظپظٹط¯ظٹظˆ" and Addictive(msg) then
+redis:set(bot_id.."Lock:Video"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپظٹط¯ظٹظˆ")  
 return false
 end 
-if text == "قفل الفيديو بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الفيديو")  
+if text == "ظ‚ظپظ„ ط§ظ„ظپظٹط¯ظٹظˆ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Video"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپظٹط¯ظٹظˆ")  
 return false
 end 
-if text == "قفل الفيديو بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الفيديو")  
+if text == "ظ‚ظپظ„ ط§ظ„ظپظٹط¯ظٹظˆ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Video"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپظٹط¯ظٹظˆ")  
 return false
 end 
-if text == "قفل الفيديو بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Video"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الفيديو")  
+if text == "ظ‚ظپظ„ ط§ظ„ظپظٹط¯ظٹظˆ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Video"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپظٹط¯ظٹظˆ")  
 return false
 end 
-if text == "فتح الفيديو" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Video"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الفيديو")  
+if text == "ظپطھط­ ط§ظ„ظپظٹط¯ظٹظˆ" and Addictive(msg) then
+redis:del(bot_id.."Lock:Video"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظپظٹط¯ظٹظˆ")  
 return false
 end 
-if text == "قفل المتحركه" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡" and Addictive(msg) then  
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
+end
+redis:set(bot_id.."Lock:Animation"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡")  
+return false
+end
+if text == "ظ‚ظپظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Animation"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Animation"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Animation"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„ظ…طھط­ط±ظƒظ‡" and Addictive(msg) then  
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
+end
+redis:del(bot_id.."Lock:Animation"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظ…طھط­ط±ظƒظ‡")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ„ط¹ط§ط¨" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل المتحركه")  
+redis:set(bot_id.."Lock:geam"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨")  
 return false
 end 
-if text == "قفل المتحركه بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل المتحركه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ„ط¹ط§ط¨ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:geam"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨")  
 return false
 end 
-if text == "قفل المتحركه بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل المتحركه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ„ط¹ط§ط¨ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:geam"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨")  
 return false
 end 
-if text == "قفل المتحركه بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل المتحركه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ„ط¹ط§ط¨ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:geam"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨")  
 return false
 end 
-if text == "فتح المتحركه" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط§ظ„ط¹ط§ط¨" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:Animation"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح المتحركه")  
+redis:del(bot_id.."Lock:geam"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط§ظ„ط¹ط§ط¨")  
 return false
 end 
-if text == "قفل الالعاب" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ" and Addictive(msg) then
+redis:set(bot_id.."Lock:Audio"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Audio"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Audio"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Audio"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ط؛ط§ظ†ظٹ")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„ط§ط؛ط§ظ†ظٹ" and Addictive(msg) then
+redis:del(bot_id.."Lock:Audio"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط§ط؛ط§ظ†ظٹ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆطھ" and Addictive(msg) then
+redis:set(bot_id.."Lock:vico"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆطھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆطھ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:vico"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆطھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆطھ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:vico"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆطھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„طµظˆطھ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:vico"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طµظˆطھ")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„طµظˆطھ" and Addictive(msg) then
+redis:del(bot_id.."Lock:vico"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„طµظˆطھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Keyboard"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Keyboard"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Keyboard"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Keyboard"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظٹط¨ظˆط±ط¯")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„ظƒظٹط¨ظˆط±ط¯" and Addictive(msg) then
+redis:del(bot_id.."Lock:Keyboard"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظƒظٹط¨ظˆط±ط¯")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الالعاب")  
+redis:set(bot_id.."Lock:Sticker"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ")  
 return false
 end 
-if text == "قفل الالعاب بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الالعاب")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Sticker"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ")  
 return false
 end 
-if text == "قفل الالعاب بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الالعاب")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Sticker"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ")  
 return false
 end 
-if text == "قفل الالعاب بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الالعاب")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Sticker"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„طµظ‚ط§طھ")  
 return false
 end 
-if text == "فتح الالعاب" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ظ…ظ„طµظ‚ط§طھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:geam"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الالعاب")  
+redis:del(bot_id.."Lock:Sticker"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظ…ظ„طµظ‚ط§طھ")  
 return false
 end 
-if text == "قفل الاغاني" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الاغاني")  
-return false
-end 
-if text == "قفل الاغاني بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الاغاني")  
-return false
-end 
-if text == "قفل الاغاني بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الاغاني")  
-return false
-end 
-if text == "قفل الاغاني بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Audio"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الاغاني")  
-return false
-end 
-if text == "فتح الاغاني" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Audio"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الاغاني")  
-return false
-end 
-if text == "قفل الصوت" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الصوت")  
-return false
-end 
-if text == "قفل الصوت بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الصوت")  
-return false
-end 
-if text == "قفل الصوت بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الصوت")  
-return false
-end 
-if text == "قفل الصوت بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:vico"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الصوت")  
-return false
-end 
-if text == "فتح الصوت" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:vico"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الصوت")  
-return false
-end 
-if text == "قفل الكيبورد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الكيبورد")  
-return false
-end 
-if text == "قفل الكيبورد بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الكيبورد")  
-return false
-end 
-if text == "قفل الكيبورد بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الكيبورد")  
-return false
-end 
-if text == "قفل الكيبورد بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الكيبورد")  
-return false
-end 
-if text == "فتح الكيبورد" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الكيبورد")  
-return false
-end 
-if text == "قفل الملصقات" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھظˆط¬ظٹظ‡" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الملصقات")  
+redis:set(bot_id.."Lock:forward"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھظˆط¬ظٹظ‡")  
 return false
 end 
-if text == "قفل الملصقات بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الملصقات")  
+if text == "ظ‚ظپظ„ ط§ظ„طھظˆط¬ظٹظ‡ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:forward"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھظˆط¬ظٹظ‡")  
 return false
 end 
-if text == "قفل الملصقات بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الملصقات")  
+if text == "ظ‚ظپظ„ ط§ظ„طھظˆط¬ظٹظ‡ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:forward"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھظˆط¬ظٹظ‡")  
 return false
 end 
-if text == "قفل الملصقات بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الملصقات")  
+if text == "ظ‚ظپظ„ ط§ظ„طھظˆط¬ظٹظ‡ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:forward"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„طھظˆط¬ظٹظ‡")  
 return false
 end 
-if text == "فتح الملصقات" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„طھظˆط¬ظٹظ‡" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:Sticker"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الملصقات")  
+redis:del(bot_id.."Lock:forward"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„طھظˆط¬ظٹظ‡")  
 return false
 end 
-if text == "قفل التوجيه" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„ظپط§طھ" and Addictive(msg) then
+redis:set(bot_id.."Lock:Document"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„ظپط§طھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„ظپط§طھ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Document"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„ظپط§طھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„ظپط§طھ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Document"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„ظپط§طھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ظ„ظپط§طھ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Document"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ظ„ظپط§طھ")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„ظ…ظ„ظپط§طھ" and Addictive(msg) then
+redis:del(bot_id.."Lock:Document"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظ…ظ„ظپط§طھ")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„ط³ظٹظ„ظپظٹ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل التوجيه")  
+redis:set(bot_id.."Lock:Unsupported"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط³ظٹظ„ظپظٹ")  
 return false
 end 
-if text == "قفل التوجيه بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل التوجيه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط³ظٹظ„ظپظٹ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Unsupported"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط³ظٹظ„ظپظٹ")  
 return false
 end 
-if text == "قفل التوجيه بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل التوجيه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط³ظٹظ„ظپظٹ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Unsupported"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط³ظٹظ„ظپظٹ")  
 return false
 end 
-if text == "قفل التوجيه بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل التوجيه")  
+if text == "ظ‚ظپظ„ ط§ظ„ط³ظٹظ„ظپظٹ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Unsupported"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط³ظٹظ„ظپظٹ")  
 return false
 end 
-if text == "فتح التوجيه" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط³ظٹظ„ظپظٹ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:forward"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التوجيه")  
+redis:del(bot_id.."Lock:Unsupported"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط³ظٹظ„ظپظٹ")  
 return false
 end 
-if text == "قفل الملفات" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الملفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†" and Addictive(msg) then
+redis:set(bot_id.."Lock:Markdaun"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†")  
 return false
 end 
-if text == "قفل الملفات بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الملفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ† ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Markdaun"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†")  
 return false
 end 
-if text == "قفل الملفات بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الملفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ† ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Markdaun"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†")  
 return false
 end 
-if text == "قفل الملفات بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Document"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الملفات")  
+if text == "ظ‚ظپظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ† ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Markdaun"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†")  
 return false
 end 
-if text == "فتح الملفات" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Document"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الملفات")  
-return false
-end 
-if text == "قفل السيلفي" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل السيلفي")  
+redis:del(bot_id.."Lock:Markdaun"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†")  
 return false
 end 
-if text == "قفل السيلفي بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل السيلفي")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¬ظ‡ط§طھ" and Addictive(msg) then
+redis:set(bot_id.."Lock:Contact"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¬ظ‡ط§طھ")  
 return false
 end 
-if text == "قفل السيلفي بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل السيلفي")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¬ظ‡ط§طھ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Contact"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¬ظ‡ط§طھ")  
 return false
 end 
-if text == "قفل السيلفي بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل السيلفي")  
+if text == "ظ‚ظپظ„ ط§ظ„ط¬ظ‡ط§طھ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Contact"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¬ظ‡ط§طھ")  
 return false
 end 
-if text == "فتح السيلفي" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„ط¬ظ‡ط§طھ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Contact"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط¬ظ‡ط§طھ")  
+return false
+end 
+if text == "ظپطھط­ ط§ظ„ط¬ظ‡ط§طھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح السيلفي")  
+redis:del(bot_id.."Lock:Contact"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط¬ظ‡ط§طھ")  
 return false
 end 
-if text == "قفل الماركداون" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الماركداون")  
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظ„ط§ظٹط´" and Addictive(msg) then
+redis:set(bot_id.."Lock:Spam"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظ„ط§ظٹط´")  
 return false
 end 
-if text == "قفل الماركداون بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الماركداون")  
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظ„ط§ظٹط´ ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Spam"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظ„ط§ظٹط´")  
 return false
 end 
-if text == "قفل الماركداون بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الماركداون")  
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظ„ط§ظٹط´ ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Spam"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظ„ط§ظٹط´")  
 return false
 end 
-if text == "قفل الماركداون بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الماركداون")  
+if text == "ظ‚ظپظ„ ط§ظ„ظƒظ„ط§ظٹط´ ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Spam"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظƒظ„ط§ظٹط´")  
 return false
 end 
-if text == "فتح الماركداون" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ظƒظ„ط§ظٹط´" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الماركداون")  
+redis:del(bot_id.."Lock:Spam"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ظƒظ„ط§ظٹط´")  
 return false
 end 
-if text == "قفل الجهات" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الجهات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ†" and Addictive(msg) then
+redis:set(bot_id.."Lock:Inlen"..msg.chat_id_,"del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ†")  
 return false
 end 
-if text == "قفل الجهات بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الجهات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ† ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Inlen"..msg.chat_id_,"ked")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ†")  
 return false
 end 
-if text == "قفل الجهات بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الجهات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ† ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then
+redis:set(bot_id.."Lock:Inlen"..msg.chat_id_,"ktm")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ†")  
 return false
 end 
-if text == "قفل الجهات بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Contact"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الجهات")  
+if text == "ظ‚ظپظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ† ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then
+redis:set(bot_id.."Lock:Inlen"..msg.chat_id_,"kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ€ظ„ ط§ظ„ط§ظ†ظ„ط§ظٹظ†")  
 return false
 end 
-if text == "فتح الجهات" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„ط§ظ†ظ„ط§ظٹظ†" and Addictive(msg) then
+redis:del(bot_id.."Lock:Inlen"..msg.chat_id_)  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„ط§ظ†ظ„ط§ظٹظ†")  
+return false
+end 
+if text == "ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط± ط¨ط§ظ„ط·ط±ط¯" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
-end
-database:del(bot_id.."korpica:Lock:Contact"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الجهات")  
+end 
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood","kick")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط±")
 return false
 end 
-if text == "قفل الكلايش" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الكلايش")  
-return false
-end 
-if text == "قفل الكلايش بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الكلايش")  
-return false
-end 
-if text == "قفل الكلايش بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الكلايش")  
-return false
-end 
-if text == "قفل الكلايش بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Spam"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الكلايش")  
-return false
-end 
-if text == "فتح الكلايش" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط±" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
-end
-database:del(bot_id.."korpica:Lock:Spam"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الكلايش")  
+end 
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood","del")  
+Reply_Status(msg,msg.sender_user_id_,"lock","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط± ط¨ط§ظ„ط­ط°ظپ")
 return false
 end 
-if text == "قفل الانلاين" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفـل الانلاين")  
-return false
-end 
-if text == "قفل الانلاين بالتقيد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفـل الانلاين")  
-return false
-end 
-if text == "قفل الانلاين بالكتم" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفـل الانلاين")  
-return false
-end 
-if text == "قفل الانلاين بالطرد" and Addictive(msg) then
-database:set(bot_id.."korpica:Lock:Inlen"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفـل الانلاين")  
-return false
-end 
-if text == "فتح الانلاين" and Addictive(msg) then
-database:del(bot_id.."korpica:Lock:Inlen"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح الانلاين")  
-return false
-end 
-if text == "قفل التكرار بالطرد" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط± ط¨ط§ظ„طھظ‚ظٹط¯" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","܁༯️┆تم قفل التكرار")
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood","keed")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط±")
 return false
 end 
-if text == "قفل التكرار" and Addictive(msg) then  
+if text == "ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط± ط¨ط§ظ„ظƒطھظ…" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","܁༯️┆تم قفل التكرار بالحذف")
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood","mute")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","âŒ”ï¸ڈï¸™طھظ… ظ‚ظپظ„ ط§ظ„طھظƒط±ط§ط±")
 return false
 end 
-if text == "قفل التكرار بالتقيد" and Addictive(msg) then  
+if text == "ظپطھط­ ط§ظ„طھظƒط±ط§ط±" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","keed")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","܁༯️┆تم قفل التكرار")
-return false
-end 
-if text == "قفل التكرار بالكتم" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end 
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","mute")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","܁༯️┆تم قفل التكرار")
-return false
-end 
-if text == "فتح التكرار" and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end 
-database:hdel(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood")  
-Reply_Status(msg,msg.sender_user_id_,"unlock","܁༯️┆تم فتح التكرار")
+redis:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","âŒ”ï¸ڈï¸™طھظ… ظپطھط­ ط§ظ„طھظƒط±ط§ط±")
 return false
 end 
 
-if text == ("مسح قائمه العام") and Devkorpica(msg) then
-database:del(bot_id.."korpica:GBan:User")
-send(msg.chat_id_, msg.id_, "\n܁༯┆تم مسح قائمه العام")
+if text == ("ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ…") and DevCo(msg) then
+redis:del(bot_id.."GBan:User")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ…")
 return false
 end
-if text == ("مسح المطورين") and Devkorpica(msg) then
-database:del(bot_id.."korpica:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n܁༯┆ تم مسح قائمة المطورين  ")
+if text == ("ظ…ط³ط­ ط§ظ„ظ…ط·ظˆط±ظٹظ†") and DevCo(msg) then
+redis:del(bot_id.."Sudo:User")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”† طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ط·ظˆط±ظٹظ†  ")
 end
-if text == "مسح المنشئين الاساسين" and Devkorpica(msg) then
-database:del(bot_id.."korpica:Basic:Constructor"..msg.chat_id_)
-texts = "܁༯┆ تم مسح المنشئين الاساسيين"
+if text == "ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ†" and DevBot(msg) then
+redis:del(bot_id.."Basic:Constructor"..msg.chat_id_)
+texts = "ـپà¼¯â”† طھظ… ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظٹظ†"
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "مسح المنشئين" and BasicConstructor(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†" and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Constructor"..msg.chat_id_)
-texts = "܁༯┆ تم مسح المنشئين "
+redis:del(bot_id.."Constructor"..msg.chat_id_)
+texts = "ـپà¼¯â”† طھظ… ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ† "
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "مسح المدراء" and Constructor(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ظ…ط¯ط±ط§ط،" and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Manager"..msg.chat_id_)
-texts = "܁༯┆ تم مسح المدراء "
+redis:del(bot_id.."Manager"..msg.chat_id_)
+texts = "ـپà¼¯â”† طھظ… ظ…ط³ط­ ط§ظ„ظ…ط¯ط±ط§ط، "
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "مسح الادمنيه" and Owner(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Mod:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الادمنية  ")
+redis:del(bot_id.."Mod:User"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "ًں—‘ï¸™ طھظ… ظ…ط³ط­  ظ‚ط§ط¦ظ…ط© ط§ظ„ط§ط¯ظ…ظ†ظٹط©  ")
 end
-if text == "مسح المميزين" and Addictive(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ظ…ظ…ظٹط²ظٹظ†" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Special:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح  قائمة الاعضاء المميزين  ")
+redis:del(bot_id.."Special:User"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "ًں—‘ï¸™ طھظ… ظ…ط³ط­  ظ‚ط§ط¦ظ…ط© ط§ظ„ط§ط¹ط¶ط§ط، ط§ظ„ظ…ظ…ظٹط²ظٹظ†  ")
 end
-if text == "مسح المكتومين" and Addictive(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ظ…ظƒطھظˆظ…ظٹظ†" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Muted:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "🗑┆ تم مسح قائمه المكتومين ")
+redis:del(bot_id.."Muted:User"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "ًں—‘ï¸™ طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظƒطھظˆظ…ظٹظ† ")
 end
-if text == "مسح المحظورين" and Addictive(msg) then  
+if text == "ظ…ط³ط­ ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ†" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Ban:User"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "\n܁༯┆تم مسح المحظورين")
+redis:del(bot_id.."Ban:User"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†طھظ… ظ…ط³ط­ ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ†")
 end
-if text == ("قائمه العام") and Devkorpica(msg) then
-local list = database:smembers(bot_id.."korpica:GBan:User")
-t = "\n܁༯┆قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == ("ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ…") and DevCo(msg) then
+local list = redis:smembers(bot_id.."GBan:User")
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ† ط¹ط§ظ… \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2329,16 +2335,16 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد محظورين عام"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط­ط¸ظˆط±ظٹظ† ط¹ط§ظ…"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين") and Devkorpica(msg) then
-local list = database:smembers(bot_id.."korpica:Sudo:User")
-t = "\n܁༯┆قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == ("ط§ظ„ظ…ط·ظˆط±ظٹظ†") and DevCo(msg) then
+local list = redis:smembers(bot_id.."Sudo:User")
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ظ…ط·ظˆط±ظٹظ† ط§ظ„ط¨ظˆطھ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2346,15 +2352,15 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد مطورين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط·ظˆط±ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "المنشئين الاساسين" and Devkorpica(msg) then
-local list = database:smembers(bot_id.."korpica:Basic:Constructor"..msg.chat_id_)
-t = "\n܁༯┆قائمة المنشئين الاساسين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == "ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ†" and DevBot(msg) then
+local list = redis:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ† \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2362,25 +2368,25 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد منشئين اساسيين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظ†ط´ط¦ظٹظ† ط§ط³ط§ط³ظٹظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المنشئين") and BasicConstructor(msg) then  
+if text == ("ط§ظ„ظ…ظ†ط´ط¦ظٹظ†") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Constructor"..msg.chat_id_)
-t = "\n܁༯┆قائمة المنشئين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."Constructor"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظ†ط´ط¦ظٹظ† \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2388,24 +2394,24 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد منشئين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظ†ط´ط¦ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("المدراء") and Constructor(msg) then  
+if text == ("ط§ظ„ظ…ط¯ط±ط§ط،") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Manager"..msg.chat_id_)
-t = "\n܁༯┆قائمة المدراء \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."Manager"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ط¯ط±ط§ط، \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2413,24 +2419,24 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد مدراء"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط¯ط±ط§ط،"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الادمنيه") and Owner(msg) then  
+if text == ("ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Mod:User"..msg.chat_id_)
-t = "\n܁༯┆قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."Mod:User"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2438,15 +2444,15 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد ادمنيه"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط§ط¯ظ…ظ†ظٹظ‡"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("المميزين") and Addictive(msg) then
-local list = database:smembers(bot_id.."korpica:Special:User"..msg.chat_id_)
-t = "\n܁༯┆قائمة مميزين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == ("ط§ظ„ظ…ظ…ظٹط²ظٹظ†") and Addictive(msg) then
+local list = redis:smembers(bot_id.."Special:User"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ظ…ظ…ظٹط²ظٹظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2454,24 +2460,24 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد مميزين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظ…ظٹط²ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("المكتومين") and Addictive(msg) then  
+if text == ("ط§ظ„ظ…ظƒطھظˆظ…ظٹظ†") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Muted:User"..msg.chat_id_)
-t = "\n܁༯┆قائمة المكتومين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."Muted:User"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظƒطھظˆظ…ظٹظ† \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2479,25 +2485,25 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد مكتومين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظƒطھظˆظ…ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("المحظورين") then  
+if text == ("ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ†") then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Ban:User"..msg.chat_id_)
-t = "\n܁༯┆قائمة محظورين المجموعه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."Ban:User"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ظ…ط­ط¸ظˆط±ظٹظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -2505,874 +2511,874 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد محظورين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط­ط¸ظˆط±ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then
-function Function_korpica(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "܁༯┆لا يمكنك حظر المطور الاساسي \n")
+if text == ("ط­ط¸ط± ط¹ط§ظ…") and tonumber(msg.reply_to_message_id_) ~= 0 and DevCo(msg) then
+function Function_Co(extra, result, success)
+if result.sender_user_id_ == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظ…ظƒظ†ظƒ ط­ط¸ط± ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "܁༯┆لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ طھط³ط·ظٹط¹ ط­ط¸ط± ط§ظ„ط¨ظˆطھ ط¹ط§ظ…")
 return false 
 end
-database:sadd(bot_id.."korpica:GBan:User", result.sender_user_id_)
+redis:sadd(bot_id.."GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم حظره عام من المجموعات")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^حظر عام @(.*)$")  and Devkorpica(msg) then
-local username = text:match("^حظر عام @(.*)$") 
-function Function_korpica(extra, result, success)
+if text and text:match("^ط­ط¸ط± ط¹ط§ظ… @(.*)$")  and DevCo(msg) then
+local username = text:match("^ط­ط¸ط± ط¹ط§ظ… @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "܁༯┆لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ طھط³ط·ظٹط¹ ط­ط¸ط± ط§ظ„ط¨ظˆطھ ط¹ط§ظ…")
 return false 
 end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "܁༯┆لا يمكنك حظر المطور الاساسي \n")
+if result.id_ == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظ…ظƒظ†ظƒ ط­ط¸ط± ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ \n")
 return false 
 end
-database:sadd(bot_id.."korpica:GBan:User", result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم حظره عام من المجموعات")  
+redis:sadd(bot_id.."GBan:User", result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^حظر عام (%d+)$") and Devkorpica(msg) then
-local userid = text:match("^حظر عام (%d+)$")
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, "܁༯┆لا يمكنك حظر المطور الاساسي \n")
+if text and text:match("^ط­ط¸ط± ط¹ط§ظ… (%d+)$") and DevCo(msg) then
+local userid = text:match("^ط­ط¸ط± ط¹ط§ظ… (%d+)$")
+if userid == tonumber(Id_Sudo) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظ…ظƒظ†ظƒ ط­ط¸ط± ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "܁༯┆لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ طھط³ط·ظٹط¹ ط­ط¸ط± ط§ظ„ط¨ظˆطھ ط¹ط§ظ…")
 return false 
 end
-database:sadd(bot_id.."korpica:GBan:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم حظره عام من المجموعات")  
+redis:sadd(bot_id.."GBan:User", userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
 return false
 end
-if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:GBan:User", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم الغاء حظره عام من المجموعات")  
+if text == ("ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ…") and tonumber(msg.reply_to_message_id_) ~= 0 and DevCo(msg) then
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."GBan:User", result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^الغاء العام @(.*)$") and Devkorpica(msg) then
-local username = text:match("^الغاء العام @(.*)$") 
-function Function_korpica(extra, result, success)
+if text and text:match("^ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ… @(.*)$") and DevCo(msg) then
+local username = text:match("^ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ… @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
-Reply_Status(msg,result.id_,"reply","܁༯┆تم الغاء حظره عام من المجموعات")  
-database:srem(bot_id.."korpica:GBan:User", result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
+redis:srem(bot_id.."GBan:User", result.id_)
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^الغاء العام (%d+)$") and Devkorpica(msg) then
-local userid = text:match("^الغاء العام (%d+)$")
-database:srem(bot_id.."korpica:GBan:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم الغاء حظره عام من المجموعات")  
+if text and text:match("^ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ… (%d+)$") and DevCo(msg) then
+local userid = text:match("^ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ… (%d+)$")
+redis:srem(bot_id.."GBan:User", userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ط¹ط§ظ… ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ")  
 return false
 end
 
-if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Sudo:User", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته مطور في البوت")  
+if text == ("ط§ط¶ظپ ظ…ط·ظˆط±") and tonumber(msg.reply_to_message_id_) ~= 0 and DevCo(msg) then
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Sudo:User", result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط·ظˆط± ظپظٹ ط§ظ„ط¨ظˆطھ")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false 
 end
-if text and text:match("^اضف مطور @(.*)$") and Devkorpica(msg) then
-local username = text:match("^اضف مطور @(.*)$")
-function Function_korpica(extra, result, success)
+if text and text:match("^ط§ط¶ظپ ظ…ط·ظˆط± @(.*)$") and DevCo(msg) then
+local username = text:match("^ط§ط¶ظپ ظ…ط·ظˆط± @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Sudo:User", result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته مطور في البوت")  
+redis:sadd(bot_id.."Sudo:User", result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط·ظˆط± ظپظٹ ط§ظ„ط¨ظˆطھ")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false 
 end
-if text and text:match("^اضف مطور (%d+)$") and Devkorpica(msg) then
-local userid = text:match("^اضف مطور (%d+)$")
-database:sadd(bot_id.."korpica:Sudo:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته مطور في البوت")  
+if text and text:match("^ط§ط¶ظپ ظ…ط·ظˆط± (%d+)$") and DevCo(msg) then
+local userid = text:match("^ط§ط¶ظپ ظ…ط·ظˆط± (%d+)$")
+redis:sadd(bot_id.."Sudo:User", userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط·ظˆط± ظپظٹ ط§ظ„ط¨ظˆطھ")  
 return false 
 end
-if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Sudo:User", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المطورين")  
+if text == ("ط­ط°ظپ ظ…ط·ظˆط±") and tonumber(msg.reply_to_message_id_) ~= 0 and DevCo(msg) then
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Sudo:User", result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط·ظˆط±ظٹظ†")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false 
 end
-if text and text:match("^حذف مطور @(.*)$") and Devkorpica(msg) then
-local username = text:match("^حذف مطور @(.*)$")
-function Function_korpica(extra, result, success)
+if text and text:match("^ط­ط°ظپ ظ…ط·ظˆط± @(.*)$") and DevCo(msg) then
+local username = text:match("^ط­ط°ظپ ظ…ط·ظˆط± @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Sudo:User", result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المطورين")  
+redis:srem(bot_id.."Sudo:User", result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط·ظˆط±ظٹظ†")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end  
-if text and text:match("^حذف مطور (%d+)$") and Devkorpica(msg) then
-local userid = text:match("^حذف مطور (%d+)$")
-database:srem(bot_id.."korpica:Sudo:User", userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المطورين")  
+if text and text:match("^ط­ط°ظپ ظ…ط·ظˆط± (%d+)$") and DevCo(msg) then
+local userid = text:match("^ط­ط°ظپ ظ…ط·ظˆط± (%d+)$")
+redis:srem(bot_id.."Sudo:User", userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط·ظˆط±ظٹظ†")  
 return false 
 end
 
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then  
+if text == ("ط±ظپط¹ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته منشئ اساسي")  
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and Devkorpica(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ @(.*)$") and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع منشئ اساسي @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","??┆تم ترقيته منشئ اساسي")  
+redis:sadd(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","??ï¸™طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي (%d+)$") and Devkorpica(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ (%d+)$") and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^رفع منشئ اساسي (%d+)$") 
-database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته منشئ اساسي")  
+local userid = text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ (%d+)$") 
+redis:sadd(bot_id.."Basic:Constructor"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and Devkorpica(msg) then  
+if text == ("طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المنشئين")  
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and Devkorpica(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ @(.*)$") and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تنزيل منشئ اساسي @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.id_)
+redis:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_)
 
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المنشئين")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and Devkorpica(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ (%d+)$") and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
-database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المنشئين")  
+local userid = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ (%d+)$") 
+redis:srem(bot_id.."Basic:Constructor"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 return false
 end
 
-if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if text == "ط±ظپط¹ ظ…ظ†ط´ط¦" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته منشئ في المجموعه")  
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 end
-if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ @(.*)$") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع منشئ @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته منشئ في المجموعه")  
+redis:sadd(bot_id.."Constructor"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 end
 ------------------------------------------------------------------------
-if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ (%d+)$") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^رفع منشئ (%d+)$")
-database:sadd(bot_id.."korpica:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته منشئ في المجموعه")  
+local userid = text:match("^ط±ظپط¹ ظ…ظ†ط´ط¦ (%d+)$")
+redis:sadd(bot_id.."Constructor"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط´ط¦ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المنشئين")  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 end
 ------------------------------------------------------------------------
-if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ @(.*)$") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تنزيل منشئ @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المنشئين")  
+redis:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 end
 ------------------------------------------------------------------------
-if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ (%d+)$") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تنزيل منشئ (%d+)$")
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المنشئين")  
+local userid = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ (%d+)$")
+redis:srem(bot_id.."Constructor"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 end
 
-if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
+if text == ("ط±ظپط¹ ظ…ط¯ظٹط±") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته مدير المجموعه")  
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط¯ظٹط± ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end  
-if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ط¯ظٹط± @(.*)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع مدير @(.*)$") 
-function Function_korpica(extra, result, success)
+local username = text:match("^ط±ظپط¹ ظ…ط¯ظٹط± @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته مدير المجموعه")  
+redis:sadd(bot_id.."Manager"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط¯ظٹط± ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end 
 
-if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ط¯ظٹط± (%d+)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^رفع مدير (%d+)$") 
-database:sadd(bot_id.."korpica:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته مدير المجموعه")  
+local userid = text:match("^ط±ظپط¹ ظ…ط¯ظٹط± (%d+)$") 
+redis:sadd(bot_id.."Manager"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ط¯ظٹط± ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 return false
 end  
-if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
+if text == ("طھظ†ط²ظٹظ„ ظ…ط¯ظٹط±") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المدراء")  
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط¯ط±ط§ط،")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ط¯ظٹط± @(.*)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تنزيل مدير @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ†ط²ظٹظ„ ظ…ط¯ظٹط± @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المدراء")  
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط¯ط±ط§ط،")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ط¯ظٹط± (%d+)$") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تنزيل مدير (%d+)$") 
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المدراء")  
+local userid = text:match("^طھظ†ط²ظٹظ„ ظ…ط¯ظٹط± (%d+)$") 
+redis:srem(bot_id.."Manager"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط¯ط±ط§ط،")  
 return false
 end
 
-if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
+if text == ("ط±ظپط¹ ط§ط¯ظ…ظ†") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته ادمن للمجموعه")  
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ط§ط¯ظ…ظ† ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then  
+if text and text:match("^ط±ظپط¹ ط§ط¯ظ…ظ† @(.*)$") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع ادمن @(.*)$")
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+local username = text:match("^ط±ظپط¹ ط§ط¯ظ…ظ† @(.*)$")
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته ادمن للمجموعه")  
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ط§ط¯ظ…ظ† ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then  
+if text and text:match("^ط±ظپط¹ ط§ط¯ظ…ظ† (%d+)$") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^رفع ادمن (%d+)$")
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+local userid = text:match("^ط±ظپط¹ ط§ط¯ظ…ظ† (%d+)$")
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته ادمن للمجموعه")  
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ط§ط¯ظ…ظ† ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 return false
 end
-if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
+if text == ("طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ†") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من ادمنيه المجموعه")  
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ط¯ظ…ظ†ظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ† @(.*)$") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تنزيل ادمن @(.*)$") 
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ† @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من ادمنيه المجموعه")  
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ط¯ظ…ظ†ظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ† (%d+)$") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تنزيل ادمن (%d+)$")
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من ادمنيه المجموعه")  
+local userid = text:match("^طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ† (%d+)$")
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ط¯ظ…ظ†ظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 return false
 end
 
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == ("ط±ظپط¹ ظ…ظ…ظٹط²") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
-database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته مميز للمجموعه")  
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ…ظٹط² ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ…ظٹط² @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع مميز @(.*)$") 
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+local username = text:match("^ط±ظپط¹ ظ…ظ…ظٹط² @(.*)$") 
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم ترقيته مميز للمجموعه")  
+redis:sadd(bot_id.."Special:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ…ظٹط² ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 
-if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط±ظپط¹ ظ…ظ…ظٹط² (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^رفع مميز (%d+)$")
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+local userid = text:match("^ط±ظپط¹ ظ…ظ…ظٹط² (%d+)$")
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم ترقيته مميز للمجموعه")  
+redis:sadd(bot_id.."Special:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ…ظٹط² ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 return false
 end
 
-if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if (text == ("طھظ†ط²ظٹظ„ ظ…ظ…ظٹط²")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تنزيله من المميزين")  
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ…ظٹط²ظٹظ†")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ…ظٹط² @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تنزيل مميز @(.*)$") 
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ†ط²ظٹظ„ ظ…ظ…ظٹط² @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تنزيله من المميزين")  
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ…ظٹط²ظٹظ†")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ…ظٹط² (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تنزيل مميز (%d+)$") 
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تنزيله من المميزين")  
+local userid = text:match("^طھظ†ط²ظٹظ„ ظ…ظ…ظٹط² (%d+)$") 
+redis:srem(bot_id.."Special:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ…ظٹط²ظٹظ†")  
 return false
 end  
-if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
+if text and text:match("ط±ظپط¹ (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local RTPA = text:match("رفع (.*)")
-if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,RTPA) then
+local RTPA = text:match("ط±ظپط¹ (.*)")
+if redis:sismember(bot_id.."Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم رفعه "..RTPA.." هنا\n")   
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
-database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_,result.sender_user_id_)  
-elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم رفعه "..RTPA.." هنا\n")   
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_,result.sender_user_id_)  
-elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم رفعه "..RTPA.." هنا\n")   
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
-database:sadd(bot_id.."korpica:Manager"..msg.chat_id_,result.sender_user_id_)  
-elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم رفعه "..RTPA.." هنا\n")   
+local Cort = redis:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
+if Cort == "ظ…ظ…ظٹط²" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..RTPA.." ظ‡ظ†ط§\n")   
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
+redis:sadd(bot_id.."Special:User"..msg.chat_id_,result.sender_user_id_)  
+elseif Cort == "ط§ط¯ظ…ظ†" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..RTPA.." ظ‡ظ†ط§\n")   
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_,result.sender_user_id_)  
+elseif Cort == "ظ…ط¯ظٹط±" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..RTPA.." ظ‡ظ†ط§\n")   
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
+redis:sadd(bot_id.."Manager"..msg.chat_id_,result.sender_user_id_)  
+elseif Cort == "ط¹ط¶ظˆ" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..RTPA.." ظ‡ظ†ط§\n")   
 end
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
+if text and text:match("طھظ†ط²ظٹظ„ (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local RTPA = text:match("تنزيل (.*)")
-if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,RTPA) then
+local RTPA = text:match("طھظ†ط²ظٹظ„ (.*)")
+if redis:sismember(bot_id.."Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم تنزيله من "..RTPA.." هنا\n")   
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم تنزيله من "..RTPA.." هنا\n")   
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_,result.sender_user_id_) 
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم تنزيله من "..RTPA.." هنا\n")   
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n܁༯┆تم تنزيله من "..RTPA.." هنا\n")   
+local Cort = redis:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
+if Cort == "ظ…ظ…ظٹط²" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† "..RTPA.." ظ‡ظ†ط§\n")   
+redis:srem(bot_id.."Special:User"..msg.chat_id_,result.sender_user_id_)  
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
+elseif Cort == "ط§ط¯ظ…ظ†" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† "..RTPA.." ظ‡ظ†ط§\n")   
+redis:srem(bot_id.."Mod:User"..msg.chat_id_,result.sender_user_id_) 
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
+elseif Cort == "ظ…ط¯ظٹط±" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† "..RTPA.." ظ‡ظ†ط§\n")   
+redis:srem(bot_id.."Manager"..msg.chat_id_,result.sender_user_id_)  
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
+elseif Cort == "ط¹ط¶ظˆ" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† "..RTPA.." ظ‡ظ†ط§\n")   
 end
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
+if text and text:match("^ط±ظپط¹ (.*) @(.*)") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
-if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,text1[2]) then
+local text1 = {string.match(text, "^(ط±ظپط¹) (.*) @(.*)$")}
+if redis:sismember(bot_id.."Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
-local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."korpica:Manager"..msg.chat_id_,result.id_)  
-database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم رفعه "..text1[2].." هنا")   
+local Cort = redis:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
+if Cort == "ظ…ظ…ظٹط²" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..text1[2].." ظ‡ظ†ط§")   
+redis:sadd(bot_id.."Special:User"..msg.chat_id_,result.id_)  
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
+elseif Cort == "ط§ط¯ظ…ظ†" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..text1[2].." ظ‡ظ†ط§")   
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_,result.id_)  
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
+elseif Cort == "ظ…ط¯ظٹط±" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..text1[2].." ظ‡ظ†ط§")   
+redis:sadd(bot_id.."Manager"..msg.chat_id_,result.id_)  
+redis:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
+elseif Cort == "ط¹ط¶ظˆ" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… ط±ظپط¹ظ‡ "..text1[2].." ظ‡ظ†ط§")   
 end
 else
-info = "܁༯┆المعرف غلط"
+info = "ـپà¼¯â”†ط§ظ„ظ…ط¹ط±ظپ ط؛ظ„ط·"
 send(msg.chat_id_, msg.id_,info)
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
 end 
 end
-if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
+if text and text:match("^طھظ†ط²ظٹظ„ (.*) @(.*)") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
-if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,text1[2]) then
+local text1 = {string.match(text, "^(طھظ†ط²ظٹظ„) (.*) @(.*)$")}
+if redis:sismember(bot_id.."Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
-local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_,result.id_)  
-database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n܁༯┆العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n܁༯┆تم تنريله من "..text1[2].." هنا")   
+local Cort = redis:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
+if Cort == "ظ…ظ…ظٹط²" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط±ظٹظ„ظ‡ ظ…ظ† "..text1[2].." ظ‡ظ†ط§")   
+redis:srem(bot_id.."Special:User"..msg.chat_id_,result.id_)  
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
+elseif Cort == "ط§ط¯ظ…ظ†" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط±ظٹظ„ظ‡ ظ…ظ† "..text1[2].." ظ‡ظ†ط§")   
+redis:srem(bot_id.."Mod:User"..msg.chat_id_,result.id_)  
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
+elseif Cort == "ظ…ط¯ظٹط±" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط±ظٹظ„ظ‡ ظ…ظ† "..text1[2].." ظ‡ظ†ط§")   
+redis:srem(bot_id.."Manager"..msg.chat_id_,result.id_)  
+redis:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
+elseif Cort == "ط¹ط¶ظˆ" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\nـپà¼¯â”†طھظ… طھظ†ط±ظٹظ„ظ‡ ظ…ظ† "..text1[2].." ظ‡ظ†ط§")   
 end
 else
-info = "܁༯┆المعرف غلط"
+info = "ـپà¼¯â”†ط§ظ„ظ…ط¹ط±ظپ ط؛ظ„ط·"
 send(msg.chat_id_, msg.id_,info)
 end
 end
@@ -3380,1002 +3386,1192 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil)
 end  
 end
 
-if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
+if text == ("ط­ط¸ط±") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
+if result.sender_user_id_ == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
+end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-database:sadd(bot_id.."korpica:Ban:User"..msg.chat_id_, result.sender_user_id_)
+redis:sadd(bot_id.."Ban:User"..msg.chat_id_, result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم حظره من المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end,nil)   
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-
-if text and text:match("^حظر @(.*)$") and Addictive(msg) then  
+if text == "ظ‡ظٹظ†ظ‡" or text == "ظ‡ظٹظ†ظ‡ط§" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ظ…ط´ط±ظپ ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !') 
+return false  
+end
+heen = {
+"- ط­ط¨ظٹط¨ظٹ ط¹ظ„ط§ط¬ ط§ظ„ط¬ط§ظ‡ظ„ ط§ظ„طھط¬ط§ظ‡ظ„ ."
+,"- ظ…ط§ظ„ظٹ ط®ظ„ظƒ ط²ط¨ط§ظٹظ„ ط§ظ„طھظ„ظٹ . "
+,"- ظƒط±ط§ظ…طھظƒ طµط§ط±طھ ط¨ط²ط¨ظ„ ×¤ظژظ€ظ€ط¨ظٹ ."
+,"- ظ…ظˆ طµظˆط¬ظƒ طµظˆط¬ ط§ظ„ظƒظˆط§ط¯ ط§ظ„ط²ظ…ظƒ ط¬ظ‡ط§ط² ."
+,"- ظ„ظپط§ط±ط؛ ط§ط³طھط¬ظ† . "
+,"- عھظگفھظƒ ظˆط§ط­ط¯ ظ„ظˆظƒظٹ ظƒط³ ."
+,"- ظ…ظ„ط·ظ„ط· ط¯ظٹ ."
+};
+sendheen = heen[math.random(#heen)]
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+send(msg.chat_id_, msg.reply_to_message_id_,sendheen)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^ط­ط¸ط± @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^حظر @(.*)$")
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+local username = text:match("^ط­ط¸ط± @(.*)$")
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if result.id_ then
+if result.id_ == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
+end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-database:sadd(bot_id.."korpica:Ban:User"..msg.chat_id_, result.id_)
+redis:sadd(bot_id.."Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم حظره من المجموعه")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end,nil)   
 end
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 
-if text and text:match("^حظر (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط­ط¸ط± (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^حظر (%d+)$") 
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+local userid = text:match("^ط­ط¸ط± (%d+)$") 
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
+end
+if userid == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-database:sadd(bot_id.."korpica:Ban:User"..msg.chat_id_, userid)
+redis:sadd(bot_id.."Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
-Reply_Status(msg,userid,"reply","܁༯┆تم حظره من المجموعه")  
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط­ط¸ط±ظ‡ ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end,nil)   
 end
 return false
 end
-if text == ("الغاء حظر") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == ("ط§ظ„ط؛ط§ط، ط­ط¸ط±") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "âŒ”ï¸ڈï¸™ط§ظ†ط§ ظ„ط³طھ ظ…ط­ط¸ظˆط±ط§ \n") 
 return false 
 end
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم الغاء حظره من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
  
-if text and text:match("^الغاء حظر @(.*)$") and Addictive(msg) then  
+if text and text:match("^ط§ظ„ط؛ط§ط، ط­ط¸ط± @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^الغاء حظر @(.*)$") 
-function Function_korpica(extra, result, success)
+local username = text:match("^ط§ظ„ط؛ط§ط، ط­ط¸ط± @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
 if tonumber(result.id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "âŒ”ï¸ڈï¸™ط§ظ†ط§ ظ„ط³طھ ظ…ط­ط¸ظˆط±ط§ \n") 
 return false 
 end
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, result.id_)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_, result.id_)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,result.id_,"reply","܁༯┆تم الغاء حظره من هنا")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 
-if text and text:match("^الغاء حظر (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط§ظ„ط؛ط§ط، ط­ط¸ط± (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^الغاء حظر (%d+)$") 
+local userid = text:match("^ط§ظ„ط؛ط§ط، ط­ط¸ط± (%d+)$") 
 if tonumber(userid) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "܁༯️┆انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "âŒ”ï¸ڈï¸™ط§ظ†ط§ ظ„ط³طھ ظ…ط­ط¸ظˆط±ط§ \n") 
 return false 
 end
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_, userid)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_, userid)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,userid,"reply","܁༯┆تم الغاء حظره من هنا")  
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 return false
 end
 
-if text == ("كتم") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
+if text == ("ظƒطھظ…") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
+if result.sender_user_id_ == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
+end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
 end     
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم كتمه من هنا")  
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^كتم @(.*)$") and Addictive(msg) then  
+if text and text:match("^ظƒطھظ… @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^كتم @(.*)$")
+local username = text:match("^ظƒطھظ… @(.*)$")
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if result.id_ then
+if result.id_ == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
+end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم كتمه من هنا")  
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text and text:match("^كتم (%d+)$") and Addictive(msg) then  
+if text and text:match("^ظƒطھظ… (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^كتم (%d+)$")
+local userid = text:match("^ظƒطھظ… (%d+)$")
+if userid == tonumber(997081948) then
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ‡ط°ط§ ظ…ط·ظˆط± ط§ظ„ط³ظˆط±ط³ طھط§ط¬ط±ط§ط³ظƒ \n")
+return false 
+end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
-database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم كتمه من هنا")  
+redis:sadd(bot_id.."Muted:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end
 return false
 end
-if text == ("الغاء كتم") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == ("ط§ظ„ط؛ط§ط، ظƒطھظ…") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم الغاء كتمه من هنا")  
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."Muted:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
-if text and text:match("^الغاء كتم @(.*)$") and Addictive(msg) then
-local username = text:match("^الغاء كتم @(.*)$")
-function Function_korpica(extra, result, success)
+if text and text:match("^ط§ظ„ط؛ط§ط، ظƒطھظ… @(.*)$") and Addictive(msg) then
+local username = text:match("^ط§ظ„ط؛ط§ط، ظƒطھظ… @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم الغاء كتمه من هنا")  
+redis:srem(bot_id.."Muted:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 
-if text and text:match("^الغاء كتم (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط§ظ„ط؛ط§ط، ظƒطھظ… (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^الغاء كتم (%d+)$") 
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم الغاء كتمه من هنا")  
+local userid = text:match("^ط§ظ„ط؛ط§ط، ظƒطھظ… (%d+)$") 
+redis:srem(bot_id.."Muted:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ظƒطھظ…ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 return false
 end
-
-if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == 'ظ‚ظپظ„ ط§ظ„ظپط§ط±ط³ظٹظ‡' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","ـپà¼¯â”†طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپط§ط±ط³ظٹظ‡")  
+end
+if text and redis:get(bot_id..'lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
+list = {"ظƒط³","ظƒط³ظ…ظƒ","ظƒط³ط®طھظƒ","ط¹ظٹط±","ظƒط³ط®ط§ظ„طھظƒ","ط®ط±ط§ ط¨ط§ظ„ظ„ظ‡","ط¹ظٹط± ط¨ط§ظ„ظ„ظ‡","ظƒط³ط®ظˆط§طھظƒظ…","ظƒط­ط§ط¨","ظ…ظ†ط§ظˆظٹط¬","ظ…ظ†ط§ظˆظٹط¬","ظƒط­ط¨ظ‡","ط§ط¨ظ† ط§ظ„ظƒط­ط¨ظ‡","ظپط±ط®","ظپط±ظˆط®","ط·ظٹط²ظƒ","ط·ظٹط²ط®طھظƒ"}
+for k,v in pairs(list) do
+if string.find(text,v) ~= nil then
+DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
+return false
+end
+end
+end
+if text == 'ظپطھط­ ط§ظ„ظپط§ط±ط³ظٹظ‡' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:del(bot_id..'lock:Fshar'..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"lock","ـپà¼¯â”† طھظ€ظ… ظپظ€طھط­ ط§ظ„ظپط§ط±ط³ظٹظ‡\n")  
+end
+if text == 'ظ‚ظپظ„ ط§ظ„ظپط´ط§ط±' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
+Reply_Status(msg,msg.sender_user_id_,"lock","ـپà¼¯â”†طھظ… ظ‚ظپظ€ظ„ ط§ظ„ظپط´ط§ط±")  
+end
+if text and redis:get(bot_id..'lock:Fshar'..msg.chat_id_) and not Addictive(msg) then 
+list = {"ع„","ع©ظ‡","ظ¾غŒ","ط®ط³طھظ‡","ط¨ط±ظ…","ط±ط§ط­طھغŒ","ط¨غŒط§ظ…","ط¨ظ¾ظˆط´ظ…","ظƒط±ظ…ظ‡","ع†ظ‡","ع†","ع¬","ظ؛","ع†","ع‡","ع؟","ع€","عژ","ف«","عک","عں","فœ","ع¸","ظ¾","غ´","ط²ط¯ظ†","ط¯ط®طھط±ط§","ط¯غŒظˆط«","ظ…ع©","ط²ط¯ظ†"}
+for k,v in pairs(list) do
+if string.find(text,v) ~= nil then
+DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
+return false
+end
+end
+end
+if text == 'ظپطھط­ ط§ظ„ظپط´ط§ط±' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
+redis:del(bot_id..'lock:Fshar'..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"lock","ـپà¼¯â”† طھظ€ظ… ظپظ€طھط­ ط§ظ„ظپط´ط§ط±\n")  
+end
+if text == ("طھظ‚ظٹط¯") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم تقييده في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ‚ظٹظٹط¯ظ‡ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
 ------------------------------------------------------------------------
-if text and text:match("^تقيد @(.*)$") and Addictive(msg) then  
+if text and text:match("^طھظ‚ظٹط¯ @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^تقيد @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^طھظ‚ظٹط¯ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم تقييده في المجموعه")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ‚ظٹظٹط¯ظ‡ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 ------------------------------------------------------------------------
-if text and text:match("^تقيد (%d+)$") and Addictive(msg) then  
+if text and text:match("^طھظ‚ظٹط¯ (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^تقيد (%d+)$")
+local userid = text:match("^طھظ‚ظٹط¯ (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم تقييده في المجموعه")  
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ‚ظٹظٹط¯ظ‡ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 end
 return false
 end
 ------------------------------------------------------------------------
-if text == ("الغاء تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
+if text == ("ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم الغاء تقييده")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھظ‚ظٹظٹط¯ظ‡")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
 ------------------------------------------------------------------------
-if text and text:match("^الغاء تقيد @(.*)$") and Addictive(msg) then  
+if text and text:match("^ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯ @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^الغاء تقيد @(.*)$")
-function Function_korpica(extra, result, success)
+local username = text:match("^ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯ @(.*)$")
+function Function_Co(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.id_,"reply","܁༯┆تم الغاء تقييده")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھظ‚ظٹظٹط¯ظ‡")  
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
 ------------------------------------------------------------------------
-if text and text:match("^الغاء تقيد (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯ (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local userid = text:match("^الغاء تقيد (%d+)$")
+local userid = text:match("^ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯ (%d+)$")
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,userid,"reply","܁༯┆تم الغاء تقييده")  
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھظ‚ظٹظٹط¯ظ‡")  
 return false
 end
-if text == ("طرد") and msg.reply_to_message_id_ ~=0 and Addictive(msg) then  
+if text == ("ط·ط±ط¯") and msg.reply_to_message_id_ ~=0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم طرده من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… ط·ط±ط¯ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end  
-if text and text:match("^طرد @(.*)$") and Addictive(msg) then  
+if text and text:match("^ط·ط±ط¯ @(.*)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-local username = text:match("^طرد @(.*)$")
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+local username = text:match("^ط·ط±ط¯ @(.*)$")
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
-function Function_korpica(extra, result, success)
+function Function_Co(extra, result, success)
 if result.id_ then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"܁༯┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
 Kick_Group(msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","܁༯┆تم طرده من هنا")  
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… ط·ط±ط¯ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end,nil)   
 end
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end  
 
-if text and text:match("^طرد (%d+)$") and Addictive(msg) then  
+if text and text:match("^ط·ط±ط¯ (%d+)$") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-local userid = text:match("^طرد (%d+)$") 
-if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'܁༯┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+local userid = text:match("^ط·ط±ط¯ (%d+)$") 
+if not Constructor(msg) and redis:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظ‚ط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط± ظˆ ط§ظ„ط·ط±ط¯ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ طھط³طھط·ظٹط¹ ط·ط±ط¯ ط§ظˆ ط­ط¸ط± ط§ظˆ ظƒطھظ… ط§ظˆ طھظ‚ظٹظٹط¯ ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"܁༯┆البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
 Kick_Group(msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","܁༯┆تم طرده من هنا")  
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… ط·ط±ط¯ظ‡ ظ…ظ† ظ‡ظ†ط§")  
 end,nil)   
 end
 return false
 end
 
-if text == "تعطيل الطرد" or text == "تعطيل الحظر" then  
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط·ط±ط¯" or text == "طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط±" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then
-database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل » الحظر ~ والطرد ')
+redis:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ آ» ط§ظ„ط­ط¸ط± ~ ظˆط§ظ„ط·ط±ط¯ ')
 return false
 end
 end
-if text == "تفعيل الطرد" or text == "تفعيل الحظر" then  
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط·ط±ط¯" or text == "طھظپط¹ظٹظ„ ط§ظ„ط­ط¸ط±" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then
-database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '܁༯┆تم تفعيل » الحظر ~ والطرد ')
+redis:del(bot_id.."Ban:Cheking"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ آ» ط§ظ„ط­ط¸ط± ~ ظˆط§ظ„ط·ط±ط¯ ')
 return false
 end
 end
-if text == "تعطيل الرفع" or text == "تعطيل الترقيه" then  
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹" or text == "طھط¹ط·ظٹظ„ ط§ظ„طھط±ظ‚ظٹظ‡" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then
-database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل رفع » الادمن ~ المميز ')
+redis:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط±ظپط¹ آ» ط§ظ„ط§ط¯ظ…ظ† ~ ط§ظ„ظ…ظ…ظٹط² ')
 return false
 end
 end
-if text == "تفعيل الرفع" or text == "تفعيل الترقيه" then  
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط±ظپط¹" or text == "طھظپط¹ظٹظ„ ط§ظ„طھط±ظ‚ظٹظ‡" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then
-database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '܁༯┆تم تفعيل رفع » الادمن ~ المميز ')
+redis:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط±ظپط¹ آ» ط§ظ„ط§ط¯ظ…ظ† ~ ط§ظ„ظ…ظ…ظٹط² ')
 return false
 end
 end
-if text ==("تثبيت") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
+if text and text:match("^ظˆط¶ط¹ ظ„ظ‚ط¨ (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+local timsh = text:match("^ظˆط¶ط¹ ظ„ظ‚ط¨ (.*)$")
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ظ…ط´ط±ظپ ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\nـپà¼¯â”† ط§ظ„ط¹ط¶ظˆ آ» ['..data.first_name_..'](t.me/'..(data.username_ or 'Co')..') '
+status  = '\nـپà¼¯â”† ط§ظ„ط§ظٹط¯ظٹ آ» '..result.sender_user_id_..'\nـپà¼¯â”†طھظ… ط¶ط§ظپظ‡ {'..timsh..'} ظƒظ„ظ‚ط¨ ظ„ظ‡'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text == "ظپط­طµ ط§ظ„ط¨ظˆطھ" and Owner(msg) then
+local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
+local getInfo = JSON.decode(chek)
+if getInfo.ok == true then
+if getInfo.result.can_change_info == true then
+INf = 'ظ…ظپط¹ظ„ظ‡' 
+else 
+INf = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡' 
+end
+if getInfo.result.can_delete_messages == true then
+DEL = 'ظ…ظپط¹ظ„ظ‡' 
+else 
+DEL = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡' 
+end
+if getInfo.result.can_invite_users == true then
+INv = 'ظ…ظپط¹ظ„ظ‡' 
+else
+INv = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡' 
+end
+if getInfo.result.can_pin_messages == true then
+Pin = 'ظ…ظپط¹ظ„ظ‡' 
+else
+Pin = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡' 
+end
+if getInfo.result.can_restrict_members == true then
+REs = 'ظ…ظپط¹ظ„ظ‡' 
+else 
+REs = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡' 
+end
+if getInfo.result.can_promote_members == true then
+PRo = 'ظ…ظپط¹ظ„ظ‡'
+else
+PRo = 'ط؛ظٹط± ظ…ظپط¹ظ„ظ‡'
+end 
+send(msg.chat_id_, msg.id_,'\n ـپà¼¯â”†طµظ„ط§ط­ظٹط§طھ ط§ظ„ط¨ظˆطھ ظ‡ظٹ \nâ€” â€” â€” â€” â€” â€” â€” â€” â€”\nـپà¼¯â”†طھط؛ظٹط± ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„ظ…ط¬ظ…ظˆط¹ط© : '..INf..'\nـپà¼¯â”†ط­ط°ظپ ط§ظ„ط±ط³ط§ط¦ظ„ : '..DEL..'\nـپà¼¯â”†ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† : '..REs..'\nـپà¼¯â”†ط¯ط¹ظˆط© ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† : '..INv..'\nـپà¼¯â”†ط«طھط¨ظٹطھ ط§ظ„ط±ط³ط§ظ„ط© : '..Pin..'\nـپà¼¯â”†ط§ط¶ط§ظپط© ظ…ط´ط±ظپظٹظ† : '..PRo)   
+end
+end
+if text ==("طھط«ط¨ظٹطھ") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:sismember(bot_id.."korpica:Lock:pin",msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_,msg.id_,"܁༯┆التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
+if redis:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ„طھط«ط¨ظٹطھ ظˆط§ظ„ط؛ط§ط، ط§ظ„طھط«ط¨ظٹطھ طھظ… ظ‚ظپظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 return false  
 end
 tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100",""),message_id_ = msg.reply_to_message_id_,disable_notification_ = 1},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"܁༯┆تم تثبيت الرساله")   
-database:set(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_,msg.reply_to_message_id_)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط«ط¨ظٹطھ ط§ظ„ط±ط³ط§ظ„ظ‡")   
+redis:set(bot_id.."Pin:Id:Msg"..msg.chat_id_,msg.reply_to_message_id_)
 elseif data.code_ == 6 then
-send(msg.chat_id_,msg.id_,"܁༯┆انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ†ط§ ظ„ط³طھ ط§ط¯ظ…ظ† ظ‡ظ†ط§ ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ ط§ط¯ظ…ظ† ط«ظ… ط§ط¹ط¯ ط§ظ„ظ…ط­ط§ظˆظ„ظ‡")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"܁༯┆ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ظ„ظٹط³طھ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط§ظ„طھط«ط¨ظٹطھ ظٹط±ط¬ظ‰ ط§ظ„طھط­ظ‚ظ‚ ظ…ظ† ط§ظ„طµظ„ط§ط­ظٹط§طھ")  
 end
 end,nil) 
 end
-if text == "الغاء التثبيت" and Addictive(msg) then  
+if text == "ط§ظ„ط؛ط§ط، ط§ظ„طھط«ط¨ظٹطھ" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:sismember(bot_id.."korpica:Lock:pin",msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_,msg.id_,"܁༯┆التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
+if redis:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ„طھط«ط¨ظٹطھ ظˆط§ظ„ط؛ط§ط، ط§ظ„طھط«ط¨ظٹطھ طھظ… ظ‚ظپظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
 return false  
 end
 tdcli_function({ID="UnpinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء تثبيت الرساله")   
-database:del(bot_id.."korpica:Pin:Id:Msg"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھط«ط¨ظٹطھ ط§ظ„ط±ط³ط§ظ„ظ‡")   
+redis:del(bot_id.."Pin:Id:Msg"..msg.chat_id_)
 elseif data.code_ == 6 then
-send(msg.chat_id_,msg.id_,"܁༯┆انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ†ط§ ظ„ط³طھ ط§ط¯ظ…ظ† ظ‡ظ†ط§ ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ ط§ط¯ظ…ظ† ط«ظ… ط§ط¹ط¯ ط§ظ„ظ…ط­ط§ظˆظ„ظ‡")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"܁༯┆ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ظ„ظٹط³طھ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط§ظ„طھط«ط¨ظٹطھ ظٹط±ط¬ظ‰ ط§ظ„طھط­ظ‚ظ‚ ظ…ظ† ط§ظ„طµظ„ط§ط­ظٹط§طھ")  
 end
 end,nil)
 end
-
-if text and text:match("^وضع تكرار (%d+)$") and Addictive(msg) then   
-local Num = text:match("وضع تكرار (.*)")
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"floodmax" ,Num) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم وضع عدد التكرار ("..Num..")")  
-end 
-if text and text:match("^وضع زمن التكرار (%d+)$") and Addictive(msg) then   
-local Num = text:match("^وضع زمن التكرار (%d+)$")
-database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم وضع زمن التكرار ("..Num..")") 
-end
-if text == "ضع رابط" or text == "وضع رابط" then
+if text == 'ط§ظ„ط؛ط§ط، طھط«ط¨ظٹطھ ط§ظ„ظƒظ„' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+if redis:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ„طھط«ط¨ظٹطھ ظˆط§ظ„ط؛ط§ط، ط§ظ„طھط«ط¨ظٹطھ طھظ… ظ‚ظپظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†")  
+return false  
+end
+tdcli_function({ID="UnpinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
+if data.ID == "Ok" then
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھط«ط¨ظٹطھ ط§ظ„ظƒظ„")   
+https.request('https://api.telegram.org/bot'..token..'/unpinAllChatMessages?chat_id='..msg.chat_id_)
+redis:del(bot_id.."Pin:Id:Msg"..msg.chat_id_)
+elseif data.code_ == 6 then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ظ†ط§ ظ„ط³طھ ط§ط¯ظ…ظ† ظ‡ظ†ط§ ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ ط§ط¯ظ…ظ† ط«ظ… ط§ط¹ط¯ ط§ظ„ظ…ط­ط§ظˆظ„ظ‡")  
+elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ظ„ظٹط³طھ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط§ظ„طھط«ط¨ظٹطھ ظٹط±ط¬ظ‰ ط§ظ„طھط­ظ‚ظ‚ ظ…ظ† ط§ظ„طµظ„ط§ط­ظٹط§طھ")  
+end
+end,nil)
+end
+if text and text:match("^ظˆط¶ط¹ طھظƒط±ط§ط± (%d+)$") and Addictive(msg) then   
+local Num = text:match("ظˆط¶ط¹ طھظƒط±ط§ط± (.*)")
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"floodmax" ,Num) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظˆط¶ط¹ ط¹ط¯ط¯ ط§ظ„طھظƒط±ط§ط± ("..Num..")")  
+end 
+if text and text:match("^ظˆط¶ط¹ ط²ظ…ظ† ط§ظ„طھظƒط±ط§ط± (%d+)$") and Addictive(msg) then   
+local Num = text:match("^ظˆط¶ط¹ ط²ظ…ظ† ط§ظ„طھظƒط±ط§ط± (%d+)$")
+redis:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظˆط¶ط¹ ط²ظ…ظ† ط§ظ„طھظƒط±ط§ط± ("..Num..")") 
+end
+if text == "ط¶ط¹ ط±ط§ط¨ط·" or text == "ظˆط¶ط¹ ط±ط§ط¨ط·" then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
-send(msg.chat_id_,msg.id_,"܁༯┆ارسل رابط المجموعه او رابط قناة المجموعه")
-database:setex(bot_id.."korpica:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط±ط§ط¨ط· ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ط§ظˆ ط±ط§ط¨ط· ظ‚ظ†ط§ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")
+redis:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
 end
-if text == "تفعيل جلب الرابط" or text == 'تفعيل الرابط' then
+if text == "طھظپط¹ظٹظ„ ط¬ظ„ط¨ ط§ظ„ط±ط§ط¨ط·" or text == 'طھظپط¹ظٹظ„ ط§ظ„ط±ط§ط¨ط·' then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then  
-database:set(bot_id.."korpica:Link_Group"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل جلب الرابط المجموعه") 
+redis:set(bot_id.."Link_Group"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط¬ظ„ط¨ ط§ظ„ط±ط§ط¨ط· ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 return false  
 end
 end
-if text == "تعطيل جلب الرابط" or text == 'تعطيل الرابط' then
+if text == "طھط¹ط·ظٹظ„ ط¬ظ„ط¨ ط§ظ„ط±ط§ط¨ط·" or text == 'طھط¹ط·ظٹظ„ ط§ظ„ط±ط§ط¨ط·' then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then  
-database:del(bot_id.."korpica:Link_Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل جلب رابط المجموعه") 
+redis:del(bot_id.."Link_Group"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط¬ظ„ط¨ ط±ط§ط¨ط· ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 return false end
 end
-if text == "الرابط" then 
+if text == "ط§ظ„ط±ط§ط¨ط·" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local status_Link = database:get(bot_id.."korpica:Link_Group"..msg.chat_id_)
+local status_Link = redis:get(bot_id.."Link_Group"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"܁༯┆جلب الرابط معطل") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط¬ظ„ط¨ ط§ظ„ط±ط§ط¨ط· ظ…ط¹ط·ظ„") 
 return false  
 end
-local link = database:get(bot_id.."korpica:Private:Group:Link"..msg.chat_id_)            
+local link = redis:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,"܁༯┆رابط المجموعة ~\n ["..link.."]")                          
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†LinK GrOup : \n ["..link.."]")                          
 else                
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد رابط ارسل ضع رابط")              
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط±ط§ط¨ط· ط§ط±ط³ظ„ ط¶ط¹ ط±ط§ط¨ط·")              
 end            
 end
-if text == "مسح الرابط" or text == "حذف الرابط" then
+if text == "ظ…ط³ط­ ط§ظ„ط±ط§ط¨ط·" or text == "ط­ط°ظپ ط§ظ„ط±ط§ط¨ط·" then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then     
-send(msg.chat_id_,msg.id_,"܁༯┆تم مسح الرابط ")           
-database:del(bot_id.."korpica:Private:Group:Link"..msg.chat_id_) 
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ط§ظ„ط±ط§ط¨ط· ")           
+redis:del(bot_id.."Private:Group:Link"..msg.chat_id_) 
 return false      
 end
 return false  
 end
-if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+redis:sadd(bot_id.."allM"..msg.chat_id_, msg.id_)
+end
+if text == ("ط§ظ…ط³ط­") and cleaner(msg) then  
+local list = redis:smembers(bot_id.."allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "ـپà¼¯â”†طھظ… ظ…ط³ط­ "..k.." ظ…ظ† ط§ظ„ظˆط³ط§ط¦ط· ط§ظ„ظ…ظˆط¬ظˆط¯ظ‡"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+redis:del(bot_id.."allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظٹط¯ظٹط§ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("ط¹ط¯ط¯ ط§ظ„ظ…ظٹط¯ظٹط§") and cleaner(msg) then  
+local num = redis:smembers(bot_id.."allM"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ظٹط¯ظٹط§ ط§ظ„ظ…ظˆط¬ظˆط¯ ظ‡ظˆ "..k
+end
+end
+if #num == 0 then
+l = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظٹط¯ظٹط§ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡"
+end
+send(msg.chat_id_, msg.id_, l)
+end
+if text and text:match("^ط¶ط¹ طµظˆط±ظ‡") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^ظˆط¶ط¹ طµظˆط±ظ‡") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي الصوره") 
+redis:set(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طµظˆط±ظ‡") 
 return false
 end
-if text == "حذف الصوره" or text == "مسح الصوره" then 
+if text == "ط­ط°ظپ ط§ظ„طµظˆط±ظ‡" or text == "ظ…ط³ط­ ط§ظ„طµظˆط±ظ‡" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© طµظˆط±ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 end
 return false  
 end
-if text == "ضع وصف" or text == "وضع وصف" then  
+if text == "ط¶ط¹ ظˆطµظپ" or text == "ظˆط¶ط¹ ظˆطµظپ" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
-database:setex(bot_id.."korpica:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الان الوصف")
+redis:setex(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ† ط§ظ„ظˆطµظپ")
 end
 return false  
 end
-if text == "ضع ترحيب" or text == "وضع ترحيب" then  
+if text == "ط¶ط¹ طھط±ط­ظٹط¨" or text == "ظˆط¶ط¹ طھط±ط­ظٹط¨" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
-database:setex(bot_id.."korpica:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = "܁༯┆ارسل لي الترحيب الان"
-tt = "\n܁༯┆تستطيع اضافة مايلي !\n܁༯┆دالة عرض الاسم »{`name`}\n܁༯┆دالة عرض المعرف »{`user`}"
+redis:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
+t  = "ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طھط±ط­ظٹط¨ ط§ظ„ط§ظ†"
+tt = "\nـپà¼¯â”†طھط³طھط·ظٹط¹ ط§ط¶ط§ظپط© ظ…ط§ظٹظ„ظٹ !\nـپà¼¯â”†ط¯ط§ظ„ط© ط¹ط±ط¶ ط§ظ„ط§ط³ظ… آ»{`name`}\nـپà¼¯â”†ط¯ط§ظ„ط© ط¹ط±ط¶ ط§ظ„ظ…ط¹ط±ظپ آ»{`user`}"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
 end
-if text == "الترحيب" and Addictive(msg) then 
+if text == "ط§ظ„طھط±ط­ظٹط¨" and Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_)   then 
-Welcome = database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_)  
+if redis:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)   then 
+Welcome = redis:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "܁༯┆لم يتم تعيين ترحيب للمجموعه"
+Welcome = "ـپà¼¯â”†ظ„ظ… ظٹطھظ… طھط¹ظٹظٹظ† طھط±ط­ظٹط¨ ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  
 end
-if text == "تفعيل الترحيب" and Addictive(msg) then  
+if text == "طھظپط¹ظٹظ„ ط§ظ„طھط±ط­ظٹط¨" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Chek:Welcome"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل ترحيب المجموعه") 
+redis:set(bot_id.."Chek:Welcome"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ طھط±ط­ظٹط¨ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 return false  
 end
-if text == "تعطيل الترحيب" and Addictive(msg) then  
+if text == "طھط¹ط·ظٹظ„ ط§ظ„طھط±ط­ظٹط¨" and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Chek:Welcome"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل ترحيب المجموعه") 
+redis:del(bot_id.."Chek:Welcome"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ طھط±ط­ظٹط¨ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 return false  
 end
-if text == "مسح الترحيب" or text == "حذف الترحيب" then 
+if text == "ظ…ط³ط­ ط§ظ„طھط±ط­ظٹط¨" or text == "ط­ط°ظپ ط§ظ„طھط±ط­ظٹط¨" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
-database:del(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة ترحيب المجموعه") 
+redis:del(bot_id.."Get:Welcome:Group"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© طھط±ط­ظٹط¨ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 end
 return false  
 end
 
-if text == "مسح قائمه المنع" and Addictive(msg) then   
+if text == "ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظ†ط¹" and Addictive(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:List:Filter"..msg.chat_id_)  
+local list = redis:smembers(bot_id.."List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
-database:del(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."korpica:Add:Filter:Rp2"..v..msg.chat_id_)  
-database:srem(bot_id.."korpica:List:Filter"..msg.chat_id_,v)  
+redis:del(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+redis:del(bot_id.."Add:Filter:Rp2"..v..msg.chat_id_)  
+redis:srem(bot_id.."List:Filter"..msg.chat_id_,v)  
 end  
-send(msg.chat_id_, msg.id_,"܁༯┆تم مسح قائمه المنع")  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظ†ط¹")  
 end
 
-if text == "قائمه المنع" and Addictive(msg) then  
+if text == "ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظ†ط¹" and Addictive(msg) then  
  if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:List:Filter"..msg.chat_id_)  
-t = "\n܁༯┆قائمة المنع \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."List:Filter"..msg.chat_id_)  
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظ†ط¹ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do  
-local korpica_Msg = database:get(bot_id.."korpica:Add:Filter:Rp2"..v..msg.chat_id_)   
-t = t..""..k.."- "..v.." » {"..korpica_Msg.."}\n"    
+local Co_Msg = redis:get(bot_id.."Add:Filter:Rp2"..v..msg.chat_id_)   
+t = t..""..k.."- "..v.." آ» {"..Co_Msg.."}\n"    
 end  
 if #list == 0 then  
-t = "܁༯┆لا يوجد كلمات ممنوعه"  
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظƒظ„ظ…ط§طھ ظ…ظ…ظ†ظˆط¹ظ‡"  
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه لمنعها")  
-database:set(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
+if text and text == "ظ…ظ†ط¹" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ظ„ظ…ظ†ط¹ظ‡ط§")  
+redis:set(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
-local tsssst = database:get(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local tsssst = redis:get(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل التحذير عند ارسال الكلمه")  
-database:set(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
-database:set(bot_id.."korpica:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
-database:sadd(bot_id.."korpica:List:Filter"..msg.chat_id_,text)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„طھط­ط°ظٹط± ط¹ظ†ط¯ ط§ط±ط³ط§ظ„ ط§ظ„ظƒظ„ظ…ظ‡")  
+redis:set(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+redis:set(bot_id.."filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+redis:sadd(bot_id.."List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 if text then  
-local test = database:get(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = redis:get(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == "repp" then  
-send(msg.chat_id_, msg.id_,"܁༯┆تم منع الكلمه مع التحذير")  
-database:del(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."korpica:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ظ†ط¹ ط§ظ„ظƒظ„ظ…ظ‡ ظ…ط¹ ط§ظ„طھط­ط°ظٹط±")  
+redis:del(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = redis:get(bot_id.."filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
-database:set(bot_id.."korpica:Add:Filter:Rp2"..test..msg.chat_id_, text)  
+redis:set(bot_id.."Add:Filter:Rp2"..test..msg.chat_id_, text)  
 end  
-database:del(bot_id.."korpica:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+redis:del(bot_id.."filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 return false  end  
 end
 
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
+if text == "ط§ظ„ط؛ط§ط، ظ…ظ†ط¹" and msg.reply_to_message_id_ == 0 and Addictive(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه الان")  
-database:set(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„ط§ظ†")  
+redis:set(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
-local test = database:get(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = redis:get(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == "reppp" then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء منعها ")  
-database:del(bot_id.."korpica:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."korpica:Add:Filter:Rp2"..text..msg.chat_id_)  
-database:srem(bot_id.."korpica:List:Filter"..msg.chat_id_,text)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ظ…ظ†ط¹ظ‡ط§ ")  
+redis:del(bot_id.."Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+redis:del(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)  
+redis:srem(bot_id.."List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 
-if text == "مسح البوتات" and Addictive(msg) then 
+if text == "ظ…ط³ط­ ط§ظ„ط¨ظˆطھط§طھ" and Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4393,26 +4589,26 @@ end
 c = c + 1
 end     
 if (c - x) == 0 then
-send(msg.chat_id_, msg.id_, "܁༯┆لا توجد بوتات في المجموعه")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ط¨ظˆطھط§طھ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")
 else
-local t = "܁༯┆عدد البوتات هنا >> {"..c.."}\n܁༯┆عدد البوتات التي هي ادمن >> {"..x.."}\n܁༯┆تم طرد >> {"..(c - x).."} من البوتات"
+local t = "ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ط¨ظˆطھط§طھ ظ‡ظ†ط§ >> {"..c.."}\nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ط¨ظˆطھط§طھ ط§ظ„طھظٹ ظ‡ظٹ ط§ط¯ظ…ظ† >> {"..x.."}\nـپà¼¯â”†طھظ… ط·ط±ط¯ >> {"..(c - x).."} ظ…ظ† ط§ظ„ط¨ظˆطھط§طھ"
 send(msg.chat_id_, msg.id_,t) 
 end 
 end,nil)  
 end   
-if text == ("كشف البوتات") and Addictive(msg) then  
+if text == ("ظƒط´ظپ ط§ظ„ط¨ظˆطھط§طھ") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 local admins = result.members_  
-text = "\n܁༯┆قائمة البوتات الموجوده \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+text = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ط¨ظˆطھط§طھ ط§ظ„ظ…ظˆط¬ظˆط¯ظ‡ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 local n = 0
 local t = 0
 for i=0 , #admins do 
@@ -4423,16 +4619,16 @@ if result.members_[i].status_.ID == "ChatMemberStatusMember" then
 tr = ""
 elseif result.members_[i].status_.ID == "ChatMemberStatusEditor" then  
 t = t + 1
-tr = " {✯}"
+tr = " {âœ¯}"
 end
-text = text..">> [@"..ta.username_.."]"..tr.."\n"
+text = text..">> [@"..ta.username_.."]"..tr.."\n"
 if #admins == 0 then
-send(msg.chat_id_, msg.id_, "܁༯┆لا توجد بوتات في المجموعه")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ط¨ظˆطھط§طھ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")
 return false 
 end
 if #admins == i then 
-local a = "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n܁༯┆عدد البوتات التي هنا >> {"..n.."} بوت\n"
-local f = "܁༯┆عدد البوتات التي هي ادمن >> {"..t.."}\n܁༯┆ملاحضه علامة ال (✯) تعني ان البوت ادمن \n܁༯"
+local a = "\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ط¨ظˆطھط§طھ ط§ظ„طھظٹ ظ‡ظ†ط§ >> {"..n.."} ط¨ظˆطھ\n"
+local f = "ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ط¨ظˆطھط§طھ ط§ظ„طھظٹ ظ‡ظٹ ط§ط¯ظ…ظ† >> {"..t.."}\nـپà¼¯â”†ظ…ظ„ط§ط­ط¶ظ‡ ط¹ظ„ط§ظ…ط© ط§ظ„ (âœ¯) طھط¹ظ†ظٹ ط§ظ† ط§ظ„ط¨ظˆطھ ط§ط¯ظ…ظ† \nâŒ”"
 send(msg.chat_id_, msg.id_, text..a..f)
 end
 end,nil)
@@ -4440,79 +4636,79 @@ end
 end,nil)
 end
 
-if database:get(bot_id.."korpica:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" then 
-send(msg.chat_id_, msg.id_, "܁༯┆تم الغاء حفظ القوانين") 
-database:del(bot_id.."korpica:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+if redis:get(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if text == "ط§ظ„ط؛ط§ط،" then 
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ط§ظ„ظ‚ظˆط§ظ†ظٹظ†") 
+redis:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 return false  
 end 
-database:set(bot_id.."korpica:Set:Rules:Group" .. msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"܁༯┆تم حفظ قوانين المجموعه") 
-database:del(bot_id.."korpica:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
+redis:set(bot_id.."Set:Rules:Group" .. msg.chat_id_,text) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ ظ‚ظˆط§ظ†ظٹظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
+redis:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
 
-if text == "ضع قوانين" or text == "وضع قوانين" then 
+if text == "ط¶ط¹ ظ‚ظˆط§ظ†ظٹظ†" or text == "ظˆط¶ط¹ ظ‚ظˆط§ظ†ظٹظ†" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
-database:setex(bot_id.."korpica:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_,msg.id_,"܁༯┆ارسل لي القوانين الان")  
+redis:setex(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„ظ‚ظˆط§ظ†ظٹظ† ط§ظ„ط§ظ†")  
 end
 end
-if text == "مسح القوانين" or text == "حذف القوانين" then  
+if text == "ظ…ط³ط­ ط§ظ„ظ‚ظˆط§ظ†ظٹظ†" or text == "ط­ط°ظپ ط§ظ„ظ‚ظˆط§ظ†ظٹظ†" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Addictive(msg) then
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة قوانين المجموعه")  
-database:del(bot_id.."korpica:Set:Rules:Group"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© ظ‚ظˆط§ظ†ظٹظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+redis:del(bot_id.."Set:Rules:Group"..msg.chat_id_) 
 end
 end
-if text == "القوانين" then 
+if text == "ط§ظ„ظ‚ظˆط§ظ†ظٹظ†" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local Set_Rules = database:get(bot_id.."korpica:Set:Rules:Group" .. msg.chat_id_)   
+local Set_Rules = redis:get(bot_id.."Set:Rules:Group" .. msg.chat_id_)   
 if Set_Rules then     
 send(msg.chat_id_,msg.id_, Set_Rules)   
 else      
-send(msg.chat_id_, msg.id_,"܁༯┆لا توجد قوانين هنا")   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ظ‚ظˆط§ظ†ظٹظ† ظ‡ظ†ط§")   
 end    
 end
 
-if text == "الاوامر المضافه" and Constructor(msg) then
+if text == "ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_.."")
-t = "܁༯┆قائمه الاوامر المضافه  \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+local list = redis:smembers(bot_id.."List:Cmd:Group:New"..msg.chat_id_.."")
+t = "ـپà¼¯â”†ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡  \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-Cmds = database:get(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
+Cmds = redis:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
 if Cmds then 
 t = t..""..k.."- ("..v..") ~ {"..Cmds.."}\n"
 else
@@ -4520,78 +4716,198 @@ t = t..""..k.."- ("..v..") \n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا توجد اوامر اضافيه"
+t = "ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ط§ظˆط§ظ…ط± ط§ط¶ط§ظپظٹظ‡"
 end
 send(msg.chat_id_, msg.id_,"["..t.."]")
 end
-if text == "حذف الاوامر المضافه" or text == "مسح الاوامر المضافه" then
+if text == "ط­ط°ظپ ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡" or text == "ظ…ط³ط­ ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡" then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then 
-local list = database:smembers(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_)
+local list = redis:smembers(bot_id.."List:Cmd:Group:New"..msg.chat_id_)
 for k,v in pairs(list) do
-database:del(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
-database:del(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_)
+redis:del(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
+redis:del(bot_id.."List:Cmd:Group:New"..msg.chat_id_)
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تم مسح جميع الاوامر التي تم اضافتها")  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ط¬ظ…ظٹط¹ ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„طھظٹ طھظ… ط§ط¶ط§ظپطھظ‡ط§")  
 end
 end
-if text == "اضف امر" and Constructor(msg) then
+if text == "ط§ط¶ظپ ط§ظ…ط±" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id.."korpica:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
-send(msg.chat_id_, msg.id_,"܁༯┆الان ارسل لي الامر القديم ..")  
+redis:set(bot_id.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ظ† ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„ط§ظ…ط± ط§ظ„ظ‚ط¯ظٹظ… ..")  
 return false
 end
-if text == "حذف امر" or text == "مسح امر" then 
+if text == "ط­ط°ظپ ط§ظ…ط±" or text == "ظ…ط³ط­ ط§ظ…ط±" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if Constructor(msg) then
-database:set(bot_id.."korpica:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الامر الذي قم بوضعه بدلا عن القديم")  
+redis:set(bot_id.."Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ…ط± ط§ظ„ط°ظٹ ظ‚ظ… ط¨ظˆط¶ط¹ظ‡ ط¨ط¯ظ„ط§ ط¹ظ† ط§ظ„ظ‚ط¯ظٹظ…")  
 return false
 end
 end
-
-if text == "الصلاحيات" and Addictive(msg) then 
+if text == ("ط±ظپط¹ ظ…ظ†ط¸ظپ") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local list = database:smembers(bot_id.."korpica:Coomds"..msg.chat_id_)
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
+return false
+end
+function Function_Co(extra, result, success)
+redis:sadd(bot_id.."MN:TF"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط¸ظپ ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
+return false
+end
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط¸ظپ @(.*)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^ط±ظپط¹ ظ…ظ†ط¸ظپ @(.*)$")
+function Function_Co(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ… ظ‡ط§ط°ط§ ظ…ط¹ط±ظپ ظ‚ظ†ط§ط© ظٹط±ط¬ظ‰ ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط§ظ…ط± ط¨طµظˆط±ظ‡ طµط­ظٹط­ظ‡ !")   
+return false 
+end      
+redis:sadd(bot_id.."MN:TF"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط¸ظپ ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+else
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
+return false
+end
+if text and text:match("^ط±ظپط¹ ظ…ظ†ط¸ظپ (%d+)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^ط±ظپط¹ ظ…ظ†ط¸ظپ (%d+)$")
+if not Constructor(msg) and redis:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ ط±ظپط¹ ط§ط­ط¯ ظˆط°ط§ظ„ظƒ ظ„ط§ظ† طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†')
+return false
+end
+redis:sadd(bot_id.."MN:TF"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھط±ظ‚ظٹطھظ‡ ظ…ظ†ط¸ظپ ظ„ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+return false
+end
+if text == ("طھظ†ط²ظٹظ„ ظ…ظ†ط¸ظپ") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function Function_Co(extra, result, success)
+redis:srem(bot_id.."MN:TF"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ظ…ظ†ط¸ظپظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
+return false
+end
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط¸ظپ @(.*)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط¸ظپ @(.*)$") 
+function Function_Co(extra, result, success)
+if result.id_ then
+redis:srem(bot_id.."MN:TF"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ظ…ظ†ط¸ظپظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+else
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
+return false
+end
+if text and text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط¸ظپ (%d+)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^طھظ†ط²ظٹظ„ ظ…ظ†ط¸ظپ (%d+)$")
+redis:srem(bot_id.."MN:TF"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ظ…ظ†ط¸ظپظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
+return false
+end
+
+if text == "ط§ظ„طµظ„ط§ط­ظٹط§طھ" and Addictive(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = redis:smembers(bot_id.."Coomds"..msg.chat_id_)
 if #list == 0 then
-send(msg.chat_id_, msg.id_,"܁༯┆لا توجد صلاحيات مضافه")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ طµظ„ط§ط­ظٹط§طھ ظ…ط¶ط§ظپظ‡")
 return false
 end
-t = "\n܁༯┆قائمة الصلاحيات المضافه \n━━━━━━━━━━━━━\n"
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„طµظ„ط§ط­ظٹط§طھ ط§ظ„ظ…ط¶ط§ظپظ‡ \nâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پ\n"
 for k,v in pairs(list) do
-var = database:get(bot_id.."korpica:Comd:New:rt:bot:"..v..msg.chat_id_)
+var = redis:get(bot_id.."Comd:New:rt:bot:"..v..msg.chat_id_)
 if var then
 t = t..""..k.."- "..v.." ~ ("..var..")\n"
 else
@@ -4600,185 +4916,223 @@ end
 end
 send(msg.chat_id_, msg.id_,t)
 end
-if text == "مسح الصلاحيات" then
-local list = database:smembers(bot_id.."korpica:Coomds"..msg.chat_id_)
-for k,v in pairs(list) do
-database:del(bot_id.."korpica:Comd:New:rt:bot:"..v..msg.chat_id_)
-database:del(bot_id.."korpica:Coomds"..msg.chat_id_)
-end
-send(msg.chat_id_, msg.id_,"܁༯┆تم مسح الصلاحيات")
-end
-if text and text:match("^اضف صلاحيه (.*)$") and Addictive(msg) then 
+if text == "ظ…ط³ط­ ط§ظ„ظ…ظ†ط¸ظپظٹظ†" and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-ComdNew = text:match("^اضف صلاحيه (.*)$")
-database:set(bot_id.."korpica:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
-database:sadd(bot_id.."korpica:Coomds"..msg.chat_id_,ComdNew)  
-database:setex(bot_id.."korpica:Comd:New"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
-send(msg.chat_id_, msg.id_, "܁༯┆ارسل نوع الصلاحيه ܁༯\n܁༯┆(عضو ~ مميز  ~ ادمن  ~ مدير )") 
+redis:del(bot_id.."MN:TF"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "ًں—‘ï¸™ طھظ… ظ…ط³ط­  ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظ†ط¸ظپظٹظ†  ")
 end
-if text and text:match("^مسح صلاحيه (.*)$") and Addictive(msg) or text and text:match("^حذف صلاحيه (.*)$") and Addictive(msg) then 
+if text == ("ط§ظ„ظ…ظ†ط¸ظپظٹظ†") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-ComdNew = text:match("^مسح صلاحيه (.*)$") or text:match("^حذف صلاحيه (.*)$")
-database:del(bot_id.."korpica:Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "܁༯┆تم مسح الصلاحيه ") 
-end
-if database:get(bot_id.."korpica:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء الامر ") 
-database:del(bot_id.."korpica:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
-return false  
-end 
-if text == "مدير" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_"܁༯┆ارسل نوع الصلاحيه مره اخر\n܁༯┆تستطيع اضافة صلاحيه (عضو ~ مميز  ~ ادمن )") 
-return false
-end
-end
-if text == "ادمن" then
-if not Owner(msg) then 
-send(msg.chat_id_, msg.id_"܁༯┆ارسل نوع الصلاحيه مره اخر\n܁༯┆تستطيع اضافة صلاحيه ( عضو ~ مميز )") 
-return false
-end
-end
-if text == "مميز" then
-if not Addictive(msg) then
-send(msg.chat_id_, msg.id_"܁༯┆ارسل نوع الصلاحيه مره اخر\n܁༯┆تستطيع اضافة صلاحيه ( عضو )") 
-return false
-end
-end
-if text == "مدير" or text == "ادمن" or text == "مميز" or text == "عضو" then
-local textn = database:get(bot_id.."korpica:Comd:New:rt"..msg.chat_id_..msg.sender_user_id_)  
-database:set(bot_id.."korpica:Comd:New:rt:bot:"..textn..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_, "܁༯┆تم اضافة صلاحية ") 
-database:del(bot_id.."korpica:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
-return false  
-end 
-end
-
-if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد المطور (.*)$") 
-database:set(bot_id.."korpica:Sudo:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد المطور الى » "..Teext)
-end
-if text and text:match("^تغير رد المنشئ الاساسي (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد المنشئ الاساسي (.*)$") 
-database:set(bot_id.."korpica:BasicConstructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد المنشئ الاساسي الى » "..Teext)
-end
-if text and text:match("^تغير رد المنشئ (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد المنشئ (.*)$") 
-database:set(bot_id.."korpica:Constructor:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد المنشئ الى » "..Teext)
-end
-if text and text:match("^تغير رد المدير (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد المدير (.*)$") 
-database:set(bot_id.."korpica:Manager:Rd"..msg.chat_id_,Teext) 
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد المدير الى » "..Teext)
-end
-if text and text:match("^تغير رد الادمن (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد الادمن (.*)$") 
-database:set(bot_id.."korpica:Mod:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد الادمن الى » "..Teext)
-end
-if text and text:match("^تغير رد المميز (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد المميز (.*)$") 
-database:set(bot_id.."korpica:Special:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد المميز الى » "..Teext)
-end
-if text and text:match("^تغير رد العضو (.*)$") and Owner(msg) then
-local Teext = text:match("^تغير رد العضو (.*)$") 
-database:set(bot_id.."korpica:Memp:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_,"܁༯┆ تم تغير رد العضو الى » "..Teext)
-end
-
-
-if text == ("مسح ردود المدير") and BasicConstructor(msg) then
-local list = database:smembers(bot_id.."korpica:List:Manager"..msg.chat_id_.."")
+local list = redis:smembers(bot_id.."MN:TF"..msg.chat_id_)
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظ†ط¸ظپظٹظ† \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-database:del(bot_id.."korpica:Add:Rd:Manager:Gif"..v..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Vico"..v..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Stekrs"..v..msg.chat_id_)     
-database:del(bot_id.."korpica:Add:Rd:Manager:Text"..v..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Photo"..v..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Video"..v..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:File"..v..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Audio"..v..msg.chat_id_)
-database:del(bot_id.."korpica:List:Manager"..msg.chat_id_)
+local username = redis:get(bot_id.."User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تم مسح ردود المدير")
-end
-if text == ("ردود المدير") and Owner(msg) then
-local list = database:smembers(bot_id.."korpica:List:Manager"..msg.chat_id_.."")
-text = "܁༯┆قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-for k,v in pairs(list) do
-if database:get(bot_id.."korpica:Add:Rd:Manager:Gif"..v..msg.chat_id_) then
-db = "متحركه 🎭"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Vico"..v..msg.chat_id_) then
-db = "بصمه 📢"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Stekrs"..v..msg.chat_id_) then
-db = "ملصق ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Text"..v..msg.chat_id_) then
-db = "رساله ✉"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Photo"..v..msg.chat_id_) then
-db = "صوره ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Video"..v..msg.chat_id_) then
-db = "فيديو 📹"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:File"..v..msg.chat_id_) then
-db = "ملف ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Manager:Audio"..v..msg.chat_id_) then
-db = "اغنيه 🎵"
-end
-text = text..""..k..">> ("..v..") » {"..db.."}\n"
 end
 if #list == 0 then
-text = "܁༯┆لا يوجد ردود للمدير"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ظ†ط¸ظپظٹظ†"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == "ظ…ط³ط­ ط§ظ„طµظ„ط§ط­ظٹط§طھ" then
+local list = redis:smembers(bot_id.."Coomds"..msg.chat_id_)
+for k,v in pairs(list) do
+redis:del(bot_id.."Comd:New:rt:bot:"..v..msg.chat_id_)
+redis:del(bot_id.."Coomds"..msg.chat_id_)
+end
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ط§ظ„طµظ„ط§ط­ظٹط§طھ")
+end
+if text and text:match("^ط§ط¶ظپ طµظ„ط§ط­ظٹظ‡ (.*)$") and Addictive(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+ComdNew = text:match("^ط§ط¶ظپ طµظ„ط§ط­ظٹظ‡ (.*)$")
+redis:set(bot_id.."Comd:New:rt"..msg.chat_id_..msg.sender_user_id_,ComdNew)  
+redis:sadd(bot_id.."Coomds"..msg.chat_id_,ComdNew)  
+redis:setex(bot_id.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ط§ط±ط³ظ„ ظ†ظˆط¹ ط§ظ„طµظ„ط§ط­ظٹظ‡ âŒ”\nـپà¼¯â”†(ط¹ط¶ظˆ ~ ظ…ظ…ظٹط²  ~ ط§ط¯ظ…ظ†  ~ ظ…ط¯ظٹط± )") 
+end
+if text and text:match("^ظ…ط³ط­ طµظ„ط§ط­ظٹظ‡ (.*)$") and Addictive(msg) or text and text:match("^ط­ط°ظپ طµظ„ط§ط­ظٹظ‡ (.*)$") and Addictive(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+ComdNew = text:match("^ظ…ط³ط­ طµظ„ط§ط­ظٹظ‡ (.*)$") or text:match("^ط­ط°ظپ طµظ„ط§ط­ظٹظ‡ (.*)$")
+redis:del(bot_id.."Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ظ…ط³ط­ ط§ظ„طµظ„ط§ط­ظٹظ‡ ") 
+end
+if redis:get(bot_id.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
+if text and text:match("^ط§ظ„ط؛ط§ط،$") then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ظ…ط± ") 
+redis:del(bot_id.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
+if text == "ظ…ط¯ظٹط±" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_"ـپà¼¯â”†ط§ط±ط³ظ„ ظ†ظˆط¹ ط§ظ„طµظ„ط§ط­ظٹظ‡ ظ…ط±ظ‡ ط§ط®ط±\nـپà¼¯â”†طھط³طھط·ظٹط¹ ط§ط¶ط§ظپط© طµظ„ط§ط­ظٹظ‡ (ط¹ط¶ظˆ ~ ظ…ظ…ظٹط²  ~ ط§ط¯ظ…ظ† )") 
+return false
+end
+end
+if text == "ط§ط¯ظ…ظ†" then
+if not Owner(msg) then 
+send(msg.chat_id_, msg.id_"ـپà¼¯â”†ط§ط±ط³ظ„ ظ†ظˆط¹ ط§ظ„طµظ„ط§ط­ظٹظ‡ ظ…ط±ظ‡ ط§ط®ط±\nـپà¼¯â”†طھط³طھط·ظٹط¹ ط§ط¶ط§ظپط© طµظ„ط§ط­ظٹظ‡ ( ط¹ط¶ظˆ ~ ظ…ظ…ظٹط² )") 
+return false
+end
+end
+if text == "ظ…ظ…ظٹط²" then
+if not Addictive(msg) then
+send(msg.chat_id_, msg.id_"ـپà¼¯â”†ط§ط±ط³ظ„ ظ†ظˆط¹ ط§ظ„طµظ„ط§ط­ظٹظ‡ ظ…ط±ظ‡ ط§ط®ط±\nـپà¼¯â”†طھط³طھط·ظٹط¹ ط§ط¶ط§ظپط© طµظ„ط§ط­ظٹظ‡ ( ط¹ط¶ظˆ )") 
+return false
+end
+end
+if text == "ظ…ط¯ظٹط±" or text == "ط§ط¯ظ…ظ†" or text == "ظ…ظ…ظٹط²" or text == "ط¹ط¶ظˆ" then
+local textn = redis:get(bot_id.."Comd:New:rt"..msg.chat_id_..msg.sender_user_id_)  
+redis:set(bot_id.."Comd:New:rt:bot:"..textn..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© طµظ„ط§ط­ظٹط© ") 
+redis:del(bot_id.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
+return false  
+end 
+end
+
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط·ظˆط± (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط·ظˆط± (.*)$") 
+redis:set(bot_id.."Sudo:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط·ظˆط± ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ ط§ظ„ط§ط³ط§ط³ظٹ (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ ط§ظ„ط§ط³ط§ط³ظٹ (.*)$") 
+redis:set(bot_id.."BasicConstructor:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ ط§ظ„ط§ط³ط§ط³ظٹ ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ (.*)$") 
+redis:set(bot_id.."Constructor:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ†ط´ط¦ ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط¯ظٹط± (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط¯ظٹط± (.*)$") 
+redis:set(bot_id.."Manager:Rd"..msg.chat_id_,Teext) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ط¯ظٹط± ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ط§ط¯ظ…ظ† (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ط§ط¯ظ…ظ† (.*)$") 
+redis:set(bot_id.."Mod:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ط§ط¯ظ…ظ† ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ…ظٹط² (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ…ظٹط² (.*)$") 
+redis:set(bot_id.."Special:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ظ…ظ…ظٹط² ط§ظ„ظ‰ آ» "..Teext)
+end
+if text and text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ط¹ط¶ظˆ (.*)$") and Owner(msg) then
+local Teext = text:match("^طھط؛ظٹط± ط±ط¯ ط§ظ„ط¹ط¶ظˆ (.*)$") 
+redis:set(bot_id.."Memp:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹط± ط±ط¯ ط§ظ„ط¹ط¶ظˆ ط§ظ„ظ‰ آ» "..Teext)
+end
+
+
+if text == ("ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±") and BasicConstructor(msg) then
+local list = redis:smembers(bot_id.."List:Manager"..msg.chat_id_.."")
+for k,v in pairs(list) do
+redis:del(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Vico"..v..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Stekrs"..v..msg.chat_id_)     
+redis:del(bot_id.."Add:Rd:Manager:Text"..v..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Photo"..v..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Video"..v..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:File"..v..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Audio"..v..msg.chat_id_)
+redis:del(bot_id.."List:Manager"..msg.chat_id_)
+end
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±")
+end
+if text == ("ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±") and Owner(msg) then
+local list = redis:smembers(bot_id.."List:Manager"..msg.chat_id_.."")
+text = "ـپà¼¯â”†ظ‚ط§ط¦ظ…ظ‡ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط± \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰\n"
+for k,v in pairs(list) do
+if redis:get(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_) then
+db = "ظ…طھط­ط±ظƒظ‡ ًںژ­"
+elseif redis:get(bot_id.."Add:Rd:Manager:Vico"..v..msg.chat_id_) then
+db = "ط¨طµظ…ظ‡ ًں“¢"
+elseif redis:get(bot_id.."Add:Rd:Manager:Stekrs"..v..msg.chat_id_) then
+db = "ظ…ظ„طµظ‚ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Manager:Text"..v..msg.chat_id_) then
+db = "ط±ط³ط§ظ„ظ‡ âœ‰"
+elseif redis:get(bot_id.."Add:Rd:Manager:Photo"..v..msg.chat_id_) then
+db = "طµظˆط±ظ‡ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Manager:Video"..v..msg.chat_id_) then
+db = "ظپظٹط¯ظٹظˆ ًں“¹"
+elseif redis:get(bot_id.."Add:Rd:Manager:File"..v..msg.chat_id_) then
+db = "ظ…ظ„ظپ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Manager:Audio"..v..msg.chat_id_) then
+db = "ط§ط؛ظ†ظٹظ‡ ًںژµ"
+end
+text = text..""..k..">> ("..v..") آ» {"..db.."}\n"
+end
+if #list == 0 then
+text = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط±ط¯ظˆط¯ ظ„ظ„ظ…ط¯ظٹط±"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ or msg.content_.audio_ or msg.content_.document_ or msg.content_.photo_ or msg.content_.video_ then  
-local test = database:get(bot_id.."korpica:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_.."")
-if database:get(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:del(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+local test = redis:get(bot_id.."Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_.."")
+if redis:get(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+redis:del(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
 if msg.content_.sticker_ then   
-database:set(bot_id.."korpica:Add:Rd:Manager:Stekrs"..test..msg.chat_id_, msg.content_.sticker_.sticker_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:Stekrs"..test..msg.chat_id_, msg.content_.sticker_.sticker_.persistent_id_)  
 end   
 if msg.content_.voice_ then  
-database:set(bot_id.."korpica:Add:Rd:Manager:Vico"..test..msg.chat_id_, msg.content_.voice_.voice_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:Vico"..test..msg.chat_id_, msg.content_.voice_.voice_.persistent_id_)  
 end   
 if msg.content_.animation_ then   
-database:set(bot_id.."korpica:Add:Rd:Manager:Gif"..test..msg.chat_id_, msg.content_.animation_.animation_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:Gif"..test..msg.chat_id_, msg.content_.animation_.animation_.persistent_id_)  
 end  
 if text then   
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-database:set(bot_id.."korpica:Add:Rd:Manager:Text"..test..msg.chat_id_, text)  
+redis:set(bot_id.."Add:Rd:Manager:Text"..test..msg.chat_id_, text)  
 end  
 if msg.content_.audio_ then
-database:set(bot_id.."korpica:Add:Rd:Manager:Audio"..test..msg.chat_id_, msg.content_.audio_.audio_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:Audio"..test..msg.chat_id_, msg.content_.audio_.audio_.persistent_id_)  
 end
 if msg.content_.document_ then
-database:set(bot_id.."korpica:Add:Rd:Manager:File"..test..msg.chat_id_, msg.content_.document_.document_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:File"..test..msg.chat_id_, msg.content_.document_.document_.persistent_id_)  
 end
 if msg.content_.video_ then
-database:set(bot_id.."korpica:Add:Rd:Manager:Video"..test..msg.chat_id_, msg.content_.video_.video_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Manager:Video"..test..msg.chat_id_, msg.content_.video_.video_.persistent_id_)  
 end
 if msg.content_.photo_ then
 if msg.content_.photo_.sizes_[0] then
@@ -4793,200 +5147,200 @@ end
 if msg.content_.photo_.sizes_[3] then
 photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
-database:set(bot_id.."korpica:Add:Rd:Manager:Photo"..test..msg.chat_id_, photo_in_group)  
+redis:set(bot_id.."Add:Rd:Manager:Photo"..test..msg.chat_id_, photo_in_group)  
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تم حفظ الرد بنجاح")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ ط§ظ„ط±ط¯ ط¨ظ†ط¬ط§ط­")
 return false  
 end  
 end
-if text == "اضف رد" and Owner(msg) then
+if text == "ط§ط¶ظپ ط±ط¯" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التي تريد اضافتها")
-database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„طھظٹ طھط±ظٹط¯ ط§ط¶ط§ظپطھظ‡ط§")
+redis:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد" and Owner(msg) then
+if text == "ط­ط°ظپ ط±ط¯" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل الكلمه التي تريد حذفها")
-database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„طھظٹ طھط±ظٹط¯ ط­ط°ظپظ‡ط§")
+redis:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '܁༯┆الان ارسل الرد الذي تريد اضافته \n܁༯┆ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n܁༯┆ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
-database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
-database:set(bot_id.."korpica:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:del(bot_id.."korpica:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."korpica:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:sadd(bot_id.."korpica:List:Manager"..msg.chat_id_.."", text)
+if redis:get(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط§ظ„ط§ظ† ط§ط±ط³ظ„ ط§ظ„ط±ط¯ ط§ظ„ط°ظٹ طھط±ظٹط¯ ط§ط¶ط§ظپطھظ‡ \nـپà¼¯â”† ظ‚ط¯ ظٹظƒظˆظ† (ظ…ظ„ظپ - ظپط¯ظٹظˆ - ظ†طµ - ظ…ظ„طµظ‚ - ط¨طµظ…ظ‡ - ظ…طھط­ط±ظƒظ‡ )\nـپà¼¯â”† ظٹظ…ظƒظ†ظƒ ط§ط¶ط§ظپظ‡ ط§ظ„ظ‰ ط§ظ„ظ†طµ :\n- `#username` > ط§ط³ظ… ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#msgs` > ط¹ط¯ط¯ ط±ط³ط§ط¦ظ„ ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#name` > ط§ط³ظ… ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#id` > ط§ظٹط¯ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#stast` > ظ…ظˆظ‚ط¹ ط§ظ„ظ…ط³طھط®ط¯ظ… \n- `#edit` > ط¹ط¯ط¯ ط§ظ„ط³ط­ظƒط§طھ ')
+redis:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
+redis:set(bot_id.."Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
+redis:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+redis:del(bot_id.."Add:Rd:Manager:Text"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
+redis:sadd(bot_id.."List:Manager"..msg.chat_id_.."", text)
 return false end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_.."") == "true2" then
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة الرد من قائمه الردود")
-database:del(bot_id.."korpica:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."korpica:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."korpica:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:del(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
-database:srem(bot_id.."korpica:List:Manager"..msg.chat_id_.."", text)
+if redis:get(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_.."") == "true2" then
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© ط§ظ„ط±ط¯ ظ…ظ† ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط±ط¯ظˆط¯")
+redis:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+redis:del(bot_id.."Add:Rd:Manager:Text"..text..msg.chat_id_)   
+redis:del(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
+redis:del(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
+redis:del(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:srem(bot_id.."List:Manager"..msg.chat_id_.."", text)
 return false
 end
 end
-if text and not database:get(bot_id.."korpica:Reply:Manager"..msg.chat_id_) then
-if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
-local anemi = database:get(bot_id.."korpica:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-local veico = database:get(bot_id.."korpica:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-local stekr = database:get(bot_id.."korpica:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-local Text = database:get(bot_id.."korpica:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-local photo = database:get(bot_id.."korpica:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-local video = database:get(bot_id.."korpica:Add:Rd:Manager:Video"..text..msg.chat_id_)
-local document = database:get(bot_id.."korpica:Add:Rd:Manager:File"..text..msg.chat_id_)
-local audio = database:get(bot_id.."korpica:Add:Rd:Manager:Audio"..text..msg.chat_id_)
+if text and not redis:get(bot_id.."Reply:Manager"..msg.chat_id_) then
+if not redis:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
+local anemi = redis:get(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+local veico = redis:get(bot_id.."Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+local stekr = redis:get(bot_id.."Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+local Text = redis:get(bot_id.."Add:Rd:Manager:Text"..text..msg.chat_id_)   
+local photo = redis:get(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
+local video = redis:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
+local document = redis:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
+local audio = redis:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
 if Text then 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
-local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local NumMsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
+local message_edit = redis:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = Text:gsub('#username',(data.username_ or 'ظ„ط§ ظٹظˆط¬ط¯')) 
 local Text = Text:gsub('#name',data.first_name_)
 local Text = Text:gsub('#id',msg.sender_user_id_)
 local Text = Text:gsub('#edit',message_edit)
 local Text = Text:gsub('#msgs',NumMsg)
 local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_, Text)
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)   
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
 ------------------------------------------------------------------------
-if text == ("مسح ردود المطور") and Devkorpica(msg) then 
-local list = database:smembers(bot_id.."korpica:List:Rd:Sudo")
+if text == ("ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±") and DevCo(msg) then 
+local list = redis:smembers(bot_id.."List:Rd:Sudo")
 for k,v in pairs(list) do
-database:del(bot_id.."korpica:Add:Rd:Sudo:Gif"..v)   
-database:del(bot_id.."korpica:Add:Rd:Sudo:vico"..v)   
-database:del(bot_id.."korpica:Add:Rd:Sudo:stekr"..v)     
-database:del(bot_id.."korpica:Add:Rd:Sudo:Text"..v)   
-database:del(bot_id.."korpica:Add:Rd:Sudo:Photo"..v)
-database:del(bot_id.."korpica:Add:Rd:Sudo:Video"..v)
-database:del(bot_id.."korpica:Add:Rd:Sudo:File"..v)
-database:del(bot_id.."korpica:Add:Rd:Sudo:Audio"..v)
-database:del(bot_id.."korpica:List:Rd:Sudo")
+redis:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
+redis:del(bot_id.."Add:Rd:Sudo:vico"..v)   
+redis:del(bot_id.."Add:Rd:Sudo:stekr"..v)     
+redis:del(bot_id.."Add:Rd:Sudo:Text"..v)   
+redis:del(bot_id.."Add:Rd:Sudo:Photo"..v)
+redis:del(bot_id.."Add:Rd:Sudo:Video"..v)
+redis:del(bot_id.."Add:Rd:Sudo:File"..v)
+redis:del(bot_id.."Add:Rd:Sudo:Audio"..v)
+redis:del(bot_id.."List:Rd:Sudo")
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تم مسح ردود المطور")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±")
 end
-if text == ("ردود المطور") and Devkorpica(msg) then 
-local list = database:smembers(bot_id.."korpica:List:Rd:Sudo")
-text = "\n܁༯┆قائمة ردود المطور \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+if text == ("ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±") and DevCo(msg) then 
+local list = redis:smembers(bot_id.."List:Rd:Sudo")
+text = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط± \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰\n"
 for k,v in pairs(list) do
-if database:get(bot_id.."korpica:Add:Rd:Sudo:Gif"..v) then
-db = "متحركه 🎭"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:vico"..v) then
-db = "بصمه 📢"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:stekr"..v) then
-db = "ملصق ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:Text"..v) then
-db = "رساله ✉"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:Photo"..v) then
-db = "صوره ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:Video"..v) then
-db = "فيديو 📹"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:File"..v) then
-db = "ملف ܁༯"
-elseif database:get(bot_id.."korpica:Add:Rd:Sudo:Audio"..v) then
-db = "اغنيه 🎵"
+if redis:get(bot_id.."Add:Rd:Sudo:Gif"..v) then
+db = "ظ…طھط­ط±ظƒظ‡ ًںژ­"
+elseif redis:get(bot_id.."Add:Rd:Sudo:vico"..v) then
+db = "ط¨طµظ…ظ‡ ًں“¢"
+elseif redis:get(bot_id.."Add:Rd:Sudo:stekr"..v) then
+db = "ظ…ظ„طµظ‚ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Sudo:Text"..v) then
+db = "ط±ط³ط§ظ„ظ‡ âœ‰"
+elseif redis:get(bot_id.."Add:Rd:Sudo:Photo"..v) then
+db = "طµظˆط±ظ‡ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Sudo:Video"..v) then
+db = "ظپظٹط¯ظٹظˆ ًں“¹"
+elseif redis:get(bot_id.."Add:Rd:Sudo:File"..v) then
+db = "ظ…ظ„ظپ âŒ”"
+elseif redis:get(bot_id.."Add:Rd:Sudo:Audio"..v) then
+db = "ط§ط؛ظ†ظٹظ‡ ًںژµ"
 end
-text = text..""..k.." >> ("..v..") » {"..db.."}\n"
+text = text..""..k.." >> ("..v..") آ» {"..db.."}\n"
 end
 if #list == 0 then
-text = "܁༯┆لا يوجد ردود للمطور"
+text = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط±ط¯ظˆط¯ ظ„ظ„ظ…ط·ظˆط±"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
 if text or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ or msg.content_.audio_ or msg.content_.document_ or msg.content_.photo_ or msg.content_.video_ then  
-local test = database:get(bot_id.."korpica:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:del(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_)
+local test = redis:get(bot_id.."Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if redis:get(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+redis:del(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_)
 if msg.content_.sticker_ then   
-database:set(bot_id.."korpica:Add:Rd:Sudo:stekr"..test, msg.content_.sticker_.sticker_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:stekr"..test, msg.content_.sticker_.sticker_.persistent_id_)  
 end   
 if msg.content_.voice_ then  
-database:set(bot_id.."korpica:Add:Rd:Sudo:vico"..test, msg.content_.voice_.voice_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:vico"..test, msg.content_.voice_.voice_.persistent_id_)  
 end   
 if msg.content_.animation_ then   
-database:set(bot_id.."korpica:Add:Rd:Sudo:Gif"..test, msg.content_.animation_.animation_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:Gif"..test, msg.content_.animation_.animation_.persistent_id_)  
 end  
 if text then   
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-database:set(bot_id.."korpica:Add:Rd:Sudo:Text"..test, text)  
+redis:set(bot_id.."Add:Rd:Sudo:Text"..test, text)  
 end  
 if msg.content_.audio_ then
-database:set(bot_id.."korpica:Add:Rd:Sudo:Audio"..test, msg.content_.audio_.audio_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:Audio"..test, msg.content_.audio_.audio_.persistent_id_)  
 end
 if msg.content_.document_ then
-database:set(bot_id.."korpica:Add:Rd:Sudo:File"..test, msg.content_.document_.document_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:File"..test, msg.content_.document_.document_.persistent_id_)  
 end
 if msg.content_.video_ then
-database:set(bot_id.."korpica:Add:Rd:Sudo:Video"..test, msg.content_.video_.video_.persistent_id_)  
+redis:set(bot_id.."Add:Rd:Sudo:Video"..test, msg.content_.video_.video_.persistent_id_)  
 end
 if msg.content_.photo_ then
 if msg.content_.photo_.sizes_[0] then
@@ -5001,108 +5355,108 @@ end
 if msg.content_.photo_.sizes_[3] then
 photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
-database:set(bot_id.."korpica:Add:Rd:Sudo:Photo"..test, photo_in_group)  
+redis:set(bot_id.."Add:Rd:Sudo:Photo"..test, photo_in_group)  
 end
-send(msg.chat_id_, msg.id_,"܁༯┆تم حفظ الرد بنجاح")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط­ظپط¸ ط§ظ„ط±ط¯ ط¨ظ†ط¬ط§ط­")
 return false  
 end  
 end
 
-if text == "اضف رد للكل" and Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆ ارسل الكلمه التري تريد اضافتها")
-database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+if text == "ط§ط¶ظپ ط±ط¯ ظ„ظ„ظƒظ„" and DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„طھط±ظٹ طھط±ظٹط¯ ط§ط¶ط§ظپطھظ‡ط§")
+redis:set(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد للكل" and Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆ ارسل الكلمه التري تريد حذفها")
-database:set(bot_id.."korpica:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
+if text == "ط­ط°ظپ ط±ط¯ ظ„ظ„ظƒظ„" and DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„طھط±ظٹ طھط±ظٹط¯ ط­ط°ظپظ‡ط§")
+redis:set(bot_id.."Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '܁༯┆الان ارسل الرد الذي تريد اضافته \n܁༯┆ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n܁༯┆ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
-database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
-database:set(bot_id.."korpica:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:sadd(bot_id.."korpica:List:Rd:Sudo", text)
+if redis:get(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط§ظ„ط§ظ† ط§ط±ط³ظ„ ط§ظ„ط±ط¯ ط§ظ„ط°ظٹ طھط±ظٹط¯ ط§ط¶ط§ظپطھظ‡ \nـپà¼¯â”† ظ‚ط¯ ظٹظƒظˆظ† (ظ…ظ„ظپ - ظپط¯ظٹظˆ - ظ†طµ - ظ…ظ„طµظ‚ - ط¨طµظ…ظ‡ - ظ…طھط­ط±ظƒظ‡ )\nـپà¼¯â”† ظٹظ…ظƒظ†ظƒ ط§ط¶ط§ظپظ‡ ط§ظ„ظ‰ ط§ظ„ظ†طµ :\n- `#username` > ط§ط³ظ… ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#msgs` > ط¹ط¯ط¯ ط±ط³ط§ط¦ظ„ ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#name` > ط§ط³ظ… ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#id` > ط§ظٹط¯ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ…\n- `#stast` > ظ…ظˆظ‚ط¹ ط§ظ„ظ…ط³طھط®ط¯ظ… \n- `#edit` > ط¹ط¯ط¯ ط§ظ„ط³ط­ظƒط§طھ ')
+redis:set(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
+redis:set(bot_id.."Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
+redis:sadd(bot_id.."List:Rd:Sudo", text)
 return false end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."korpica:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة الرد من قائمه ردود المطور")
+if redis:get(bot_id.."Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© ط§ظ„ط±ط¯ ظ…ظ† ظ‚ط§ط¦ظ…ظ‡ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±")
 list = {"Add:Rd:Sudo:Audio","Add:Rd:Sudo:File","Add:Rd:Sudo:Video","Add:Rd:Sudo:Photo","Add:Rd:Sudo:Text","Add:Rd:Sudo:stekr","Add:Rd:Sudo:vico","Add:Rd:Sudo:Gif"}
 for k,v in pairs(list) do
-database:del(bot_id..'korpica:'..v..text)
+redis:del(bot_id..''..v..text)
 end
-database:del(bot_id.."korpica:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
-database:srem(bot_id.."korpica:List:Rd:Sudo", text)
+redis:del(bot_id.."Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:srem(bot_id.."List:Rd:Sudo", text)
 return false
 end
 end
 
-if text and not database:get(bot_id.."korpica:Reply:Sudo"..msg.chat_id_) then
-if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
-local anemi = database:get(bot_id.."korpica:Add:Rd:Sudo:Gif"..text)   
-local veico = database:get(bot_id.."korpica:Add:Rd:Sudo:vico"..text)   
-local stekr = database:get(bot_id.."korpica:Add:Rd:Sudo:stekr"..text)     
-local Text = database:get(bot_id.."korpica:Add:Rd:Sudo:Text"..text)   
-local photo = database:get(bot_id.."korpica:Add:Rd:Sudo:Photo"..text)
-local video = database:get(bot_id.."korpica:Add:Rd:Sudo:Video"..text)
-local document = database:get(bot_id.."korpica:Add:Rd:Sudo:File"..text)
-local audio = database:get(bot_id.."korpica:Add:Rd:Sudo:Audio"..text)
+if text and not redis:get(bot_id.."Reply:Sudo"..msg.chat_id_) then
+if not redis:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
+local anemi = redis:get(bot_id.."Add:Rd:Sudo:Gif"..text)   
+local veico = redis:get(bot_id.."Add:Rd:Sudo:vico"..text)   
+local stekr = redis:get(bot_id.."Add:Rd:Sudo:stekr"..text)     
+local Text = redis:get(bot_id.."Add:Rd:Sudo:Text"..text)   
+local photo = redis:get(bot_id.."Add:Rd:Sudo:Photo"..text)
+local video = redis:get(bot_id.."Add:Rd:Sudo:Video"..text)
+local document = redis:get(bot_id.."Add:Rd:Sudo:File"..text)
+local audio = redis:get(bot_id.."Add:Rd:Sudo:Audio"..text)
 
 if Text then 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
-local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local NumMsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
+local message_edit = redis:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = Text:gsub('#username',(data.username_ or 'ظ„ط§ ظٹظˆط¬ط¯')) 
 local Text = Text:gsub('#name',data.first_name_)
 local Text = Text:gsub('#id',msg.sender_user_id_)
 local Text = Text:gsub('#edit',message_edit)
 local Text = Text:gsub('#msgs',NumMsg)
 local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_,Text)
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr) 
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)     
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,"")
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
-if text == 'طرد المحذوفين' or text == 'مسح المحذوفين' then  
+if text == 'ط·ط±ط¯ ط§ظ„ظ…ط­ط°ظˆظپظٹظ†' or text == 'ظ…ط³ط­ ط§ظ„ظ…ط­ط°ظˆظپظٹظ†' then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5115,435 +5469,437 @@ Kick_Group(msg.chat_id_, data.id_)
 end
 end,nil)
 end
-send(msg.chat_id_, msg.id_,'܁༯┆تم طرد الحسابات المحذوفه')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… ط·ط±ط¯ ط§ظ„ط­ط³ط§ط¨ط§طھ ط§ظ„ظ…ط­ط°ظˆظپظ‡')
 end,nil)
 end
 end
 
-if text == "تفعيل ردود المدير" and Owner(msg) then   
-database:del(bot_id.."korpica:Reply:Manager"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل ردود المدير") 
+if text == "طھظپط¹ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±" and Owner(msg) then   
+redis:del(bot_id.."Reply:Manager"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±") 
 end
-if text == "تعطيل ردود المدير" and Owner(msg) then  
-database:set(bot_id.."korpica:Reply:Manager"..msg.chat_id_,true)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل ردود المدير" ) 
+if text == "طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±" and Owner(msg) then  
+redis:set(bot_id.."Reply:Manager"..msg.chat_id_,true)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±" ) 
 end
-if text == "تفعيل ردود المطور" and Owner(msg) then   
-database:del(bot_id.."korpica:Reply:Sudo"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل ردود المطور" ) 
+if text == "طھظپط¹ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±" and Owner(msg) then   
+redis:del(bot_id.."Reply:Sudo"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±" ) 
 end
-if text == "تعطيل ردود المطور" and Owner(msg) then  
+if text == "طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±" and Owner(msg) then  
+redis:set(bot_id.."Reply:Sudo"..msg.chat_id_,true)   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±" ) 
+end
 
-database:set(bot_id.."korpica:Reply:Sudo"..msg.chat_id_,true)   
-send(msg.chat_id_, msg.id_,"܁༯┆تم تعطيل ردود المطور" ) 
-end
 
-if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
+if text == ("طھظ†ط²ظٹظ„ ط§ظ„ظƒظ„") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-if tonumber(SUDO) == tonumber(result.sender_user_id_) then
-send(msg.chat_id_, msg.id_,"܁༯┆ لا تستطيع تنزيل المطور الاساسي")
+function Function_Co(extra, result, success)
+if tonumber(Id_Sudo) == tonumber(result.sender_user_id_) then
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ظ„ط§ طھط³طھط·ظٹط¹ طھظ†ط²ظٹظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false 
 end
-if database:sismember(bot_id.."korpica:Sudo:User",result.sender_user_id_) then
-dev = "܁༯┆مطور" else dev = "" end
-if database:sismember(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.sender_user_id_) then
-crr = "܁༯┆منشئ اساسي" else crr = "" end
-if database:sismember(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_) then
-cr = "܁༯┆منشئ" else cr = "" end
-if database:sismember(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_) then
-own = "܁༯┆مدير" else own = "" end
-if database:sismember(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_) then
-mod = "܁༯┆ادمن" else mod = "" end
-if database:sismember(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_) then
-vip = "܁༯┆مميز" else vip = ""
+if redis:sismember(bot_id.."Sudo:User",result.sender_user_id_) then
+dev = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط·ظˆط±ظٹظ†"
+else 
+dev = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ظ…ط·ظˆط±" 
+end
+if redis:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_) then
+crr = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ ظ…ظ† ط§ظ„ط§ط³ط§ط³ظٹظٹظ†" 
+else 
+crr = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ" 
+end
+if redis:sismember(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_) then
+cr = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ظ†ط´ط¦ظٹظ†" 
+else 
+cr = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ظ…ظ†ط´ط¦" 
+end
+if redis:sismember(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_) then
+own = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ظ…ط¯ط±ط§ط،" 
+else 
+own = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ظ…ط¯ظٹط±" 
+end
+if redis:sismember(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_) then
+mod = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ظ‡ ظ…ظ† ط§ظ„ط§ط¯ظ…ظٹظ‡"
+ else 
+mod = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ط§ط¯ظ…ظ†" 
+end
+if redis:sismember(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_) then
+vip = "ـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ ظ…ظ† ط§ظ„ظ…ظ…ظٹط²ظٹظ†"
+else
+vip = "ـپà¼¯â”†ظ‡ظˆ ظ„ظٹط³ ظ…ظ…ظٹط²"
 end
 if Rank_Checking(result.sender_user_id_,msg.chat_id_) ~= false then
-send(msg.chat_id_, msg.id_,"܁༯┆تم تنزيل الشخص من الرتب التاليه\n"..dev.."\n"..crr.."\n"..cr.."\n"..own.."\n"..mod.."\n"..vip.."\n")
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھظ†ط²ظٹظ„ ط§ظ„ط´ط®طµ ظ…ظ† ط¬ظ…ظٹط¹ ط§ظ„ط±طھط¨")
 else
-send(msg.chat_id_, msg.id_,"\n܁༯┆ليس لديه رتب حتى استطيع تنزيله \n")
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹظ‡ ط±طھط¨ ط­طھظ‰ ط§ط³طھط·ظٹط¹ طھظ†ط²ظٹظ„ظ‡ \n")
 end
 if tonumber(Id_Sudo) == tonumber(msg.sender_user_id_) then
-database:srem(bot_id.."korpica:Sudo:User", result.sender_user_id_)
-database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."korpica:Sudo:User",msg.sender_user_id_) then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-elseif database:sismember(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."korpica:Constructor"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id.."korpica:Manager"..msg.chat_id_, msg.sender_user_id_) then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
-database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Sudo:User", result.sender_user_id_)
+redis:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
+redis:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+elseif redis:sismember(bot_id.."Sudo:User",msg.sender_user_id_) then
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
+elseif redis:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) then
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
+elseif redis:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) then
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
+elseif redis:sismember(bot_id.."Manager"..msg.chat_id_, msg.sender_user_id_) then
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
+redis:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 end
-if text == "تاك للكل" and Addictive(msg) then
+if text == "طھط§ظƒ ظ„ظ„ظƒظ„" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
-local t = "\n܁༯┆ قائمة الاعضاء \n━━━━━━━━━━━━━\n"
+local t = "\nـپà¼¯â”† ظ‚ط§ط¦ظ…ط© ط§ظ„ط§ط¹ط¶ط§ط، \n â€” â€” â€” â€” â€” â€” â€” â€” â€” \n"
 x = 0
 local list = taha.members_
 for k, v in pairs(list) do
 x = x + 1
-if database:get(bot_id.."korpica:User:Name"..v.user_id_) then
-t = t..""..x.." - {[@"..database:get(bot_id.."korpica:User:Name"..v.user_id_).."]}\n"
-else
-t = t..""..x.." - {"..v.user_id_.."}\n"
+if redis:get(bot_id.."User:Name"..v.user_id_) then
+t = t.."ـپà¼¯â”†"..x.."ï¸™[@"..redis:get(bot_id.."User:Name"..v.user_id_).."]\n"
 end
 end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
-
-if text == "رتبتي" then
+if text == "ط±طھط¨طھظٹ" then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,"܁༯┆ رتبتك في البوت » "..rtp)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط±طھط¨طھظƒ ظپظٹ ط§ظ„ط¨ظˆطھ آ» "..rtp)
 end
-if text == "اسمي"  then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+if text == "ط§ط³ظ…ظٹ"  then 
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
 end
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
 if result.first_name_  then
-first_name = "܁༯┆ اسمك الاول ← {`"..(result.first_name_).."`}"
+first_name = "ـپà¼¯â”† ط§ط³ظ…ظƒ ط§ظ„ط§ظˆظ„ â†گ {`"..(result.first_name_).."`}"
 else
 first_name = ""
 end   
 if result.last_name_ then 
-last_name = "܁༯┆ اسمك الثاني ← {`"..result.last_name_.."`}" 
+last_name = "ـپà¼¯â”† ط§ط³ظ…ظƒ ط§ظ„ط«ط§ظ†ظٹ â†گ {`"..result.last_name_.."`}" 
 else
 last_name = ""
 end      
 send(msg.chat_id_, msg.id_,first_name.."\n"..last_name) 
 end,nil)
 end 
-if text==("عدد الكروب") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+if text==("ط¹ط¯ط¯ ط§ظ„ظƒط±ظˆط¨") and Addictive(msg) then  
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_,msg.id_,"܁༯┆ البوت ليس ادمن هنا \n") 
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”† ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظ‡ظ†ط§ \n") 
 return false  
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local taha = "܁༯┆ عدد الادمنيه : "..data.administrator_count_..
-"\n\n܁༯┆ عدد المطرودين : "..data.kicked_count_..
-"\n\n܁༯┆ عدد الاعضاء : "..data.member_count_..
-"\n\n܁༯┆ عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
-"\n\n📯┆ اسم المجموعه : ["..ta.title_.."]"
+local taha = "ـپà¼¯â”† ط¹ط¯ط¯ ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡ : "..data.administrator_count_..
+"\n\nـپà¼¯â”† ط¹ط¯ط¯ ط§ظ„ظ…ط·ط±ظˆط¯ظٹظ† : "..data.kicked_count_..
+"\n\nـپà¼¯â”† ط¹ط¯ط¯ ط§ظ„ط§ط¹ط¶ط§ط، : "..data.member_count_..
+"\n\nـپà¼¯â”† ط¹ط¯ط¯ ط±ط³ط§ط¦ظ„ ط§ظ„ظƒط±ظˆط¨ : "..(msg.id_/2097152/0.5)..
+"\n\nـپà¼¯â”† ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, taha) 
 end,nil)
 end,nil)
 end 
-if text == "اطردني" or text == "طردني" then
+if text == "ط§ط·ط±ط¯ظ†ظٹ" or text == "ط·ط±ط¯ظ†ظٹ" then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if not database:get(bot_id.."korpica:Kick:Me"..msg.chat_id_) then
+if not redis:get(bot_id.."Kick:Me"..msg.chat_id_) then
 if Rank_Checking(msg.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n܁༯┆ عذرا لا استطيع طرد ( "..Get_Rank(msg.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”† ط¹ط°ط±ط§ ظ„ط§ ط§ط³طھط·ظٹط¹ ط·ط±ط¯ ( "..Get_Rank(msg.sender_user_id_,msg.chat_id_).." )")
 return false
 end
 tdcli_function({ID="ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=msg.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"܁༯┆ ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ظ„ظٹط³ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© ط­ط¸ط± ط§ظ„ظ…ط³طھط®ط¯ظ…ظٹظ† ظٹط±ط¬ظ‰ طھظپط¹ظٹظ„ظ‡ط§ !") 
 return false  
 end
 if (data and data.code_ and data.code_ == 3) then 
-send(msg.chat_id_, msg.id_,"܁༯┆ البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !") 
 return false  
 end
 if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-send(msg.chat_id_, msg.id_,"܁༯┆ عذرا لا استطيع طرد ادمنية المجموعه") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط¹ط°ط±ط§ ظ„ط§ ط§ط³طھط·ظٹط¹ ط·ط±ط¯ ط§ط¯ظ…ظ†ظٹط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 return false  
 end
 if data and data.ID and data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"܁༯┆ تم طردك من المجموعه ") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… ط·ط±ط¯ظƒ ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ") 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
 end,nil)   
 else
-send(msg.chat_id_, msg.id_,"܁༯┆ امر اطردني تم تعطيله من قبل المدراء ") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ظ…ط± ط§ط·ط±ط¯ظ†ظٹ طھظ… طھط¹ط·ظٹظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط¯ط±ط§ط، ") 
 end
 end
 
-if text == "تفعيل اطردني" and Owner(msg) then   
+if text == "طھظپط¹ظٹظ„ ط§ط·ط±ط¯ظ†ظٹ" and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id.."korpica:Kick:Me"..msg.chat_id_)  
+redis:del(bot_id.."Kick:Me"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "تعطيل اطردني" and Owner(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+if text == "طھط¹ط·ظٹظ„ ط§ط·ط±ط¯ظ†ظٹ" and Owner(msg) then  
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
 end
-return false
-end
-database:set(bot_id.."korpica:Kick:Me"..msg.chat_id_,true)  
-Text = "\n܁༯┆تم تعطيل امر اطردني"
+redis:set(bot_id.."Kick:Me"..msg.chat_id_,true)  
+Text = "\nـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ…ط± ط§ط·ط±ط¯ظ†ظٹ"
 send(msg.chat_id_, msg.id_,Text) 
 end
 
-if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
+if text and text:match("^ط±ظپط¹ ط§ظ„ظ‚ظٹظˆط¯ @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^رفع القيود @(.*)") 
-function Function_korpica(extra, result, success)
+local username = text:match("^ط±ظپط¹ ط§ظ„ظ‚ظٹظˆط¯ @(.*)") 
+function Function_Co(extra, result, success)
 if result.id_ then
-if Devkorpica(msg) then
-database:srem(bot_id.."korpica:GBan:User",result.id_)
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_,result.id_)
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_,result.id_)
-usertext = "\n܁༯┆ العضو » ["..result.title_.."](t.me/"..(username or "kenwa")..")"
-status  = "\n܁༯┆ تم الغاء القيود عنه"
+if DevCo(msg) then
+redis:srem(bot_id.."GBan:User",result.id_)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
+redis:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
+usertext = "\nـپà¼¯â”† ط§ظ„ط¹ط¶ظˆ آ» ["..result.title_.."](t.me/"..(username or "kenwa")..")"
+status  = "\nـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ظ‚ظٹظˆط¯ ط¹ظ†ظ‡"
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 else
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_,result.id_)
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_,result.id_)
-Reply_Status(msg,result.id_,"reply","\n܁༯┆ تم الغاء القيود عنه")  
+redis:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
+redis:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
+Reply_Status(msg,result.id_,"reply","\nـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ظ‚ظٹظˆط¯ ط¹ظ†ظ‡")  
 end
 else
-Text = "܁༯┆ المعرف غلط"
+Text = "ـپà¼¯â”† ط§ظ„ظ…ط¹ط±ظپ ط؛ظ„ط·"
 send(msg.chat_id_, msg.id_,Text)
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 end
-if text == "رفع القيود" and Owner(msg) then
+if text == "ط±ظپط¹ ط§ظ„ظ‚ظٹظˆط¯" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-if Devkorpica(msg) then
-database:srem(bot_id.."korpica:GBan:User",result.sender_user_id_)
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_,result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","\n܁༯┆ تم الغاء القيود عنه")  
+function Function_Co(extra, result, success)
+if DevCo(msg) then
+redis:srem(bot_id.."GBan:User",result.sender_user_id_)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
+redis:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","\nـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ظ‚ظٹظˆط¯ ط¹ظ†ظ‡")  
 else
-database:srem(bot_id.."korpica:Ban:User"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_,result.sender_user_id_)
+redis:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
+redis:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n܁༯┆ العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
-status  = "\n܁༯┆ تم الغاء القيود عنه"
+usertext = "\nـپà¼¯â”† ط§ظ„ط¹ط¶ظˆ آ» ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+status  = "\nـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ظ‚ظٹظˆط¯ ط¹ظ†ظ‡"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 end
-if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
+if text and text:match("^ظƒط´ظپ ط§ظ„ظ‚ظٹظˆط¯ @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local username = text:match("^كشف القيود @(.*)") 
-function Function_korpica(extra, result, success)
+local username = text:match("^ظƒط´ظپ ط§ظ„ظ‚ظٹظˆط¯ @(.*)") 
+function Function_Co(extra, result, success)
 if result.id_ then
-if database:sismember(bot_id.."korpica:Muted:User"..msg.chat_id_,result.id_) then
-Muted = "مكتوم"
+if redis:sismember(bot_id.."Muted:User"..msg.chat_id_,result.id_) then
+Muted = "ظ…ظƒطھظˆظ…"
 else
-Muted = "غير مكتوم"
+Muted = "ط؛ظٹط± ظ…ظƒطھظˆظ…"
 end
-if database:sismember(bot_id.."korpica:Ban:User"..msg.chat_id_,result.id_) then
-Ban = "محظور"
+if redis:sismember(bot_id.."Ban:User"..msg.chat_id_,result.id_) then
+Ban = "ظ…ط­ط¸ظˆط±"
 else
-Ban = "غير محظور"
+Ban = "ط؛ظٹط± ظ…ط­ط¸ظˆط±"
 end
-if database:sismember(bot_id.."korpica:GBan:User",result.id_) then
-GBan = "محظور عام"
+if redis:sismember(bot_id.."GBan:User",result.id_) then
+GBan = "ظ…ط­ط¸ظˆط± ط¹ط§ظ…"
 else
-GBan = "غير محظور عام"
+GBan = "ط؛ظٹط± ظ…ط­ط¸ظˆط± ط¹ط§ظ…"
 end
-send(msg.chat_id_, msg.id_,"܁༯┆ الحظر العام » "..GBan.."\n܁༯┆ الحظر » "..Ban.."\n܁༯┆ الكتم » "..Muted)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ظ„ط­ط¸ط± ط§ظ„ط¹ط§ظ… آ» "..GBan.."\nـپà¼¯â”† ط§ظ„ط­ط¸ط± آ» "..Ban.."\nـپà¼¯â”† ط§ظ„ظƒطھظ… آ» "..Muted)
 else
-send(msg.chat_id_, msg.id_,"܁༯┆ المعرف غلط")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ظ„ظ…ط¹ط±ظپ ط؛ظ„ط·")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 end
 
-if text == "كشف القيود" and Owner(msg) then 
+if text == "ظƒط´ظپ ط§ظ„ظ‚ظٹظˆط¯" and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_korpica(extra, result, success)
-if database:sismember(bot_id.."korpica:Muted:User"..msg.chat_id_,result.sender_user_id_) then
-Muted = "مكتوم"
+function Function_Co(extra, result, success)
+if redis:sismember(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_) then
+Muted = "ظ…ظƒطھظˆظ…"
 else
-Muted = "غير مكتوم"
+Muted = "ط؛ظٹط± ظ…ظƒطھظˆظ…"
 end
-if database:sismember(bot_id.."korpica:Ban:User"..msg.chat_id_,result.sender_user_id_) then
-Ban = "محظور"
+if redis:sismember(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_) then
+Ban = "ظ…ط­ط¸ظˆط±"
 else
-Ban = "غير محظور"
+Ban = "ط؛ظٹط± ظ…ط­ط¸ظˆط±"
 end
-if database:sismember(bot_id.."korpica:GBan:User",result.sender_user_id_) then
-GBan = "محظور عام"
+if redis:sismember(bot_id.."GBan:User",result.sender_user_id_) then
+GBan = "ظ…ط­ط¸ظˆط± ط¹ط§ظ…"
 else
-GBan = "غير محظور عام"
+GBan = "ط؛ظٹط± ظ…ط­ط¸ظˆط± ط¹ط§ظ…"
 end
-Textt = "܁༯┆ الحظر العام » "..GBan.."\n܁༯┆ الحظر » "..Ban.."\n܁༯┆ الكتم » "..Muted..""
+Textt = "ـپà¼¯â”† ط§ظ„ط­ط¸ط± ط§ظ„ط¹ط§ظ… آ» "..GBan.."\nـپà¼¯â”† ط§ظ„ط­ط¸ط± آ» "..Ban.."\nـپà¼¯â”† ط§ظ„ظƒطھظ… آ» "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 end
 
-if text and text:match("^ضع اسم (.*)") and Owner(msg) or text and text:match("^وضع اسم (.*)") and Owner(msg) then 
+if text and text:match("^ط¶ط¹ ط§ط³ظ… (.*)") and Owner(msg) or text and text:match("^ظˆط¶ط¹ ط§ط³ظ… (.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local Name = text:match("^ضع اسم (.*)") or text:match("^وضع اسم (.*)") 
+local Name = text:match("^ط¶ط¹ ط§ط³ظ… (.*)") or text:match("^ظˆط¶ط¹ ط§ط³ظ… (.*)") 
 tdcli_function ({ ID = "ChangeChatTitle",chat_id_ = msg.chat_id_,title_ = Name },function(arg,data) 
 if data.message_ == "Channel chat title can be changed by administrators only" then
-send(msg.chat_id_,msg.id_,"܁༯┆ البوت ليس ادمن يرجى ترقيتي !")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”† ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !")  
 return false  
 end 
 if data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"܁༯┆ ليست لدي صلاحية تغير اسم المجموعه")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”† ظ„ظٹط³طھ ظ„ط¯ظٹ طµظ„ط§ط­ظٹط© طھط؛ظٹط± ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_,msg.id_,"܁༯┆ تم تغيير اسم المجموعه الى {["..Name.."]}")  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”† طھظ… طھط؛ظٹظٹط± ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ط§ظ„ظ‰ {["..Name.."]}")  
 end
 end,nil) 
 end
 
-if text ==("رفع الادمنيه") and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+if text ==("ط±ظپط¹ ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡") and Owner(msg) then
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
 for i=0 , #admins do
 if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
-database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_, admins[i].user_id_)
+redis:sadd(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 num2 = num2 + 1
 tdcli_function ({ID = "GetUser",user_id_ = admins[i].user_id_},function(arg,b) 
 if b.username_ == true then
 end
 if b.first_name_ == false then
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, admins[i].user_id_)
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 end
 end,nil)   
 else
-database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, admins[i].user_id_)
+redis:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 end
 end
 if num2 == 0 then
-send(msg.chat_id_, msg.id_,"܁༯┆ لا توجد ادمنية ليتم رفعهم") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ظ„ط§ طھظˆط¬ط¯ ط§ط¯ظ…ظ†ظٹط© ظ„ظٹطھظ… ط±ظپط¹ظ‡ظ…") 
 else
-send(msg.chat_id_, msg.id_,"܁༯┆ تمت ترقية { "..num2.." } من ادمنية المجموعه") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ…طھ طھط±ظ‚ظٹط© { "..num2.." } ظ…ظ† ط§ط¯ظ…ظ†ظٹط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
 end
 end,nil)   
 end
-if text ==("المنشئ") then
+if text ==("ط§ظ„ظ…ظ†ط´ط¦") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -5551,17 +5907,17 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"܁༯┆ حساب المنشئ محذوف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط­ط³ط§ط¨ ط§ظ„ظ…ظ†ط´ط¦ ظ…ط­ط°ظˆظپ")
 return false  
 end
-local UserName = (b.username_ or "korpicaTEAM")
-send(msg.chat_id_, msg.id_,"܁༯┆منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+local UserName = (b.username_ or "CoTEAM")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ…ظ†ط´ط¦ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
 end,nil)   
 end
-if text ==("رفع المنشئ") and DevBot(msg) then 
+if text ==("ط±ظپط¹ ط§ظ„ظ…ظ†ط´ط¦") and DevBot(msg) then 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
@@ -5571,88 +5927,88 @@ end
 end
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"܁༯┆حساب المنشئ محذوف")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط­ط³ط§ط¨ ط§ظ„ظ…ظ†ط´ط¦ ظ…ط­ط°ظˆظپ")
 return false  
 end
-local UserName = (b.username_ or "korpicaTEAM")
-send(msg.chat_id_, msg.id_,"܁༯┆تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
-database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_,b.id_)
+local UserName = (b.username_ or "CoTEAM")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھط±ظ‚ظٹط© ظ…ظ†ط´ط¦ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+redis:sadd(bot_id.."Basic:Constructor"..msg.chat_id_,b.id_)
 end,nil)   
 end,nil)   
 end
 
-if text == "غادر" then 
-if DevBot(msg) and not database:get(bot_id.."korpica:Left:Bot"..msg.chat_id_) then 
+if text == "ط؛ط§ط¯ط±" then 
+if DevBot(msg) and not redis:get(bot_id.."Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"܁༯┆ تم مغادرة المجموعه") 
-database:srem(bot_id.."korpica:Chek:Groups",msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… ظ…ط؛ط§ط¯ط±ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
+redis:srem(bot_id.."Chek:Groups",msg.chat_id_)  
 end
 return false  
 end
-if text and text:match("^غادر (-%d+)$") then
-local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
-if DevBot(msg) and not database:get(bot_id.."korpica:Left:Bot"..msg.chat_id_) then 
+if text and text:match("^ط؛ط§ط¯ط± (-%d+)$") then
+local GP_ID = {string.match(text, "^(ط؛ط§ط¯ط±) (-%d+)$")}
+if DevBot(msg) and not redis:get(bot_id.."Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"܁༯┆ تم مغادرة المجموعه") 
-send(GP_ID[2], 0,"܁༯┆ تم مغادرة المجموعه بامر من مطور البوت") 
-database:srem(bot_id.."korpica:Chek:Groups",GP_ID[2])  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… ظ…ط؛ط§ط¯ط±ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡") 
+send(GP_ID[2], 0,"ـپà¼¯â”† طھظ… ظ…ط؛ط§ط¯ط±ط© ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ط¨ط§ظ…ط± ظ…ظ† ظ…ط·ظˆط± ط§ظ„ط¨ظˆطھ") 
+redis:srem(bot_id.."Chek:Groups",GP_ID[2])  
 return false 
 end
 end
-if text == "تفعيل المغادره" and Devkorpica(msg) then   
-database:del(bot_id.."korpica:Left:Bot"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل مغادرة البوت") 
+if text == "طھظپط¹ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡" and DevCo(msg) then   
+redis:del(bot_id.."Left:Bot"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ظ…ط؛ط§ط¯ط±ط© ط§ظ„ط¨ظˆطھ") 
 return false 
 end
-if text == "تعطيل المغادره" and Devkorpica(msg) then  
-database:set(bot_id.."korpica:Left:Bot"..msg.chat_id_,true)   
-send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل مغادرة البوت") 
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡" and DevCo(msg) then  
+redis:set(bot_id.."Left:Bot"..msg.chat_id_,true)   
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ظ…ط؛ط§ط¯ط±ط© ط§ظ„ط¨ظˆطھ") 
 return false 
 end
-if text == (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا") then
+if text == (redis:get(bot_id.."Name:Bot") or "ظƒظˆط±ط¨ظٹظƒط§") then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
+Namebot = (redis:get(bot_id.."Name:Bot") or "ظƒظˆط±ط¨ظٹظƒط§")
 local namebot = {
-"عمري فداك "..Namebot.. " كول حب ",
-"كول حبيبي ؟ اني "..Namebot,
-'ها حبي وياك مكتب ئلسيد .',
-'الو الو رد مخنوك',
-'ها يحلو كول',
-'عمري الحلو',
-'صاعد اتصال ويا الحب دقيقة وجيك 😘💘',
-'مشغول حالياً 🌚🌸',
-'لابسك لتلح',
-" هايروحي؟ "..Namebot,
+"ط¹ظ…ط±ظٹ ظپط¯ط§ظƒ "..Namebot.. " ظƒظˆظ„ ط­ط¨ ",
+"ظƒظˆظ„ ط­ط¨ظٹط¨ظٹ طں ط§ظ†ظٹ "..Namebot,
+'ظ‡ط§ ط­ط¨ظٹ ظˆظٹط§ظƒ ظ…ظƒطھط¨ ط¦ظ„ط³ظٹط¯ .',
+'ط§ظ„ظˆ ط§ظ„ظˆ ط±ط¯ ظ…ط®ظ†ظˆظƒ',
+'ظ‡ط§ ظٹط­ظ„ظˆ ظƒظˆظ„',
+'ط¹ظ…ط±ظٹ ط§ظ„ط­ظ„ظˆ',
+'طµط§ط¹ط¯ ط§طھطµط§ظ„ ظˆظٹط§ ط§ظ„ط­ط¨ ط¯ظ‚ظٹظ‚ط© ظˆط¬ظٹظƒ ًںککًں’ک',
+'ظ…ط´ط؛ظˆظ„ ط­ط§ظ„ظٹط§ظ‹ ًںŒڑًںŒ¸',
+'ظ„ط§ط¨ط³ظƒ ظ„طھظ„ط­',
+" ظ‡ط§ظٹط±ظˆط­ظٹطں "..Namebot,
 }
 name = math.random(#namebot)
 send(msg.chat_id_, msg.id_, namebot[name]) 
 return false 
 end
 
-if text == "بوت" then
-Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
-send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
+if text == "ط¨ظˆطھ" then
+Namebot = (redis:get(bot_id.."Name:Bot") or "ظƒظˆط±ط¨ظٹظƒط§")
+send(msg.chat_id_, msg.id_,"ط§ط³ظ…ظٹ ط§ظ„ظ‚ظ…ظٹظ„ ["..Namebot.."] ") 
 end
-if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
-if Devkorpica(msg) then
-database:setex(bot_id.."korpica:Set:Name:Bot"..msg.sender_user_id_,300,true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ ارسل لي الاسم الان ")  
+if text == "طھط؛ظٹط± ط§ط³ظ… ط§ظ„ط¨ظˆطھ" or text == "طھط؛ظٹظٹط± ط§ط³ظ… ط§ظ„ط¨ظˆطھ" or text == "ط­ط°ظپ ط§ط³ظ… ط§ظ„ط¨ظˆطھ" then 
+if DevCo(msg) then
+redis:setex(bot_id.."Set:Name:Bot"..msg.sender_user_id_,300,true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„ط§ط³ظ… ط§ظ„ط§ظ† ")  
 end
 return false
 end
 
-if text ==("مسح المطرودين") and Addictive(msg) then    
+if text ==("ظ…ط³ط­ ط§ظ„ظ…ط·ط±ظˆط¯ظٹظ†") and Addictive(msg) then    
 local function delbans(extra, result)  
 if not msg.can_be_deleted_ == true then  
-send(msg.chat_id_, msg.id_, "܁༯┆ يرجى ترقيتي ادمن هنا") 
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ ط§ط¯ظ…ظ† ظ‡ظ†ط§") 
 return false
 end  
 local num = 0 
@@ -5660,550 +6016,550 @@ for k,y in pairs(result.members_) do
 num = num + 1  
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = y.user_id_, status_ = { ID = "ChatMemberStatusLeft"}, }, dl_cb, nil)  
 end  
-send(msg.chat_id_, msg.id_,"܁༯┆ تم الغاء الحظر عن *~ "..num.." ~* اشخاص ") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط­ط¸ط± ط¹ظ† *~ "..num.." ~* ط§ط´ط®ط§طµ ") 
 end    
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 200}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
-if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط®ط§طµ" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+redis:setex(bot_id.."Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط³ظˆط§ط، ~ { ظ…ظ„طµظ‚, ظ…طھط­ط±ظƒظ‡, طµظˆط±ظ‡, ط±ط³ط§ظ„ظ‡ }\nـپà¼¯â”†ظ„ظ„ط®ط±ظˆط¬ ط§ط±ط³ظ„ ط§ظ„ط؛ط§ط، ") 
 return false
 end 
-if text=="اذاعه" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+redis:setex(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط³ظˆط§ط، ~ { ظ…ظ„طµظ‚, ظ…طھط­ط±ظƒظ‡, طµظˆط±ظ‡, ط±ط³ط§ظ„ظ‡ }\nـپà¼¯â”†ظ„ظ„ط®ط±ظˆط¬ ط§ط±ط³ظ„ ط§ظ„ط؛ط§ط، ") 
 return false
 end  
-if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھط«ط¨ظٹطھ" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+redis:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط³ظˆط§ط، ~ { ظ…ظ„طµظ‚, ظ…طھط­ط±ظƒظ‡, طµظˆط±ظ‡, ط±ط³ط§ظ„ظ‡ }\nـپà¼¯â”†ظ„ظ„ط®ط±ظˆط¬ ط§ط±ط³ظ„ ط§ظ„ط؛ط§ط، ") 
 return false
 end  
-if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
+redis:setex(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طھظˆط¬ظٹظ‡ ط§ظ„ط§ظ†") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡ ط®ط§طµ" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
+redis:setex(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طھظˆط¬ظٹظ‡ ط§ظ„ط§ظ†") 
 return false
 end 
 
-if text == "تفعيل الاذاعه" and Devkorpica(msg) then  
-database:del(bot_id.."korpica:Status:Bc") 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تفعيل الاذاعه " ) 
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡" and DevCo(msg) then  
+redis:del(bot_id.."Status:Bc") 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ " ) 
 return false
 end 
-if text == "تعطيل الاذاعه" and Devkorpica(msg) then  
-database:set(bot_id.."korpica:Status:Bc",true) 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تعطيل الاذاعه") 
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡" and DevCo(msg) then  
+redis:set(bot_id.."Status:Bc",true) 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡") 
 return false
 end 
 
-if text == "الاعدادات" and Addictive(msg) then    
-if database:get(bot_id.."korpica:lockpin"..msg.chat_id_) then    
-lock_pin = "✓"
+if text == "ط§ظ„ط§ط¹ط¯ط§ط¯ط§طھ" and Addictive(msg) then    
+if redis:get(bot_id.."lockpin"..msg.chat_id_) then    
+lock_pin = "âœ“"
 else 
-lock_pin = "✘"    
+lock_pin = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:tagservr"..msg.chat_id_) then    
-lock_tagservr = "✓"
+if redis:get(bot_id.."Lock:tagservr"..msg.chat_id_) then    
+lock_tagservr = "âœ“"
 else 
-lock_tagservr = "✘"    
+lock_tagservr = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:text"..msg.chat_id_) then    
-lock_text = "✓"
+if redis:get(bot_id.."Lock:text"..msg.chat_id_) then    
+lock_text = "âœ“"
 else 
-lock_text = "✘"    
+lock_text = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_) == "kick" then
-lock_add = "✓"
+if redis:get(bot_id.."Lock:AddMempar"..msg.chat_id_) == "kick" then
+lock_add = "âœ“"
 else 
-lock_add = "✘"    
+lock_add = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:Join"..msg.chat_id_) == "kick" then
-lock_join = "✓"
+if redis:get(bot_id.."Lock:Join"..msg.chat_id_) == "kick" then
+lock_join = "âœ“"
 else 
-lock_join = "✘"    
+lock_join = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:edit"..msg.chat_id_) then    
-lock_edit = "✓"
+if redis:get(bot_id.."Lock:edit"..msg.chat_id_) then    
+lock_edit = "âœ“"
 else 
-lock_edit = "✘"    
+lock_edit = "âœک"    
 end
-if database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_) then
-welcome = "✓"
+if redis:get(bot_id.."Get:Welcome:Group"..msg.chat_id_) then
+welcome = "âœ“"
 else 
-welcome = "✘"    
+welcome = "âœک"    
 end
-if database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_, "flood") == "kick" then     
-flood = "بالطرد"     
-elseif database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") == "keed" then     
-flood = "بالتقيد"     
-elseif database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") == "mute" then     
-flood = "بالكتم"           
-elseif database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"flood") == "del" then     
-flood = "بالمسح"           
+if redis:hget(bot_id.."flooding:settings:"..msg.chat_id_, "flood") == "kick" then     
+flood = "ط¨ط§ظ„ط·ط±ط¯"     
+elseif redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") == "keed" then     
+flood = "ط¨ط§ظ„طھظ‚ظٹط¯"     
+elseif redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") == "mute" then     
+flood = "ط¨ط§ظ„ظƒطھظ…"           
+elseif redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"flood") == "del" then     
+flood = "ط¨ط§ظ„ظ…ط³ط­"           
 else     
-flood = "✘"     
+flood = "âœک"     
 end
-if database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "del" then
-lock_photo = "✓" 
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "ked" then 
-lock_photo = "بالتقيد"   
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "ktm" then 
-lock_photo = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Photo"..msg.chat_id_) == "kick" then 
-lock_photo = "بالطرد"   
+if redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "del" then
+lock_photo = "âœ“" 
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "ked" then 
+lock_photo = "ط¨ط§ظ„طھظ‚ظٹط¯"   
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "ktm" then 
+lock_photo = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Photo"..msg.chat_id_) == "kick" then 
+lock_photo = "ط¨ط§ظ„ط·ط±ط¯"   
 else
-lock_photo = "✘"   
+lock_photo = "âœک"   
 end    
-if database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "del" then
-lock_phon = "✓" 
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "ked" then 
-lock_phon = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "ktm" then 
-lock_phon = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Contact"..msg.chat_id_) == "kick" then 
-lock_phon = "بالطرد"    
+if redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "del" then
+lock_phon = "âœ“" 
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "ked" then 
+lock_phon = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "ktm" then 
+lock_phon = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Contact"..msg.chat_id_) == "kick" then 
+lock_phon = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_phon = "✘"    
+lock_phon = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "del" then
-lock_links = "✓"
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ked" then
-lock_links = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "ktm" then
-lock_links = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) == "kick" then
-lock_links = "بالطرد"    
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "del" then
+lock_links = "âœ“"
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ked" then
+lock_links = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "ktm" then
+lock_links = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Link"..msg.chat_id_) == "kick" then
+lock_links = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_links = "✘"    
+lock_links = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "del" then
-lock_cmds = "✓"
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ked" then
-lock_cmds = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "ktm" then
-lock_cmds = "بالكتم"   
-elseif database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) == "kick" then
-lock_cmds = "بالطرد"    
+if redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "del" then
+lock_cmds = "âœ“"
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ked" then
+lock_cmds = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "ktm" then
+lock_cmds = "ط¨ط§ظ„ظƒطھظ…"   
+elseif redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) == "kick" then
+lock_cmds = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_cmds = "✘"    
+lock_cmds = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "del" then
-lock_user = "✓"
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ked" then
-lock_user = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "ktm" then
-lock_user = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) == "kick" then
-lock_user = "بالطرد"    
+if redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "del" then
+lock_user = "âœ“"
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ked" then
+lock_user = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "ktm" then
+lock_user = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) == "kick" then
+lock_user = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_user = "✘"    
+lock_user = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "del" then
-lock_hash = "✓"
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ked" then 
-lock_hash = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "ktm" then 
-lock_hash = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) == "kick" then 
-lock_hash = "بالطرد"    
+if redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "del" then
+lock_hash = "âœ“"
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ked" then 
+lock_hash = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "ktm" then 
+lock_hash = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) == "kick" then 
+lock_hash = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_hash = "✘"    
+lock_hash = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "del" then
-lock_muse = "✓"
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ked" then 
-lock_muse = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ktm" then 
-lock_muse = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "kick" then 
-lock_muse = "بالطرد"    
+if redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "del" then
+lock_muse = "âœ“"
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ked" then 
+lock_muse = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ktm" then 
+lock_muse = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "kick" then 
+lock_muse = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_muse = "✘"    
+lock_muse = "âœک"    
 end 
-if database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "del" then
-lock_ved = "✓"
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "ked" then 
-lock_ved = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "ktm" then 
-lock_ved = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Video"..msg.chat_id_) == "kick" then 
-lock_ved = "بالطرد"    
+if redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "del" then
+lock_ved = "âœ“"
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "ked" then 
+lock_ved = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "ktm" then 
+lock_ved = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Video"..msg.chat_id_) == "kick" then 
+lock_ved = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_ved = "✘"    
+lock_ved = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "del" then
-lock_gif = "✓"
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "ked" then 
-lock_gif = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "ktm" then 
-lock_gif = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Animation"..msg.chat_id_) == "kick" then 
-lock_gif = "بالطرد"    
+if redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "del" then
+lock_gif = "âœ“"
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "ked" then 
+lock_gif = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "ktm" then 
+lock_gif = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Animation"..msg.chat_id_) == "kick" then 
+lock_gif = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_gif = "✘"    
+lock_gif = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "del" then
-lock_ste = "✓"
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "ked" then 
-lock_ste = "بالتقيد "    
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "ktm" then 
-lock_ste = "بالكتم "    
-elseif database:get(bot_id.."korpica:Lock:Sticker"..msg.chat_id_) == "kick" then 
-lock_ste = "بالطرد"    
+if redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "del" then
+lock_ste = "âœ“"
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "ked" then 
+lock_ste = "ط¨ط§ظ„طھظ‚ظٹط¯ "    
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "ktm" then 
+lock_ste = "ط¨ط§ظ„ظƒطھظ… "    
+elseif redis:get(bot_id.."Lock:Sticker"..msg.chat_id_) == "kick" then 
+lock_ste = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_ste = "✘"    
+lock_ste = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "del" then
-lock_geam = "✓"
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "ked" then 
-lock_geam = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "ktm" then 
-lock_geam = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:geam"..msg.chat_id_) == "kick" then 
-lock_geam = "بالطرد"    
+if redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "del" then
+lock_geam = "âœ“"
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "ked" then 
+lock_geam = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "ktm" then 
+lock_geam = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:geam"..msg.chat_id_) == "kick" then 
+lock_geam = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_geam = "✘"    
+lock_geam = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "del" then
-lock_vico = "✓"
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ked" then 
-lock_vico = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "ktm" then 
-lock_vico = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:vico"..msg.chat_id_) == "kick" then 
-lock_vico = "بالطرد"    
+if redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "del" then
+lock_vico = "âœ“"
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ked" then 
+lock_vico = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "ktm" then 
+lock_vico = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:vico"..msg.chat_id_) == "kick" then 
+lock_vico = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_vico = "✘"    
+lock_vico = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "del" then
-lock_inlin = "✓"
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "ked" then 
-lock_inlin = "بالتقيد"
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "ktm" then 
-lock_inlin = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Keyboard"..msg.chat_id_) == "kick" then 
-lock_inlin = "بالطرد"
+if redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "del" then
+lock_inlin = "âœ“"
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "ked" then 
+lock_inlin = "ط¨ط§ظ„طھظ‚ظٹط¯"
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "ktm" then 
+lock_inlin = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Keyboard"..msg.chat_id_) == "kick" then 
+lock_inlin = "ط¨ط§ظ„ط·ط±ط¯"
 else
-lock_inlin = "✘"
+lock_inlin = "âœک"
 end
-if database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "del" then
-lock_fwd = "✓"
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "ked" then 
-lock_fwd = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "ktm" then 
-lock_fwd = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:forward"..msg.chat_id_) == "kick" then 
-lock_fwd = "بالطرد"    
+if redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "del" then
+lock_fwd = "âœ“"
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "ked" then 
+lock_fwd = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "ktm" then 
+lock_fwd = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:forward"..msg.chat_id_) == "kick" then 
+lock_fwd = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_fwd = "✘"    
+lock_fwd = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "del" then
-lock_file = "✓"
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "ked" then 
-lock_file = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "ktm" then 
-lock_file = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Document"..msg.chat_id_) == "kick" then 
-lock_file = "بالطرد"    
+if redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "del" then
+lock_file = "âœ“"
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "ked" then 
+lock_file = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "ktm" then 
+lock_file = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Document"..msg.chat_id_) == "kick" then 
+lock_file = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_file = "✘"    
+lock_file = "âœک"    
 end    
-if database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "del" then
-lock_self = "✓"
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "ked" then 
-lock_self = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "ktm" then 
-lock_self = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_) == "kick" then 
-lock_self = "بالطرد"    
+if redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "del" then
+lock_self = "âœ“"
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "ked" then 
+lock_self = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "ktm" then 
+lock_self = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Unsupported"..msg.chat_id_) == "kick" then 
+lock_self = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_self = "✘"    
+lock_self = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_) == "del" then
-lock_bots = "✓"
-elseif database:get(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_) == "ked" then
-lock_bots = "بالتقيد"   
-elseif database:get(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_) == "kick" then
-lock_bots = "بالطرد"    
+if redis:get(bot_id.."Lock:Bot:kick"..msg.chat_id_) == "del" then
+lock_bots = "âœ“"
+elseif redis:get(bot_id.."Lock:Bot:kick"..msg.chat_id_) == "ked" then
+lock_bots = "ط¨ط§ظ„طھظ‚ظٹط¯"   
+elseif redis:get(bot_id.."Lock:Bot:kick"..msg.chat_id_) == "kick" then
+lock_bots = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_bots = "✘"    
+lock_bots = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "del" then
-lock_mark = "✓"
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "ked" then 
-lock_mark = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "ktm" then 
-lock_mark = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_) == "kick" then 
-lock_mark = "بالطرد"    
+if redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "del" then
+lock_mark = "âœ“"
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "ked" then 
+lock_mark = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "ktm" then 
+lock_mark = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Markdaun"..msg.chat_id_) == "kick" then 
+lock_mark = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_mark = "✘"    
+lock_mark = "âœک"    
 end
-if database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "del" then    
-lock_spam = "✓"
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "ked" then 
-lock_spam = "بالتقيد"    
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "ktm" then 
-lock_spam = "بالكتم"    
-elseif database:get(bot_id.."korpica:Lock:Spam"..msg.chat_id_) == "kick" then 
-lock_spam = "بالطرد"    
+if redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "del" then    
+lock_spam = "âœ“"
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "ked" then 
+lock_spam = "ط¨ط§ظ„طھظ‚ظٹط¯"    
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "ktm" then 
+lock_spam = "ط¨ط§ظ„ظƒطھظ…"    
+elseif redis:get(bot_id.."Lock:Spam"..msg.chat_id_) == "kick" then 
+lock_spam = "ط¨ط§ظ„ط·ط±ط¯"    
 else
-lock_spam = "✘"    
+lock_spam = "âœک"    
 end        
-if not database:get(bot_id.."korpica:Reply:Manager"..msg.chat_id_) then
-rdmder = "✓"
+if not redis:get(bot_id.."Reply:Manager"..msg.chat_id_) then
+rdmder = "âœ“"
 else
-rdmder = "✘"
+rdmder = "âœک"
 end
-if not database:get(bot_id.."korpica:Reply:Sudo"..msg.chat_id_) then
-rdsudo = "✓"
+if not redis:get(bot_id.."Reply:Sudo"..msg.chat_id_) then
+rdsudo = "âœ“"
 else
-rdsudo = "✘"
+rdsudo = "âœک"
 end
-if not database:get(bot_id.."korpica:Lock:ID:Bot"..msg.chat_id_)  then
-idgp = "✓"
+if not redis:get(bot_id.."Lock:ID:Bot"..msg.chat_id_)  then
+idgp = "âœ“"
 else
-idgp = "✘"
+idgp = "âœک"
 end
-if not database:get(bot_id.."korpica:Lock:ID:Bot:Photo"..msg.chat_id_) then
-idph = "✓"
+if not redis:get(bot_id.."Lock:ID:Bot:Photo"..msg.chat_id_) then
+idph = "âœ“"
 else
-idph = "✘"
+idph = "âœک"
 end
-if not database:get(bot_id.."korpica:Lock:kick"..msg.chat_id_)  then
-setadd = "✓"
+if not redis:get(bot_id.."Lock:kick"..msg.chat_id_)  then
+setadd = "âœ“"
 else
-setadd = "✘"
+setadd = "âœک"
 end
-if not database:get(bot_id.."korpica:Lock:Add:Bot"..msg.chat_id_)  then
-banm = "✓"
+if not redis:get(bot_id.."Lock:Add:Bot"..msg.chat_id_)  then
+banm = "âœ“"
 else
-banm = "✘"
+banm = "âœک"
 end
-if not database:get(bot_id.."korpica:Kick:Me"..msg.chat_id_) then
-kickme = "✓"
+if not redis:get(bot_id.."Kick:Me"..msg.chat_id_) then
+kickme = "âœ“"
 else
-kickme = "✘"
+kickme = "âœک"
 end
-Num_Flood = database:hget(bot_id.."korpica:flooding:settings:"..msg.chat_id_,"floodmax") or 0
+Num_Flood = redis:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodmax") or 0
 local text = 
-"*\n܁༯┆ااعدادات المجموعه "..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
-"\n܁༯┆علامة ال {✓} تعني مفعل"..
-"\n܁༯┆علامة ال {✘} تعني معطل"..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
-"\n܁༯┆الروابط » "..lock_links..
-"\n".."܁༯┆المعرفات » "..lock_user..
-"\n".."܁༯┆التاك » "..lock_hash..
-"\n".."܁༯┆البوتات » "..lock_bots..
-"\n".."܁༯┆التوجيه » "..lock_fwd..
-"\n".."܁༯┆التثبيت » "..lock_pin..
-"\n".."܁༯┆الاشعارات » "..lock_tagservr..
-"\n".."܁༯┆الماركدون » "..lock_mark..
-"\n".."܁༯┆التعديل » "..lock_edit..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
-"\n".."܁༯┆الكلايش » "..lock_spam..
-"\n".."܁༯┆الكيبورد » "..lock_inlin..
-"\n".."܁༯┆الاغاني » "..lock_vico..
-"\n".."܁༯┆المتحركه » "..lock_gif..
-"\n".."܁༯┆الملفات » "..lock_file..
-"\n".."܁༯┆الدردشه » "..lock_text..
-"\n".."܁༯┆الفيديو » "..lock_ved..
-"\n".."܁༯┆الصور » "..lock_photo..
-"\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ "..
-"\n".."܁༯┆الصوت » "..lock_muse..
-"\n".."܁༯┆الملصقات » "..lock_ste..
-"\n".."܁༯┆الجهات » "..lock_phon..
-"\n".."܁༯┆الدخول » "..lock_join..
-"\n".."܁༯┆الاضافه » "..lock_add..
-"\n".."܁༯┆السيلفي » "..lock_self..
-"\n".."܁༯┆الالعاب » "..lock_geam..
-"\n".."܁༯┆التكرار » "..flood..
-"\n".."܁༯┆الترحيب » "..welcome..
-"\n".."܁༯┆عدد التكرار » "..Num_Flood..
+"*\nـپà¼¯â”†ط§ط§ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ "..
+"\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ "..
+"\nـپà¼¯â”†ط¹ظ„ط§ظ…ط© ط§ظ„ {âœ“} طھط¹ظ†ظٹ ظ…ظپط¹ظ„"..
+"\nـپà¼¯â”†ط¹ظ„ط§ظ…ط© ط§ظ„ {âœک} طھط¹ظ†ظٹ ظ…ط¹ط·ظ„"..
+"\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ "..
+"\nـپà¼¯â”†ط§ظ„ط±ظˆط§ط¨ط· آ» "..lock_links..
+"\n".."ـپà¼¯â”†ط§ظ„ظ…ط¹ط±ظپط§طھ آ» "..lock_user..
+"\n".."ـپà¼¯â”†ط§ظ„طھط§ظƒ آ» "..lock_hash..
+"\n".."ـپà¼¯â”†ط§ظ„ط¨ظˆطھط§طھ آ» "..lock_bots..
+"\n".."ـپà¼¯â”†ط§ظ„طھظˆط¬ظٹظ‡ آ» "..lock_fwd..
+"\n".."ـپà¼¯â”†ط§ظ„طھط«ط¨ظٹطھ آ» "..lock_pin..
+"\n".."ـپà¼¯â”†ط§ظ„ط§ط´ط¹ط§ط±ط§طھ آ» "..lock_tagservr..
+"\n".."ـپà¼¯â”†ط§ظ„ظ…ط§ط±ظƒط¯ظˆظ† آ» "..lock_mark..
+"\n".."ـپà¼¯â”†ط§ظ„طھط¹ط¯ظٹظ„ آ» "..lock_edit..
+"\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ "..
+"\n".."ـپà¼¯â”†ط§ظ„ظƒظ„ط§ظٹط´ آ» "..lock_spam..
+"\n".."ـپà¼¯â”†ط§ظ„ظƒظٹط¨ظˆط±ط¯ آ» "..lock_inlin..
+"\n".."ـپà¼¯â”†ط§ظ„ط§ط؛ط§ظ†ظٹ آ» "..lock_vico..
+"\n".."ـپà¼¯â”†ط§ظ„ظ…طھط­ط±ظƒظ‡ آ» "..lock_gif..
+"\n".."ـپà¼¯â”†ط§ظ„ظ…ظ„ظپط§طھ آ» "..lock_file..
+"\n".."ـپà¼¯â”†ط§ظ„ط¯ط±ط¯ط´ظ‡ آ» "..lock_text..
+"\n".."ـپà¼¯â”†ط§ظ„ظپظٹط¯ظٹظˆ آ» "..lock_ved..
+"\n".."ـپà¼¯â”†ط§ظ„طµظˆط± آ» "..lock_photo..
+"\nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ "..
+"\n".."ـپà¼¯â”†ط§ظ„طµظˆطھ آ» "..lock_muse..
+"\n".."ـپà¼¯â”†ط§ظ„ظ…ظ„طµظ‚ط§طھ آ» "..lock_ste..
+"\n".."ـپà¼¯â”†ط§ظ„ط¬ظ‡ط§طھ آ» "..lock_phon..
+"\n".."ـپà¼¯â”†ط§ظ„ط¯ط®ظˆظ„ آ» "..lock_join..
+"\n".."ـپà¼¯â”†ط§ظ„ط§ط¶ط§ظپظ‡ آ» "..lock_add..
+"\n".."ـپà¼¯â”†ط§ظ„ط³ظٹظ„ظپظٹ آ» "..lock_self..
+"\n".."ـپà¼¯â”†ط§ظ„ط§ظ„ط¹ط§ط¨ آ» "..lock_geam..
+"\n".."ـپà¼¯â”†ط§ظ„طھظƒط±ط§ط± آ» "..flood..
+"\n".."ـپà¼¯â”†ط§ظ„طھط±ط­ظٹط¨ آ» "..welcome..
+"\n".."ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„طھظƒط±ط§ط± آ» "..Num_Flood..
 "\n\n.*"
 send(msg.chat_id_, msg.id_,text)     
 end    
-if text == "تعطيل اوامر التحشيش" and Owner(msg) then    
+if text == "طھط¹ط·ظٹظ„ ط§ظˆط§ظ…ط± ط§ظ„طھط­ط´ظٹط´" and Owner(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-send(msg.chat_id_, msg.id_, '܁༯┆تم تعطيل اوامر التحشيش')
-database:set(bot_id.."korpica:Fun_Bots"..msg.chat_id_,"true")
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظˆط§ظ…ط± ط§ظ„طھط­ط´ظٹط´')
+redis:set(bot_id.."Fun_Bots"..msg.chat_id_,"true")
 end
-if text == "تفعيل اوامر التحشيش" and Owner(msg) then    
+if text == "طھظپط¹ظٹظ„ ط§ظˆط§ظ…ط± ط§ظ„طھط­ط´ظٹط´" and Owner(msg) then    
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل اوامر التحشيش')
-database:del(bot_id.."korpica:Fun_Bots"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظˆط§ظ…ط± ط§ظ„طھط­ط´ظٹط´')
+redis:del(bot_id.."Fun_Bots"..msg.chat_id_)
 end
 
-if text == 'تفعيل الايدي' and Owner(msg) then 
+if text == 'طھظپط¹ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ' and Owner(msg) then 
   if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الايدي') 
+redis:del(bot_id..'Lock:ID:Bot'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ') 
 end
-if text == 'تعطيل الايدي' and Owner(msg) then  
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تعطيل الايدي') 
+redis:set(bot_id..'Lock:ID:Bot'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ') 
 end
-if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
+if text == 'طھظپط¹ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ ط¨ط§ظ„طµظˆط±ظ‡' and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:del(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل الايدي بالصوره') 
+redis:del(bot_id..'Lock:ID:Bot:Photo'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ ط¨ط§ظ„طµظˆط±ظ‡') 
 end
-if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ ط¨ط§ظ„طµظˆط±ظ‡' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:set(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تعطيل الايدي بالصوره') 
+redis:set(bot_id..'Lock:ID:Bot:Photo'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ ط¨ط§ظ„طµظˆط±ظ‡') 
 end
-if text == 'تعين الايدي' and Owner(msg) then
+if text == 'طھط¹ظٹظ† ط§ظ„ط§ظٹط¯ظٹ' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-database:setex(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+redis:setex(bot_id.."Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
-܁༯┆ ارسل الان النص
-܁༯┆ يمكنك اضافه :
-- `#username` > اسم المستخدم
-- `#msgs` > عدد رسائل المستخدم
-- `#photos` > عدد صور المستخدم
-- `#id` > ايدي المستخدم
-- `#auto` > تفاعل المستخدم
-- `#stast` > موقع المستخدم 
-- `#edit` > عدد السحكات
-- `#game` > المجوهرات
-- `#AddMem` > عدد الجهات
-- `#Description` > تعليق الصوره
+ـپà¼¯â”† ط§ط±ط³ظ„ ط§ظ„ط§ظ† ط§ظ„ظ†طµ
+ـپà¼¯â”† ظٹظ…ظƒظ†ظƒ ط§ط¶ط§ظپظ‡ :
+- `#username` > ط§ط³ظ… ط§ظ„ظ…ط³طھط®ط¯ظ…
+- `#msgs` > ط¹ط¯ط¯ ط±ط³ط§ط¦ظ„ ط§ظ„ظ…ط³طھط®ط¯ظ…
+- `#photos` > ط¹ط¯ط¯ طµظˆط± ط§ظ„ظ…ط³طھط®ط¯ظ…
+- `#id` > ط§ظٹط¯ظٹ ط§ظ„ظ…ط³طھط®ط¯ظ…
+- `#auto` > طھظپط§ط¹ظ„ ط§ظ„ظ…ط³طھط®ط¯ظ…
+- `#stast` > ظ…ظˆظ‚ط¹ ط§ظ„ظ…ط³طھط®ط¯ظ… 
+- `#edit` > ط¹ط¯ط¯ ط§ظ„ط³ط­ظƒط§طھ
+- `#game` > ط§ظ„ظ…ط¬ظˆظ‡ط±ط§طھ
+- `#AddMem` > ط¹ط¯ط¯ ط§ظ„ط¬ظ‡ط§طھ
+- `#Description` > طھط¹ظ„ظٹظ‚ ط§ظ„طµظˆط±ظ‡
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
 end 
-if text == 'حذف الايدي' or text == 'مسح الايدي' then
+if text == 'ط­ط°ظپ ط§ظ„ط§ظٹط¯ظٹ' or text == 'ظ…ط³ط­ ط§ظ„ط§ظٹط¯ظٹ' then
 if Owner(msg) then
-database:del(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '܁༯┆تم ازالة كليشة الايدي ')
+redis:del(bot_id.."Klesh:Id:Bot"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© ظƒظ„ظٹط´ط© ط§ظ„ط§ظٹط¯ظٹ ')
 end
 return false  
 end 
 
-if database:get(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) then 
-if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء تعين الايدي") 
-database:del(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) 
+if redis:get(bot_id.."Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) then 
+if text == 'ط§ظ„ط؛ط§ط،' then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، طھط¹ظٹظ† ط§ظ„ط§ظٹط¯ظٹ") 
+redis:del(bot_id.."Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
-database:del(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) 
-database:set(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_,text:match("(.*)"))
-send(msg.chat_id_, msg.id_,'܁༯┆تم تعين الايدي')    
+redis:del(bot_id.."Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_) 
+redis:set(bot_id.."Klesh:Id:Bot"..msg.chat_id_,text:match("(.*)"))
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھط¹ظٹظ† ط§ظ„ط§ظٹط¯ظٹ')    
 end
 
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
-database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
+if text == 'ط§ظٹط¯ظٹ' and tonumber(msg.reply_to_message_id_) == 0 and not redis:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) then
+if not redis:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
+redis:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
 UserName_User = '@'..data.username_
 else
-UserName_User = 'لا يوجد'
+UserName_User = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
 local Id = msg.sender_user_id_
-local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local NumMsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
-local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
-local Add_Mem = database:get(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
+local message_edit = redis:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Num_Games = redis:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
+local Add_Mem = redis:get(bot_id.."Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
-'صورتك فدشي 😘😔❤️',
-"صارلك شكد مخليه ",
-"وفالله 😔💘",
-"كشخه برب 😉💘",
-"دغيره شبي هذ 😒",
-"عمري الحلوين 💘",
+'طµظˆط±طھظƒ ظپط¯ط´ظٹ ًںککًںک”â‌¤ï¸ڈ',
+"طµط§ط±ظ„ظƒ ط´ظƒط¯ ظ…ط®ظ„ظٹظ‡ ",
+"ظˆظپط§ظ„ظ„ظ‡ ًںک”ًں’ک",
+"ظƒط´ط®ظ‡ ط¨ط±ط¨ ًںک‰ًں’ک",
+"ط¯ط؛ظٹط±ظ‡ ط´ط¨ظٹ ظ‡ط° ًںک’",
+"ط¹ظ…ط±ظٹ ط§ظ„ط­ظ„ظˆظٹظ† ًں’ک",
 }
 local Description = Texting[math.random(#Texting)]
-local get_id = database:get(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_)
-if not database:get(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_) then
+local get_id = redis:get(bot_id.."Klesh:Id:Bot"..msg.chat_id_)
+if not redis:get(bot_id..'Lock:ID:Bot:Photo'..msg.chat_id_) then
 if taha.photos_[0] then
 if get_id then
 local get_id = get_id:gsub('#AddMem',Add_Mem) 
@@ -6218,10 +6574,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'𓌹 ⚚ '..Description..'\n𓌹 ⚚ 𝗂𝖽 ま » '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま  '..UserName_User..'\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま  '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚  𝗆𝖺𝗌𝗀 ま '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'ـپà¼¯â”†'..Description..'\nـپà¼¯â”†ط§ظٹط¯ظٹظƒ آ» '..Id..'\nـپà¼¯â”†ظ…ط¹ط±ظپظƒ آ» '..UserName_User..'\nـپà¼¯â”†ط±طھط¨طھظƒ آ» '..Status_Gps..'\nـپà¼¯â”†ط±ط³ط§ط¦ظ„ظƒ آ» '..NumMsg..'\nـپà¼¯â”†ط§ظ„ط³ط­ظƒط§طھ آ» '..message_edit..' \nـپà¼¯â”†طھطھظپط§ط¹ظ„ظƒ آ» '..TotalMsg..'\nـپà¼¯â”† ظ…ط¬ظˆظ‡ط±ط§طھظƒ آ» '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'𓌹 ⚚ ليس لديك صوره \n'..'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま * ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹظƒ طµظˆط±ظ‡ \n'..'\n*ـپà¼¯â”†ط§ظٹط¯ظٹظƒ آ» '..Id..'\nـپà¼¯â”†ظ…ط¹ط±ظپظƒ آ»* ['..UserName_User..']*\nـپà¼¯â”†ط±طھط¨طھظƒ آ» '..Status_Gps..'\nـپà¼¯â”†ط±ط³ط§ط¦ظ„ظƒ آ» '..NumMsg..'\nـپà¼¯â”†ط§ظ„ط³ط­ظƒط§طھ آ» '..message_edit..' \nـپà¼¯â”†طھطھظپط§ط¹ظ„ظƒ آ» '..TotalMsg..'\nـپà¼¯â”† ظ…ط¬ظˆظ‡ط±ط§طھظƒ آ» '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -6237,17 +6593,36 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*𓌹 ⚚ 𝗂𝖽 ま '..Id..'\n𓌹 ⚚ 𝗎𝗌𝖾𝗋 ま* ['..UserName_User..']*\n𓌹 ⚚ 𝗌𝗍𝖺𝗌 ま '..Status_Gps..'\n𓌹 ⚚ 𝗆𝖺𝗌𝗀 ま '..NumMsg..'\n𓌹 ⚚ 𝖾𝖽𝗂𝗍  ま '..message_edit..' \n𓌹 ⚚ 𝖺𝗎𝗍𝗈 ま '..TotalMsg..'\n𓌹 ⚚ 𝗀𝖺𝗆𝖾 ま '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*ـپà¼¯â”†ط§ظٹط¯ظٹظƒ آ» '..Id..'\nـپà¼¯â”†ظ…ط¹ط±ظپظƒ آ»* ['..UserName_User..']*\nـپà¼¯â”†ط±طھط¨طھظƒ آ» '..Status_Gps..'\nـپà¼¯â”†ط±ط³ط§ط¦ظ„ظƒ آ» '..NumMsg..'\nـپà¼¯â”†ط§ظ„ط³ط­ظƒط§طھ آ» '..message_edit..' \nـپà¼¯â”†طھطھظپط§ط¹ظ„ظƒ آ» '..TotalMsg..'\nـپà¼¯â”† ظ…ط¬ظˆظ‡ط±ط§طھظƒ آ» '..Num_Games..'*') 
 end
 end
 end,nil)   
 end,nil)   
 end
 end
-if text and text:match('^تنظيف (%d+)$') and Addictive(msg) then    
-local Number = tonumber(text:match('^تنظيف (%d+)$')) 
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ' and BasicConstructor(msg) then   
+if redis:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
+redis:del(bot_id..'Lock:delmsg'..msg.chat_id_) 
+Text = '\nـپà¼¯â”† طھظ… طھط¹ط·ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ' 
+else
+Text = '\nـپà¼¯â”†ط¨ط§ظ„طھط§ظƒظٹط¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'طھظپط¹ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ' and BasicConstructor(msg) then  
+if not redis:get(bot_id..'Lock:delmsg'..msg.chat_id_)  then
+redis:set(bot_id..'Lock:delmsg'..msg.chat_id_,true) 
+Text = '\nـپà¼¯â”† طھظ… طھظپط¹ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ' 
+else
+Text = '\nـپà¼¯â”†ط¨ط§ظ„طھط§ظƒظٹط¯ طھظ… طھظپط¹ظٹظ„ ط§ظ„طھظ†ط¸ظٹظپ'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text and text:match('^طھظ†ط¸ظٹظپ (%d+)$') and Constructor(msg) and redis:get(bot_id..'Lock:delmsg'..msg.chat_id_) then                
+if not redis:get(bot_id..'Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_) then           
+local Number = tonumber(text:match('^طھظ†ط¸ظٹظپ (%d+)$')) 
 if Number > 1000 then 
-send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع تنضيف اكثر من *~ 1000* رساله') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھط³طھط·ظٹط¹ طھظ†ط¶ظٹظپ ط§ظƒط«ط± ظ…ظ† *~ 1000* ط±ط³ط§ظ„ظ‡') 
 return false  
 end  
 local Message = msg.id_
@@ -6255,739 +6630,742 @@ for i=1,tonumber(Number) do
 DeleteMessage(msg.chat_id_,{[0]=Message})
 Message = Message - 1048576
 end
-send(msg.chat_id_, msg.id_,'܁༯┆تم تنظيف *~ '..Number..'* رساله .')  
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھظ†ط¸ظٹظپ *~ '..Number..'* ط±ط³ط§ظ„ظ‡ .')  
+redis:setex(bot_id..'Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+end
 end
 
-if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-function Function_korpica(extra, result, success)
+
+if text == 'ط§ظٹط¯ظٹ' and tonumber(msg.reply_to_message_id_) > 0 and not redis:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) then
+function Function_Co(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
-send(msg.chat_id_, msg.id_,'܁༯┆ الحساب محذوف لا توجد معلوماته ')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”† ط§ظ„ط­ط³ط§ط¨ ظ…ط­ط°ظˆظپ ظ„ط§ طھظˆط¬ط¯ ظ…ط¹ظ„ظˆظ…ط§طھظ‡ ')
 return false
 end
 if data.username_ then
 UserName_User = '@'..data.username_
 else
-UserName_User = 'لا يوجد'
+UserName_User = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
 local Id = data.id_
-local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..data.id_) or 0
+local NumMsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..data.id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
-local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..data.id_) or 0
-local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
-local Add_Mem = database:get(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*܁༯┆ايديه - '..Id..'\n܁༯┆رسائله - '..NumMsg..'\n܁༯┆معرفه - *['..UserName_User..']*\n܁༯┆تفاعله - '..TotalMsg..'\n܁༯┆رتبته - '..Status_Gps..'\n܁༯┆تعديلاته - '..message_edit..'\n܁༯┆جهاته - '..Add_Mem..'\n܁༯┆نوع الكشف - بالرد \n*') 
+local message_edit = redis:get(bot_id..'message_edit'..msg.chat_id_..data.id_) or 0
+local Num_Games = redis:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
+local Add_Mem = redis:get(bot_id.."Add:Memp"..msg.chat_id_..":"..data.id_) or 0
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”†ط§ظٹط¯ظٹظ‡ - '..Id..'\nـپà¼¯â”†ط±ط³ط§ط¦ظ„ظ‡ - '..NumMsg..'\nـپà¼¯â”†ظ…ط¹ط±ظپظ‡ - *['..UserName_User..']*\nـپà¼¯â”†طھظپط§ط¹ظ„ظ‡ - '..TotalMsg..'\nـپà¼¯â”†ط±طھط¨طھظ‡ - '..Status_Gps..'\nـپà¼¯â”†طھط¹ط¯ظٹظ„ط§طھظ‡ - '..message_edit..'\nـپà¼¯â”†ط¬ظ‡ط§طھظ‡ - '..Add_Mem..'\nـپà¼¯â”†ظ†ظˆط¹ ط§ظ„ظƒط´ظپ - ط¨ط§ظ„ط±ط¯ \n*') 
 end,nil)   
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Co, nil)
 return false
 end
 
-if text and text:match("^ايدي @(.*)$")  and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-local username = text:match("^ايدي @(.*)$") 
-function Function_korpica(extra, result, success)
+if text and text:match("^ط§ظٹط¯ظٹ @(.*)$")  and not redis:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) then
+local username = text:match("^ط§ظٹط¯ظٹ @(.*)$") 
+function Function_Co(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 if data.username_ then
 UserName_User = '@'..data.username_
 else
-UserName_User = 'لا يوجد'
+UserName_User = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
 local Id = data.id_
-local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..data.id_) or 0
+local NumMsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..data.id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
-local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..data.id_) or 0
-local Num_Games = database:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
-local Add_Mem = database:get(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*܁༯┆ايديه - '..Id..'\n܁༯┆رسائله - '..NumMsg..'\n܁༯┆معرفه - *['..UserName_User..']*\n܁༯┆تفاعله - '..TotalMsg..'\n܁༯┆رتبته - '..Status_Gps..'\n܁༯┆تعديلاته - '..message_edit..'\n܁༯┆جهاته - '..Add_Mem..'\n܁༯┆نوع الكشف - بالمعرف \n*') 
+local message_edit = redis:get(bot_id..'message_edit'..msg.chat_id_..data.id_) or 0
+local Num_Games = redis:get(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..data.id_) or 0
+local Add_Mem = redis:get(bot_id.."Add:Memp"..msg.chat_id_..":"..data.id_) or 0
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”†ط§ظٹط¯ظٹظ‡ - '..Id..'\nـپà¼¯â”†ط±ط³ط§ط¦ظ„ظ‡ - '..NumMsg..'\nـپà¼¯â”†ظ…ط¹ط±ظپظ‡ - *['..UserName_User..']*\nـپà¼¯â”†طھظپط§ط¹ظ„ظ‡ - '..TotalMsg..'\nـپà¼¯â”†ط±طھط¨طھظ‡ - '..Status_Gps..'\nـپà¼¯â”†طھط¹ط¯ظٹظ„ط§طھظ‡ - '..message_edit..'\nـپà¼¯â”†ط¬ظ‡ط§طھظ‡ - '..Add_Mem..'\nـپà¼¯â”†ظ†ظˆط¹ ط§ظ„ظƒط´ظپ - ط¨ط§ظ„ظ…ط¹ط±ظپ \n*') 
 end,nil)   
 else
-send(msg.chat_id_, msg.id_,'܁༯┆لا يوجد حساب بهاذا المعرف')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط­ط³ط§ط¨ ط¨ظ‡ط§ط°ط§ ط§ظ„ظ…ط¹ط±ظپ')
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Co, nil)
 return false
 end
-if text == "سمايلات" or text == "سمايل" then  
+if text == "ط³ظ…ط§ظٹظ„ط§طھ" or text == "ط³ظ…ط§ظٹظ„" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-database:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","܁༯","🎗","🏵","܁༯","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","🔮","🌡","💣","܁༯","📍","📓","📗","܁༯","📅","📪","܁༯","܁༯","📭","⏰","📺","🎚","☎️","܁༯"}
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+redis:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
+Random = {"ًںچڈ","ًںچژ","ًںچگ","ًںچٹ","ًںچ‹","ًںچ‰","ًںچ‡","ًںچ“","ًںچˆ","ًںچ’","ًںچ‘","ًںچچ","ًں¥¥","ًں¥‌","ًںچ…","ًںچ†","ًں¥‘","ًں¥¦","ًں¥’","ًںŒ¶","ًںŒ½","ًں¥•","ًں¥”","ًں¥–","??","ًںچ‍","ًں¥¨","ًںچں","ًں§€","ًں¥ڑ","ًںچ³","ًں¥“","ًں¥©","ًںچ—","ًںچ–","ًںŒ­","ًںچ”","ًںچ ","ًںچ•","ًں¥ھ","ًں¥™","âک•ï¸ڈ","ًںچµ","ًں¥¤","ًںچ¶","ًںچ؛","ًںچ»","ًںڈ€","âڑ½ï¸ڈ","ًںڈˆ","âڑ¾ï¸ڈ","ًںژ¾","ًںڈگ","ًںڈ‰","ًںژ±","ًںڈ“","ًںڈ¸","ًں¥…","ًںژ°","ًںژ®","ًںژ³","ًںژ¯","ًںژ²","ًںژ»","ًںژ¸","ًںژ؛","ًں¥پ","ًںژ¹","ًںژ¼","ًںژ§","ًںژ¤","ًںژ¬","ًںژ¨","ًںژ­","ًںژھ","ًںژں","âŒ”","ًںژ—","ًںڈµ","âŒ”","ًںڈ†","ًں¥Œ","ًں›·","ًںڑ—","ًںڑŒ","ًںڈژ","ًںڑ“","ًںڑ‘","ًںڑڑ","ًںڑ›","ًںڑœ","ًں‡®ًں‡¶","âڑ”","ًں›،","ًں”®","ًںŒ،","ًں’£","âŒ”","ًں“چ","ًں““","ًں“—","âŒ”","ًں“…","ًں“ھ","âŒ”","âŒ”","ًں“­","âڈ°","ًں“؛","ًںژڑ","âکژï¸ڈ","âŒ”"}
 SM = Random[math.random(#Random)]
-database:set(bot_id.."Tshak:Random:Sm"..msg.chat_id_,SM)
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
+redis:set(bot_id.."Tshak:Random:Sm"..msg.chat_id_,SM)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط¯ط² ظ‡ط§ط°ط§ ط§ظ„ط³ظ…ط§ظٹظ„ ? ~ {`"..SM.."`}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Random:Sm"..msg.chat_id_) or "").."" and not database:get(bot_id.."Tshak:Set:Sma"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Set:Sma"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ سمايل , سمايلات }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Random:Sm"..msg.chat_id_) or "").."" and not redis:get(bot_id.."Tshak:Set:Sma"..msg.chat_id_) then
+if not redis:get(bot_id.."Tshak:Set:Sma"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط³ظ…ط§ظٹظ„ , ط³ظ…ط§ظٹظ„ط§طھ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Sma"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Sma"..msg.chat_id_,true)
 return false
 end 
-if text == "الاسرع" or text == "ترتيب" then
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-database:del(bot_id.."Tshak:Speed:Tr"..msg.chat_id_)
-KlamSpeed = {"سحور","سياره","استقبال","قنفه","ايفون","بزونه","مطبخ","كرستيانو","دجاجه","مدرسه","الوان","غرفه","ثلاجه","كهوه","سفينه","العراق","محطه","طياره","رادار","منزل","مستشفى","كهرباء","تفاحه","اخطبوط","سلمون","فرنسا","برتقاله","تفاح","مطرقه","بتيته","لهانه","شباك","باص","سمكه","ذباب","تلفاز","حاسوب","انترنيت","ساحه","جسر"};
+if text == "ط§ظ„ط§ط³ط±ط¹" or text == "طھط±طھظٹط¨" then
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+redis:del(bot_id.."Tshak:Speed:Tr"..msg.chat_id_)
+KlamSpeed = {"ط³ط­ظˆط±","ط³ظٹط§ط±ظ‡","ط§ط³طھظ‚ط¨ط§ظ„","ظ‚ظ†ظپظ‡","ط§ظٹظپظˆظ†","ط¨ط²ظˆظ†ظ‡","ظ…ط·ط¨ط®","ظƒط±ط³طھظٹط§ظ†ظˆ","ط¯ط¬ط§ط¬ظ‡","ظ…ط¯ط±ط³ظ‡","ط§ظ„ظˆط§ظ†","ط؛ط±ظپظ‡","ط«ظ„ط§ط¬ظ‡","ظƒظ‡ظˆظ‡","ط³ظپظٹظ†ظ‡","ط§ظ„ط¹ط±ط§ظ‚","ظ…ط­ط·ظ‡","ط·ظٹط§ط±ظ‡","ط±ط§ط¯ط§ط±","ظ…ظ†ط²ظ„","ظ…ط³طھط´ظپظ‰","ظƒظ‡ط±ط¨ط§ط،","طھظپط§ط­ظ‡","ط§ط®ط·ط¨ظˆط·","ط³ظ„ظ…ظˆظ†","ظپط±ظ†ط³ط§","ط¨ط±طھظ‚ط§ظ„ظ‡","طھظپط§ط­","ظ…ط·ط±ظ‚ظ‡","ط¨طھظٹطھظ‡","ظ„ظ‡ط§ظ†ظ‡","ط´ط¨ط§ظƒ","ط¨ط§طµ","ط³ظ…ظƒظ‡","ط°ط¨ط§ط¨","طھظ„ظپط§ط²","ط­ط§ط³ظˆط¨","ط§ظ†طھط±ظ†ظٹطھ","ط³ط§ط­ظ‡","ط¬ط³ط±"};
 name = KlamSpeed[math.random(#KlamSpeed)]
-database:set(bot_id.."Tshak:Klam:Speed"..msg.chat_id_,name)
-name = string.gsub(name,"سحور","س ر و ح")
-name = string.gsub(name,"سياره","ه ر س ي ا")
-name = string.gsub(name,"استقبال","ل ب ا ت ق س ا")
-name = string.gsub(name,"قنفه","ه ق ن ف")
-name = string.gsub(name,"ايفون","و ن ف ا")
-name = string.gsub(name,"بزونه","ز و ه ن")
-name = string.gsub(name,"مطبخ","خ ب ط م")
-name = string.gsub(name,"كرستيانو","س ت ا ن و ك ر ي")
-name = string.gsub(name,"دجاجه","ج ج ا د ه")
-name = string.gsub(name,"مدرسه","ه م د ر س")
-name = string.gsub(name,"الوان","ن ا و ا ل")
-name = string.gsub(name,"غرفه","غ ه ر ف")
-name = string.gsub(name,"ثلاجه","ج ه ت ل ا")
-name = string.gsub(name,"كهوه","ه ك ه و")
-name = string.gsub(name,"سفينه","ه ن ف ي س")
-name = string.gsub(name,"العراق","ق ع ا ل ر ا")
-name = string.gsub(name,"محطه","ه ط م ح")
-name = string.gsub(name,"طياره","ر ا ط ي ه")
-name = string.gsub(name,"رادار","ر ا ر ا د")
-name = string.gsub(name,"منزل","ن ز م ل")
-name = string.gsub(name,"مستشفى","ى ش س ف ت م")
-name = string.gsub(name,"كهرباء","ر ب ك ه ا ء")
-name = string.gsub(name,"تفاحه","ح ه ا ت ف")
-name = string.gsub(name,"اخطبوط","ط ب و ا خ ط")
-name = string.gsub(name,"سلمون","ن م و ل س")
-name = string.gsub(name,"فرنسا","ن ف ر س ا")
-name = string.gsub(name,"برتقاله","ر ت ق ب ا ه ل")
-name = string.gsub(name,"تفاح","ح ف ا ت")
-name = string.gsub(name,"مطرقه","ه ط م ر ق")
-name = string.gsub(name,"بتيته","ب ت ت ي ه")
-name = string.gsub(name,"لهانه","ه ن ل ه ل")
-name = string.gsub(name,"شباك","ب ش ا ك")
-name = string.gsub(name,"باص","ص ا ب")
-name = string.gsub(name,"سمكه","ك س م ه")
-name = string.gsub(name,"ذباب","ب ا ب ذ")
-name = string.gsub(name,"تلفاز","ت ف ل ز ا")
-name = string.gsub(name,"حاسوب","س ا ح و ب")
-name = string.gsub(name,"انترنيت","ا ت ن ر ن ي ت")
-name = string.gsub(name,"ساحه","ح ا ه س")
-name = string.gsub(name,"جسر","ر ج س")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يرتبها ~ {"..name.."}")
+redis:set(bot_id.."Tshak:Klam:Speed"..msg.chat_id_,name)
+name = string.gsub(name,"ط³ط­ظˆط±","ط³ ط± ظˆ ط­")
+name = string.gsub(name,"ط³ظٹط§ط±ظ‡","ظ‡ ط± ط³ ظٹ ط§")
+name = string.gsub(name,"ط§ط³طھظ‚ط¨ط§ظ„","ظ„ ط¨ ط§ طھ ظ‚ ط³ ط§")
+name = string.gsub(name,"ظ‚ظ†ظپظ‡","ظ‡ ظ‚ ظ† ظپ")
+name = string.gsub(name,"ط§ظٹظپظˆظ†","ظˆ ظ† ظپ ط§")
+name = string.gsub(name,"ط¨ط²ظˆظ†ظ‡","ط² ظˆ ظ‡ ظ†")
+name = string.gsub(name,"ظ…ط·ط¨ط®","ط® ط¨ ط· ظ…")
+name = string.gsub(name,"ظƒط±ط³طھظٹط§ظ†ظˆ","ط³ طھ ط§ ظ† ظˆ ظƒ ط± ظٹ")
+name = string.gsub(name,"ط¯ط¬ط§ط¬ظ‡","ط¬ ط¬ ط§ ط¯ ظ‡")
+name = string.gsub(name,"ظ…ط¯ط±ط³ظ‡","ظ‡ ظ… ط¯ ط± ط³")
+name = string.gsub(name,"ط§ظ„ظˆط§ظ†","ظ† ط§ ظˆ ط§ ظ„")
+name = string.gsub(name,"ط؛ط±ظپظ‡","ط؛ ظ‡ ط± ظپ")
+name = string.gsub(name,"ط«ظ„ط§ط¬ظ‡","ط¬ ظ‡ طھ ظ„ ط§")
+name = string.gsub(name,"ظƒظ‡ظˆظ‡","ظ‡ ظƒ ظ‡ ظˆ")
+name = string.gsub(name,"ط³ظپظٹظ†ظ‡","ظ‡ ظ† ظپ ظٹ ط³")
+name = string.gsub(name,"ط§ظ„ط¹ط±ط§ظ‚","ظ‚ ط¹ ط§ ظ„ ط± ط§")
+name = string.gsub(name,"ظ…ط­ط·ظ‡","ظ‡ ط· ظ… ط­")
+name = string.gsub(name,"ط·ظٹط§ط±ظ‡","ط± ط§ ط· ظٹ ظ‡")
+name = string.gsub(name,"ط±ط§ط¯ط§ط±","ط± ط§ ط± ط§ ط¯")
+name = string.gsub(name,"ظ…ظ†ط²ظ„","ظ† ط² ظ… ظ„")
+name = string.gsub(name,"ظ…ط³طھط´ظپظ‰","ظ‰ ط´ ط³ ظپ طھ ظ…")
+name = string.gsub(name,"ظƒظ‡ط±ط¨ط§ط،","ط± ط¨ ظƒ ظ‡ ط§ ط،")
+name = string.gsub(name,"طھظپط§ط­ظ‡","ط­ ظ‡ ط§ طھ ظپ")
+name = string.gsub(name,"ط§ط®ط·ط¨ظˆط·","ط· ط¨ ظˆ ط§ ط® ط·")
+name = string.gsub(name,"ط³ظ„ظ…ظˆظ†","ظ† ظ… ظˆ ظ„ ط³")
+name = string.gsub(name,"ظپط±ظ†ط³ط§","ظ† ظپ ط± ط³ ط§")
+name = string.gsub(name,"ط¨ط±طھظ‚ط§ظ„ظ‡","ط± طھ ظ‚ ط¨ ط§ ظ‡ ظ„")
+name = string.gsub(name,"طھظپط§ط­","ط­ ظپ ط§ طھ")
+name = string.gsub(name,"ظ…ط·ط±ظ‚ظ‡","ظ‡ ط· ظ… ط± ظ‚")
+name = string.gsub(name,"ط¨طھظٹطھظ‡","ط¨ طھ طھ ظٹ ظ‡")
+name = string.gsub(name,"ظ„ظ‡ط§ظ†ظ‡","ظ‡ ظ† ظ„ ظ‡ ظ„")
+name = string.gsub(name,"ط´ط¨ط§ظƒ","ط¨ ط´ ط§ ظƒ")
+name = string.gsub(name,"ط¨ط§طµ","طµ ط§ ط¨")
+name = string.gsub(name,"ط³ظ…ظƒظ‡","ظƒ ط³ ظ… ظ‡")
+name = string.gsub(name,"ط°ط¨ط§ط¨","ط¨ ط§ ط¨ ط°")
+name = string.gsub(name,"طھظ„ظپط§ط²","طھ ظپ ظ„ ط² ط§")
+name = string.gsub(name,"ط­ط§ط³ظˆط¨","ط³ ط§ ط­ ظˆ ط¨")
+name = string.gsub(name,"ط§ظ†طھط±ظ†ظٹطھ","ط§ طھ ظ† ط± ظ† ظٹ طھ")
+name = string.gsub(name,"ط³ط§ط­ظ‡","ط­ ط§ ظ‡ ط³")
+name = string.gsub(name,"ط¬ط³ط±","ط± ط¬ ط³")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط±طھط¨ظ‡ط§ ~ {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Klam:Speed"..msg.chat_id_) or "").."" and not database:get(bot_id.."Tshak:Speed:Tr"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Speed:Tr"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ الاسرع , ترتيب }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Klam:Speed"..msg.chat_id_) or "").."" and not redis:get(bot_id.."Tshak:Speed:Tr"..msg.chat_id_) then
+if not redis:get(bot_id.."Tshak:Speed:Tr"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط§ظ„ط§ط³ط±ط¹ , طھط±طھظٹط¨ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Speed:Tr"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Speed:Tr"..msg.chat_id_,true)
 end 
 
-if text == "حزوره" then  
+if text == "ط­ط²ظˆط±ظ‡" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-database:del(bot_id.."Tshak:Set:Hzora"..msg.chat_id_)
-Hzora = {"الجرس","عقرب الساعه","السمك","المطر","5","الكتاب","البسمار","7","الكعبه","بيت الشعر","لهانه","انا","امي","الابره","الساعه","22","غلط","كم الساعه","البيتنجان","البيض","المرايه","الضوء","الهواء","الضل","العمر","القلم","المشط","الحفره","البحر","الثلج","الاسفنج","الصوت","بلم"};
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+redis:del(bot_id.."Tshak:Set:Hzora"..msg.chat_id_)
+Hzora = {"ط§ظ„ط¬ط±ط³","ط¹ظ‚ط±ط¨ ط§ظ„ط³ط§ط¹ظ‡","ط§ظ„ط³ظ…ظƒ","ط§ظ„ظ…ط·ط±","5","ط§ظ„ظƒطھط§ط¨","ط§ظ„ط¨ط³ظ…ط§ط±","7","ط§ظ„ظƒط¹ط¨ظ‡","ط¨ظٹطھ ط§ظ„ط´ط¹ط±","ظ„ظ‡ط§ظ†ظ‡","ط§ظ†ط§","ط§ظ…ظٹ","ط§ظ„ط§ط¨ط±ظ‡","ط§ظ„ط³ط§ط¹ظ‡","22","ط؛ظ„ط·","ظƒظ… ط§ظ„ط³ط§ط¹ظ‡","ط§ظ„ط¨ظٹطھظ†ط¬ط§ظ†","ط§ظ„ط¨ظٹط¶","ط§ظ„ظ…ط±ط§ظٹظ‡","ط§ظ„ط¶ظˆط،","ط§ظ„ظ‡ظˆط§ط،","ط§ظ„ط¶ظ„","ط§ظ„ط¹ظ…ط±","ط§ظ„ظ‚ظ„ظ…","ط§ظ„ظ…ط´ط·","ط§ظ„ط­ظپط±ظ‡","ط§ظ„ط¨ط­ط±","ط§ظ„ط«ظ„ط¬","ط§ظ„ط§ط³ظپظ†ط¬","ط§ظ„طµظˆطھ","ط¨ظ„ظ…"};
 name = Hzora[math.random(#Hzora)]
-database:set(bot_id.."Tshak:Klam:Hzor"..msg.chat_id_,name)
-name = string.gsub(name,"الجرس","شيئ اذا لمسته صرخ ما هوه ؟")
-name = string.gsub(name,"عقرب الساعه","اخوان لا يستطيعان تمضيه اكثر من دقيقه معا فما هما ؟")
-name = string.gsub(name,"السمك","ما هو الحيوان الذي لم يصعد الى سفينة نوح عليه السلام ؟")
-name = string.gsub(name,"المطر","شيئ يسقط على رأسك من الاعلى ولا يجرحك فما هو ؟")
-name = string.gsub(name,"5","ما العدد الذي اذا ضربته بنفسه واضفت عليه 5 يصبح ثلاثين ")
-name = string.gsub(name,"الكتاب","ما الشيئ الذي له اوراق وليس له جذور ؟")
-name = string.gsub(name,"البسمار","ما هو الشيئ الذي لا يمشي الا بالضرب ؟")
-name = string.gsub(name,"7","عائله مؤلفه من 6 بنات واخ لكل منهن .فكم عدد افراد العائله ")
-name = string.gsub(name,"الكعبه","ما هو الشيئ الموجود وسط مكة ؟")
-name = string.gsub(name,"بيت الشعر","ما هو البيت الذي ليس فيه ابواب ولا نوافذ ؟ ")
-name = string.gsub(name,"لهانه","وحده حلوه ومغروره تلبس مية تنوره .من هيه ؟ ")
-name = string.gsub(name,"انا","ابن امك وابن ابيك وليس باختك ولا باخيك فمن يكون ؟")
-name = string.gsub(name,"امي","اخت خالك وليست خالتك من تكون ؟ ")
-name = string.gsub(name,"الابره","ما هو الشيئ الذي كلما خطا خطوه فقد شيئا من ذيله ؟ ")
-name = string.gsub(name,"الساعه","ما هو الشيئ الذي يقول الصدق ولكنه اذا جاع كذب ؟")
-name = string.gsub(name,"22","كم مره ينطبق عقربا الساعه على بعضهما في اليوم الواحد ")
-name = string.gsub(name,"غلط","ما هي الكلمه الوحيده التي تلفض غلط دائما ؟ ")
-name = string.gsub(name,"كم الساعه","ما هو السؤال الذي تختلف اجابته دائما ؟")
-name = string.gsub(name,"البيتنجان","جسم اسود وقلب ابيض وراس اخظر فما هو ؟")
-name = string.gsub(name,"البيض","ماهو الشيئ الذي اسمه على لونه ؟")
-name = string.gsub(name,"المرايه","ارى كل شيئ من دون عيون من اكون ؟ ")
-name = string.gsub(name,"الضوء","ما هو الشيئ الذي يخترق الزجاج ولا يكسره ؟")
-name = string.gsub(name,"الهواء","ما هو الشيئ الذي يسير امامك ولا تراه ؟")
-name = string.gsub(name,"الضل","ما هو الشيئ الذي يلاحقك اينما تذهب ؟ ")
-name = string.gsub(name,"العمر","ما هو الشيء الذي كلما طال قصر ؟ ")
-name = string.gsub(name,"القلم","ما هو الشيئ الذي يكتب ولا يقرأ ؟")
-name = string.gsub(name,"المشط","له أسنان ولا يعض ما هو ؟ ")
-name = string.gsub(name,"الحفره","ما هو الشيئ اذا أخذنا منه ازداد وكبر ؟")
-name = string.gsub(name,"البحر","ما هو الشيئ الذي يرفع اثقال ولا يقدر يرفع مسمار ؟")
-name = string.gsub(name,"الثلج","انا ابن الماء فان تركوني في الماء مت فمن انا ؟")
-name = string.gsub(name,"الاسفنج","كلي ثقوب ومع ذالك احفض الماء فمن اكون ؟")
-name = string.gsub(name,"الصوت","اسير بلا رجلين ولا ادخل الا بالاذنين فمن انا ؟")
-name = string.gsub(name,"بلم","حامل ومحمول نصف ناشف ونصف مبلول فمن اكون ؟ ")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يحل الحزوره ↓\n {"..name.."}")
+redis:set(bot_id.."Tshak:Klam:Hzor"..msg.chat_id_,name)
+name = string.gsub(name,"ط§ظ„ط¬ط±ط³","ط´ظٹط¦ ط§ط°ط§ ظ„ظ…ط³طھظ‡ طµط±ط® ظ…ط§ ظ‡ظˆظ‡ طں")
+name = string.gsub(name,"ط¹ظ‚ط±ط¨ ط§ظ„ط³ط§ط¹ظ‡","ط§ط®ظˆط§ظ† ظ„ط§ ظٹط³طھط·ظٹط¹ط§ظ† طھظ…ط¶ظٹظ‡ ط§ظƒط«ط± ظ…ظ† ط¯ظ‚ظٹظ‚ظ‡ ظ…ط¹ط§ ظپظ…ط§ ظ‡ظ…ط§ طں")
+name = string.gsub(name,"ط§ظ„ط³ظ…ظƒ","ظ…ط§ ظ‡ظˆ ط§ظ„ط­ظٹظˆط§ظ† ط§ظ„ط°ظٹ ظ„ظ… ظٹطµط¹ط¯ ط§ظ„ظ‰ ط³ظپظٹظ†ط© ظ†ظˆط­ ط¹ظ„ظٹظ‡ ط§ظ„ط³ظ„ط§ظ… طں")
+name = string.gsub(name,"ط§ظ„ظ…ط·ط±","ط´ظٹط¦ ظٹط³ظ‚ط· ط¹ظ„ظ‰ ط±ط£ط³ظƒ ظ…ظ† ط§ظ„ط§ط¹ظ„ظ‰ ظˆظ„ط§ ظٹط¬ط±ط­ظƒ ظپظ…ط§ ظ‡ظˆ طں")
+name = string.gsub(name,"5","ظ…ط§ ط§ظ„ط¹ط¯ط¯ ط§ظ„ط°ظٹ ط§ط°ط§ ط¶ط±ط¨طھظ‡ ط¨ظ†ظپط³ظ‡ ظˆط§ط¶ظپطھ ط¹ظ„ظٹظ‡ 5 ظٹطµط¨ط­ ط«ظ„ط§ط«ظٹظ† ")
+name = string.gsub(name,"ط§ظ„ظƒطھط§ط¨","ظ…ط§ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظ„ظ‡ ط§ظˆط±ط§ظ‚ ظˆظ„ظٹط³ ظ„ظ‡ ط¬ط°ظˆط± طں")
+name = string.gsub(name,"ط§ظ„ط¨ط³ظ…ط§ط±","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظ„ط§ ظٹظ…ط´ظٹ ط§ظ„ط§ ط¨ط§ظ„ط¶ط±ط¨ طں")
+name = string.gsub(name,"7","ط¹ط§ط¦ظ„ظ‡ ظ…ط¤ظ„ظپظ‡ ظ…ظ† 6 ط¨ظ†ط§طھ ظˆط§ط® ظ„ظƒظ„ ظ…ظ†ظ‡ظ† .ظپظƒظ… ط¹ط¯ط¯ ط§ظپط±ط§ط¯ ط§ظ„ط¹ط§ط¦ظ„ظ‡ ")
+name = string.gsub(name,"ط§ظ„ظƒط¹ط¨ظ‡","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ظ…ظˆط¬ظˆط¯ ظˆط³ط· ظ…ظƒط© طں")
+name = string.gsub(name,"ط¨ظٹطھ ط§ظ„ط´ط¹ط±","ظ…ط§ ظ‡ظˆ ط§ظ„ط¨ظٹطھ ط§ظ„ط°ظٹ ظ„ظٹط³ ظپظٹظ‡ ط§ط¨ظˆط§ط¨ ظˆظ„ط§ ظ†ظˆط§ظپط° طں ")
+name = string.gsub(name,"ظ„ظ‡ط§ظ†ظ‡","ظˆط­ط¯ظ‡ ط­ظ„ظˆظ‡ ظˆظ…ط؛ط±ظˆط±ظ‡ طھظ„ط¨ط³ ظ…ظٹط© طھظ†ظˆط±ظ‡ .ظ…ظ† ظ‡ظٹظ‡ طں ")
+name = string.gsub(name,"ط§ظ†ط§","ط§ط¨ظ† ط§ظ…ظƒ ظˆط§ط¨ظ† ط§ط¨ظٹظƒ ظˆظ„ظٹط³ ط¨ط§ط®طھظƒ ظˆظ„ط§ ط¨ط§ط®ظٹظƒ ظپظ…ظ† ظٹظƒظˆظ† طں")
+name = string.gsub(name,"ط§ظ…ظٹ","ط§ط®طھ ط®ط§ظ„ظƒ ظˆظ„ظٹط³طھ ط®ط§ظ„طھظƒ ظ…ظ† طھظƒظˆظ† طں ")
+name = string.gsub(name,"ط§ظ„ط§ط¨ط±ظ‡","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظƒظ„ظ…ط§ ط®ط·ط§ ط®ط·ظˆظ‡ ظپظ‚ط¯ ط´ظٹط¦ط§ ظ…ظ† ط°ظٹظ„ظ‡ طں ")
+name = string.gsub(name,"ط§ظ„ط³ط§ط¹ظ‡","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹظ‚ظˆظ„ ط§ظ„طµط¯ظ‚ ظˆظ„ظƒظ†ظ‡ ط§ط°ط§ ط¬ط§ط¹ ظƒط°ط¨ طں")
+name = string.gsub(name,"22","ظƒظ… ظ…ط±ظ‡ ظٹظ†ط·ط¨ظ‚ ط¹ظ‚ط±ط¨ط§ ط§ظ„ط³ط§ط¹ظ‡ ط¹ظ„ظ‰ ط¨ط¹ط¶ظ‡ظ…ط§ ظپظٹ ط§ظ„ظٹظˆظ… ط§ظ„ظˆط§ط­ط¯ ")
+name = string.gsub(name,"ط؛ظ„ط·","ظ…ط§ ظ‡ظٹ ط§ظ„ظƒظ„ظ…ظ‡ ط§ظ„ظˆط­ظٹط¯ظ‡ ط§ظ„طھظٹ طھظ„ظپط¶ ط؛ظ„ط· ط¯ط§ط¦ظ…ط§ طں ")
+name = string.gsub(name,"ظƒظ… ط§ظ„ط³ط§ط¹ظ‡","ظ…ط§ ظ‡ظˆ ط§ظ„ط³ط¤ط§ظ„ ط§ظ„ط°ظٹ طھط®طھظ„ظپ ط§ط¬ط§ط¨طھظ‡ ط¯ط§ط¦ظ…ط§ طں")
+name = string.gsub(name,"ط§ظ„ط¨ظٹطھظ†ط¬ط§ظ†","ط¬ط³ظ… ط§ط³ظˆط¯ ظˆظ‚ظ„ط¨ ط§ط¨ظٹط¶ ظˆط±ط§ط³ ط§ط®ط¸ط± ظپظ…ط§ ظ‡ظˆ طں")
+name = string.gsub(name,"ط§ظ„ط¨ظٹط¶","ظ…ط§ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ط§ط³ظ…ظ‡ ط¹ظ„ظ‰ ظ„ظˆظ†ظ‡ طں")
+name = string.gsub(name,"ط§ظ„ظ…ط±ط§ظٹظ‡","ط§ط±ظ‰ ظƒظ„ ط´ظٹط¦ ظ…ظ† ط¯ظˆظ† ط¹ظٹظˆظ† ظ…ظ† ط§ظƒظˆظ† طں ")
+name = string.gsub(name,"ط§ظ„ط¶ظˆط،","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹط®طھط±ظ‚ ط§ظ„ط²ط¬ط§ط¬ ظˆظ„ط§ ظٹظƒط³ط±ظ‡ طں")
+name = string.gsub(name,"ط§ظ„ظ‡ظˆط§ط،","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹط³ظٹط± ط§ظ…ط§ظ…ظƒ ظˆظ„ط§ طھط±ط§ظ‡ طں")
+name = string.gsub(name,"ط§ظ„ط¶ظ„","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹظ„ط§ط­ظ‚ظƒ ط§ظٹظ†ظ…ط§ طھط°ظ‡ط¨ طں ")
+name = string.gsub(name,"ط§ظ„ط¹ظ…ط±","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط، ط§ظ„ط°ظٹ ظƒظ„ظ…ط§ ط·ط§ظ„ ظ‚طµط± طں ")
+name = string.gsub(name,"ط§ظ„ظ‚ظ„ظ…","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹظƒطھط¨ ظˆظ„ط§ ظٹظ‚ط±ط£ طں")
+name = string.gsub(name,"ط§ظ„ظ…ط´ط·","ظ„ظ‡ ط£ط³ظ†ط§ظ† ظˆظ„ط§ ظٹط¹ط¶ ظ…ط§ ظ‡ظˆ طں ")
+name = string.gsub(name,"ط§ظ„ط­ظپط±ظ‡","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ط°ط§ ط£ط®ط°ظ†ط§ ظ…ظ†ظ‡ ط§ط²ط¯ط§ط¯ ظˆظƒط¨ط± طں")
+name = string.gsub(name,"ط§ظ„ط¨ط­ط±","ظ…ط§ ظ‡ظˆ ط§ظ„ط´ظٹط¦ ط§ظ„ط°ظٹ ظٹط±ظپط¹ ط§ط«ظ‚ط§ظ„ ظˆظ„ط§ ظٹظ‚ط¯ط± ظٹط±ظپط¹ ظ…ط³ظ…ط§ط± طں")
+name = string.gsub(name,"ط§ظ„ط«ظ„ط¬","ط§ظ†ط§ ط§ط¨ظ† ط§ظ„ظ…ط§ط، ظپط§ظ† طھط±ظƒظˆظ†ظٹ ظپظٹ ط§ظ„ظ…ط§ط، ظ…طھ ظپظ…ظ† ط§ظ†ط§ طں")
+name = string.gsub(name,"ط§ظ„ط§ط³ظپظ†ط¬","ظƒظ„ظٹ ط«ظ‚ظˆط¨ ظˆظ…ط¹ ط°ط§ظ„ظƒ ط§ط­ظپط¶ ط§ظ„ظ…ط§ط، ظپظ…ظ† ط§ظƒظˆظ† طں")
+name = string.gsub(name,"ط§ظ„طµظˆطھ","ط§ط³ظٹط± ط¨ظ„ط§ ط±ط¬ظ„ظٹظ† ظˆظ„ط§ ط§ط¯ط®ظ„ ط§ظ„ط§ ط¨ط§ظ„ط§ط°ظ†ظٹظ† ظپظ…ظ† ط§ظ†ط§ طں")
+name = string.gsub(name,"ط¨ظ„ظ…","ط­ط§ظ…ظ„ ظˆظ…ط­ظ…ظˆظ„ ظ†طµظپ ظ†ط§ط´ظپ ظˆظ†طµظپ ظ…ط¨ظ„ظˆظ„ ظپظ…ظ† ط§ظƒظˆظ† طں ")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط­ظ„ ط§ظ„ط­ط²ظˆط±ظ‡ â†“\n {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Klam:Hzor"..msg.chat_id_) or "").."" and not database:get(bot_id.."Tshak:Set:Hzora"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Set:Hzora"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ حزوره }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Klam:Hzor"..msg.chat_id_) or "").."" and not redis:get(bot_id.."Tshak:Set:Hzora"..msg.chat_id_) then
+if not redis:get(bot_id.."Tshak:Set:Hzora"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط­ط²ظˆط±ظ‡ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Hzora"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Hzora"..msg.chat_id_,true)
 end 
 
-if text == "معاني" then  
+if text == "ظ…ط¹ط§ظ†ظٹ" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-database:del(bot_id.."Tshak:Set:Maany"..msg.chat_id_)
-Maany_Rand = {"قرد","دجاجه","بطريق","ضفدع","بومه","نحله","ديك","جمل","بقره","دولفين","تمساح","قرش","نمر","اخطبوط","سمكه","خفاش","اسد","فأر","ذئب","فراشه","عقرب","زرافه","قنفذ","تفاحه","باذنجان"}
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+redis:del(bot_id.."Tshak:Set:Maany"..msg.chat_id_)
+Maany_Rand = {"ظ‚ط±ط¯","ط¯ط¬ط§ط¬ظ‡","ط¨ط·ط±ظٹظ‚","ط¶ظپط¯ط¹","ط¨ظˆظ…ظ‡","ظ†ط­ظ„ظ‡","ط¯ظٹظƒ","ط¬ظ…ظ„","ط¨ظ‚ط±ظ‡","ط¯ظˆظ„ظپظٹظ†","طھظ…ط³ط§ط­","ظ‚ط±ط´","ظ†ظ…ط±","ط§ط®ط·ط¨ظˆط·","ط³ظ…ظƒظ‡","ط®ظپط§ط´","ط§ط³ط¯","ظپط£ط±","ط°ط¦ط¨","ظپط±ط§ط´ظ‡","ط¹ظ‚ط±ط¨","ط²ط±ط§ظپظ‡","ظ‚ظ†ظپط°","طھظپط§ط­ظ‡","ط¨ط§ط°ظ†ط¬ط§ظ†"}
 name = Maany_Rand[math.random(#Maany_Rand)]
-database:set(bot_id.."Tshak:Maany"..msg.chat_id_,name)
-name = string.gsub(name,"قرد","🐒")
-name = string.gsub(name,"دجاجه","🐔")
-name = string.gsub(name,"بطريق","🐧")
-name = string.gsub(name,"ضفدع","🐸")
-name = string.gsub(name,"بومه","🦉")
-name = string.gsub(name,"نحله","🐝")
-name = string.gsub(name,"ديك","🐓")
-name = string.gsub(name,"جمل","🐫")
-name = string.gsub(name,"بقره","🐄")
-name = string.gsub(name,"دولفين","🐬")
-name = string.gsub(name,"تمساح","🐊")
-name = string.gsub(name,"قرش","🦈")
-name = string.gsub(name,"نمر","🐅")
-name = string.gsub(name,"اخطبوط","🐙")
-name = string.gsub(name,"سمكه","🐟")
-name = string.gsub(name,"خفاش","🦇")
-name = string.gsub(name,"اسد","🦁")
-name = string.gsub(name,"فأر","🐭")
-name = string.gsub(name,"ذئب","🐺")
-name = string.gsub(name,"فراشه","🦋")
-name = string.gsub(name,"عقرب","🦂")
-name = string.gsub(name,"زرافه","🦒")
-name = string.gsub(name,"قنفذ","🦔")
-name = string.gsub(name,"تفاحه","🍎")
-name = string.gsub(name,"باذنجان","🍆")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يدز معنى السمايل ~ {"..name.."}")
+redis:set(bot_id.."Tshak:Maany"..msg.chat_id_,name)
+name = string.gsub(name,"ظ‚ط±ط¯","ًںگ’")
+name = string.gsub(name,"ط¯ط¬ط§ط¬ظ‡","ًںگ”")
+name = string.gsub(name,"ط¨ط·ط±ظٹظ‚","ًںگ§")
+name = string.gsub(name,"ط¶ظپط¯ط¹","ًںگ¸")
+name = string.gsub(name,"ط¨ظˆظ…ظ‡","ًں¦‰")
+name = string.gsub(name,"ظ†ط­ظ„ظ‡","ًںگ‌")
+name = string.gsub(name,"ط¯ظٹظƒ","ًںگ“")
+name = string.gsub(name,"ط¬ظ…ظ„","ًںگ«")
+name = string.gsub(name,"ط¨ظ‚ط±ظ‡","ًںگ„")
+name = string.gsub(name,"ط¯ظˆظ„ظپظٹظ†","ًںگ¬")
+name = string.gsub(name,"طھظ…ط³ط§ط­","ًںگٹ")
+name = string.gsub(name,"ظ‚ط±ط´","ًں¦ˆ")
+name = string.gsub(name,"ظ†ظ…ط±","ًںگ…")
+name = string.gsub(name,"ط§ط®ط·ط¨ظˆط·","ًںگ™")
+name = string.gsub(name,"ط³ظ…ظƒظ‡","ًںگں")
+name = string.gsub(name,"ط®ظپط§ط´","ًں¦‡")
+name = string.gsub(name,"ط§ط³ط¯","ًں¦پ")
+name = string.gsub(name,"ظپط£ط±","ًںگ­")
+name = string.gsub(name,"ط°ط¦ط¨","ًںگ؛")
+name = string.gsub(name,"ظپط±ط§ط´ظ‡","ًں¦‹")
+name = string.gsub(name,"ط¹ظ‚ط±ط¨","ًں¦‚")
+name = string.gsub(name,"ط²ط±ط§ظپظ‡","ًں¦’")
+name = string.gsub(name,"ظ‚ظ†ظپط°","ًں¦”")
+name = string.gsub(name,"طھظپط§ط­ظ‡","ًںچژ")
+name = string.gsub(name,"ط¨ط§ط°ظ†ط¬ط§ظ†","ًںچ†")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط¯ط² ظ…ط¹ظ†ظ‰ ط§ظ„ط³ظ…ط§ظٹظ„ ~ {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Maany"..msg.chat_id_) or "").."" and not database:get(bot_id.."Tshak:Set:Maany"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Set:Maany"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ معاني }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Maany"..msg.chat_id_) or "").."" and not redis:get(bot_id.."Tshak:Set:Maany"..msg.chat_id_) then
+if not redis:get(bot_id.."Tshak:Set:Maany"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ظ…ط¹ط§ظ†ظٹ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Maany"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Maany"..msg.chat_id_,true)
 end 
-if text == "العكس" then  
+if text == "ط§ظ„ط¹ظƒط³" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-database:del(bot_id.."Tshak:Set:Aks"..msg.chat_id_)
-katu = {"باي","فهمت","موزين","اسمعك","احبك","موحلو","نضيف","حاره","ناصي","جوه","سريع","ونسه","طويل","سمين","ضعيف","شريف","شجاع","رحت","عدل","نشيط","شبعان","موعطشان","خوش ولد","اني","هادئ"}
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+redis:del(bot_id.."Tshak:Set:Aks"..msg.chat_id_)
+katu = {"ط¨ط§ظٹ","ظپظ‡ظ…طھ","ظ…ظˆط²ظٹظ†","ط§ط³ظ…ط¹ظƒ","ط§ط­ط¨ظƒ","ظ…ظˆط­ظ„ظˆ","ظ†ط¶ظٹظپ","ط­ط§ط±ظ‡","ظ†ط§طµظٹ","ط¬ظˆظ‡","ط³ط±ظٹط¹","ظˆظ†ط³ظ‡","ط·ظˆظٹظ„","ط³ظ…ظٹظ†","ط¶ط¹ظٹظپ","ط´ط±ظٹظپ","ط´ط¬ط§ط¹","ط±ط­طھ","ط¹ط¯ظ„","ظ†ط´ظٹط·","ط´ط¨ط¹ط§ظ†","ظ…ظˆط¹ط·ط´ط§ظ†","ط®ظˆط´ ظˆظ„ط¯","ط§ظ†ظٹ","ظ‡ط§ط¯ط¦"}
 name = katu[math.random(#katu)]
-database:set(bot_id.."Tshak:Set:Aks:Game"..msg.chat_id_,name)
-name = string.gsub(name,"باي","هلو")
-name = string.gsub(name,"فهمت","مافهمت")
-name = string.gsub(name,"موزين","زين")
-name = string.gsub(name,"اسمعك","ماسمعك")
-name = string.gsub(name,"احبك","ماحبك")
-name = string.gsub(name,"موحلو","حلو")
-name = string.gsub(name,"نضيف","وصخ")
-name = string.gsub(name,"حاره","بارده")
-name = string.gsub(name,"ناصي","عالي")
-name = string.gsub(name,"جوه","فوك")
-name = string.gsub(name,"سريع","بطيء")
-name = string.gsub(name,"ونسه","ضوجه")
-name = string.gsub(name,"طويل","قزم")
-name = string.gsub(name,"سمين","ضعيف")
-name = string.gsub(name,"ضعيف","قوي")
-name = string.gsub(name,"شريف","كواد")
-name = string.gsub(name,"شجاع","جبان")
-name = string.gsub(name,"رحت","اجيت")
-name = string.gsub(name,"عدل","ميت")
-name = string.gsub(name,"نشيط","كسول")
-name = string.gsub(name,"شبعان","جوعان")
-name = string.gsub(name,"موعطشان","عطشان")
-name = string.gsub(name,"خوش ولد","موخوش ولد")
-name = string.gsub(name,"اني","مطي")
-name = string.gsub(name,"هادئ","عصبي")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يدز العكس ~ {"..name.."}")
+redis:set(bot_id.."Tshak:Set:Aks:Game"..msg.chat_id_,name)
+name = string.gsub(name,"ط¨ط§ظٹ","ظ‡ظ„ظˆ")
+name = string.gsub(name,"ظپظ‡ظ…طھ","ظ…ط§ظپظ‡ظ…طھ")
+name = string.gsub(name,"ظ…ظˆط²ظٹظ†","ط²ظٹظ†")
+name = string.gsub(name,"ط§ط³ظ…ط¹ظƒ","ظ…ط§ط³ظ…ط¹ظƒ")
+name = string.gsub(name,"ط§ط­ط¨ظƒ","ظ…ط§ط­ط¨ظƒ")
+name = string.gsub(name,"ظ…ظˆط­ظ„ظˆ","ط­ظ„ظˆ")
+name = string.gsub(name,"ظ†ط¶ظٹظپ","ظˆطµط®")
+name = string.gsub(name,"ط­ط§ط±ظ‡","ط¨ط§ط±ط¯ظ‡")
+name = string.gsub(name,"ظ†ط§طµظٹ","ط¹ط§ظ„ظٹ")
+name = string.gsub(name,"ط¬ظˆظ‡","ظپظˆظƒ")
+name = string.gsub(name,"ط³ط±ظٹط¹","ط¨ط·ظٹط،")
+name = string.gsub(name,"ظˆظ†ط³ظ‡","ط¶ظˆط¬ظ‡")
+name = string.gsub(name,"ط·ظˆظٹظ„","ظ‚ط²ظ…")
+name = string.gsub(name,"ط³ظ…ظٹظ†","ط¶ط¹ظٹظپ")
+name = string.gsub(name,"ط¶ط¹ظٹظپ","ظ‚ظˆظٹ")
+name = string.gsub(name,"ط´ط±ظٹظپ","ظƒظˆط§ط¯")
+name = string.gsub(name,"ط´ط¬ط§ط¹","ط¬ط¨ط§ظ†")
+name = string.gsub(name,"ط±ط­طھ","ط§ط¬ظٹطھ")
+name = string.gsub(name,"ط¹ط¯ظ„","ظ…ظٹطھ")
+name = string.gsub(name,"ظ†ط´ظٹط·","ظƒط³ظˆظ„")
+name = string.gsub(name,"ط´ط¨ط¹ط§ظ†","ط¬ظˆط¹ط§ظ†")
+name = string.gsub(name,"ظ…ظˆط¹ط·ط´ط§ظ†","ط¹ط·ط´ط§ظ†")
+name = string.gsub(name,"ط®ظˆط´ ظˆظ„ط¯","ظ…ظˆط®ظˆط´ ظˆظ„ط¯")
+name = string.gsub(name,"ط§ظ†ظٹ","ظ…ط·ظٹ")
+name = string.gsub(name,"ظ‡ط§ط¯ط¦","ط¹طµط¨ظٹ")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط¯ط² ط§ظ„ط¹ظƒط³ ~ {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Set:Aks:Game"..msg.chat_id_) or "").."" and not database:get(bot_id.."Tshak:Set:Aks"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Set:Aks"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ العكس }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Set:Aks:Game"..msg.chat_id_) or "").."" and not redis:get(bot_id.."Tshak:Set:Aks"..msg.chat_id_) then
+if not redis:get(bot_id.."Tshak:Set:Aks"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط§ظ„ط¹ظƒط³ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Aks"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Aks"..msg.chat_id_,true)
 end 
 
-if database:get(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
+if redis:get(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text and text:match("^(%d+)$") then
 local NUM = text:match("^(%d+)$")
 if tonumber(NUM) > 20 then
-send(msg.chat_id_, msg.id_,"܁༯┆عذرآ لا يمكنك تخمين عدد اكبر من ال { 20 } خمن رقم ما بين ال{ 1 و 20 }\n")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط¢ ظ„ط§ ظٹظ…ظƒظ†ظƒ طھط®ظ…ظٹظ† ط¹ط¯ط¯ ط§ظƒط¨ط± ظ…ظ† ط§ظ„ { 20 } ط®ظ…ظ† ط±ظ‚ظ… ظ…ط§ ط¨ظٹظ† ط§ظ„{ 1 ظˆ 20 }\n")
 return false  end 
-local GETNUM = database:get(bot_id.."Tshak:GAMES:NUM"..msg.chat_id_)
+local GETNUM = redis:get(bot_id.."Tshak:GAMES:NUM"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
-database:del(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
-database:del(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,5)  
-send(msg.chat_id_, msg.id_,"܁༯┆مبروك فزت ويانه وخمنت الرقم الصحيح\n܁༯┆تم اضافة { 5 } من النقاط \n")
+redis:del(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
+redis:del(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,5)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ…ط¨ط±ظˆظƒ ظپط²طھ ظˆظٹط§ظ†ظ‡ ظˆط®ظ…ظ†طھ ط§ظ„ط±ظ‚ظ… ط§ظ„طµط­ظٹط­\nـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© { 5 } ظ…ظ† ط§ظ„ظ†ظ‚ط§ط· \n")
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
-database:incrby(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_,1)
-if tonumber(database:get(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)) >= 3 then
-database:del(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
-database:del(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-send(msg.chat_id_, msg.id_,"܁༯┆اوبس لقد خسرت في اللعبه \n܁༯┆حظآ اوفر في المره القادمه \n܁༯┆كان الرقم الذي تم تخمينه { "..GETNUM.." }")
+redis:incrby(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_,1)
+if tonumber(redis:get(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)) >= 3 then
+redis:del(bot_id.."Tshak:SADD:NUM"..msg.chat_id_..msg.sender_user_id_)
+redis:del(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظˆط¨ط³ ظ„ظ‚ط¯ ط®ط³ط±طھ ظپظٹ ط§ظ„ظ„ط¹ط¨ظ‡ \nـپà¼¯â”†ط­ط¸ط¢ ط§ظˆظپط± ظپظٹ ط§ظ„ظ…ط±ظ‡ ط§ظ„ظ‚ط§ط¯ظ…ظ‡ \nـپà¼¯â”†ظƒط§ظ† ط§ظ„ط±ظ‚ظ… ط§ظ„ط°ظٹ طھظ… طھط®ظ…ظٹظ†ظ‡ { "..GETNUM.." }")
 else
-send(msg.chat_id_, msg.id_,"܁༯┆اوبس تخمينك غلط \n܁༯┆ارسل رقم تخمنه مره اخرى ")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظˆط¨ط³ طھط®ظ…ظٹظ†ظƒ ط؛ظ„ط· \nـپà¼¯â”†ط§ط±ط³ظ„ ط±ظ‚ظ… طھط®ظ…ظ†ظ‡ ظ…ط±ظ‡ ط§ط®ط±ظ‰ ")
 end
 end
 end
 end
-if text == "خمن" or text == "تخمين" then  
+if text == "ط®ظ…ظ†" or text == "طھط®ظ…ظٹظ†" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end   
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 Num = math.random(1,20)
-database:set(bot_id.."Tshak:GAMES:NUM"..msg.chat_id_,Num) 
-send(msg.chat_id_, msg.id_,"\n܁༯┆اهلا بك عزيزي في لعبة التخمين :\nٴ━━━━━━━━━━\n".."܁༯┆ملاحظه لديك { 3 } محاولات فقط فكر قبل ارسال تخمينك \n\n".."܁༯┆سيتم تخمين عدد ما بين ال {1 و 20} اذا تعتقد انك تستطيع الفوز جرب واللعب الان ؟ ")
-database:setex(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
+redis:set(bot_id.."Tshak:GAMES:NUM"..msg.chat_id_,Num) 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†ط§ظ‡ظ„ط§ ط¨ظƒ ط¹ط²ظٹط²ظٹ ظپظٹ ظ„ط¹ط¨ط© ط§ظ„طھط®ظ…ظٹظ† :\nظ´â”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پâ”پ\n".."ـپà¼¯â”†ظ…ظ„ط§ط­ط¸ظ‡ ظ„ط¯ظٹظƒ { 3 } ظ…ط­ط§ظˆظ„ط§طھ ظپظ‚ط· ظپظƒط± ظ‚ط¨ظ„ ط§ط±ط³ط§ظ„ طھط®ظ…ظٹظ†ظƒ \n\n".."ـپà¼¯â”†ط³ظٹطھظ… طھط®ظ…ظٹظ† ط¹ط¯ط¯ ظ…ط§ ط¨ظٹظ† ط§ظ„ {1 ظˆ 20} ط§ط°ط§ طھط¹طھظ‚ط¯ ط§ظ†ظƒ طھط³طھط·ظٹط¹ ط§ظ„ظپظˆط² ط¬ط±ط¨ ظˆط§ظ„ظ„ط¹ط¨ ط§ظ„ط§ظ† طں ")
+redis:setex(bot_id.."Tshak:GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
 return false  
 end
 end
 
-if database:get(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
+if redis:get(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text and text:match("^(%d+)$") then
 local NUM = text:match("^(%d+)$")
 if tonumber(NUM) > 6 then
-send(msg.chat_id_, msg.id_,"܁༯┆عذرا لا يوجد سواء { 6 } اختيارات فقط ارسل اختيارك مره اخرى\n")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط¹ط°ط±ط§ ظ„ط§ ظٹظˆط¬ط¯ ط³ظˆط§ط، { 6 } ط§ط®طھظٹط§ط±ط§طھ ظپظ‚ط· ط§ط±ط³ظ„ ط§ط®طھظٹط§ط±ظƒ ظ…ط±ظ‡ ط§ط®ط±ظ‰\n")
 return false  end 
-local GETNUM = database:get(bot_id.."Tshak:Games:Bat"..msg.chat_id_)
+local GETNUM = redis:get(bot_id.."Tshak:Games:Bat"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
-database:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-send(msg.chat_id_, msg.id_,"܁༯┆مبروك فزت وطلعت المحيبس بل ايد رقم { "..NUM.." }\n🎊┆لقد حصلت على { 3 }من نقاط يمكنك استبدالهن برسائل ")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,3)  
+redis:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ…ط¨ط±ظˆظƒ ظپط²طھ ظˆط·ظ„ط¹طھ ط§ظ„ظ…ط­ظٹط¨ط³ ط¨ظ„ ط§ظٹط¯ ط±ظ‚ظ… { "..NUM.." }\nًںژٹï¸™ظ„ظ‚ط¯ ط­طµظ„طھ ط¹ظ„ظ‰ { 3 }ظ…ظ† ظ†ظ‚ط§ط· ظٹظ…ظƒظ†ظƒ ط§ط³طھط¨ط¯ط§ظ„ظ‡ظ† ط¨ط±ط³ط§ط¦ظ„ ")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,3)  
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
-database:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-send(msg.chat_id_, msg.id_,"܁༯┆للاسف لقد خسرت \n܁༯┆المحيبس بل ايد رقم { "..GETNUM.." }\n܁༯┆حاول مره اخرى للعثور على المحيبس")
+redis:del(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ظ„ط§ط³ظپ ظ„ظ‚ط¯ ط®ط³ط±طھ \nـپà¼¯â”†ط§ظ„ظ…ط­ظٹط¨ط³ ط¨ظ„ ط§ظٹط¯ ط±ظ‚ظ… { "..GETNUM.." }\nـپà¼¯â”†ط­ط§ظˆظ„ ظ…ط±ظ‡ ط§ط®ط±ظ‰ ظ„ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ط§ظ„ظ…ط­ظٹط¨ط³")
 end
 end
 end
 
-if text == "محيبس" or text == "بات" then  
+if text == "ظ…ط­ظٹط¨ط³" or text == "ط¨ط§طھ" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then   
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then   
 Num = math.random(1,6)
-database:set(bot_id.."Tshak:Games:Bat"..msg.chat_id_,Num) 
+redis:set(bot_id.."Tshak:Games:Bat"..msg.chat_id_,Num) 
 TEST = [[
-*➀       ➁     ➂      ➃      ➄     ➅
-↓      ↓     ↓      ↓     ↓     ↓
-👊 ‹› 👊 ‹› 👊 ‹› 👊 ‹› 👊 ‹› 👊
-܁༯┆اختر لأستخراج المحيبس الايد التي تحمل المحيبس 
-܁༯┆الفائز يحصل على { 3 } من النقاط *
+*â‍€       â‍پ     â‍‚      â‍ƒ      â‍„     â‍…
+â†“      â†“     â†“      â†“     â†“     â†“
+ًں‘ٹ â€¹â€؛ ًں‘ٹ â€¹â€؛ ًں‘ٹ â€¹â€؛ ًں‘ٹ â€¹â€؛ ًں‘ٹ â€¹â€؛ ًں‘ٹ
+ـپà¼¯â”†ط§ط®طھط± ظ„ط£ط³طھط®ط±ط§ط¬ ط§ظ„ظ…ط­ظٹط¨ط³ ط§ظ„ط§ظٹط¯ ط§ظ„طھظٹ طھط­ظ…ظ„ ط§ظ„ظ…ط­ظٹط¨ط³ 
+ـپà¼¯â”†ط§ظ„ظپط§ط¦ط² ظٹط­طµظ„ ط¹ظ„ظ‰ { 3 } ظ…ظ† ط§ظ„ظ†ظ‚ط§ط· *
 ]]
 send(msg.chat_id_, msg.id_,TEST)
-database:setex(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
+redis:setex(bot_id.."Tshak:SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
 return false  
 end
 end
 
-if text == "المختلف" then  
+if text == "ط§ظ„ظ…ط®طھظ„ظپ" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-mktlf = {"😸","☠","🐼","🐇","🌑","🌚","⭐️","✨","⛈","🌥","⛄️","👨‍🔬","👨‍💻","👨‍܁༯","🧚‍♀","🧜‍♂","🧝‍♂","🙍‍♂","🧖‍♂","👬","🕒","🕤","⌛️","📅",};
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+mktlf = {"ًںک¸","âک ","ًںگ¼","ًںگ‡","ًںŒ‘","ًںŒڑ","â­گï¸ڈ","âœ¨","â›ˆ","ًںŒ¥","â›„ï¸ڈ","ًں‘¨â€چًں”¬","ًں‘¨â€چًں’»","ًں‘¨â€چâŒ”","ًں§ڑâ€چâ™€","ًں§œâ€چâ™‚","ًں§‌â€چâ™‚","ًں™چâ€چâ™‚","ًں§–â€چâ™‚","ًں‘¬","ًں•’","ًں•¤","âŒ›ï¸ڈ","ًں“…",};
 name = mktlf[math.random(#mktlf)]
-database:del(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_)
-database:set(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_,name)
-name = string.gsub(name,"😸","😹😹😹😹😹😹😹😹😸😹😹😹😹")
-name = string.gsub(name,"☠","💀💀💀💀💀💀💀☠💀💀💀💀💀")
-name = string.gsub(name,"🐼","👻👻👻🐼👻👻👻👻👻👻👻")
-name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
-name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
-name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
-name = string.gsub(name,"⭐️","🌟🌟🌟????🌟🌟🌟⭐️🌟🌟🌟")
-name = string.gsub(name,"✨","💫💫💫💫💫✨💫💫💫💫")
-name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
-name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
-name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
-name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍??👩‍🔬")
-name = string.gsub(name,"👨‍💻","👩‍💻👩‍💻👩‍‍💻👩‍‍💻👩‍💻👨‍💻👩‍💻👩‍💻👩‍💻")
-name = string.gsub(name,"👨‍܁༯","👩‍܁༯👩‍܁༯👩‍܁༯👩‍܁༯👩‍܁༯👩‍܁༯👨‍܁༯👩‍܁༯")
-name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
-name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂")
-name = string.gsub(name,"🧜‍♂","🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀")
-name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♀🧝‍♂🧝‍♀🧝‍♀🧝‍♀")
-name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙍‍♂️🙎‍♂️🙎‍♂️🙎‍♂️")
-name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
-name = string.gsub(name,"👬","👭👭👭👭👭👬👭👭👭")
-name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
-name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒🕒🕓🕒🕒🕒")
-name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
-name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
-name = string.gsub(name,"📅","📆📆📆📆📆📆📅📆📆")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يدز الاختلاف ~ {"..name.."}")
+redis:del(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_)
+redis:set(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_,name)
+name = string.gsub(name,"ًںک¸","ًںک¹ًںک¹ًںک¹ًںک¹ًںک¹ًںک¹ًںک¹ًںک¹ًںک¸ًںک¹ًںک¹ًںک¹ًںک¹")
+name = string.gsub(name,"âک ","ًں’€ًں’€ًں’€ًں’€ًں’€ًں’€ًں’€âک ًں’€ًں’€ًں’€ًں’€ًں’€")
+name = string.gsub(name,"ًںگ¼","ًں‘»ًں‘»ًں‘»ًںگ¼ًں‘»ًں‘»ًں‘»ًں‘»ًں‘»ًں‘»ًں‘»")
+name = string.gsub(name,"ًںگ‡","ًں•ٹًں•ٹًں•ٹًں•ٹًں•ٹًںگ‡ًں•ٹًں•ٹًں•ٹًں•ٹ")
+name = string.gsub(name,"ًںŒ‘","ًںŒڑًںŒڑًںŒڑًںŒڑًںŒڑًںŒ‘ًںŒڑًںŒڑًںŒڑ")
+name = string.gsub(name,"ًںŒڑ","ًںŒ‘ًںŒ‘ًںŒ‘ًںŒ‘ًںŒ‘ًںŒڑًںŒ‘ًںŒ‘ًںŒ‘")
+name = string.gsub(name,"â­گï¸ڈ","ًںŒںًںŒںًںŒں????ًںŒںًںŒںًںŒںâ­گï¸ڈًںŒںًںŒںًںŒں")
+name = string.gsub(name,"âœ¨","ًں’«ًں’«ًں’«ًں’«ًں’«âœ¨ًں’«ًں’«ًں’«ًں’«")
+name = string.gsub(name,"â›ˆ","ًںŒ¨ًںŒ¨ًںŒ¨ًںŒ¨ًںŒ¨â›ˆًںŒ¨ًںŒ¨ًںŒ¨ًںŒ¨")
+name = string.gsub(name,"ًںŒ¥","â›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈًںŒ¥â›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈâ›…ï¸ڈ")
+name = string.gsub(name,"â›„ï¸ڈ","âکƒâکƒâکƒâکƒâکƒâکƒâ›„ï¸ڈâکƒâکƒâکƒâکƒ")
+name = string.gsub(name,"ًں‘¨â€چًں”¬","ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چًں”¬ًں‘¨â€چًں”¬ًں‘©â€چًں”¬ًں‘©â€چ??ًں‘©â€چًں”¬")
+name = string.gsub(name,"ًں‘¨â€چًں’»","ًں‘©â€چًں’»ًں‘©â€چًں’»ًں‘©â€چâ€چًں’»ًں‘©â€چâ€چًں’»ًں‘©â€چًں’»ًں‘¨â€چًں’»ًں‘©â€چًں’»ًں‘©â€چًں’»ًں‘©â€چًں’»")
+name = string.gsub(name,"ًں‘¨â€چâŒ”","ًں‘©â€چâŒ”ًں‘©â€چâŒ”ًں‘©â€چâŒ”ًں‘©â€چâŒ”ًں‘©â€چâŒ”ًں‘©â€چâŒ”ًں‘¨â€چâŒ”ًں‘©â€چâŒ”")
+name = string.gsub(name,"ًں‘©â€چًںچ³","ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³ًں‘©â€چًںچ³ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³ًں‘¨â€چًںچ³")
+name = string.gsub(name,"ًں§ڑâ€چâ™€","ًں§ڑâ€چâ™‚ًں§ڑâ€چâ™‚ًں§ڑâ€چâ™‚ًں§ڑâ€چâ™‚ًں§ڑâ€چâ™€ًں§ڑâ€چâ™‚ًں§ڑâ€چâ™‚")
+name = string.gsub(name,"ًں§œâ€چâ™‚","ًں§œâ€چâ™€ًں§œâ€چâ™€ًں§œâ€چâ™€ًں§œâ€چâ™€ًں§œâ€چâ™€ًں§ڑâ€چâ™‚ًں§œâ€چâ™€ًں§œâ€چâ™€ًں§œâ€چâ™€")
+name = string.gsub(name,"ًں§‌â€چâ™‚","ًں§‌â€چâ™€ًں§‌â€چâ™€ًں§‌â€چâ™€ًں§‌â€چâ™€ًں§‌â€چâ™€ًں§‌â€چâ™‚ًں§‌â€چâ™€ًں§‌â€چâ™€ًں§‌â€چâ™€")
+name = string.gsub(name,"ًں™چâ€چâ™‚ï¸ڈ","ًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™چâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈًں™ژâ€چâ™‚ï¸ڈ")
+name = string.gsub(name,"ًں§–â€چâ™‚ï¸ڈ","ًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™‚ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈًں§–â€چâ™€ï¸ڈ")
+name = string.gsub(name,"ًں‘¬","ًں‘­ًں‘­ًں‘­ًں‘­ًں‘­ًں‘¬ًں‘­ًں‘­ًں‘­")
+name = string.gsub(name,"ًں‘¨â€چًں‘¨â€چًں‘§","ًں‘¨â€چًں‘¨â€چًں‘¦ًں‘¨â€چًں‘¨â€چًں‘¦ًں‘¨â€چًں‘¨â€چًں‘¦ًں‘¨â€چًں‘¨â€چًں‘¦ًں‘¨â€چًں‘¨â€چًں‘§ًں‘¨â€چًں‘¨â€چًں‘¦ًں‘¨â€چًں‘¨â€چًں‘¦")
+name = string.gsub(name,"ًں•’","ًں•’ًں•’ًں•’ًں•’ًں•’ًں•’ًں•“ًں•’ًں•’ًں•’")
+name = string.gsub(name,"ًں•¤","ًں•¥ًں•¥ًں•¥ًں•¥ًں•¥ًں•¤ًں•¥ًں•¥ًں•¥")
+name = string.gsub(name,"âŒ›ï¸ڈ","âڈ³âڈ³âڈ³âڈ³âڈ³âڈ³âŒ›ï¸ڈâڈ³âڈ³")
+name = string.gsub(name,"ًں“…","ًں“†ًں“†ًں“†ًں“†ًں“†ًں“†ًں“…ًں“†ًں“†")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹط¯ط² ط§ظ„ط§ط®طھظ„ط§ظپ ~ {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_) or "").."" then 
-if not database:get(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_) then 
-database:del(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ المختلف }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_) or "").."" then 
+if not redis:get(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_) then 
+redis:del(bot_id.."Tshak::Set:Moktlf"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط§ظ„ظ…ط®طھظ„ظپ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Moktlf:Bot"..msg.chat_id_,true)
 end
-if text == "امثله" then  
+if text == "ط§ظ…ط«ظ„ظ‡" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
-mthal = {"جوز","ضراطه","الحبل","الحافي","شقره","بيدك","سلايه","النخله","الخيل","حداد","المبلل","يركص","قرد","العنب","العمه","الخبز","بالحصاد","شهر","شكه","يكحله",};
+if redis:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
+mthal = {"ط¬ظˆط²","ط¶ط±ط§ط·ظ‡","ط§ظ„ط­ط¨ظ„","ط§ظ„ط­ط§ظپظٹ","ط´ظ‚ط±ظ‡","ط¨ظٹط¯ظƒ","ط³ظ„ط§ظٹظ‡","ط§ظ„ظ†ط®ظ„ظ‡","ط§ظ„ط®ظٹظ„","ط­ط¯ط§ط¯","ط§ظ„ظ…ط¨ظ„ظ„","ظٹط±ظƒطµ","ظ‚ط±ط¯","ط§ظ„ط¹ظ†ط¨","ط§ظ„ط¹ظ…ظ‡","ط§ظ„ط®ط¨ط²","ط¨ط§ظ„ط­طµط§ط¯","ط´ظ‡ط±","ط´ظƒظ‡","ظٹظƒط­ظ„ظ‡",};
 name = mthal[math.random(#mthal)]
-database:set(bot_id.."Tshak:Set:Amth"..msg.chat_id_,name)
-database:del(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_)
-name = string.gsub(name,"جوز","ينطي____للماعده سنون")
-name = string.gsub(name,"ضراطه","الي يسوق المطي يتحمل___")
-name = string.gsub(name,"بيدك","اكل___محد يفيدك")
-name = string.gsub(name,"الحافي","تجدي من___نعال")
-name = string.gsub(name,"شقره","مع الخيل يا___")
-name = string.gsub(name,"النخله","الطول طول___والعقل عقل الصخلة")
-name = string.gsub(name,"سلايه","بالوجه امراية وبالظهر___")
-name = string.gsub(name,"الخيل","من قلة___شدو على الچلاب سروج")
-name = string.gsub(name,"حداد","موكل من صخم وجهه كال آني___")
-name = string.gsub(name,"المبلل","___ما يخاف من المطر")
-name = string.gsub(name,"الحبل","اللي تلدغة الحية يخاف من جرة___")
-name = string.gsub(name,"يركص","المايعرف___يكول الكاع عوجه")
-name = string.gsub(name,"العنب","المايلوح___يكول حامض")
-name = string.gsub(name,"العمه","___إذا حبت الچنة ابليس يدخل الجنة")
-name = string.gsub(name,"الخبز","انطي___للخباز حتى لو ياكل نصه")
-name = string.gsub(name,"باحصاد","اسمة___ومنجله مكسور")
-name = string.gsub(name,"شهر","امشي__ولا تعبر نهر")
-name = string.gsub(name,"شكه","يامن تعب يامن__يا من على الحاضر لكة")
-name = string.gsub(name,"القرد","__بعين امه غزال")
-name = string.gsub(name,"يكحله","اجه___عماها")
-send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يكمل المثل ~ {"..name.."}")
+redis:set(bot_id.."Tshak:Set:Amth"..msg.chat_id_,name)
+redis:del(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_)
+name = string.gsub(name,"ط¬ظˆط²","ظٹظ†ط·ظٹ____ظ„ظ„ظ…ط§ط¹ط¯ظ‡ ط³ظ†ظˆظ†")
+name = string.gsub(name,"ط¶ط±ط§ط·ظ‡","ط§ظ„ظٹ ظٹط³ظˆظ‚ ط§ظ„ظ…ط·ظٹ ظٹطھط­ظ…ظ„___")
+name = string.gsub(name,"ط¨ظٹط¯ظƒ","ط§ظƒظ„___ظ…ط­ط¯ ظٹظپظٹط¯ظƒ")
+name = string.gsub(name,"ط§ظ„ط­ط§ظپظٹ","طھط¬ط¯ظٹ ظ…ظ†___ظ†ط¹ط§ظ„")
+name = string.gsub(name,"ط´ظ‚ط±ظ‡","ظ…ط¹ ط§ظ„ط®ظٹظ„ ظٹط§___")
+name = string.gsub(name,"ط§ظ„ظ†ط®ظ„ظ‡","ط§ظ„ط·ظˆظ„ ط·ظˆظ„___ظˆط§ظ„ط¹ظ‚ظ„ ط¹ظ‚ظ„ ط§ظ„طµط®ظ„ط©")
+name = string.gsub(name,"ط³ظ„ط§ظٹظ‡","ط¨ط§ظ„ظˆط¬ظ‡ ط§ظ…ط±ط§ظٹط© ظˆط¨ط§ظ„ط¸ظ‡ط±___")
+name = string.gsub(name,"ط§ظ„ط®ظٹظ„","ظ…ظ† ظ‚ظ„ط©___ط´ط¯ظˆ ط¹ظ„ظ‰ ط§ظ„ع†ظ„ط§ط¨ ط³ط±ظˆط¬")
+name = string.gsub(name,"ط­ط¯ط§ط¯","ظ…ظˆظƒظ„ ظ…ظ† طµط®ظ… ظˆط¬ظ‡ظ‡ ظƒط§ظ„ ط¢ظ†ظٹ___")
+name = string.gsub(name,"ط§ظ„ظ…ط¨ظ„ظ„","___ظ…ط§ ظٹط®ط§ظپ ظ…ظ† ط§ظ„ظ…ط·ط±")
+name = string.gsub(name,"ط§ظ„ط­ط¨ظ„","ط§ظ„ظ„ظٹ طھظ„ط¯ط؛ط© ط§ظ„ط­ظٹط© ظٹط®ط§ظپ ظ…ظ† ط¬ط±ط©___")
+name = string.gsub(name,"ظٹط±ظƒطµ","ط§ظ„ظ…ط§ظٹط¹ط±ظپ___ظٹظƒظˆظ„ ط§ظ„ظƒط§ط¹ ط¹ظˆط¬ظ‡")
+name = string.gsub(name,"ط§ظ„ط¹ظ†ط¨","ط§ظ„ظ…ط§ظٹظ„ظˆط­___ظٹظƒظˆظ„ ط­ط§ظ…ط¶")
+name = string.gsub(name,"ط§ظ„ط¹ظ…ظ‡","___ط¥ط°ط§ ط­ط¨طھ ط§ظ„ع†ظ†ط© ط§ط¨ظ„ظٹط³ ظٹط¯ط®ظ„ ط§ظ„ط¬ظ†ط©")
+name = string.gsub(name,"ط§ظ„ط®ط¨ط²","ط§ظ†ط·ظٹ___ظ„ظ„ط®ط¨ط§ط² ط­طھظ‰ ظ„ظˆ ظٹط§ظƒظ„ ظ†طµظ‡")
+name = string.gsub(name,"ط¨ط§ط­طµط§ط¯","ط§ط³ظ…ط©___ظˆظ…ظ†ط¬ظ„ظ‡ ظ…ظƒط³ظˆط±")
+name = string.gsub(name,"ط´ظ‡ط±","ط§ظ…ط´ظٹ__ظˆظ„ط§ طھط¹ط¨ط± ظ†ظ‡ط±")
+name = string.gsub(name,"ط´ظƒظ‡","ظٹط§ظ…ظ† طھط¹ط¨ ظٹط§ظ…ظ†__ظٹط§ ظ…ظ† ط¹ظ„ظ‰ ط§ظ„ط­ط§ط¶ط± ظ„ظƒط©")
+name = string.gsub(name,"ط§ظ„ظ‚ط±ط¯","__ط¨ط¹ظٹظ† ط§ظ…ظ‡ ط؛ط²ط§ظ„")
+name = string.gsub(name,"ظٹظƒط­ظ„ظ‡","ط§ط¬ظ‡___ط¹ظ…ط§ظ‡ط§")
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط³ط±ط¹ ظˆط§ط­ط¯ ظٹظƒظ…ظ„ ط§ظ„ظ…ط«ظ„ ~ {"..name.."}")
 return false
 end
 end
-if text == ""..(database:get(bot_id.."Tshak:Set:Amth"..msg.chat_id_) or "").."" then 
-if not database:get(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_) then 
-database:del(bot_id.."Tshak:Set:Amth"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,"܁༯┆الف مبروك لقد فزت \n܁༯┆للعب مره اخره ارسل ~{ امثله }")
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
+if text == ""..(redis:get(bot_id.."Tshak:Set:Amth"..msg.chat_id_) or "").."" then 
+if not redis:get(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_) then 
+redis:del(bot_id.."Tshak:Set:Amth"..msg.chat_id_)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ظپ ظ…ط¨ط±ظˆظƒ ظ„ظ‚ط¯ ظپط²طھ \nـپà¼¯â”†ظ„ظ„ط¹ط¨ ظ…ط±ظ‡ ط§ط®ط±ظ‡ ط§ط±ط³ظ„ ~{ ط§ظ…ط«ظ„ظ‡ }")
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
-database:set(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_,true)
+redis:set(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_,true)
 end
-if text == "تعطيل الالعاب" and Owner(msg) then  
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ظ„ط¹ط§ط¨" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end   
-database:del(bot_id.."Tshak:Lock:Games"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تعطيل الالعاب") 
+redis:del(bot_id.."Tshak:Lock:Games"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ظ„ط¹ط§ط¨") 
 end
-if text == "تفعيل الالعاب" and Owner(msg) then  
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ظ„ط¹ط§ط¨" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end  
-database:set(bot_id.."Tshak:Lock:Games"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تفعيل الالعاب") 
+redis:set(bot_id.."Tshak:Lock:Games"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ظ„ط¹ط§ط¨") 
 end
-if text == 'الالعاب' then  
+if text == 'ط§ظ„ط§ظ„ط¹ط§ط¨' then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 Teext = [[
-܁༯┆قائمه الالعاب الموجوده
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
-܁༯┆لعبة البات » بات
-܁༯┆لعبة التخمين » خمن
-܁༯┆لعبه الاسرع » الاسرع
-܁༯┆لعبة السمايلات » سمايلات
-܁༯┆لعبة المختلف » المختلف
-܁༯┆لعبة الامثله » امثله
-܁༯┆لعبة العكس » العكس 
-܁༯┆لعبة الحزوره » حزوره
-܁༯┆لعبة المعاني » معاني
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
-܁༯┆مجوهراتي » لعرض عدد الارباح
-܁༯┆بيع مجوهراتي + العدد » لستبدال كل مجوهره ب50 رساله
+ـپà¼¯â”†ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط§ظ„ط¹ط§ط¨ ط§ظ„ظ…ظˆط¬ظˆط¯ظ‡
+â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ 
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ط¨ط§طھ آ» ط¨ط§طھ
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„طھط®ظ…ظٹظ† آ» ط®ظ…ظ†
+ـپà¼¯â”†ظ„ط¹ط¨ظ‡ ط§ظ„ط§ط³ط±ط¹ آ» ط§ظ„ط§ط³ط±ط¹
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ط³ظ…ط§ظٹظ„ط§طھ آ» ط³ظ…ط§ظٹظ„ط§طھ
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ظ…ط®طھظ„ظپ آ» ط§ظ„ظ…ط®طھظ„ظپ
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ط§ظ…ط«ظ„ظ‡ آ» ط§ظ…ط«ظ„ظ‡
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ط¹ظƒط³ آ» ط§ظ„ط¹ظƒط³ 
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ط­ط²ظˆط±ظ‡ آ» ط­ط²ظˆط±ظ‡
+ـپà¼¯â”†ظ„ط¹ط¨ط© ط§ظ„ظ…ط¹ط§ظ†ظٹ آ» ظ…ط¹ط§ظ†ظٹ
+â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ 
+ـپà¼¯â”†ظ…ط¬ظˆظ‡ط±ط§طھظٹ آ» ظ„ط¹ط±ط¶ ط¹ط¯ط¯ ط§ظ„ط§ط±ط¨ط§ط­
+ـپà¼¯â”†ط¨ظٹط¹ ظ…ط¬ظˆظ‡ط±ط§طھظٹ + ط§ظ„ط¹ط¯ط¯ آ» ظ„ط³طھط¨ط¯ط§ظ„ ظƒظ„ ظ…ط¬ظˆظ‡ط±ظ‡ ط¨50 ط±ط³ط§ظ„ظ‡
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
-if text == 'رسائلي' then
-local nummsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
-local Text = '܁༯┆عدد رسائلك هنا *~ '..nummsg..'*'
+if text == 'ط±ط³ط§ط¦ظ„ظٹ' then
+local nummsg = redis:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
+local Text = 'ـپà¼¯â”†ط¹ط¯ط¯ ط±ط³ط§ط¦ظ„ظƒ ظ‡ظ†ط§ *~ '..nummsg..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح رسائلي' then
-database:del(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '܁༯┆تم مسح جميع رسائلك '
+if text == 'ظ…ط³ط­ ط±ط³ط§ط¦ظ„ظٹ' then
+redis:del(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
+local Text = 'ـپà¼¯â”†طھظ… ظ…ط³ط­ ط¬ظ…ظٹط¹ ط±ط³ط§ط¦ظ„ظƒ '
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'سحكاتي' or text == 'تعديلاتي' then
-local edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = '܁༯┆عدد التعديلات هنا *~ '..edit..'*'
+if text == 'ط³ط­ظƒط§طھظٹ' or text == 'طھط¹ط¯ظٹظ„ط§طھظٹ' then
+local edit = redis:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = 'ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„طھط¹ط¯ظٹظ„ط§طھ ظ‡ظ†ط§ *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-database:del(bot_id..'korpica:message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '܁༯┆تم مسح جميع تعديلاتك '
+if text == 'ظ…ط³ط­ ط³ط­ظƒط§طھظٹ' or text == 'ظ…ط³ط­ طھط¹ط¯ظٹظ„ط§طھظٹ' then
+redis:del(bot_id..'message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
+local Text = 'ـپà¼¯â”†طھظ… ظ…ط³ط­ ط¬ظ…ظٹط¹ طھط¹ط¯ظٹظ„ط§طھظƒ '
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'جهاتي' then
-local addmem = database:get(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
-local Text = '܁༯┆عدد جهاتك المضافه هنا *~ '..addmem..'*'
+if text == 'ط¬ظ‡ط§طھظٹ' then
+local addmem = redis:get(bot_id.."Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
+local Text = 'ـپà¼¯â”†ط¹ط¯ط¯ ط¬ظ‡ط§طھظƒ ط§ظ„ظ…ط¶ط§ظپظ‡ ظ‡ظ†ط§ *~ '..addmem..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح جهاتي' then
-database:del(bot_id..'korpica:Add:Memp'..msg.chat_id_..':'..msg.sender_user_id_)
-local Text = '܁༯┆تم مسح جميع جهاتك المضافه '
+if text == 'ظ…ط³ط­ ط¬ظ‡ط§طھظٹ' then
+redis:del(bot_id..'Add:Memp'..msg.chat_id_..':'..msg.sender_user_id_)
+local Text = 'ـپà¼¯â”†طھظ… ظ…ط³ط­ ط¬ظ…ظٹط¹ ط¬ظ‡ط§طھظƒ ط§ظ„ظ…ط¶ط§ظپظ‡ '
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "مجوهراتي" then  
+if text == "ظ…ط¬ظˆظ‡ط±ط§طھظٹ" then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end 
-local Num = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
+local Num = redis:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 if Num == 0 then 
-Text = "܁༯┆لم تلعب اي لعبه للحصول على جواهر"
+Text = "ـپà¼¯â”†ظ„ظ… طھظ„ط¹ط¨ ط§ظٹ ظ„ط¹ط¨ظ‡ ظ„ظ„ط­طµظˆظ„ ط¹ظ„ظ‰ ط¬ظˆط§ظ‡ط±"
 else
-Text = "܁༯┆عدد جواهر التي رحبتها هي *~ { "..Num.." } مجوهره *"
+Text = "ـپà¼¯â”†ط¹ط¯ط¯ ط¬ظˆط§ظ‡ط± ط§ظ„طھظٹ ط±ط­ط¨طھظ‡ط§ ظ‡ظٹ *~ { "..Num.." } ظ…ط¬ظˆظ‡ط±ظ‡ *"
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text and text:match("^بيع مجوهراتي (%d+)$") then  
+if text and text:match("^ط¨ظٹط¹ ظ…ط¬ظˆظ‡ط±ط§طھظٹ (%d+)$") then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local NUMPY = text:match("^بيع مجوهراتي (%d+)$") 
+local NUMPY = text:match("^ط¨ظٹط¹ ظ…ط¬ظˆظ‡ط±ط§طھظٹ (%d+)$") 
 if tonumber(NUMPY) == tonumber(0) then
-send(msg.chat_id_,msg.id_,"\n*܁༯┆لا استطيع البيع اقل من 1 *") 
+send(msg.chat_id_,msg.id_,"\n*ـپà¼¯â”†ظ„ط§ ط§ط³طھط·ظٹط¹ ط§ظ„ط¨ظٹط¹ ط§ظ‚ظ„ ظ…ظ† 1 *") 
 return false 
 end
-if tonumber(database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_)) == tonumber(0) then
-send(msg.chat_id_,msg.id_,"܁༯┆ليس لديك جواهر من الالعاب \n܁༯┆اذا كنت تريد ربح الجواهر \n܁༯┆ارسل الالعاب وابدأ اللعب ! ") 
+if tonumber(redis:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_)) == tonumber(0) then
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹظƒ ط¬ظˆط§ظ‡ط± ظ…ظ† ط§ظ„ط§ظ„ط¹ط§ط¨ \nـپà¼¯â”†ط§ط°ط§ ظƒظ†طھ طھط±ظٹط¯ ط±ط¨ط­ ط§ظ„ط¬ظˆط§ظ‡ط± \nـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨ ظˆط§ط¨ط¯ط£ ط§ظ„ظ„ط¹ط¨ ! ") 
 else
-local NUM_GAMES = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_)
+local NUM_GAMES = redis:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_)
 if tonumber(NUMPY) > tonumber(NUM_GAMES) then
-send(msg.chat_id_,msg.id_,"\n܁༯┆ليس لديك جواهر بهاذا العدد \n܁༯┆لزيادة مجوهراتك في اللعبه \n܁༯┆ارسل الالعاب وابدأ اللعب !") 
+send(msg.chat_id_,msg.id_,"\nـپà¼¯â”†ظ„ظٹط³ ظ„ط¯ظٹظƒ ط¬ظˆط§ظ‡ط± ط¨ظ‡ط§ط°ط§ ط§ظ„ط¹ط¯ط¯ \nـپà¼¯â”†ظ„ط²ظٹط§ط¯ط© ظ…ط¬ظˆظ‡ط±ط§طھظƒ ظپظٹ ط§ظ„ظ„ط¹ط¨ظ‡ \nـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ„ط¹ط§ط¨ ظˆط§ط¨ط¯ط£ ط§ظ„ظ„ط¹ط¨ !") 
 return false 
 end
 local NUMNKO = (NUMPY * 50)
-database:decrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,NUMPY)  
-database:incrby(bot_id.."korpica:messageUser"..msg.chat_id_..":"..msg.sender_user_id_,NUMNKO)  
-send(msg.chat_id_,msg.id_,"܁༯┆تم خصم *~ { "..NUMPY.." }* من مجوهراتك \n܁༯┆وتم اضافة* ~ { "..(NUMPY * 50).." } رساله الى رسالك *")
+redis:decrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_,NUMPY)  
+redis:incrby(bot_id.."messageUser"..msg.chat_id_..":"..msg.sender_user_id_,NUMNKO)  
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†طھظ… ط®طµظ… *~ { "..NUMPY.." }* ظ…ظ† ظ…ط¬ظˆظ‡ط±ط§طھظƒ \nـپà¼¯â”†ظˆطھظ… ط§ط¶ط§ظپط©* ~ { "..(NUMPY * 50).." } ط±ط³ط§ظ„ظ‡ ط§ظ„ظ‰ ط±ط³ط§ظ„ظƒ *")
 end 
 return false 
 end
-if text ==("مسح") and Addictive(msg) and tonumber(msg.reply_to_message_id_) > 0 then
+if text ==("ظ…ط³ط­") and Addictive(msg) and tonumber(msg.reply_to_message_id_) > 0 then
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.reply_to_message_id_),msg.id_})   
 end   
-if database:get(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-database:del(bot_id.."Tshak:id:user"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_, "܁༯┆تم الغاء الامر ") 
-database:del(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+if redis:get(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^ط§ظ„ط؛ط§ط،$") then 
+redis:del(bot_id.."Tshak:id:user"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ظ…ط± ") 
+redis:del(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+redis:del(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local numadded = string.match(text, "(%d+)") 
-local iduserr = database:get(bot_id.."Tshak:id:user"..msg.chat_id_)  
-database:del(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..msg.sender_user_id_) 
-database:incrby(bot_id.."korpica:messageUser"..msg.chat_id_..":"..iduserr,numadded)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم اضافة له {"..numadded.."} من الرسائل")  
+local iduserr = redis:get(bot_id.."Tshak:id:user"..msg.chat_id_)  
+redis:del(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..msg.sender_user_id_) 
+redis:incrby(bot_id.."messageUser"..msg.chat_id_..":"..iduserr,numadded)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© ظ„ظ‡ {"..numadded.."} ظ…ظ† ط§ظ„ط±ط³ط§ط¦ظ„")  
 end
-if database:get(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-database:del(bot_id.."Tshak:idgem:user"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_, "܁༯┆تم الغاء الامر ") 
-database:del(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+if redis:get(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^ط§ظ„ط؛ط§ط،$") then 
+redis:del(bot_id.."Tshak:idgem:user"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ظ…ط± ") 
+redis:del(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+redis:del(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local numadded = string.match(text, "(%d+)") 
-local iduserr = database:get(bot_id.."Tshak:idgem:user"..msg.chat_id_)  
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..iduserr,numadded)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم اضافة له {"..numadded.."} من المجوهرات")  
+local iduserr = redis:get(bot_id.."Tshak:idgem:user"..msg.chat_id_)  
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..iduserr,numadded)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© ظ„ظ‡ {"..numadded.."} ظ…ظ† ط§ظ„ظ…ط¬ظˆظ‡ط±ط§طھ")  
 end
 ------------------------------------------------------------
-if text and text:match("^اضف رسائل (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text and text:match("^ط§ط¶ظپ ط±ط³ط§ط¦ظ„ (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end    
-taha = text:match("^اضف رسائل (%d+)$")
-database:set(bot_id.."Tshak:id:user"..msg.chat_id_,taha)  
-database:setex(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_, "✉┆ارسل لي عدد الرسائل الان") 
+taha = text:match("^ط§ط¶ظپ ط±ط³ط§ط¦ظ„ (%d+)$")
+redis:set(bot_id.."Tshak:id:user"..msg.chat_id_,taha)  
+redis:setex(bot_id.."Tshak:numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
+send(msg.chat_id_, msg.id_, "âœ‰ï¸™ط§ط±ط³ظ„ ظ„ظٹ ط¹ط¯ط¯ ط§ظ„ط±ط³ط§ط¦ظ„ ط§ظ„ط§ظ†") 
 return false
 end
-if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text and text:match("^ط§ط¶ظپ ظ…ط¬ظˆظ‡ط±ط§طھ (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end  
-taha = text:match("^اضف مجوهرات (%d+)$")
-database:set(bot_id.."Tshak:idgem:user"..msg.chat_id_,taha)  
-database:setex(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_, "܁༯┆ارسل لي عدد المجوهرات الان") 
+taha = text:match("^ط§ط¶ظپ ظ…ط¬ظˆظ‡ط±ط§طھ (%d+)$")
+redis:set(bot_id.."Tshak:idgem:user"..msg.chat_id_,taha)  
+redis:setex(bot_id.."Tshak:gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظˆظ‡ط±ط§طھ ط§ظ„ط§ظ†") 
 return false
 end
-if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then  
+if text and text:match("^ط§ط¶ظپ ظ…ط¬ظˆظ‡ط±ط§طھ (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-local Num = text:match("^اضف مجوهرات (%d+)$")
+local Num = text:match("^ط§ط¶ظپ ظ…ط¬ظˆظ‡ط±ط§طھ (%d+)$")
 function reply(extra, result, success)
-database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..result.sender_user_id_,Num)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم اضافة له {"..Num.."} من المجوهرات")  
+redis:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..result.sender_user_id_,Num)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© ظ„ظ‡ {"..Num.."} ظ…ظ† ط§ظ„ظ…ط¬ظˆظ‡ط±ط§طھ")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},reply, nil)
 return false
 end
-if text and text:match("^اضف رسائل (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
-local Num = text:match("^اضف رسائل (%d+)$")
+if text and text:match("^ط§ط¶ظپ ط±ط³ط§ط¦ظ„ (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+local Num = text:match("^ط§ط¶ظپ ط±ط³ط§ط¦ظ„ (%d+)$")
 function reply(extra, result, success)
-database:del(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..result.sender_user_id_) 
-database:incrby(bot_id.."korpica:messageUser"..msg.chat_id_..":"..result.sender_user_id_,Num)  
-send(msg.chat_id_, msg.id_, "\n܁༯┆تم اضافة له {"..Num.."} من الرسائل")  
+redis:del(bot_id.."Tshak:Msg_User"..msg.chat_id_..":"..result.sender_user_id_) 
+redis:incrby(bot_id.."messageUser"..msg.chat_id_..":"..result.sender_user_id_,Num)  
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†طھظ… ط§ط¶ط§ظپط© ظ„ظ‡ {"..Num.."} ظ…ظ† ط§ظ„ط±ط³ط§ط¦ظ„")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},reply, nil)
 return false
 end
 
-if text == "تنظيف المشتركين" and Devkorpica(msg) then
-local pv = database:smembers(bot_id..'korpica:UsersBot')  
+if text == "طھظ†ط¸ظٹظپ ط§ظ„ظ…ط´طھط±ظƒظٹظ†" and DevCo(msg) then
+local pv = redis:smembers(bot_id..'UsersBot')  
 local sendok = 0
 for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m»» THE USER IS SAVE ME ↓\n»» '..pv[i]..'\n\27[1;37m')
+print('\27[30;33mآ»آ» THE USER IS SAVE ME â†“\nآ»آ» '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m»» THE USER IS BLOCK ME ↓\n»» '..pv[i]..'\n\27[1;37m')
-database:srem(bot_id..'korpica:UsersBot',pv[i])  
+print('\27[30;31mآ»آ» THE USER IS BLOCK ME â†“\nآ»آ» '..pv[i]..'\n\27[1;37m')
+redis:srem(bot_id..'UsersBot',pv[i])  
 sendok = sendok + 1
 end
 if #pv == i then 
 if sendok == 0 then
-send(msg.chat_id_, msg.id_,'܁༯┆لا يوجد مشتركين وهميين')   
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط´طھط±ظƒظٹظ† ظˆظ‡ظ…ظٹظٹظ†')   
 else
 local ok = #pv - sendok
-send(msg.chat_id_, msg.id_,'*܁༯┆عدد المشتركين الان ~ '..#pv..'\n܁༯┆تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n܁༯┆اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ط§ظ„ط§ظ† ~ '..#pv..'\nـپà¼¯â”†طھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ~ '..sendok..' ظ…ط´طھط±ظƒ ظ‚ط§ظ… ط¨ط­ط¸ط± ط§ظ„ط¨ظˆطھ\nـپà¼¯â”†ط§طµط¨ط­ ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ط§ظ„ط§ظ† ~ '..ok..' ظ…ط´طھط±ظƒ *')   
 end
 end
 end,nil)
@@ -6995,57 +7373,57 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات" and Devkorpica(msg) then
-local group = database:smembers(bot_id..'korpica:Chek:Groups')  
+if text == "طھظ†ط¸ظٹظپ ط§ظ„ظƒط±ظˆط¨ط§طھ" and DevCo(msg) then
+local group = redis:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
 for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+print('\27[30;34mآ»آ» THE BOT IS NOT ADMIN â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
+redis:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;35mآ»آ» THE BOT IS LEFT GROUP â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;36mآ»آ» THE BOT IS KICKED GROUP â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if #group == i then 
 if (w + q) == 0 then
-send(msg.chat_id_, msg.id_,'܁༯┆لا توجد مجموعات وهميه ')   
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ظ…ط¬ظ…ظˆط¹ط§طھ ظˆظ‡ظ…ظٹظ‡ ')   
 else
 local taha = (w + q)
 local sendok = #group - taha
 if q == 0 then
 taha = ''
 else
-taha = '\n܁༯┆ تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\nـپà¼¯â”† طھظ… ط§ط²ط§ظ„ط© ~ '..q..' ظ…ط¬ظ…ظˆط¹ط§طھ ظ…ظ† ط§ظ„ط¨ظˆطھ'
 end
 if w == 0 then
 storm = ''
 else
-storm = '\n܁༯┆ تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\nـپà¼¯â”† طھظ… ط§ط²ط§ظ„ط© ~'..w..' ظ…ط¬ظ…ظˆط¹ظ‡ ظ„ط§ظ† ط§ظ„ط¨ظˆطھ ط¹ط¶ظˆ'
 end
-send(msg.chat_id_, msg.id_,'*܁༯┆ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n܁༯┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”† ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„ط§ظ† ~ '..#group..' ظ…ط¬ظ…ظˆط¹ظ‡ '..storm..''..taha..'\nـپà¼¯â”†ط§طµط¨ط­ ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„ط§ظ† ~ '..sendok..' ظ…ط¬ظ…ظˆط¹ط§طھ*\n')   
 end
 end
 end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and Devkorpica(msg) then  
-send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
+if text == ("طھط­ط¯ظٹط« ط§ظ„ط³ظˆط±ط³") and DevCo(msg) then  
+send(msg.chat_id_,msg.id_,'ـپà¼¯â”†طھظ… ط§ظ„طھط­ط¯ظٹط«')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
@@ -7053,58 +7431,153 @@ os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/
 dofile('korpica.lua')  
 return false
 end
-if text == "تعطيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الزخرفه')
-database:set(bot_id.."korpica:zhrf_Bots"..msg.chat_id_,"close")
+if text == "ط±ط§ط³ظ„ظ†ظٹ" then
+rpl = {"ظ‡ط§ ظ‡ظ„ط§ظˆ","ط§ظ†ط·ظ‚","ظƒظˆظ„"};
+sender = rpl[math.random(#rpl)]
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
-if text == "تفعيل الزخرفه" and Owner(msg) then
-send(msg.chat_id_, msg.id_,'⌯ تم تفعيل الزخرفه')
-database:set(bot_id.."korpica:zhrf_Bots"..msg.chat_id_,"open")
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط²ط®ط±ظپظ‡" and Owner(msg) then
+send(msg.chat_id_, msg.id_, 'âŒ¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط²ط®ط±ظپظ‡')
+redis:set(bot_id.."zhrf_Bots"..msg.chat_id_,"close")
 end
-if text and text:match("^زخرفه (.*)$") and database:get(bot_id.."korpica:zhrf_Bots"..msg.chat_id_) == "open" then
-local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://forhassan.ml/korpica/hso.php?en='..URL.escape(TextZhrfa)..'')
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط²ط®ط±ظپظ‡" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'âŒ¯ طھظ… طھظپط¹ظٹظ„ ط§ظ„ط²ط®ط±ظپظ‡')
+redis:set(bot_id.."zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^ط²ط®ط±ظپظ‡ (.*)$") and redis:get(bot_id.."zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^ط²ط®ط±ظپظ‡ (.*)$")
+zh = https.request('https://forhassan.ml/Black/hso.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
-t = "\n܁༯️┆قائمه الزخرفه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\nâŒ”ï¸ڈï¸™ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط²ط®ط±ظپظ‡ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_, t..'┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n܁༯┆اضغط على الاسم ليتم نسخه')
+send(msg.chat_id_, msg.id_, t..'â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰\nـپà¼¯â”†ط§ط¶ط؛ط· ط¹ظ„ظ‰ ط§ظ„ط§ط³ظ… ظ„ظٹطھظ… ظ†ط³ط®ظ‡')
 end
-if text == 'تفعيل البوت الخدمي' and Devkorpica(msg) then  
-database:del(bot_id..'korpica:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تفعيل البوت الخدمي ') 
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ط¨ط±ط§ط¬" and Owner(msg) then
+send(msg.chat_id_, msg.id_, 'âŒ¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ط¨ط±ط§ط¬')
+redis:set(bot_id.."brj_Bots"..msg.chat_id_,"close")
 end
-if text == 'تعطيل البوت الخدمي' and Devkorpica(msg) then  
-database:set(bot_id..'korpica:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'܁༯┆تم تعطيل البوت الخدمي') 
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ط¨ط±ط§ط¬" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'âŒ¯ طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ط¨ط±ط§ط¬')
+redis:set(bot_id.."brj_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^تعين عدد الاعضاء (%d+)$") and Devkorpica(msg) then
-local Num = text:match("تعين عدد الاعضاء (%d+)$") 
-database:set(bot_id..'korpica:Num:Add:Bot',Num) 
-send(msg.chat_id_, msg.id_,'܁༯┆ تم وضع عدد الاعضاء *~'..Num..'* عضو')
+if text and text:match("^ط¨ط±ط¬ (.*)$") and redis:get(bot_id.."brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = text:match("^ط¨ط±ط¬ (.*)$")
+gk = https.request('https://forhassan.ml/Black/br.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_, br.ok.hso)
 end
-if text =='الاحصائيات' and DevBot(msg) then
-local Groups = database:scard(bot_id..'korpica:Chek:Groups')  
-local Users = database:scard(bot_id..'korpica:UsersBot')  
-send(msg.chat_id_, msg.id_,'܁༯┆احصائيات البوت \n\n܁༯┆عدد المجموعات *~ '..Groups..'\n܁༯┆عدد المشتركين ~ '..Users..'*')
+if text == "طھط¹ط·ظٹظ„ ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط±" and Owner(msg) then
+send(msg.chat_id_, msg.id_, 'âŒ¯ طھظ… طھط¹ط·ظٹظ„ ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط±')
+redis:set(bot_id.."age_Bots"..msg.chat_id_,"close")
 end
-if text == 'جلب نسخه احتياطيه' and Devkorpica(msg) then
-local list = database:smembers(bot_id..'korpica:Chek:Groups')  
+if text == "طھظپط¹ظٹظ„ ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط±" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'âŒ¯ طھظ… طھظپط¹ظٹظ„ ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط±')
+redis:set(bot_id.."age_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^ط§ط­ط³ط¨ (.*)$") and redis:get(bot_id.."age_Bots"..msg.chat_id_) == "open" then
+local Textage = text:match("^ط§ط­ط³ط¨ (.*)$")
+ge = https.request('https://forhassan.ml/Black/age.php?age='..URL.escape(Textage)..'')
+ag = JSON.decode(ge)
+send(msg.chat_id_, msg.id_, ag.ok.hso)
+end
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ظ†ط³طھط§" and Owner(msg) then
+send(msg.chat_id_, msg.id_, 'âŒ¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ظ†ط³طھط§')
+redis:set(bot_id.."insta_bot"..msg.chat_id_,"close")
+end
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ظ†ط³طھط§" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'âŒ¯ طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ظ†ط³طھط§')
+redis:set(bot_id.."insta_bot"..msg.chat_id_,"open")
+end
+if text and text:match("^ظ…ط¹ظ„ظˆظ…ط§طھ (.*)$") and redis:get(bot_id.."insta_bot"..msg.chat_id_) == "open" then
+local Textni = text:match("^ظ…ط¹ظ„ظˆظ…ط§طھ (.*)$")
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
+if res == 200 then
+muaed = json:decode(data)
+if muaed.Info == true then
+local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
+sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
+end
+end
+end
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ظپظ„ط§ظ…" and Owner(msg) then
+send(msg.chat_id_, msg.id_, 'âŒ¯ طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ظپظ„ط§ظ…')
+redis:set(bot_id.."movie_bot"..msg.chat_id_,"close")
+end
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ظپظ„ط§ظ…" and Owner(msg) then
+send(msg.chat_id_, msg.id_,'âŒ¯ طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ظپظ„ط§ظ…')
+redis:set(bot_id.."movie_bot"..msg.chat_id_,"open")
+end
+
+if text and text:match("^ظپظ„ظ… (.*)$") and redis:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+local Textm = text:match("^ظپظ„ظ… (.*)$")
+data,res = https.request('https://forhassan.ml/Black/movie.php?serch='..URL.escape(Textm)..'')
+if res == 200 then
+getmo = json:decode(data)
+if getmo.Info == true then
+local Text ='ظ‚طµظ‡ ط§ظ„ظپظ„ظ…'..getmo.info
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'ظ…ط´ط§ظ‡ط¯ظ‡ ط§ظ„ظپظ„ظ… ط¨ط¬ظˆط¯ظ‡ 240',url=getmo.sd}},
+{{text = 'ظ…ط´ط§ظ‡ط¯ظ‡ ط§ظ„ظپظ„ظ… ط¨ط¬ظˆط¯ظ‡ 480', url=getmo.Web},{text = 'ظ…ط´ط§ظ‡ط¯ظ‡ ط§ظ„ظپظ„ظ… ط¨ط¬ظˆط¯ظ‡ 1080', url=getmo.hd}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "ط؛ظ†ظٹظ„ظٹ" then
+data,res = https.request('https://forhassan.ml/Black/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local done = download_to_file(audios.info,msg.sender_user_id_..'.mp3')
+sendAudio(msg.chat_id_,msg.id_,'./'..msg.sender_user_id_..'.mp3','ط§ظ‡ط¯ط§ط، ظ…ظ† ط§ظ„ط¨ظˆطھ ظ„ظƒًں’—','طھظ… ط§ط®طھظٹط§ط± ط§ظ„ظ…ظ‚ط·ط¹ ط§ظ„طµظˆطھظٹ ط®طµظٹطµط§ ظ„ظƒ','end')
+os.execute('rm -rf ./'..msg.sender_user_id_..'.mp3') 
+end
+end
+end
+if text and text:match("^ظƒظˆظ„ (.*)$") then
+local Textxt = text:match("^ظƒظˆظ„ (.*)$")
+send(msg.chat_id_, msg.id_, Textxt)
+end
+if text == 'طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ' and DevCo(msg) then  
+redis:del(bot_id..'Free:Add:Bots') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ ') 
+end
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ' and DevCo(msg) then  
+redis:set(bot_id..'Free:Add:Bots',true) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ') 
+end
+if text and text:match("^طھط¹ظٹظ† ط¹ط¯ط¯ ط§ظ„ط§ط¹ط¶ط§ط، (%d+)$") and DevCo(msg) then
+local Num = text:match("طھط¹ظٹظ† ط¹ط¯ط¯ ط§ظ„ط§ط¹ط¶ط§ط، (%d+)$") 
+redis:set(bot_id..'Num:Add:Bot',Num) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”† طھظ… ظˆط¶ط¹ ط¹ط¯ط¯ ط§ظ„ط§ط¹ط¶ط§ط، *~'..Num..'* ط¹ط¶ظˆ')
+end
+if text =='ط§ظ„ط§ط­طµط§ط¦ظٹط§طھ' and DevBot(msg) then
+local Groups = redis:scard(bot_id..'Chek:Groups')  
+local Users = redis:scard(bot_id..'UsersBot')  
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ط­طµط§ط¦ظٹط§طھ ط§ظ„ط¨ظˆطھ \n\nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ *~ '..Groups..'\nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ~ '..Users..'*')
+end
+if text == 'ط¬ظ„ط¨ ظ†ط³ط®ظ‡ ط§ط­طھظٹط§ط·ظٹظ‡' and DevCo(msg) then
+local list = redis:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'korpica Chat'
-ASAS = database:smembers(bot_id.."korpica:Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."korpica:Constructor"..v)
-MDER = database:smembers(bot_id.."korpica:Manager"..v)
-MOD = database:smembers(bot_id.."korpica:Mod:User"..v)
-link = database:get(bot_id.."korpica:Link_Group"..v) or ''
+NAME = 'Co Chat'
+ASAS = redis:smembers(bot_id.."Basic:Constructor"..v)
+MNSH = redis:smembers(bot_id.."Constructor"..v)
+MDER = redis:smembers(bot_id.."Manager"..v)
+MOD = redis:smembers(bot_id.."Mod:User"..v)
+link = redis:get(bot_id.."Link_Group"..v) or ''
 if k == 1 then
-t = t..'"'..v..'":{"korpica":"'..NAME..'",'
+t = t..'"'..v..'":{"Co":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"korpica":"'..NAME..'",'
+t = t..',"'..v..'":{"Co":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -7156,23 +7629,21 @@ t = t..'}}'
 local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆ عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', 'ـپà¼¯â”† ط¹ط¯ط¯ ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„طھظٹ ظپظٹ ط§ظ„ط¨ظˆطھ { '..#list..'}')
 end
-if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'korpica:Text_Dev')
+if text == 'ط§ظ„ظ…ط·ظˆط±' or text == 'ظ…ط·ظˆط±' or text == 'ط§ظ„ظ…ط·ظˆط±ظٹظ†' then
+local Text_Dev = redis:get(bot_id..'Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
-tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,result) 
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+local Name = 'ـپà¼¯â”†ظ…ط·ظˆط± ط§ظ„ط¨ظˆطھ  : [ '..UserName..' ]'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
-end,nil)
 end
 end
-if text == 'الملفات' and Devkorpica(msg) then
-t = '܁༯┆جميع الملفات : \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n'
+if text == 'ط§ظ„ظ…ظ„ظپط§طھ' and DevCo(msg) then
+t = 'ـپà¼¯â”†ط¬ظ…ظٹط¹ ط§ظ„ظ…ظ„ظپط§طھ : \n â€” â€” â€” â€” â€” â€” â€” â€” â€” \n'
 i = 0
-for v in io.popen('ls korpica_Files'):lines() do
+for v in io.popen('ls Co_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t..i..'*~ '..v..'*\n'
@@ -7180,115 +7651,115 @@ end
 end
 send(msg.chat_id_, msg.id_,t)
 end
-if text == "متجر الملفات" or text == 'المتجر' then
-if Devkorpica(msg) then
+if text == "ظ…طھط¬ط± ط§ظ„ظ…ظ„ظپط§طھ" or text == 'ط§ظ„ظ…طھط¬ط±' then
+if DevCo(msg) then
 local Get_Files, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n܁༯┆اهلا بك في متجر ملفات كوربيكا\n܁༯┆يوجد في المتجر ملف الردود\n⚙┆يتم ادراج الملفات في التحديثات القادمه \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n"
-local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n܁༯┆تدل علامة (✔) الملف مفعل\n".."܁༯┆تدل علامة (܁༯) الملف معطل\n"
+local TextS = "\nـپà¼¯â”†ط§ظ‡ظ„ط§ ط¨ظƒ ظپظٹ ظ…طھط¬ط± ظ…ظ„ظپط§طھ ظƒظˆط±ط¨ظٹظƒط§\nـپà¼¯â”†ظٹظˆط¬ط¯ ظپظٹ ط§ظ„ظ…طھط¬ط± ظ…ظ„ظپ ط§ظ„ط±ط¯ظˆط¯\nـپà¼¯â”†ظٹطھظ… ط§ط¯ط±ط§ط¬ ط§ظ„ظ…ظ„ظپط§طھ ظپظٹ ط§ظ„طھط­ط¯ظٹط«ط§طھ ط§ظ„ظ‚ط§ط¯ظ…ظ‡ \n â€” â€” â€” â€” â€” â€” â€” â€” â€” \n"
+local TextE = "\n â€” â€” â€” â€” â€” â€” â€” â€” â€” \nـپà¼¯â”†طھط¯ظ„ ط¹ظ„ط§ظ…ط© (âœ”) ط§ظ„ظ…ظ„ظپ ظ…ظپط¹ظ„\n".."ـپà¼¯â”†طھط¯ظ„ ط¹ظ„ط§ظ…ط© (âœ–) ط§ظ„ظ…ظ„ظپ ظ…ط¹ط·ظ„\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
-local Check_File_is_Found = io.open("korpica_Files/"..name,"r")
+local Check_File_is_Found = io.open("Co_Files/"..name,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
-CeckFile = "(✔)"
+CeckFile = "(âœ”)"
 else
-CeckFile = "(܁༯)"
+CeckFile = "(âœ–)"
 end
 NumFile = NumFile + 1
-TextS = TextS..'*'..NumFile.."»* {`"..name..'`} » '..CeckFile..'\n[-  About to the file]('..Info..')\n'
+TextS = TextS..'*'..NumFile.."آ»* {`"..name..'`} آ» '..CeckFile..'\n[-  About to the file]('..Info..')\n'
 end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
 else
-send(msg.chat_id_, msg.id_,"܁༯┆ لا يوجد اتصال من ال api \n") 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”† ظ„ط§ ظٹظˆط¬ط¯ ط§طھطµط§ظ„ ظ…ظ† ط§ظ„ api \n") 
 end
 return false
 end
 end
 
-if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and Devkorpica(msg) then
-local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
+if text and text:match("^(طھط¹ط·ظٹظ„ ظ…ظ„ظپ) (.*)(.lua)$") and DevCo(msg) then
+local name_t = {string.match(text, "^(طھط¹ط·ظٹظ„ ظ…ظ„ظپ) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("korpica_Files/"..file,"r")
+local file_bot = io.open("Co_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*܁༯┆ الملف » {"..file.."}\n܁༯┆ تم تعطيله وحذفه بنجاح \n✓*"
+t = "*ـپà¼¯â”† ط§ظ„ظ…ظ„ظپ آ» {"..file.."}\nـپà¼¯â”† طھظ… طھط¹ط·ظٹظ„ظ‡ ظˆط­ط°ظپظ‡ ط¨ظ†ط¬ط§ط­ \nâœ“*"
 else
-t = "*܁༯┆ بالتاكيد تم تعطيل وحذف ملف » {"..file.."} \n✓*"
+t = "*ـپà¼¯â”† ط¨ط§ظ„طھط§ظƒظٹط¯ طھظ… طھط¹ط·ظٹظ„ ظˆط­ط°ظپ ظ…ظ„ظپ آ» {"..file.."} \nâœ“*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/files_korpica/"..file)
 if res == 200 then
-os.execute("rm -fr korpica_Files/"..file)
+os.execute("rm -fr Co_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('korpica.lua')  
 else
-send(msg.chat_id_, msg.id_,"*܁༯┆ عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+send(msg.chat_id_, msg.id_,"*ـپà¼¯â”† ط¹ط°ط±ط§ ظ„ط§ ظٹظˆط¬ط¯ ظ‡ط§ظƒط°ط§ ظ…ظ„ظپ ظپظٹ ط§ظ„ظ…طھط¬ط± *\n") 
 end
 return false
 end
-if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and Devkorpica(msg) then
-local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
+if text and text:match("^(طھظپط¹ظٹظ„ ظ…ظ„ظپ) (.*)(.lua)$") and DevCo(msg) then
+local name_t = {string.match(text, "^(طھظپط¹ظٹظ„ ظ…ظ„ظپ) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("korpica_Files/"..file,"r")
+local file_bot = io.open("Co_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = "*܁༯┆ بالتاكيد تم تنزيل وتفعيل ملف » {"..file.."} \n✓*"
+t = "*ـپà¼¯â”† ط¨ط§ظ„طھط§ظƒظٹط¯ طھظ… طھظ†ط²ظٹظ„ ظˆطھظپط¹ظٹظ„ ظ…ظ„ظپ آ» {"..file.."} \nâœ“*"
 else
-t = "*܁༯┆ الملف » {"..file.."}\n܁༯┆ تم تنزيله وتفعيله بنجاح \n*"
+t = "*ـپà¼¯â”† ط§ظ„ظ…ظ„ظپ آ» {"..file.."}\nـپà¼¯â”† طھظ… طھظ†ط²ظٹظ„ظ‡ ظˆطھظپط¹ظٹظ„ظ‡ ط¨ظ†ط¬ط§ط­ \n*"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/korpica/files_korpica/master/files_korpica/"..file)
 if res == 200 then
-local chek = io.open("korpica_Files/"..file,'w+')
+local chek = io.open("Co_Files/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('korpica.lua')  
 else
-send(msg.chat_id_, msg.id_,"*܁༯┆ عذرا لا يوجد هاكذا ملف في المتجر *\n") 
+send(msg.chat_id_, msg.id_,"*ـپà¼¯â”† ط¹ط°ط±ط§ ظ„ط§ ظٹظˆط¬ط¯ ظ‡ط§ظƒط°ط§ ظ…ظ„ظپ ظپظٹ ط§ظ„ظ…طھط¬ط± *\n") 
 end
 return false
 end
-if text == "مسح جميع الملفات" and Devkorpica(msg) then
-os.execute("rm -fr korpica_Files/*")
-send(msg.chat_id_,msg.id_,"܁༯┆تم حذف جميع الملفات")
+if text == "ظ…ط³ط­ ط¬ظ…ظٹط¹ ط§ظ„ظ…ظ„ظپط§طھ" and DevCo(msg) then
+os.execute("rm -fr Co_Files/*")
+send(msg.chat_id_,msg.id_,"ـپà¼¯â”†طھظ… ط­ط°ظپ ط¬ظ…ظٹط¹ ط§ظ„ظ…ظ„ظپط§طھ")
 return false
 end
-if text == 'نقل الاحصائيات' and Devkorpica(msg) then
-local Users = database:smembers('korpica:'..bot_id.."userss")
-local Groups = database:smembers('korpica:'..bot_id..'groups') 
+if text == 'ظ†ظ‚ظ„ ط§ظ„ط§ط­طµط§ط¦ظٹط§طھ' and DevCo(msg) then
+local Users = redis:smembers(''..bot_id.."userss")
+local Groups = redis:smembers(''..bot_id..'groups') 
 for i = 1, #Groups do
-database:sadd(bot_id..'korpica:Chek:Groups',Groups[i])  
+redis:sadd(bot_id..'Chek:Groups',Groups[i])  
 end
 for i = 1, #Users do
-database:sadd(bot_id..'korpica:UsersBot',Users[i])  
+redis:sadd(bot_id..'UsersBot',Users[i])  
 end
-send(msg.chat_id_, msg.id_,'܁༯┆تم نقل : '..#Groups..' كروب\n܁༯┆تم نقل : '..#Users..' مشترك \n܁༯┆من التحديث القديم الى التحديث الجديد')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… ظ†ظ‚ظ„ : '..#Groups..' ظƒط±ظˆط¨\nـپà¼¯â”†طھظ… ظ†ظ‚ظ„ : '..#Users..' ظ…ط´طھط±ظƒ \nـپà¼¯â”†ظ…ظ† ط§ظ„طھط­ط¯ظٹط« ط§ظ„ظ‚ط¯ظٹظ… ط§ظ„ظ‰ ط§ظ„طھط­ط¯ظٹط« ط§ظ„ط¬ط¯ظٹط¯')
 end
-if text == 'حذف كليشه المطور' and Devkorpica(msg) then
-database:del(bot_id..'korpica:Text_Dev')
-send(msg.chat_id_, msg.id_,'܁༯┆ تم حذف كليشه المطور')
+if text == 'ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط§ظ„ظ…ط·ظˆط±' and DevCo(msg) then
+redis:del(bot_id..'Text_Dev')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”† طھظ… ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط§ظ„ظ…ط·ظˆط±')
 end
-if text == 'وضع كليشه المطور' and Devkorpica(msg) then
-database:set(bot_id..'korpica:Set:Text_Dev'..msg.chat_id_,true)
-send(msg.chat_id_,msg.id_,'܁༯┆ ارسل الكليشه الان')
+if text == 'ظˆط¶ط¹ ظƒظ„ظٹط´ظ‡ ط§ظ„ظ…ط·ظˆط±' and DevCo(msg) then
+redis:set(bot_id..'Set:Text_Dev'..msg.chat_id_,true)
+send(msg.chat_id_,msg.id_,'ـپà¼¯â”† ط§ط±ط³ظ„ ط§ظ„ظƒظ„ظٹط´ظ‡ ط§ظ„ط§ظ†')
 return false
 end
-if text and database:get(bot_id..'korpica:Set:Text_Dev'..msg.chat_id_) then
-if text == 'الغاء' then 
-database:del(bot_id..'korpica:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'܁༯┆تم الغاء حفظ كليشة المطور')
+if text and redis:get(bot_id..'Set:Text_Dev'..msg.chat_id_) then
+if text == 'ط§ظ„ط؛ط§ط،' then 
+redis:del(bot_id..'Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ظƒظ„ظٹط´ط© ط§ظ„ظ…ط·ظˆط±')
 return false
 end
-database:set(bot_id..'korpica:Text_Dev',text)
-database:del(bot_id..'korpica:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'܁༯┆تم حفظ كليشة المطور')
+redis:set(bot_id..'Text_Dev',text)
+redis:del(bot_id..'Set:Text_Dev'..msg.chat_id_)
+send(msg.chat_id_,msg.id_,'ـپà¼¯â”†طھظ… ط­ظپط¸ ظƒظ„ظٹط´ط© ط§ظ„ظ…ط·ظˆط±')
 return false
 end
-if text == 'رفع النسخه الاحتياطيه' and Devkorpica(msg) then   
+if text == 'ط±ظپط¹ ط§ظ„ظ†ط³ط®ظ‡ ط§ظ„ط§ط­طھظٹط§ط·ظٹظ‡' and DevCo(msg) then   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -7300,316 +7771,314 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == "تحديث" and Devkorpica(msg) then
+if text == "طھط­ط¯ظٹط«" and DevCo(msg) then
 dofile("korpica.lua")  
-send(msg.chat_id_, msg.id_, "܁༯┆تم التحديث")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„طھط­ط¯ظٹط«")
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-Text = [[
-WeLCoMe TeAM KOrAPiCa ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
-༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
-༯┆[ChAnEl](https://t.me/H6HHHH) ∴
-༯┆[DeVeLoPeR](https://t.me/iE1BOT) ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-]]
-send(msg.chat_id_, msg.id_,Text)
-end
-if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-Text = [[܁༯ ┆  @LC6BOT   ]]
-send(msg.chat_id_, msg.id_,Text)
-end
-if text == 'الاوامر' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-Text = [[
-܁༯┆ هناك {5} اوامر لعرضها
- — — — — — — — — —
-܁༯┆ م1 » لعرض اوامر الحمايه
-܁༯┆ م2 » لعرض اوامر الادمنيه
-܁༯┆ م3 » لعرض اوامر المدراء
-܁༯┆ م4 » لعرض اوامر المنشئين
-܁༯┆ م5 » لعرض اوامر المطورين
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
-]]
-send(msg.chat_id_, msg.id_,Text)
-return false
-end
-if text == 'م1' and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-Text = [[
-܁༯┆اوامر حمايه المجموعه
- — — — — — — — — — 
-܁༯┆قفل/فتح + الاوامر الادناه 
-܁༯┆قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
- — — — — — — — — — 
-܁༯┆الروابط
-܁༯┆المعرف
-܁༯┆التاك
-܁༯┆الشارحه
-܁༯┆التعديل
-܁༯┆التثبيت
-܁༯┆المتحركه
-܁༯┆الملفات
-܁༯┆الصور
 
-܁༯┆الملصقات
-܁༯┆الفيديو
-܁༯┆الانلاين
-܁༯┆الدردشه
-܁༯┆التوجيه
-܁༯┆الاغاني
-܁༯┆الصوت
-܁༯┆الجهات
-܁༯┆الاشعارات
+if text == 'ط§ظ„ط³ظˆط±ط³' or text == 'ط³ظˆط±ط³' or text == 'ظٹط§ط³ظˆط±ط³' or text == 'ظٹط§ ط³ظˆط±ط³' then  
+local url,res = https.request('https://forhassan.ml/korpica/korp.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- ط´طھط±ظƒ ظپظٹ ظ‚ظ†ط§ط© ط§ظ„ط¨ظˆطھ ط§ظˆظ„ط¢ @korpica .')   
+return false 
+end
+Text = [[
+WeLCoMe TeAM KOrAPiCa âˆ´
+â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ ً–¤‚
+à¼¯â”†[KOrAPiCa TeAm](http://t.me/korpica) âˆ´
+à¼¯â”†[INfO KOrAPiCa](https://t.me/infokora) âˆ´
+à¼¯â”†[ChAnEl](https://t.me/H6HHHH) âˆ´
+à¼¯â”†[DeVeLoPeR](https://t.me/iE1BOT) âˆ´
+â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ ً–¤‚
+]]
+send(msg.chat_id_, msg.id_,Text)
+end
+if text == 'ط±ط§ط¨ط· ط§ظ„ط­ط°ظپ' or text == 'ط¨ظˆطھ ط§ظ„ط­ط°ظپ' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[âŒ” ï¸™  @LC6BOT   ]]
+send(msg.chat_id_, msg.id_,Text)
+end
+if text == 'ط§ظ„ط§ظˆط§ظ…ط±' and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[
+ـپà¼¯â”† ظ‡ظ†ط§ظƒ {5} ط§ظˆط§ظ…ط± ظ„ط¹ط±ط¶ظ‡ط§
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”
+ـپà¼¯â”† ظ…1 آ» ظ„ط¹ط±ط¶ ط§ظˆط§ظ…ط± ط§ظ„ط­ظ…ط§ظٹظ‡
+ـپà¼¯â”† ظ…2 آ» ظ„ط¹ط±ط¶ ط§ظˆط§ظ…ط± ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡
+ـپà¼¯â”† ظ…3 آ» ظ„ط¹ط±ط¶ ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¯ط±ط§ط،
+ـپà¼¯â”† ظ…4 آ» ظ„ط¹ط±ط¶ ط§ظˆط§ظ…ط± ط§ظ„ظ…ظ†ط´ط¦ظٹظ†
+ـپà¼¯â”† ظ…5 آ» ظ„ط¹ط±ط¶ ط§ظˆط§ظ…ط± ط§ظ„ظ…ط·ظˆط±ظٹظ†
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
+]]
+send(msg.chat_id_, msg.id_,Text)
+return false
+end
+if text == 'ظ…1' and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = redis:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط­ظ…ط§ظٹظ‡ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ظ‚ظپظ„/ظپطھط­ + ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ط§ط¯ظ†ط§ظ‡ 
+ـپà¼¯â”†ظ‚ظپظ„/ظپطھط­ + ط§ظ„ط§ظ…ط± ط¨ط§ظ„طھظ‚ظٹط¯ â€¢ ط¨ط§ظ„ط·ط±ط¯ â€¢ ط¨ط§ظ„ظƒطھظ…
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط§ظ„ط±ظˆط§ط¨ط·
+ـپà¼¯â”†ط§ظ„ظ…ط¹ط±ظپ
+ـپà¼¯â”†ط§ظ„طھط§ظƒ
+ـپà¼¯â”†ط§ظ„ط´ط§ط±ط­ظ‡
+ـپà¼¯â”†ط§ظ„طھط¹ط¯ظٹظ„
+ـپà¼¯â”†ط§ظ„طھط«ط¨ظٹطھ
+ـپà¼¯â”†ط§ظ„ظ…طھط­ط±ظƒظ‡
+ـپà¼¯â”†ط§ظ„ظ…ظ„ظپط§طھ
+ـپà¼¯â”†ط§ظ„طµظˆط±
 
-܁༯┆الماركداون
-܁༯┆البوتات
-܁༯┆التكرار
-܁༯┆الكلايش
-܁༯┆السيلفي
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
+ـپà¼¯â”†ط§ظ„ظ…ظ„طµظ‚ط§طھ
+ـپà¼¯â”†ط§ظ„ظپظٹط¯ظٹظˆ
+ـپà¼¯â”†ط§ظ„ط§ظ†ظ„ط§ظٹظ†
+ـپà¼¯â”†ط§ظ„ط¯ط±ط¯ط´ظ‡
+ـپà¼¯â”†ط§ظ„طھظˆط¬ظٹظ‡
+ـپà¼¯â”†ط§ظ„ط§ط؛ط§ظ†ظٹ
+ـپà¼¯â”†ط§ظ„طµظˆطھ
+ـپà¼¯â”†ط§ظ„ط¬ظ‡ط§طھ
+ـپà¼¯â”†ط§ظ„ط§ط´ط¹ط§ط±ط§طھ
+
+ـپà¼¯â”†ط§ظ„ظ…ط§ط±ظƒط¯ط§ظˆظ†
+ـپà¼¯â”†ط§ظ„ط¨ظˆطھط§طھ
+ـپà¼¯â”†ط§ظ„طھظƒط±ط§ط±
+ـپà¼¯â”†ط§ظ„ظƒظ„ط§ظٹط´
+ـپà¼¯â”†ط§ظ„ط³ظٹظ„ظپظٹ
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م2' and Addictive(msg) then  
+if text == 'ظ…2' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 Text = [[
-܁༯┆اوامر الادمنيه
- — — — — — — — — —  
- ܁༯┆تفعيل/تعطيل الترحيب
- ܁༯┆اضف /مسح صلاحيه
-܁༯┆وضع تكرار + العدد
-܁༯┆رفع/تنزيل مميز
-܁༯┆عدد الكروب
-܁༯┆تاك للكل
- — — — — — — — — —
-܁༯┆كتم
-܁༯┆حظر
-܁༯┆طرد
-܁༯┆منع
-܁༯┆تقيد
- — — — — — — — — —
- ܁༯┆المكتومين
-܁༯┆المحظورين
-܁༯┆المميزين
-܁༯┆الصلاحيات
-܁༯┆قائمه المنع
- — — — — — — — — —
-܁༯┆الغاء كتم
-܁༯┆الغاء حظر
-܁༯┆الغاء منع
-܁༯┆الغاء تقيد
- — — — — — — — — —
-܁༯┆الغاء تثبيت
-܁༯┆الاعدادات
-܁༯┆تثبيت
-܁༯┆الرابط
-܁༯┆القوانين
-܁༯┆الترحيب
-܁༯┆ايدي
-܁༯┆جهاتي
-܁༯┆سحكاتي
-܁༯┆رسائلي
-܁༯┆كشف البوتات
- — — — — — — — — — 
-܁༯┆وضع اسم
-܁༯┆وضع رابط
-܁༯┆وضع صوره
-܁༯┆وضع وصف
-܁༯┆وضع قوانين
-܁༯┆وضع ترحيب
- — — — — — — — — — 
-܁༯┆مسح قائمه المنع
-܁༯┆مسح المحظورين
-܁༯┆مسح المميزين
-܁༯┆مسح المكتومين
-܁༯┆مسح المطرودين
-܁༯┆مسح القوانين
-܁༯┆مسح البوتات
-܁༯┆مسح الصوره
-܁༯┆مسح الصلاحيات
-܁༯┆مسح الرابط
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”  
+ ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„طھط±ط­ظٹط¨
+ ـپà¼¯â”†ط§ط¶ظپ /ظ…ط³ط­ طµظ„ط§ط­ظٹظ‡
+ـپà¼¯â”†ظˆط¶ط¹ طھظƒط±ط§ط± + ط§ظ„ط¹ط¯ط¯
+ـپà¼¯â”†ط±ظپط¹/طھظ†ط²ظٹظ„ ظ…ظ…ظٹط²
+ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظƒط±ظˆط¨
+ـپà¼¯â”†طھط§ظƒ ظ„ظ„ظƒظ„
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”
+ـپà¼¯â”†ظƒطھظ…
+ـپà¼¯â”†ط­ط¸ط±
+ـپà¼¯â”†ط·ط±ط¯
+ـپà¼¯â”†ظ…ظ†ط¹
+ـپà¼¯â”†طھظ‚ظٹط¯
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”
+ ـپà¼¯â”†ط§ظ„ظ…ظƒطھظˆظ…ظٹظ†
+ـپà¼¯â”†ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ†
+ـپà¼¯â”†ط§ظ„ظ…ظ…ظٹط²ظٹظ†
+ـپà¼¯â”†ط§ظ„طµظ„ط§ط­ظٹط§طھ
+ـپà¼¯â”†ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظ†ط¹
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، ظƒطھظ…
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، ط­ط¸ط±
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، ظ…ظ†ط¹
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، طھظ‚ظٹط¯
+ â€” â€” â€” â€” â€” â€” â€” â€” â€”
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، طھط«ط¨ظٹطھ
+ـپà¼¯â”†ط§ظ„ط§ط¹ط¯ط§ط¯ط§طھ
+ـپà¼¯â”†طھط«ط¨ظٹطھ
+ـپà¼¯â”†ط§ظ„ط±ط§ط¨ط·
+ـپà¼¯â”†ط§ظ„ظ‚ظˆط§ظ†ظٹظ†
+ـپà¼¯â”†ط§ظ„طھط±ط­ظٹط¨
+ـپà¼¯â”†ط§ظٹط¯ظٹ
+ـپà¼¯â”†ط¬ظ‡ط§طھظٹ
+ـپà¼¯â”†ط³ط­ظƒط§طھظٹ
+ـپà¼¯â”†ط±ط³ط§ط¦ظ„ظٹ
+ـپà¼¯â”†ظƒط´ظپ ط§ظ„ط¨ظˆطھط§طھ
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ظˆط¶ط¹ ط§ط³ظ…
+ـپà¼¯â”†ظˆط¶ط¹ ط±ط§ط¨ط·
+ـپà¼¯â”†ظˆط¶ط¹ طµظˆط±ظ‡
+ـپà¼¯â”†ظˆط¶ط¹ ظˆطµظپ
+ـپà¼¯â”†ظˆط¶ط¹ ظ‚ظˆط§ظ†ظٹظ†
+ـپà¼¯â”†ظˆط¶ط¹ طھط±ط­ظٹط¨
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ظ…ظ†ط¹
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ظ…ظٹط²ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ظƒطھظˆظ…ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ط·ط±ظˆط¯ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ‚ظˆط§ظ†ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ط¨ظˆطھط§طھ
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„طµظˆط±ظ‡
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„طµظ„ط§ط­ظٹط§طھ
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ط±ط§ط¨ط·
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م3' and Owner(msg) then  
+if text == 'ظ…3' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 Text = [[
-܁༯┆اوامر المدير
-— — — — — — — — — 
-܁༯┆رفع القيود
-܁༯┆كشف القيود
-܁༯┆تنزيل الكل
-܁༯┆رفع ادمن
-܁༯┆ تنزيل ادمن
-܁༯┆رفع الادمنيه
-܁༯┆مسح الادمنيه
-܁༯┆الادمنيه
-܁༯┆تعين الايدي
-܁༯┆مسح الايدي
-܁༯┆ردود المدير
-܁༯┆اضف رد
-܁༯┆حذف رد
-܁༯┆تنظيف + عدد
- — — — — — — — — — 
-܁༯┆تفعيل/تعطيل الرفع
-܁༯┆تفعيل/تعطيل الايدي
-܁༯┆تفعيل/تعطيل الابراج
-܁༯┆تفعيل/تعطيل اطردني
-܁༯┆تفعيل/تعطيل الزخرفه
-܁༯┆تفعيل/تعطيل ردود المدير
-܁༯┆تفعيل/تعطيل حساب العمر
-܁༯┆تفعيل/تعطيل ردود المطور
-܁༯┆تفعيل/تعطيل الحظر/الطرد
-܁༯┆تفعيل/تعطيل اللعبه/الالعاب
-܁༯┆تفعيل/تعطيل الايدي بالصوره
-܁༯┆تفعيل/تعطيل اوامر التحشيش
-܁༯┆تفعيل/تعطيل الرابط/جلب الرابط
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¯ظٹط±
+â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط±ظپط¹ ط§ظ„ظ‚ظٹظˆط¯
+ـپà¼¯â”†ظƒط´ظپ ط§ظ„ظ‚ظٹظˆط¯
+ـپà¼¯â”†طھظ†ط²ظٹظ„ ط§ظ„ظƒظ„
+ـپà¼¯â”†ط±ظپط¹ ط§ط¯ظ…ظ†
+ـپà¼¯â”† طھظ†ط²ظٹظ„ ط§ط¯ظ…ظ†
+ـپà¼¯â”†ط±ظپط¹ ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡
+ـپà¼¯â”†ط§ظ„ط§ط¯ظ…ظ†ظٹظ‡
+ـپà¼¯â”†طھط¹ظٹظ† ط§ظ„ط§ظٹط¯ظٹ
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ط§ظٹط¯ظٹ
+ـپà¼¯â”†ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±
+ـپà¼¯â”†ط§ط¶ظپ ط±ط¯
+ـپà¼¯â”†ط­ط°ظپ ط±ط¯
+ـپà¼¯â”†طھظ†ط¸ظٹظپ + ط¹ط¯ط¯
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط±ظپط¹
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط§ط¨ط±ط§ط¬
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ط·ط±ط¯ظ†ظٹ
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط²ط®ط±ظپظ‡
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط±
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط­ط¸ط±/ط§ظ„ط·ط±ط¯
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ظ„ط¹ط¨ظ‡/ط§ظ„ط§ظ„ط¹ط§ط¨
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط§ظٹط¯ظٹ ط¨ط§ظ„طµظˆط±ظ‡
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظˆط§ظ…ط± ط§ظ„طھط­ط´ظٹط´
+ـپà¼¯â”†طھظپط¹ظٹظ„/طھط¹ط·ظٹظ„ ط§ظ„ط±ط§ط¨ط·/ط¬ظ„ط¨ ط§ظ„ط±ط§ط¨ط·
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م4' and Constructor(msg) then  
+if text == 'ظ…4' and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 Text = [[
-܁༯┆اوامر المنشئين الاساسين 
- — — — — — — — — — 
-܁༯┆رفع/تنزيل منشئ اساسي
-܁༯┆رفع/تنزيل منشئ
-܁༯┆المنشئين
-܁༯┆مسح المنشئين
-܁༯┆مسح ردود المدير
- — — — — — — — — — 
-܁༯┆اوامر المنشئين
- — — — — — — — — — 
-܁༯┆رفع/تنزيل مدير
-܁༯┆المدراء
-܁༯┆مسح المدراء
-܁༯┆تعين/مسح الايدي
-܁༯┆اضف/حذف امر
-܁༯┆الاوامر المضافه
-܁༯┆حذف/مسح الاوامر المضافه
-܁༯┆اضف رسائل + العدد بالرد
-܁༯┆اضف مجوهرات + العدد بالرد
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ† 
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط±ظپط¹/طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ
+ـپà¼¯â”†ط±ظپط¹/طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦
+ـپà¼¯â”†ط§ظ„ظ…ظ†ط´ط¦ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط¯ظٹط±
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ظ…ظ†ط´ط¦ظٹظ†
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط±ظپط¹/طھظ†ط²ظٹظ„ ظ…ط¯ظٹط±
+ـپà¼¯â”†ط§ظ„ظ…ط¯ط±ط§ط،
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ط¯ط±ط§ط،
+ـپà¼¯â”†طھط¹ظٹظ†/ظ…ط³ط­ ط§ظ„ط§ظٹط¯ظٹ
+ـپà¼¯â”†ط§ط¶ظپ/ط­ط°ظپ ط§ظ…ط±
+ـپà¼¯â”†ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡
+ـپà¼¯â”†ط­ط°ظپ/ظ…ط³ط­ ط§ظ„ط§ظˆط§ظ…ط± ط§ظ„ظ…ط¶ط§ظپظ‡
+ـپà¼¯â”†ط§ط¶ظپ ط±ط³ط§ط¦ظ„ + ط§ظ„ط¹ط¯ط¯ ط¨ط§ظ„ط±ط¯
+ـپà¼¯â”†ط§ط¶ظپ ظ…ط¬ظˆظ‡ط±ط§طھ + ط§ظ„ط¹ط¯ط¯ ط¨ط§ظ„ط±ط¯
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م5' and DevBot(msg) then
+if text == 'ظ…5' and DevBot(msg) then
 Text = [[
-܁༯┆اوامر المطور الاساسي  
- — — — — — — — — — 
-܁༯┆تحديث 
-܁༯┆الملفات 
-܁༯┆المتجر 
-܁༯┆حظر عام
-܁༯┆الغاء العام
-܁༯┆المطورين
-܁༯┆ردود المطور 
-܁༯┆اوامر المطور 
-܁༯┆اضف رد للكل 
-܁༯┆حذف رد للكل 
-܁༯┆مسح المطورين
-܁༯┆مسح قائمه العام
-܁༯┆تعطيل الاذاعه 
-܁༯┆تفعيل الاذاعه 
-܁༯┆تعطيل الاذاعه
-܁༯┆تفعيل المغادرة
-܁༯┆ تحديث السورس
-܁༯┆مسح ردود المطور
-܁༯┆مسح جميع الملفات
-܁༯┆اضف /حذف مطور 
-܁༯┆وضع كليشه المطور 
-܁༯┆حذف كليشه المطور 
-܁༯┆تفعيل البوت الخدمي 
-܁༯┆تعطيل البوت الخدمي
-܁༯┆تفعيل ملف + اسم الملف
-܁༯┆تعطيل ملف + اسم الملف
-܁༯┆ تعين عدد الاعضاء + العدد
- — — — — — — — — — 
-܁༯┆غادر 
-܁༯┆اذاعه 
-܁༯┆رفع منشئ 
-܁༯┆اذاعه خاص 
-܁༯┆الاحصائيات 
-܁༯┆غادر + الايدي
-܁༯┆تفعيل /تعطيل
-܁༯┆اذاعه بالتوجيه
-܁༯┆اذاعه بالتثبيت 
-܁༯┆المنشئين الاساسين 
-܁༯┆رفع/تنزيل منشئ اساسي
-܁༯┆مسح المنشئين الاساسين
- — — — — — — — — — 
-[܁༯┆Ch Source](t.me/korpica)
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ  
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†طھط­ط¯ظٹط« 
+ـپà¼¯â”†ط§ظ„ظ…ظ„ظپط§طھ 
+ـپà¼¯â”†ط§ظ„ظ…طھط¬ط± 
+ـپà¼¯â”†ط­ط¸ط± ط¹ط§ظ…
+ـپà¼¯â”†ط§ظ„ط؛ط§ط، ط§ظ„ط¹ط§ظ…
+ـپà¼¯â”†ط§ظ„ظ…ط·ظˆط±ظٹظ†
+ـپà¼¯â”†ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط± 
+ـپà¼¯â”†ط§ظˆط§ظ…ط± ط§ظ„ظ…ط·ظˆط± 
+ـپà¼¯â”†ط§ط¶ظپ ط±ط¯ ظ„ظ„ظƒظ„ 
+ـپà¼¯â”†ط­ط°ظپ ط±ط¯ ظ„ظ„ظƒظ„ 
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ط·ظˆط±ظٹظ†
+ـپà¼¯â”†ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ…
+ـپà¼¯â”†طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ 
+ـپà¼¯â”†طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ 
+ـپà¼¯â”†طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡
+ـپà¼¯â”†طھظپط¹ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ط©
+ـپà¼¯â”† طھط­ط¯ظٹط« ط§ظ„ط³ظˆط±ط³
+ـپà¼¯â”†ظ…ط³ط­ ط±ط¯ظˆط¯ ط§ظ„ظ…ط·ظˆط±
+ـپà¼¯â”†ظ…ط³ط­ ط¬ظ…ظٹط¹ ط§ظ„ظ…ظ„ظپط§طھ
+ـپà¼¯â”†ط§ط¶ظپ /ط­ط°ظپ ظ…ط·ظˆط± 
+ـپà¼¯â”†ظˆط¶ط¹ ظƒظ„ظٹط´ظ‡ ط§ظ„ظ…ط·ظˆط± 
+ـپà¼¯â”†ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط§ظ„ظ…ط·ظˆط± 
+ـپà¼¯â”†طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ 
+ـپà¼¯â”†طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ
+ـپà¼¯â”†طھظپط¹ظٹظ„ ظ…ظ„ظپ + ط§ط³ظ… ط§ظ„ظ…ظ„ظپ
+ـپà¼¯â”†طھط¹ط·ظٹظ„ ظ…ظ„ظپ + ط§ط³ظ… ط§ظ„ظ…ظ„ظپ
+ـپà¼¯â”† طھط¹ظٹظ† ط¹ط¯ط¯ ط§ظ„ط§ط¹ط¶ط§ط، + ط§ظ„ط¹ط¯ط¯
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+ـپà¼¯â”†ط؛ط§ط¯ط± 
+ـپà¼¯â”†ط§ط°ط§ط¹ظ‡ 
+ـپà¼¯â”†ط±ظپط¹ ظ…ظ†ط´ط¦ 
+ـپà¼¯â”†ط§ط°ط§ط¹ظ‡ ط®ط§طµ 
+ـپà¼¯â”†ط§ظ„ط§ط­طµط§ط¦ظٹط§طھ 
+ـپà¼¯â”†ط؛ط§ط¯ط± + ط§ظ„ط§ظٹط¯ظٹ
+ـپà¼¯â”†طھظپط¹ظٹظ„ /طھط¹ط·ظٹظ„
+ـپà¼¯â”†ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡
+ـپà¼¯â”†ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھط«ط¨ظٹطھ 
+ـپà¼¯â”†ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ† 
+ـپà¼¯â”†ط±ظپط¹/طھظ†ط²ظٹظ„ ظ…ظ†ط´ط¦ ط§ط³ط§ط³ظٹ
+ـپà¼¯â”†ظ…ط³ط­ ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ†
+ â€” â€” â€” â€” â€” â€” â€” â€” â€” 
+[ـپà¼¯â”†Ch Source](t.me/infokora)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7618,23 +8087,23 @@ end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
-if text == 'تفعيل' and DevBot(msg) then 
+if text == 'طھظپط¹ظٹظ„' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'܁༯┆البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'korpica:Num:Add:Bot') or 0) and not Devkorpica(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'korpica:Num:Add:Bot') or 0)..'* عضو')
+if tonumber(data.member_count_) < tonumber(redis:get(bot_id..'Num:Add:Bot') or 0) and not DevCo(msg) then
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ط¯ط¯ ط§ط¹ط¶ط§ط، ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ط§ظ‚ظ„ ظ…ظ† *~ {'..(redis:get(bot_id..'Num:Add:Bot') or 0)..'* ط¹ط¶ظˆ')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-if database:sismember(bot_id..'korpica:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'܁༯┆المجموعه مفعله سابقا ')
+if redis:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ظ…ظپط¹ظ„ظ‡ ط³ط§ط¨ظ‚ط§ ')
 else
-Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تفعيل المجموعه ~ '..chat.title_..'')
-database:sadd(bot_id..'korpica:Chek:Groups',msg.chat_id_)
+Reply_Status(msg,result.id_,'reply_Add','ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ '..chat.title_..'')
+redis:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
 NameChat = NameChat:gsub('"',"") 
@@ -7649,15 +8118,15 @@ local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token.
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
 else
-LinkGp = 'لا يوجد'
+LinkGp = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
-Text = '܁༯┆تم تفعيل مجموعه جديده\n'..
-'\n܁༯┆بواسطة ~ '..Name..''..
-'\n܁༯┆ايدي المجموعه ~ `'..IdChat..'`'..
-'\n܁༯┆عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n܁༯┆اسم المجموعه ~ ['..NameChat..']'..
-'\n܁༯┆الرابط ~ ['..LinkGp..']'
-if not Devkorpica(msg) then
+Text = 'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ظ…ط¬ظ…ظˆط¹ظ‡ ط¬ط¯ظٹط¯ظ‡\n'..
+'\nـپà¼¯â”†ط¨ظˆط§ط³ط·ط© ~ '..Name..''..
+'\nـپà¼¯â”†ط§ظٹط¯ظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ `'..IdChat..'`'..
+'\nـپà¼¯â”†ط¹ط¯ط¯ ط§ط¹ط¶ط§ط، ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ *~ '..NumMember..'*'..
+'\nـپà¼¯â”†ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ ['..NameChat..']'..
+'\nـپà¼¯â”†ط§ظ„ط±ط§ط¨ط· ~ ['..LinkGp..']'
+if not DevCo(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -7665,23 +8134,23 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تعطيل' and DevBot(msg) then  
+if text == 'طھط¹ط·ظٹظ„' and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-if not database:sismember(bot_id..'korpica:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'܁༯┆المجموعه معطله سابقا ')
+if not redis:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ط³ط§ط¨ظ‚ط§ ')
 else
-Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تعطيل المجموعه ~ '..chat.title_..'')
-database:srem(bot_id..'korpica:Chek:Groups',msg.chat_id_)  
+Reply_Status(msg,result.id_,'reply_Add','ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ '..chat.title_..'')
+redis:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
 NameChat = NameChat:gsub('"',"") 
@@ -7696,32 +8165,32 @@ local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token.
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
 else
-LinkGp = 'لا يوجد'
+LinkGp = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
-Text = '܁༯┆تم تعطيل مجموعه جديده\n'..
-'\n܁༯┆بواسطة ~ '..Name..''..
-'\n܁༯┆ايدي المجموعه ~ `'..IdChat..'`'..
-'\n܁༯┆اسم المجموعه ~ ['..NameChat..']'..
-'\n܁༯┆الرابط ~ ['..LinkGp..']'
-if not Devkorpica(msg) then
+Text = 'ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ظ…ط¬ظ…ظˆط¹ظ‡ ط¬ط¯ظٹط¯ظ‡\n'..
+'\nـپà¼¯â”†ط¨ظˆط§ط³ط·ط© ~ '..Name..''..
+'\nـپà¼¯â”†ط§ظٹط¯ظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ `'..IdChat..'`'..
+'\nـپà¼¯â”†ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ ['..NameChat..']'..
+'\nـپà¼¯â”†ط§ظ„ط±ط§ط¨ط· ~ ['..LinkGp..']'
+if not DevCo(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
 end,nil) 
 end,nil) 
 end
-if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'korpica:Free:Add:Bots') then  
+if text == 'طھظپط¹ظٹظ„' and not DevBot(msg) and not redis:get(bot_id..'Free:Add:Bots') then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'܁༯┆البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ظٹط±ط¬ظ‰ طھط±ظ‚ظٹطھظٹ !') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
@@ -7731,22 +8200,22 @@ tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sen
 if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
 if da and da.user_id_ == msg.sender_user_id_ then
 if da.status_.ID == "ChatMemberStatusCreator" then
-var = 'المنشئ'
+var = 'ط§ظ„ظ…ظ†ط´ط¦'
 elseif da.status_.ID == "ChatMemberStatusEditor" then
-var = 'الادمن'
+var = 'ط§ظ„ط§ط¯ظ…ظ†'
 else 
-var= 'عضو'
+var= 'ط¹ط¶ظˆ'
 end
-if database:sismember(bot_id..'korpica:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'܁༯┆المجموعه مفعله سابقا ')
+if redis:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ظ…ظپط¹ظ„ظ‡ ط³ط§ط¨ظ‚ط§ ')
 else
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'korpica:Num:Add:Bot') or 0) and not Devkorpica(msg) then
-send(msg.chat_id_, msg.id_,'܁༯┆عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'korpica:Num:Add:Bot') or 0)..'* عضو')
+if tonumber(data.member_count_) < tonumber(redis:get(bot_id..'Num:Add:Bot') or 0) and not DevCo(msg) then
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ط¯ط¯ ط§ط¹ط¶ط§ط، ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ط§ظ‚ظ„ ظ…ظ† *~ {'..(redis:get(bot_id..'Num:Add:Bot') or 0)..'* ط¹ط¶ظˆ')
 return false
 end
-Reply_Status(msg,result.id_,'reply_Add','܁༯┆تم تفعيل المجموعه ~ '..chat.title_..'')
-database:sadd(bot_id..'korpica:Chek:Groups',msg.chat_id_)  
-database:sadd(bot_id..'korpica:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
+Reply_Status(msg,result.id_,'reply_Add','ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ '..chat.title_..'')
+redis:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
+redis:sadd(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NumMember = data.member_count_
 local NameChat = chat.title_
@@ -7762,16 +8231,16 @@ local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token.
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
 else
-LinkGp = 'لا يوجد'
+LinkGp = 'ظ„ط§ ظٹظˆط¬ط¯'
 end
-Text = '܁༯┆تم تفعيل مجموعه جديده\n'..
-'\n܁༯┆بواسطة ~ '..Name..''..
-'\n܁༯┆موقعه في المجموعه ~ '..AddPy..'' ..
-'\n܁༯┆ايدي المجموعه ~ `'..IdChat..'`'..
-'\n܁༯┆عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n܁༯┆اسم المجموعه ~ ['..NameChat..']'..
-'\n܁༯┆الرابط ~ ['..LinkGp..']'
-if not Devkorpica(msg) then
+Text = 'ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ظ…ط¬ظ…ظˆط¹ظ‡ ط¬ط¯ظٹط¯ظ‡\n'..
+'\nـپà¼¯â”†ط¨ظˆط§ط³ط·ط© ~ '..Name..''..
+'\nـپà¼¯â”†ظ…ظˆظ‚ط¹ظ‡ ظپظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ '..AddPy..'' ..
+'\nـپà¼¯â”†ط§ظٹط¯ظٹ ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ `'..IdChat..'`'..
+'\nـپà¼¯â”†ط¹ط¯ط¯ ط§ط¹ط¶ط§ط، ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ *~ '..NumMember..'*'..
+'\nـپà¼¯â”†ط§ط³ظ… ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡ ~ ['..NameChat..']'..
+'\nـپà¼¯â”†ط§ظ„ط±ط§ط¨ط· ~ ['..LinkGp..']'
+if not DevCo(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -7786,136 +8255,136 @@ end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
+local textchuser = redis:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ظ€ظ„ظٹظƒ ط§ظ„ط§ط´ظ€طھà¢ھط§ظƒ ظپظٹ ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ ط§ظˆظ„ط¢ . \n ـپà¼¯â”†ظ‚ظ†ظ€ط§ط© ط§ظ„ط¨ظ€ظˆطھ â†گ  ['..redis:get(bot_id..'add:ch:username')..']')
 end
 return false
 end  
-if Devkorpica(msg) then
-local Text = '܁༯┆مرحبا بك في اوامر المطور الجاهزه'
+if DevCo(msg) then
+local Text = 'ـپà¼¯â”†ظ…ط±ط­ط¨ط§ ط¨ظƒ ظپظٹ ط§ظˆط§ظ…ط± ط§ظ„ظ…ط·ظˆط± ط§ظ„ط¬ط§ظ‡ط²ظ‡'
 local keyboard = {
-{'الاحصائيات ܁༯'},
-{'تفعيل التواصل ܁༯','تعطيل التواصل ܁༯'},
-{'تنظيف الكروبات ܁༯','تنظيف المشتركين ܁༯'},
-{'تفعيل البوت الخدمي ܁༯','تعطيل البوت الخدمي ܁༯'},
-{'اذاعه خاص ܁༯','المطورين ܁༯','اذاعه ܁༯'},
-{'اذاعه بالتوجيه ܁༯','اذاعه بالتوجيه خاص ܁༯'},
-{'تفعيل الاذاعه ܁༯','تعطيل الاذاعه ܁༯'},
-{'تفعيل المغادره ܁༯','تعطيل المغادره ܁༯'},
-{'مسح قائمه العام ܁༯','مسح المطورين ܁༯'},
-{'حذف كليشه ستارت ܁༯','ضع كليشه ستارت ܁༯'},
-{'- تعطيل الاشتراك الاجباري ܁༯ .'},
-{'- تغير الاشتراك ܁༯ .','حذف رساله الاشتراك ܁༯ .'},
-{'- تفعيل الاشتراك الاجباري ܁༯ .'},
-{'- الاشتراك الاجباري ܁༯ .'},
-{'- تعين قناة الاشتراك ܁༯ .','- تغير رساله الاشتراك ܁༯ .'},
-{'تحديث السورس ܁༯','تحديث الملفات ܁༯'},
-{'قائمه العام ܁༯'},
-{'جلب نسخه احتياطيه ܁༯'},
-{'الغاء ܁༯'}
+{'ط§ظ„ط§ط­طµط§ط¦ظٹط§طھ âŒ”'},
+{'طھظپط¹ظٹظ„ ط§ظ„طھظˆط§طµظ„ âŒ”','طھط¹ط·ظٹظ„ ط§ظ„طھظˆط§طµظ„ âŒ”'},
+{'طھظ†ط¸ظٹظپ ط§ظ„ظƒط±ظˆط¨ط§طھ âŒ”','طھظ†ط¸ظٹظپ ط§ظ„ظ…ط´طھط±ظƒظٹظ† âŒ”'},
+{'طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ âŒ”','طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ âŒ”'},
+{'ط§ط°ط§ط¹ظ‡ ط®ط§طµ âŒ”','ط§ظ„ظ…ط·ظˆط±ظٹظ† âŒ”','ط§ط°ط§ط¹ظ‡ âŒ”'},
+{'ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡ âŒ”','ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡ ط®ط§طµ âŒ”'},
+{'طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ âŒ”','طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ âŒ”'},
+{'طھظپط¹ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡ âŒ”','طھط¹ط·ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡ âŒ”'},
+{'ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ… âŒ”','ظ…ط³ط­ ط§ظ„ظ…ط·ظˆط±ظٹظ† âŒ”'},
+{'ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ âŒ”','ط¶ط¹ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ âŒ”'},
+{'- طھط¹ط·ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” .'},
+{'- طھط؛ظٹط± ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .','ط­ط°ظپ ط±ط³ط§ظ„ظ‡ ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .'},
+{'- طھظپط¹ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” .'},
+{'- ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” .'},
+{'- طھط¹ظٹظ† ظ‚ظ†ط§ط© ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .','- طھط؛ظٹط± ط±ط³ط§ظ„ظ‡ ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .'},
+{'طھط­ط¯ظٹط« ط§ظ„ط³ظˆط±ط³ âŒ”','طھط­ط¯ظٹط« ط§ظ„ظ…ظ„ظپط§طھ âŒ”'},
+{'ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ… âŒ”'},
+{'ط¬ظ„ط¨ ظ†ط³ط®ظ‡ ط§ط­طھظٹط§ط·ظٹظ‡ âŒ”'},
+{'ط§ظ„ط؛ط§ط، âŒ”'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
-if not database:get(bot_id..'korpica:Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
+if not redis:get(bot_id..'Start:Time'..msg.sender_user_id_) then
+local start = redis:get(bot_id.."Start:Bot")  
 if start then 
 Test = start
 else
-Test = '܁༯┆مرحبا انا بوت حماية كروبات\n܁༯┆وضيفتي حماية المجموعات من السبام والتفليش والخ...\n܁༯┆لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n܁༯┆معرف المطور ['..UserName..']'
+Test = 'ـپà¼¯â”†ظ…ط±ط­ط¨ط§ ط§ظ†ط§ ط¨ظˆطھ ط­ظ…ط§ظٹط© ظƒط±ظˆط¨ط§طھ\nـپà¼¯â”†ظˆط¶ظٹظپطھظٹ ط­ظ…ط§ظٹط© ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ظ…ظ† ط§ظ„ط³ط¨ط§ظ… ظˆط§ظ„طھظپظ„ظٹط´ ظˆط§ظ„ط®...\nـپà¼¯â”†ظ„طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ط¶ظپظ†ظٹ ط§ظ„ظ‰ ظ…ط¬ظ…ظˆط¹ط§طھظƒ ظ‚ظ… ط¨ط±ظپط¹ظٹ ظ…ط´ط±ظپ ط«ظ… ط§ط±ط³ظ„ طھظپط¹ظٹظ„ \nـپà¼¯â”†ظ…ط¹ط±ظپ ط§ظ„ظ…ط·ظˆط± ['..UserName..']'
 end 
 send(msg.chat_id_, msg.id_, Test) 
 end
 end
-database:setex(bot_id..'korpica:Start:Time'..msg.sender_user_id_,60,true)
+redis:setex(bot_id..'Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
-if not Devkorpica(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') then
-send(msg.sender_user_id_,msg.id_,'܁༯┆تمت ارسال رسالتك الى ~ ['..UserName..']')    
+if not DevCo(msg) and not redis:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not redis:get(bot_id..'Texting:In:Bv') then
+send(msg.sender_user_id_,msg.id_,'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط±ط³ط§ظ„طھظƒ ط§ظ„ظ‰ ~ ['..UserName..']')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
 tdcli_function({ID ="GetChat",chat_id_=msg.sender_user_id_},function(arg,chat)  
 tdcli_function({ID="ForwardMessages",chat_id_=Id_Sudo,from_chat_id_= msg.sender_user_id_,message_ids_={[0]=msg.id_},disable_notification_=1,from_background_=1},function(arg,data) 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,ta) 
 if data and data.messages_ and data.messages_[0] ~= false and data.ID ~= "Error" then
 if data and data.messages_ and data.messages_[0].content_.sticker_ then
-sendText(Id_Sudo,'܁༯┆تم ارسال الملصق من ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
+sendText(Id_Sudo,'ـپà¼¯â”†طھظ… ط§ط±ط³ط§ظ„ ط§ظ„ظ…ظ„طµظ‚ ظ…ظ† ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
 return false
 end;end;end,nil);end,nil);end,nil);end,nil);end
-if Devkorpica(msg) and msg.reply_to_message_id_ ~= 0  then    
+if DevCo(msg) and msg.reply_to_message_id_ ~= 0  then    
 tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(extra, result, success) 
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
 end     
 tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
-if text == 'حظر' then
-sendText(Id_Sudo,'܁༯┆ لشخص » ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n܁༯┆ تم حظره من التواصل ',msg.id_/2097152/0.5,'md')
-database:sadd(bot_id..'BaN:In:User',data.id_)  
+if text == 'ط­ط¸ط±' then
+sendText(Id_Sudo,'ـپà¼¯â”† ظ„ط´ط®طµ آ» ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\nـپà¼¯â”† طھظ… ط­ط¸ط±ظ‡ ظ…ظ† ط§ظ„طھظˆط§طµظ„ ',msg.id_/2097152/0.5,'md')
+redis:sadd(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
-if text =='الغاء الحظر' then
-sendText(Id_Sudo,'܁༯┆الشخص » ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\n܁༯┆ تم الغاء حظره من التواصل ',msg.id_/2097152/0.5,'md')
-database:srem(bot_id..'BaN:In:User',data.id_)  
+if text =='ط§ظ„ط؛ط§ط، ط§ظ„ط­ط¸ط±' then
+sendText(Id_Sudo,'ـپà¼¯â”†ط§ظ„ط´ط®طµ آ» ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')'..'\nـپà¼¯â”† طھظ… ط§ظ„ط؛ط§ط، ط­ط¸ط±ظ‡ ظ…ظ† ط§ظ„طھظˆط§طµظ„ ',msg.id_/2097152/0.5,'md')
+redis:srem(bot_id..'BaN:In:User',data.id_)  
 return false  
 end 
 tdcli_function({ID='GetChat',chat_id_ = id_user},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = id_user, action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,ta) 
 if ta.code_ == 400 or ta.code_ == 5 then
-send(msg.chat_id_, msg.id_,'\n܁༯┆ فشل ارسال رسالتك لان العضو قام بحظر البوت') 
+send(msg.chat_id_, msg.id_,'\nـپà¼¯â”† ظپط´ظ„ ط§ط±ط³ط§ظ„ ط±ط³ط§ظ„طھظƒ ظ„ط§ظ† ط§ظ„ط¹ط¶ظˆ ظ‚ط§ظ… ط¨ط­ط¸ط± ط§ظ„ط¨ظˆطھ') 
 return false  
 end 
 if text then    
 send(id_user,msg.id_,text)    
-Text = '܁༯┆تمت ارسال الرساله اليه .. '
+Text = 'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط§ظ„ط±ط³ط§ظ„ظ‡ ط§ظ„ظٹظ‡ .. '
 elseif msg.content_.ID == 'MessageSticker' then    
 sendSticker(id_user, msg.id_, msg.content_.sticker_.sticker_.persistent_id_)   
-Text = '܁༯┆تمت ارسال الملصق اليه .. '
+Text = 'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط§ظ„ظ…ظ„طµظ‚ ط§ظ„ظٹظ‡ .. '
 elseif msg.content_.ID == 'MessagePhoto' then    
 sendPhoto(id_user, msg.id_,msg.content_.photo_.sizes_[0].photo_.persistent_id_,(msg.content_.caption_ or ''))    
-Text = '܁༯┆تمت ارسال الصوره اليه .. '
+Text = 'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط§ظ„طµظˆط±ظ‡ ط§ظ„ظٹظ‡ .. '
 elseif msg.content_.ID == 'MessageAnimation' then    
 sendDocument(id_user, msg.id_, msg.content_.animation_.animation_.persistent_id_)    
-Text = '܁༯┆تمت ارسال المتحركه اليه .. '
+Text = 'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط§ظ„ظ…طھط­ط±ظƒظ‡ ط§ظ„ظٹظ‡ .. '
 elseif msg.content_.ID == 'MessageVoice' then    
 sendVoice(id_user, msg.id_, msg.content_.voice_.voice_.persistent_id_)    
-Text = '܁༯┆تمت ارسال البصمه اليه .. '
+Text = 'ـپà¼¯â”†طھظ…طھ ط§ط±ط³ط§ظ„ ط§ظ„ط¨طµظ…ظ‡ ط§ظ„ظٹظ‡ .. '
 end     
-sendText(Id_Sudo,Text..'\n'..'܁༯┆ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
+sendText(Id_Sudo,Text..'\n'..'ـپà¼¯â”† ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if Devkorpica(msg) then
-if text == 'تفعيل التواصل ܁༯' then  
-database:del(bot_id..'Texting:In:Bv') 
-send(msg.chat_id_, msg.id_,'܁༯┆ تم تفعيل التواصل ') 
+if DevCo(msg) then
+if text == 'طھظپط¹ظٹظ„ ط§ظ„طھظˆط§طµظ„ âŒ”' then  
+redis:del(bot_id..'Texting:In:Bv') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”† طھظ… طھظپط¹ظٹظ„ ط§ظ„طھظˆط§طµظ„ ') 
 end
-if text == 'تعطيل التواصل ܁༯' then  
-database:set(bot_id..'Texting:In:Bv',true) 
-send(msg.chat_id_, msg.id_,'܁༯┆ تم تعطيل التواصل ') 
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„طھظˆط§طµظ„ âŒ”' then  
+redis:set(bot_id..'Texting:In:Bv',true) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”† طھظ… طھط¹ط·ظٹظ„ ط§ظ„طھظˆط§طµظ„ ') 
 end
-if text =='الاحصائيات ܁༯' then
-local Groups = database:scard(bot_id..'korpica:Chek:Groups')  
-local Users = database:scard(bot_id..'korpica:UsersBot')  
-send(msg.chat_id_, msg.id_,'܁༯┆احصائيات البوت \n\n܁༯┆عدد المجموعات *~ '..Groups..'\n܁༯┆عدد المشتركين ~ '..Users..'*')
+if text =='ط§ظ„ط§ط­طµط§ط¦ظٹط§طھ âŒ”' then
+local Groups = redis:scard(bot_id..'Chek:Groups')  
+local Users = redis:scard(bot_id..'UsersBot')  
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ط­طµط§ط¦ظٹط§طھ ط§ظ„ط¨ظˆطھ \n\nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ *~ '..Groups..'\nـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ~ '..Users..'*')
 end
-if text == "تنظيف المشتركين ܁༯" then
-local pv = database:smembers(bot_id..'korpica:UsersBot')  
+if text == "طھظ†ط¸ظٹظپ ط§ظ„ظ…ط´طھط±ظƒظٹظ† âŒ”" then
+local pv = redis:smembers(bot_id..'UsersBot')  
 local sendok = 0
 for i = 1, #pv do
 tdcli_function({ID='GetChat',chat_id_ = pv[i]},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = pv[i], action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,data) 
 if data.ID and data.ID == "Ok"  then
-print('\27[30;33m»» THE USER IS SAVE ME ↓\n»» '..pv[i]..'\n\27[1;37m')
+print('\27[30;33mآ»آ» THE USER IS SAVE ME â†“\nآ»آ» '..pv[i]..'\n\27[1;37m')
 else
-print('\27[30;31m»» THE USER IS BLOCK ME ↓\n»» '..pv[i]..'\n\27[1;37m')
-database:srem(bot_id..'korpica:UsersBot',pv[i])  
+print('\27[30;31mآ»آ» THE USER IS BLOCK ME â†“\nآ»آ» '..pv[i]..'\n\27[1;37m')
+redis:srem(bot_id..'UsersBot',pv[i])  
 sendok = sendok + 1
 end
 if #pv == i then 
 if sendok == 0 then
-send(msg.chat_id_, msg.id_,'܁༯┆لا يوجد مشتركين وهميين')   
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط´طھط±ظƒظٹظ† ظˆظ‡ظ…ظٹظٹظ†')   
 else
 local ok = #pv - sendok
-send(msg.chat_id_, msg.id_,'*܁༯┆عدد المشتركين الان ~ '..#pv..'\n܁༯┆تم العثور على ~ '..sendok..' مشترك قام بحظر البوت\n܁༯┆اصبح عدد المشتركين الان ~ '..ok..' مشترك *')   
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”†ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ط§ظ„ط§ظ† ~ '..#pv..'\nـپà¼¯â”†طھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ~ '..sendok..' ظ…ط´طھط±ظƒ ظ‚ط§ظ… ط¨ط­ط¸ط± ط§ظ„ط¨ظˆطھ\nـپà¼¯â”†ط§طµط¨ط­ ط¹ط¯ط¯ ط§ظ„ظ…ط´طھط±ظƒظٹظ† ط§ظ„ط§ظ† ~ '..ok..' ظ…ط´طھط±ظƒ *')   
 end
 end
 end,nil)
@@ -7923,240 +8392,240 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات ܁༯" then
-local group = database:smembers(bot_id..'korpica:Chek:Groups')  
+if text == "طھظ†ط¸ظٹظپ ط§ظ„ظƒط±ظˆط¨ط§طھ âŒ”" then
+local group = redis:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
 for i = 1, #group do
 tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
-print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+print('\27[30;34mآ»آ» THE BOT IS NOT ADMIN â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
+redis:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;35mآ»آ» THE BOT IS LEFT GROUP â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 q = q + 1
-print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
+print('\27[30;36mآ»آ» THE BOT IS KICKED GROUP â†“\nآ»آ» '..group[i]..'\n\27[1;37m')
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'korpica:Chek:Groups',group[i])  
+redis:srem(bot_id..'Chek:Groups',group[i])  
 w = w + 1
 end
 if #group == i then 
 if (w + q) == 0 then
-send(msg.chat_id_, msg.id_,'܁༯┆لا توجد مجموعات وهميه ')   
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ظ„ط§ طھظˆط¬ط¯ ظ…ط¬ظ…ظˆط¹ط§طھ ظˆظ‡ظ…ظٹظ‡ ')   
 else
 local taha = (w + q)
 local sendok = #group - taha
 if q == 0 then
 taha = ''
 else
-taha = '\n܁༯┆ تم ازالة ~ '..q..' مجموعات من البوت'
+taha = '\nـپà¼¯â”† طھظ… ط§ط²ط§ظ„ط© ~ '..q..' ظ…ط¬ظ…ظˆط¹ط§طھ ظ…ظ† ط§ظ„ط¨ظˆطھ'
 end
 if w == 0 then
 storm = ''
 else
-storm = '\n܁༯┆ تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\nـپà¼¯â”† طھظ… ط§ط²ط§ظ„ط© ~'..w..' ظ…ط¬ظ…ظˆط¹ظ‡ ظ„ط§ظ† ط§ظ„ط¨ظˆطھ ط¹ط¶ظˆ'
 end
-send(msg.chat_id_, msg.id_,'*܁༯┆ عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n܁༯┆اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*ـپà¼¯â”† ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„ط§ظ† ~ '..#group..' ظ…ط¬ظ…ظˆط¹ظ‡ '..storm..''..taha..'\nـپà¼¯â”†ط§طµط¨ط­ ط¹ط¯ط¯ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„ط§ظ† ~ '..sendok..' ظ…ط¬ظ…ظˆط¹ط§طھ*\n')   
 end
 end
 end,nil)
 end
 return false
 end
-if text == 'تفعيل البوت الخدمي ܁༯' then
-database:del(bot_id..'korpica:Free:Add:Bots') 
-send(msg.chat_id_, msg.id_,'\n܁༯┆تم تفعيل البوت الخدمي ') 
+if text == 'طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ âŒ”' then
+redis:del(bot_id..'Free:Add:Bots') 
+send(msg.chat_id_, msg.id_,'\nـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ ') 
 end
-if text == 'تعطيل البوت الخدمي ܁༯' then
-database:set(bot_id..'korpica:Free:Add:Bots',true) 
-send(msg.chat_id_, msg.id_,'\n܁༯┆تم تعطيل البوت الخدمي') 
+if text == 'طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ âŒ”' then
+redis:set(bot_id..'Free:Add:Bots',true) 
+send(msg.chat_id_, msg.id_,'\nـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط¨ظˆطھ ط§ظ„ط®ط¯ظ…ظٹ') 
 end
-if text=="اذاعه خاص ܁༯" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط®ط§طµ âŒ”" and msg.reply_to_message_id_ == 0 then
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+redis:setex(bot_id.."Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط³ظˆط§ط، ~ { ظ…ظ„طµظ‚, ظ…طھط­ط±ظƒظ‡, طµظˆط±ظ‡, ط±ط³ط§ظ„ظ‡ }\nـپà¼¯â”†ظ„ظ„ط®ط±ظˆط¬ ط§ط±ط³ظ„ ط§ظ„ط؛ط§ط، ") 
 return false
 end 
-if text=="اذاعه ܁༯" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ âŒ”" and msg.reply_to_message_id_ == 0 then
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
+redis:setex(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط³ظˆط§ط، ~ { ظ…ظ„طµظ‚, ظ…طھط­ط±ظƒظ‡, طµظˆط±ظ‡, ط±ط³ط§ظ„ظ‡ }\nـپà¼¯â”†ظ„ظ„ط®ط±ظˆط¬ ط§ط±ط³ظ„ ط§ظ„ط؛ط§ط، ") 
 return false
 end  
-if text=="اذاعه بالتوجيه ܁༯" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡ âŒ”" and msg.reply_to_message_id_ == 0  then
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
+redis:setex(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طھظˆط¬ظٹظ‡ ط§ظ„ط§ظ†") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص ܁༯" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
+if text=="ط§ط°ط§ط¹ظ‡ ط¨ط§ظ„طھظˆط¬ظٹظ‡ ط®ط§طµ âŒ”" and msg.reply_to_message_id_ == 0  then
+if redis:get(bot_id.."Status:Bc") and not DevCo(msg) then 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط°ط§ط¹ظ‡ ظ…ط¹ط·ظ„ظ‡ ظ…ظ† ظ‚ط¨ظ„ ط§ظ„ظ…ط·ظˆط± ط§ظ„ط§ط³ط§ط³ظٹ")
 return false
 end
-database:setex(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
+redis:setex(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„طھظˆط¬ظٹظ‡ ط§ظ„ط§ظ†") 
 return false
 end 
-if text == "تفعيل الاذاعه ܁༯" then
-database:del(bot_id.."korpica:Status:Bc") 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تفعيل الاذاعه " ) 
+if text == "طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ âŒ”" then
+redis:del(bot_id.."Status:Bc") 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ " ) 
 return false
 end 
-if text == "تعطيل الاذاعه ܁༯" then
-database:set(bot_id.."korpica:Status:Bc",true) 
-send(msg.chat_id_, msg.id_,"\n܁༯┆تم تعطيل الاذاعه") 
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡ âŒ”" then
+redis:set(bot_id.."Status:Bc",true) 
+send(msg.chat_id_, msg.id_,"\nـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ط°ط§ط¹ظ‡") 
 return false
 end 
-if text == "تفعيل المغادره ܁༯" then
-database:del(bot_id.."korpica:Left:Bot"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل مغادرة البوت") 
+if text == "طھظپط¹ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡ âŒ”" then
+redis:del(bot_id.."Left:Bot"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ظ…ط؛ط§ط¯ط±ط© ط§ظ„ط¨ظˆطھ") 
 return false 
 end
-if text == "تعطيل المغادره ܁༯" then
-database:set(bot_id.."korpica:Left:Bot"..msg.chat_id_,true)   
-send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل مغادرة البوت") 
+if text == "طھط¹ط·ظٹظ„ ط§ظ„ظ…ط؛ط§ط¯ط±ظ‡ âŒ”" then
+redis:set(bot_id.."Left:Bot"..msg.chat_id_,true)   
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ظ…ط؛ط§ط¯ط±ط© ط§ظ„ط¨ظˆطھ") 
 return false 
 end
-if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء ܁༯' then   
-send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء حفظ كليشه ستارت") 
-database:del(bot_id..'Start:Bots') 
+if text and redis:get(bot_id..'Start:Bots') then
+if text == 'ط§ظ„ط؛ط§ط، âŒ”' then   
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط­ظپط¸ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ") 
+redis:del(bot_id..'Start:Bots') 
 return false
 end
-database:set(bot_id.."Start:Bot",text)  
-send(msg.chat_id_, msg.id_,'܁༯┆تم حفظ كليشه ستارت') 
-database:del(bot_id..'Start:Bots') 
+redis:set(bot_id.."Start:Bot",text)  
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… ط­ظپط¸ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ') 
+redis:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت ܁༯' then
-database:set(bot_id..'Start:Bots',true) 
-send(msg.chat_id_, msg.id_,'܁༯┆ارسل لي الكليشه الان') 
+if text == 'ط¶ط¹ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ âŒ”' then
+redis:set(bot_id..'Start:Bots',true) 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„ظƒظ„ظٹط´ظ‡ ط§ظ„ط§ظ†') 
 return false
 end
-if text == 'حذف كليشه ستارت ܁༯' then
-database:del(bot_id..'Start:Bot') 
-send(msg.chat_id_, msg.id_,'܁༯┆تم حذف كليشه ستارت') 
+if text == 'ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ âŒ”' then
+redis:del(bot_id..'Start:Bot') 
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… ط­ط°ظپ ظƒظ„ظٹط´ظ‡ ط³طھط§ط±طھ') 
 end
-if text and text:match("^- تغير الاشتراك ܁༯ .$") and Devkorpica(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي معرف القناة')
+if text and text:match("^- طھط؛ظٹط± ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .$") and DevCo(msg) then  
+redis:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط­ط³ظ†ط¢ ط§ط±ط³ظ„ ظ„ظٹ ظ…ط¹ط±ظپ ط§ظ„ظ‚ظ†ط§ط©')
 return false  
 end
-if text and text:match("^- تغير رساله الاشتراك ܁༯ .$") and Devkorpica(msg) then  
-database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي النص الذي تريده')
+if text and text:match("^- طھط؛ظٹط± ط±ط³ط§ظ„ظ‡ ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .$") and DevCo(msg) then  
+redis:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط­ط³ظ†ط¢ ط§ط±ط³ظ„ ظ„ظٹ ط§ظ„ظ†طµ ط§ظ„ط°ظٹ طھط±ظٹط¯ظ‡')
 return false  
 end
-if text == "حذف رساله الاشتراك ܁༯ ." and Devkorpica(msg) then  
-database:del(bot_id..'text:ch:user')
-send(msg.chat_id_, msg.id_, "܁༯┆تم مسح رساله الاشتراك ")
+if text == "ط­ط°ظپ ط±ط³ط§ظ„ظ‡ ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” ." and DevCo(msg) then  
+redis:del(bot_id..'text:ch:user')
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ظ…ط³ط­ ط±ط³ط§ظ„ظ‡ ط§ظ„ط§ط´طھط±ط§ظƒ ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك ܁༯ .$") and Devkorpica(msg) then  
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي معرف القناة')
+if text and text:match("^- طھط¹ظٹظ† ظ‚ظ†ط§ط© ط§ظ„ط§ط´طھط±ط§ظƒ âŒ” .$") and DevCo(msg) then  
+redis:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط­ط³ظ†ط¢ ط§ط±ط³ظ„ ظ„ظٹ ظ…ط¹ط±ظپ ط§ظ„ظ‚ظ†ط§ط©')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ܁༯ ." and Devkorpica(msg) then  
-if database:get(bot_id..'add:ch:id') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_,"܁༯┆الاشتراك الاجباري مفعل \n܁༯┆على القناة » ["..addchusername.."]")
+if text == "- طھظپط¹ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” ." and DevCo(msg) then  
+if redis:get(bot_id..'add:ch:id') then
+local addchusername = redis:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ ظ…ظپط¹ظ„ \nـپà¼¯â”†ط¹ظ„ظ‰ ط§ظ„ظ‚ظ†ط§ط© آ» ["..addchusername.."]")
 else
-database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
-send(msg.chat_id_, msg.id_,"܁༯┆اهلا عزيزي المطور \n܁༯┆ارسل الان معرف قناتك")
+redis:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ط§ظ‡ظ„ط§ ط¹ط²ظٹط²ظٹ ط§ظ„ظ…ط·ظˆط± \nـپà¼¯â”†ط§ط±ط³ظ„ ط§ظ„ط§ظ† ظ…ط¹ط±ظپ ظ‚ظ†ط§طھظƒ")
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري ܁༯ ." and Devkorpica(msg) then  
-database:del(bot_id..'add:ch:id')
-database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل الاشتراك الاجباري ")
+if text == "- طھط¹ط·ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” ." and DevCo(msg) then  
+redis:del(bot_id..'add:ch:id')
+redis:del(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… طھط¹ط·ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ ")
 return false  
 end
-if text == "- الاشتراك الاجباري ܁༯ ." and Devkorpica(msg) then  
-if database:get(bot_id..'add:ch:username') then
-local addchusername = database:get(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, "܁༯┆تم تفعيل الاشتراك الاجباري \n܁༯┆على القناة » ["..addchusername.."]")
+if text == "- ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ âŒ” ." and DevCo(msg) then  
+if redis:get(bot_id..'add:ch:username') then
+local addchusername = redis:get(bot_id..'add:ch:username')
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ \nـپà¼¯â”†ط¹ظ„ظ‰ ط§ظ„ظ‚ظ†ط§ط© آ» ["..addchusername.."]")
 else
-send(msg.chat_id_, msg.id_, "܁༯┆لا يوجد قناة في الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ‚ظ†ط§ط© ظپظٹ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ ")
 end
 return false  
 end
-if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "܁༯┆تم الغاء الامر ")
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+if redis:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^ط§ظ„ط؛ط§ط،$") then 
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ظ…ط± ")
+redis:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
-database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+redis:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local username = string.match(text, "@[%a%d_]+") 
 tdcli_function ({    
 ID = "SearchPublicChat",    
 username_ = username  
 },function(arg,data) 
 if data and data.message_ and data.message_ == "USERNAME_NOT_OCCUPIED" then 
-send(msg.chat_id_, msg.id_, '܁༯┆المعرف لا يوجد فيه قناة')
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط§ظ„ظ…ط¹ط±ظپ ظ„ط§ ظٹظˆط¬ط¯ ظپظٹظ‡ ظ‚ظ†ط§ط©')
 return false  end
 if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' then
-send(msg.chat_id_, msg.id_, '܁༯┆عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
+send(msg.chat_id_, msg.id_, 'ـپà¼¯â”†ط¹ط°ط§ ظ„ط§ ظٹظ…ظƒظ†ظƒ ظˆط¶ط¹ ظ…ط¹ط±ظپ ط­ط³ط§ط¨ط§طھ ظپظٹ ط§ظ„ط§ط´طھط±ط§ظƒ ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'܁༯┆عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ط°ط§ ظ„ط§ ظٹظ…ظƒظ†ظƒ ظˆط¶ط¹ ظ…ط¹ط±ظپ ظ…ط¬ظ…ظˆط¹ظ‡ ط¨ط§ظ„ط§ط´طھط±ط§ظƒ ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
-send(msg.chat_id_, msg.id_,'܁༯┆البوت ادمن في القناة \n܁༯┆تم تفعيل الاشتراك الاجباري في \n܁༯┆ايدي القناة ('..data.id_..')\n܁༯┆معرف القناة ([@'..data.type_.channel_.username_..'])')
-database:set(bot_id..'add:ch:id',data.id_)
-database:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط§ظ„ط¨ظˆطھ ط§ط¯ظ…ظ† ظپظٹ ط§ظ„ظ‚ظ†ط§ط© \nـپà¼¯â”†طھظ… طھظپط¹ظٹظ„ ط§ظ„ط§ط´طھط±ط§ظƒ ط§ظ„ط§ط¬ط¨ط§ط±ظٹ ظپظٹ \nـپà¼¯â”†ط§ظٹط¯ظٹ ط§ظ„ظ‚ظ†ط§ط© ('..data.id_..')\nـپà¼¯â”†ظ…ط¹ط±ظپ ط§ظ„ظ‚ظ†ط§ط© ([@'..data.type_.channel_.username_..'])')
+redis:set(bot_id..'add:ch:id',data.id_)
+redis:set(bot_id..'add:ch:username','@'..data.type_.channel_.username_)
 else
-send(msg.chat_id_, msg.id_,'܁༯┆عذرآ البوت ليس ادمن بالقناه ')
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†ط¹ط°ط±ط¢ ط§ظ„ط¨ظˆطھ ظ„ظٹط³ ط§ط¯ظ…ظ† ط¨ط§ظ„ظ‚ظ†ط§ظ‡ ')
 end
 return false  
 end
 end,nil)
 end
-if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
-send(msg.chat_id_, msg.id_, "܁༯┆تم الغاء الامر ")
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+if redis:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
+if text and text:match("^ط§ظ„ط؛ط§ط،$") then 
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„ط؛ط§ط، ط§ظ„ط§ظ…ط± ")
+redis:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
-database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
+redis:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local texxt = string.match(text, "(.*)") 
-database:set(bot_id..'text:ch:user',texxt)
-send(msg.chat_id_, msg.id_,'܁༯┆تم تغيير رسالة الاشتراك ')
+redis:set(bot_id..'text:ch:user',texxt)
+send(msg.chat_id_, msg.id_,'ـپà¼¯â”†طھظ… طھط؛ظٹظٹط± ط±ط³ط§ظ„ط© ط§ظ„ط§ط´طھط±ط§ظƒ ')
 end
-if text == ("مسح قائمه العام ܁༯") and Devkorpica(msg) then
-database:del(bot_id.."korpica:GBan:User")
-send(msg.chat_id_, msg.id_, "\n܁༯┆تم مسح قائمه العام")
+if text == ("ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ… âŒ”") and DevCo(msg) then
+redis:del(bot_id.."GBan:User")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”†طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ…")
 return false
 end
-if text == ("مسح المطورين ܁༯") and Devkorpica(msg) then
-database:del(bot_id.."korpica:Sudo:User")
-send(msg.chat_id_, msg.id_, "\n܁༯┆ تم مسح قائمة المطورين  ")
+if text == ("ظ…ط³ط­ ط§ظ„ظ…ط·ظˆط±ظٹظ† âŒ”") and DevCo(msg) then
+redis:del(bot_id.."Sudo:User")
+send(msg.chat_id_, msg.id_, "\nـپà¼¯â”† طھظ… ظ…ط³ط­ ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ط·ظˆط±ظٹظ†  ")
 end
-if text == ("قائمه العام ܁༯") and Devkorpica(msg) then
-local list = database:smembers(bot_id.."korpica:GBan:User")
-t = "\n܁༯┆قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == ("ظ‚ط§ط¦ظ…ظ‡ ط§ظ„ط¹ط§ظ… âŒ”") and DevCo(msg) then
+local list = redis:smembers(bot_id.."GBan:User")
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ط­ط¸ظˆط±ظٹظ† ط¹ط§ظ… \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -8164,16 +8633,16 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد محظورين عام"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط­ط¸ظˆط±ظٹظ† ط¹ط§ظ…"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين ܁༯") and Devkorpica(msg) then
-local list = database:smembers(bot_id.."korpica:Sudo:User")
-t = "\n܁༯┆قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+if text == ("ط§ظ„ظ…ط·ظˆط±ظٹظ† âŒ”") and DevCo(msg) then
+local list = redis:smembers(bot_id.."Sudo:User")
+t = "\nـپà¼¯â”†ظ‚ط§ط¦ظ…ط© ظ…ط·ظˆط±ظٹظ† ط§ظ„ط¨ظˆطھ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."korpica:User:Name" .. v)
+local username = redis:get(bot_id.."User:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -8181,24 +8650,24 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "܁༯┆لا يوجد مطورين"
+t = "ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ظ…ط·ظˆط±ظٹظ†"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه ܁༯' then
-local list = database:smembers(bot_id..'korpica:Chek:Groups')  
+if text == 'ط¬ظ„ط¨ ظ†ط³ط®ظ‡ ط§ط­طھظٹط§ط·ظٹظ‡ âŒ”' then
+local list = redis:smembers(bot_id..'Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'korpica Chat'
-ASAS = database:smembers(bot_id.."korpica:Basic:Constructor"..v)
-MNSH = database:smembers(bot_id.."korpica:Constructor"..v)
-MDER = database:smembers(bot_id.."korpica:Manager"..v)
-MOD = database:smembers(bot_id.."korpica:Mod:User"..v)
-link = database:get(bot_id.."korpica:Link_Group"..v) or ''
+NAME = 'Co Chat'
+ASAS = redis:smembers(bot_id.."Basic:Constructor"..v)
+MNSH = redis:smembers(bot_id.."Constructor"..v)
+MDER = redis:smembers(bot_id.."Manager"..v)
+MOD = redis:smembers(bot_id.."Mod:User"..v)
+link = redis:get(bot_id.."Link_Group"..v) or ''
 if k == 1 then
-t = t..'"'..v..'":{"korpica":"'..NAME..'",'
+t = t..'"'..v..'":{"Co":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"korpica":"'..NAME..'",'
+t = t..',"'..v..'":{"Co":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -8250,10 +8719,10 @@ t = t..'}}'
 local File = io.open('./File_Libs/'..bot_id..'.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆ عدد مجموعات التي في البوت { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', 'ـپà¼¯â”† ط¹ط¯ط¯ ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„طھظٹ ظپظٹ ط§ظ„ط¨ظˆطھ { '..#list..'}')
 end
-if text == "تحديث السورس ܁༯" then
-send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
+if text == "طھط­ط¯ظٹط« ط§ظ„ط³ظˆط±ط³ âŒ”" then
+send(msg.chat_id_,msg.id_,'ـپà¼¯â”†طھظ… ط§ظ„طھط­ط¯ظٹط«')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
@@ -8261,9 +8730,9 @@ os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/
 dofile('korpica.lua')  
 return false
 end
-if text == "تحديث الملفات ܁༯" then
+if text == "طھط­ط¯ظٹط« ط§ظ„ظ…ظ„ظپط§طھ âŒ”" then
 dofile("korpica.lua")  
-send(msg.chat_id_, msg.id_, "܁༯┆تم التحديث")
+send(msg.chat_id_, msg.id_, "ـپà¼¯â”†طھظ… ط§ظ„طھط­ط¯ظٹط«")
 end
 end
 end --- Chat_Type = 'UserBot' 
@@ -8272,7 +8741,7 @@ end
 function tdcli_update_callback(data)
 if data.ID == "UpdateChannel" then 
 if data.channel_.status_.ID == "ChatMemberStatusKicked" then 
-database:srem(bot_id..'korpica:Chek:Groups','-100'..data.channel_.id_)  
+redis:srem(bot_id..'Chek:Groups','-100'..data.channel_.id_)  
 end
 end
 if (data.ID == "UpdateNewMessage") then
@@ -8313,24 +8782,24 @@ end
 end
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatDeletePhoto" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == "MessagePinMessage" or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatChangeTitle" or msg.content_.ID == "MessageChatDeleteMember" then   
-if database:get(bot_id.."korpica:Lock:tagservr"..msg.chat_id_) then  
+if redis:get(bot_id.."Lock:tagservr"..msg.chat_id_) then  
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
 return false
 end    
 end   
-if text and not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
-database:del(bot_id..'korpica:Spam:Group'..msg.sender_user_id_) 
+if text and not redis:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
+redis:del(bot_id..'Spam:Group'..msg.sender_user_id_) 
 end
 ------------------------------------------------------------------------
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-database:set(bot_id..'korpica:User:Name'..msg.sender_user_id_,data.username_)
+redis:set(bot_id..'User:Name'..msg.sender_user_id_,data.username_)
 end;end,nil)   
 ------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
-database:set(bot_id.."korpica:Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
+redis:set(bot_id.."Who:Added:Me"..msg.chat_id_..":"..msg.content_.members_[0].id_,msg.sender_user_id_)
 local mem_id = msg.content_.members_  
-local Bots = database:get(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_) 
+local Bots = redis:get(bot_id.."Lock:Bot:kick"..msg.chat_id_) 
 for i=0,#mem_id do  
 if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Addictive(msg) and Bots == "kick" then   
 https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
@@ -8352,7 +8821,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 local mem_id = msg.content_.members_  
-local Bots = database:get(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_) 
+local Bots = redis:get(bot_id.."Lock:Bot:kick"..msg.chat_id_) 
 for i=0,#mem_id do  
 if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Addictive(msg) and Bots == "del" then   
 Get_Info = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
@@ -8371,39 +8840,39 @@ end
 end
 end
 ------------------------------------------------------------------------
-if text and database:get(bot_id.."korpica:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
-local NewCmmd = database:get(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
+if text and redis:get(bot_id.."Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
+local NewCmmd = redis:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
 if NewCmmd then
-database:del(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
-database:del(bot_id.."korpica:Set:Cmd:Group:New"..msg.chat_id_)
-database:srem(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"܁༯┆تم ازالة الامر من المجموعه")  
+redis:del(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
+redis:del(bot_id.."Set:Cmd:Group:New"..msg.chat_id_)
+redis:srem(bot_id.."List:Cmd:Group:New"..msg.chat_id_,text)
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†طھظ… ط§ط²ط§ظ„ط© ط§ظ„ط§ظ…ط± ظ…ظ† ط§ظ„ظ…ط¬ظ…ظˆط¹ظ‡")  
 else
-send(msg.chat_id_, msg.id_,"܁༯┆لا يوجد امر بهاذا الاسم تاكد من الامر واعد المحاوله")  
+send(msg.chat_id_, msg.id_,"ـپà¼¯â”†ظ„ط§ ظٹظˆط¬ط¯ ط§ظ…ط± ط¨ظ‡ط§ط°ط§ ط§ظ„ط§ط³ظ… طھط§ظƒط¯ ظ…ظ† ط§ظ„ط§ظ…ط± ظˆط§ط¹ط¯ ط§ظ„ظ…ط­ط§ظˆظ„ظ‡")  
 end
-database:del(bot_id.."korpica:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
+redis:del(bot_id.."Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
 ------------------------------------------------------------------------
 if data.message_.content_.text_ then
-local NewCmmd = database:get(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
+local NewCmmd = redis:get(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..data.message_.content_.text_)
 if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
-if not database:get(bot_id.."korpica:Fun_Bots"..msg.chat_id_) then
-if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
+local Name_Bot = (redis:get(bot_id.."Name:Bot") or "ظƒظˆط±ط¨ظٹظƒط§")
+if not redis:get(bot_id.."Fun_Bots"..msg.chat_id_) then
+if text ==  ""..Name_Bot..' ط´ظ†ظˆ ط±ط¦ظٹظƒ ط¨ظ‡ط§ط°ط§' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
-local Fun = {'لوكي وزاحف من ساع زحفلي وحضرته 😒','خوش ولد و ورده مال الله 🙄','يلعب ع البنات 🙄', 'ولد زايعته الكاع 😶🙊','صاك يخبل ومعضل ','محلو وشواربه جنها مكناسه 😂🤷🏼‍♀️','اموت عليه 🌝','هوه غير الحب مال اني ❤️','مو خوش ولد صراحه ☹️','ادبسز وميحترم البنات  ', 'فد واحد قذر 🙄😒','ماطيقه كل ما اكمشه ريحته جنها بخاخ بف باف مال حشرات 😂🤷‍♀️','مو خوش ولد 🤓' } 
+local Fun = {'ظ„ظˆظƒظٹ ظˆط²ط§ط­ظپ ظ…ظ† ط³ط§ط¹ ط²ط­ظپظ„ظٹ ظˆط­ط¶ط±طھظ‡ ًںک’','ط®ظˆط´ ظˆظ„ط¯ ظˆ ظˆط±ط¯ظ‡ ظ…ط§ظ„ ط§ظ„ظ„ظ‡ ًں™„','ظٹظ„ط¹ط¨ ط¹ ط§ظ„ط¨ظ†ط§طھ ًں™„', 'ظˆظ„ط¯ ط²ط§ظٹط¹طھظ‡ ط§ظ„ظƒط§ط¹ ًںک¶ًں™ٹ','طµط§ظƒ ظٹط®ط¨ظ„ ظˆظ…ط¹ط¶ظ„ ','ظ…ط­ظ„ظˆ ظˆط´ظˆط§ط±ط¨ظ‡ ط¬ظ†ظ‡ط§ ظ…ظƒظ†ط§ط³ظ‡ ًںک‚ًں¤·ًںڈ¼â€چâ™€ï¸ڈ','ط§ظ…ظˆطھ ط¹ظ„ظٹظ‡ ًںŒ‌','ظ‡ظˆظ‡ ط؛ظٹط± ط§ظ„ط­ط¨ ظ…ط§ظ„ ط§ظ†ظٹ â‌¤ï¸ڈ','ظ…ظˆ ط®ظˆط´ ظˆظ„ط¯ طµط±ط§ط­ظ‡ âک¹ï¸ڈ','ط§ط¯ط¨ط³ط² ظˆظ…ظٹط­طھط±ظ… ط§ظ„ط¨ظ†ط§طھ  ', 'ظپط¯ ظˆط§ط­ط¯ ظ‚ط°ط± ًں™„ًںک’','ظ…ط§ط·ظٹظ‚ظ‡ ظƒظ„ ظ…ط§ ط§ظƒظ…ط´ظ‡ ط±ظٹط­طھظ‡ ط¬ظ†ظ‡ط§ ط¨ط®ط§ط® ط¨ظپ ط¨ط§ظپ ظ…ط§ظ„ ط­ط´ط±ط§طھ ًںک‚ًں¤·â€چâ™€ï¸ڈ','ظ…ظˆ ط®ظˆط´ ظˆظ„ط¯ ًں¤“' } 
 send(msg.chat_id_, result.id_,''..Fun[math.random(#Fun)]..'')   
 end   
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
 return false
 end  
-if text == ""..Name_Bot..' شنو رئيك بهاي' and tonumber(msg.reply_to_message_id_) > 0 then    
+if text == ""..Name_Bot..' ط´ظ†ظˆ ط±ط¦ظٹظƒ ط¨ظ‡ط§ظٹ' and tonumber(msg.reply_to_message_id_) > 0 then    
 function FunBot(extra, result, success) 
-local Fun = {'الكبد مال اني هيه ','ختولي ماحبها ','خانتني ويه صديقي 😔','بس لو الكفها اله اعضها 💔','خوش بنيه بس عده مكسرات زايده وناقصه منا ومنا وهيه تدري بنفسها 😒','جذابه ومنافقه سوتلي مشكله ويه الحب مالتي ','ئووووووووف اموت ع ربها ','ديرو بالكم منها تلعب ع الولد 😶 ضحكت ع واحد قطته ايفون 7 ','صديقتي وختي وروحي وحياتي ','فد وحده منحرفه 😥','ساكنه بالعلاوي ونته حدد بعد لسانها لسان دلاله 🙄🤐','ام سحوره سحرت اخويا وعلكته 6 سنوات 🤕','ماحبها 🙁','بله هاي جهره تسئل عليها ؟ ','بربك ئنته والله فارغ وبطران وماعدك شي تسوي جاي تسئل ع بنات العالم ولي يله 🏼','ياخي بنيه حبوبه بس لبعرك معمي عليها تشرب هواي 😹' } 
+local Fun = {'ط§ظ„ظƒط¨ط¯ ظ…ط§ظ„ ط§ظ†ظٹ ظ‡ظٹظ‡ ','ط®طھظˆظ„ظٹ ظ…ط§ط­ط¨ظ‡ط§ ','ط®ط§ظ†طھظ†ظٹ ظˆظٹظ‡ طµط¯ظٹظ‚ظٹ ًںک”','ط¨ط³ ظ„ظˆ ط§ظ„ظƒظپظ‡ط§ ط§ظ„ظ‡ ط§ط¹ط¶ظ‡ط§ ًں’”','ط®ظˆط´ ط¨ظ†ظٹظ‡ ط¨ط³ ط¹ط¯ظ‡ ظ…ظƒط³ط±ط§طھ ط²ط§ظٹط¯ظ‡ ظˆظ†ط§ظ‚طµظ‡ ظ…ظ†ط§ ظˆظ…ظ†ط§ ظˆظ‡ظٹظ‡ طھط¯ط±ظٹ ط¨ظ†ظپط³ظ‡ط§ ًںک’','ط¬ط°ط§ط¨ظ‡ ظˆظ…ظ†ط§ظپظ‚ظ‡ ط³ظˆطھظ„ظٹ ظ…ط´ظƒظ„ظ‡ ظˆظٹظ‡ ط§ظ„ط­ط¨ ظ…ط§ظ„طھظٹ ','ط¦ظˆظˆظˆظˆظˆظˆظˆظˆظپ ط§ظ…ظˆطھ ط¹ ط±ط¨ظ‡ط§ ','ط¯ظٹط±ظˆ ط¨ط§ظ„ظƒظ… ظ…ظ†ظ‡ط§ طھظ„ط¹ط¨ ط¹ ط§ظ„ظˆظ„ط¯ ًںک¶ ط¶ط­ظƒطھ ط¹ ظˆط§ط­ط¯ ظ‚ط·طھظ‡ ط§ظٹظپظˆظ† 7 ','طµط¯ظٹظ‚طھظٹ ظˆط®طھظٹ ظˆط±ظˆط­ظٹ ظˆط­ظٹط§طھظٹ ','ظپط¯ ظˆط­ط¯ظ‡ ظ…ظ†ط­ط±ظپظ‡ ًںک¥','ط³ط§ظƒظ†ظ‡ ط¨ط§ظ„ط¹ظ„ط§ظˆظٹ ظˆظ†طھظ‡ ط­ط¯ط¯ ط¨ط¹ط¯ ظ„ط³ط§ظ†ظ‡ط§ ظ„ط³ط§ظ† ط¯ظ„ط§ظ„ظ‡ ًں™„ًں¤گ','ط§ظ… ط³ط­ظˆط±ظ‡ ط³ط­ط±طھ ط§ط®ظˆظٹط§ ظˆط¹ظ„ظƒطھظ‡ 6 ط³ظ†ظˆط§طھ ًں¤•','ظ…ط§ط­ط¨ظ‡ط§ ًں™پ','ط¨ظ„ظ‡ ظ‡ط§ظٹ ط¬ظ‡ط±ظ‡ طھط³ط¦ظ„ ط¹ظ„ظٹظ‡ط§ طں ','ط¨ط±ط¨ظƒ ط¦ظ†طھظ‡ ظˆط§ظ„ظ„ظ‡ ظپط§ط±ط؛ ظˆط¨ط·ط±ط§ظ† ظˆظ…ط§ط¹ط¯ظƒ ط´ظٹ طھط³ظˆظٹ ط¬ط§ظٹ طھط³ط¦ظ„ ط¹ ط¨ظ†ط§طھ ط§ظ„ط¹ط§ظ„ظ… ظˆظ„ظٹ ظٹظ„ظ‡ ًںڈ¼','ظٹط§ط®ظٹ ط¨ظ†ظٹظ‡ ط­ط¨ظˆط¨ظ‡ ط¨ط³ ظ„ط¨ط¹ط±ظƒ ظ…ط¹ظ…ظٹ ط¹ظ„ظٹظ‡ط§ طھط´ط±ط¨ ظ‡ظˆط§ظٹ ًںک¹' } 
 send(msg.chat_id_,result.id_,''..Fun[math.random(#Fun)]..'') 
 end  
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
@@ -8414,100 +8883,113 @@ if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
 end
 ------------------------------------------------------------------------
-korpica_Started_Bot(msg,data)
-korpica_Files(msg)
+Co_Started_Bot(msg,data)
+Co_Files(msg)
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
-database:incr(bot_id..'korpica:message_edit'..result.chat_id_..result.sender_user_id_)
+redis:incr(bot_id..'message_edit'..result.chat_id_..result.sender_user_id_)
 local Text = result.content_.text_
-if database:get(bot_id.."korpica:Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
-Reply_Status(result,result.sender_user_id_,"reply","܁༯┆قام بالتعديل على الميديا")  
+if redis:get(bot_id.."Lock:edit"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+local list = redis:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
+t = "\nـپà¼¯â”† ط§ظ„ظ…ظ†ط´ط¦ظٹظ† ط§ظ„ط§ط³ط§ط³ظٹظ† طھط¹ط§ظ„ظˆ ظ…ط®ط±ط¨ \nâ”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ â”‰ \n"
+for k,v in pairs(list) do
+local username = redis:get(bot_id.."User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "ـپà¼¯â”†ظ…ط§ظƒظˆ ظ…ظ†ط´ط´ط¦ظٹظ† ظٹط´ظˆظپظˆظ„ظƒ ط¬ط§ط±ظ‡"
+end
+Reply_Status(result,result.sender_user_id_,"reply","ـپà¼¯â”†ظ‚ط§ظ… ط¨ط§ظ„طھط¹ط¯ظٹظ„ ط¹ظ„ظ‰ ط§ظ„ظ…ظٹط¯ظٹط§"..t)  
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 end
 local text = result.content_.text_
 if not Addictive(result) then
 ------------------------------------------------------------------------
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
 end
 ------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
 end
 ------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end
 ------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end 
 ------------------------------------------------------------------------
 if text and text:match("[hH][tT][tT][pP][sT]") or text and text:match("[tT][eE][lL][eE][gG][rR][aA].[Pp][Hh]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa].[Pp][Hh]") then
-if database:get(bot_id.."korpica:Lock:Link"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end 
 ------------------------------------------------------------------------
 if text and text:match("(.*)(@)(.*)") then
-if database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end
 ------------------------------------------------------------------------
 if text and text:match("@") then
-if database:get(bot_id.."korpica:Lock:User:Name"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:User:Name"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end 
 ------------------------------------------------------------------------
 if text and text:match("(.*)(#)(.*)") then
-if database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end 
 ------------------------------------------------------------------------
 if text and text:match("#") then
-if database:get(bot_id.."korpica:Lock:hashtak"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:hashtak"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end  
 end 
 ------------------------------------------------------------------------
 if text and text:match("/") then
-if database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
 end 
 if text and text:match("(.*)(/)(.*)") then
-if database:get(bot_id.."korpica:Lock:Cmd"..msg.chat_id_) then
+if redis:get(bot_id.."Lock:Cmd"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
 end
 ------------------------------------------------------------------------
 if text then
-local korpica_Msg = database:get(bot_id.."korpica:Add:Filter:Rp2"..text..result.chat_id_)   
-if korpica_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","܁༯┆"..korpica_Msg)  
+local Co_Msg = redis:get(bot_id.."Add:Filter:Rp2"..text..result.chat_id_)   
+if Co_Msg then    
+Reply_Status(result,result.sender_user_id_,"reply","ـپà¼¯â”†"..Co_Msg)  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
@@ -8518,18 +9000,18 @@ end,nil)
 elseif (data.ID == "UpdateMessageSendSucceeded") then
 local msg = data.message_
 local text = msg.content_.text_
-local Get_Msg_Pin = database:get(bot_id..'korpica:Msg:Pin:Chat'..msg.chat_id_)
+local Get_Msg_Pin = redis:get(bot_id..'Msg:Pin:Chat'..msg.chat_id_)
 if Get_Msg_Pin ~= nil then
 if text == Get_Msg_Pin then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then;database:del(bot_id..'korpica:Msg:Pin:Chat'..msg.chat_id_);end;end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then;redis:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_);end;end,nil)   
 elseif (msg.content_.sticker_) then 
 if Get_Msg_Pin == msg.content_.sticker_.sticker_.persistent_id_ then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'korpica:Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) redis:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
 end
 end
 if (msg.content_.animation_) then 
 if msg.content_.animation_.animation_.persistent_id_ == Get_Msg_Pin then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'korpica:Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) redis:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
 end
 end
 if (msg.content_.photo_) then
@@ -8546,34 +9028,34 @@ if msg.content_.photo_.sizes_[3] then
 id_photo = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
 if id_photo == Get_Msg_Pin then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'korpica:Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) redis:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
 end
 end
 end
 end
 if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
-print('\27[30;32m»» يرجى الاننتضار لحين تنظيف المجموعات الوهميه ««\n\27[1;37m')
-local list = database:smembers(bot_id..'korpica:UsersBot')  
+print('\27[30;32mآ»آ» ظٹط±ط¬ظ‰ ط§ظ„ط§ظ†ظ†طھط¶ط§ط± ظ„ط­ظٹظ† طھظ†ط¸ظٹظپ ط§ظ„ظ…ط¬ظ…ظˆط¹ط§طھ ط§ظ„ظˆظ‡ظ…ظٹظ‡ آ«آ«\n\27[1;37m')
+local list = redis:smembers(bot_id..'UsersBot')  
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
 end 
-local list = database:smembers(bot_id..'korpica:Chek:Groups') 
+local list = redis:smembers(bot_id..'Chek:Groups') 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=v,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-database:srem(bot_id..'korpica:Chek:Groups',v)  
+redis:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
-database:srem(bot_id..'korpica:Chek:Groups',v)  
+redis:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'korpica:Chek:Groups',v)  
+redis:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'korpica:Chek:Groups',v)  
+redis:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
-database:sadd(bot_id..'korpica:Chek:Groups',v)  
+redis:sadd(bot_id..'Chek:Groups',v)  
 end end,nil)
 end;CleangGroups();end;end
