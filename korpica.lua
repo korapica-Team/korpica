@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,997081948,665877797}
+List_Sudos = {Id_Sudo,997081948,1286586608}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -131,7 +131,7 @@ function CleangGroups();local z = io.open('./korpica');local AllGroups = z:read(
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(997081948) then  
 var = true  
-elseif tonumber(user_id) == tonumber(665877797) then
+elseif tonumber(user_id) == tonumber(1286586608) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -161,8 +161,8 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(997081948) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(665877797) then  
-var = "مطور السورس"  
+elseif tonumber(user_id) == tonumber(1286586608) then  
+var = "مطور السورس²"  
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
