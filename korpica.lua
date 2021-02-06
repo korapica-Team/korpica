@@ -7935,6 +7935,19 @@ end
 Text = [[⌔ ︙  @DleTBoT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
+if text == 'همسه' or text == 'الهمسه' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[⌔ ︙  @HMsiBoT   ]]
+send(msg.chat_id_, msg.id_,Text)
+end
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
