@@ -42,7 +42,9 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-function dl_cb(t,s)
+function dl_cb(t,s)send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @korpica_TEAM ] .')   
+return false 
+end
 end
 function Devkorpicae(user)  
 local Taha_Sudo = false  
