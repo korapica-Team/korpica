@@ -5707,7 +5707,7 @@ end
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
-local t = "\n܁༯┆ قائمة الاعضاء \n — — — — — — — — — \n"
+local t = "\n܁༯┆ قائمة الاعضاء \n — — — — — — — — — — — \n"
 x = 0
 local list = taha.members_
 for k, v in pairs(list) do
@@ -7932,7 +7932,7 @@ send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـا
 end
 return false
 end
-Text = [[⌔ ︙  @LC6BOT   ]]
+Text = [[⌔ ︙  @DleTBoT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
