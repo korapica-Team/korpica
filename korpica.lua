@@ -6889,6 +6889,7 @@ name = string.gsub(name,"حاسوب","س ا ح و ب")
 name = string.gsub(name,"انترنيت","ا ت ن ر ن ي ت")
 name = string.gsub(name,"ساحه","ح ا ه س")
 name = string.gsub(name,"جسر","ر ج س")
+name = string.gsub(name,"شهم","م ش ه")
 send(msg.chat_id_, msg.id_,"܁༯┆اسرع واحد يرتبها ~ {"..name.."}")
 return false
 end
