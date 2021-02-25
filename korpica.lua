@@ -4320,6 +4320,45 @@ send(msg.chat_id_,msg.id_,"܁༯┆ليست لدي صلاحية التثبيت �
 end
 end,nil)
 end
+if text ==("المالك") then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+send(msg.chat_id_, msg.id_,"•  حساب المالك محذوف")
+return false  
+end
+local UserName = (b.username_ or "ramses20")
+send(msg.chat_id_, msg.id_,"• مالك المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+end,nil)   
+end
+end
+end,nil)   
+end
+if text == "رست" or text == "تحسين البوت" or text == "restart" and Devkorpica(msg) then  
+dofile("korpica.lua")  
+send(msg.chat_id_, msg.id_, "تم اعادة تشغيل بوت و تحسينه")
+end
+if text == "الساعه" or text == "الوقت" then
+local ramsesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
+send(msg.chat_id_, msg.id_,ramsesj20)
+end
+if text == "التاريخ" then
+local ramsesj20 =  "\n التاريخ ༯┆⇠܁ "..os.date("❲%Y/%m/%d❳")
+send(msg.chat_id_, msg.id_,ramsesj20)
+end
 if text == 'الغاء تثبيت الكل' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5731,6 +5770,86 @@ return false
 end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,"܁༯┆ رتبتك في البوت » "..rtp)
+end
+if text == "صلاحياته" and tonumber(msg.reply_to_message_id_) > 0 then    
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+Get_Info(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end
+function Get_Info(msg,chat,user)
+local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='..user..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "creator" then
+send(msg.chat_id_,msg.id_,'\n- المالك')   
+return false  end 
+if Json_Info.result.status == "member" then
+send(msg.chat_id_,msg.id_,'\n- ليس مشرف ؟ ')   
+return false  end
+if Json_Info.result.status == 'left' then
+send(msg.chat_id_,msg.id_,'\n- الشخص غير موجود هنا ')   
+return false  end
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ'
+else
+info = '✘'
+end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ'
+else
+delete = '✘'
+end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ'
+else
+invite = '✘'
+end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ'
+else
+pin = '✘'
+end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ'
+else
+restrict = '✘'
+end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ'
+else
+promote = '✘'
+end
+send(chat,msg.id_,'\n- الرتبة : مشرف  '..'\n- والصلاحيات هي ↓ \nٴ━━━━━━━━━━'..'\n- تغير معلومات القروب ↞ ❴ '..info..' ❵'..'\n- حذف الرسائل ↞ ❴ '..delete..' ❵'..'\n- حظر المستخدمين ↞ ❴ '..restrict..' ❵'..'\n- دعوة مستخدمين ↞ ❴ '..invite..' ❵'..'\n- تثبيت الرسائل ↞ ❴ '..pin..' ❵'..'\n- اضافة مشرفين جدد ↞ ❴ '..promote..' ❵')   
+end
+end
+end
+if text == "صلاحياتي" then 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
+end  
+end
+if text and text:match('^صلاحياته @(.*)') then   
+local username = text:match('صلاحياته @(.*)')   
+if tonumber(msg.reply_to_message_id_) == 0 then 
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+sendText(msg.chat_id_,msg.id_,"- المعرف غير صحيح \n*")   
+return false  end   
+Get_Info(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+end
+if msg.date_ and msg.date_ < tonumber(os.time() - 15) then
+print('OLD MESSAGE')
+return false
+end
+if tonumber(msg.sender_user_id_) == tonumber(bot_id) then
+return false
 end
 if text == "اسمي"  then 
 if AddChannel(msg.sender_user_id_) == false then
@@ -7913,13 +8032,13 @@ send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @korpi
 return false 
 end
 Text = [[
-WeLCoMe TeAM KOrAPiCa ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
-༯┆[KOrAPiCa TeAm](http://t.me/korpica) ∴
+WeLCoMe - 𝚝𝚎𝚊𝚖 𝚔𝚘𝚛𝚊𝚙𝚒𝚌𝚊 ࿈ .
+— — — — — — — — — 𖤂
+༯┆[- 𝚝𝚎𝚊𝚖 𝚔𝚘𝚛𝚊𝚙𝚒𝚌𝚊 ࿈ .](http://t.me/korpica) ∴
 ༯┆[INfO KOrAPiCa](https://t.me/infokora) ∴
 ༯┆[ChAnEl](https://t.me/H6HHHH) ∴
 ༯┆[DeVeLoPeR](https://t.me/iE1BOT) ∴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
+— — — — — — — — — 𖤂
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7962,6 +8081,7 @@ end
 Text = [[
 ܁༯┆ هناك {5} اوامر لعرضها
  — — — — — — — — —
+܁༯┆ م0 » لعرض اوامر المنظفين
 ܁༯┆ م1 » لعرض اوامر الحمايه
 ܁༯┆ م2 » لعرض اوامر الادمنيه
 ܁༯┆ م3 » لعرض اوامر المدراء
@@ -7969,6 +8089,30 @@ Text = [[
 ܁༯┆ م5 » لعرض اوامر المطورين
  — — — — — — — — — 
 [܁༯┆Ch Source](t.me/korpica)
+]]
+send(msg.chat_id_, msg.id_,Text)
+return false
+end
+if text == 'م0' and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[
+⤾꒐ اوامر البوت للمنظفين :-
+- الميديا - لعرض عدد الميديا المرسله
+- امسح - لمسح الميديا المرسله
+
+⤾꒐ اوامر البوت للمالك ،
+- رفع منظف - تنزيل منظف
+- المنظفين - مسح المنظفين
+⎯ ⎯ ⎯ ⎯
+[܁༯┆Ch Source](https://t.me/KorpicA_TeaM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8408,25 +8552,27 @@ end
 if Devkorpica(msg) then
 local Text = '܁༯┆مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
-{'الاحصائيات ⌔','قناة التحديثات ⌔'},
-{'تفعيل التواصل ⌔','تعطيل التواصل ⌔'},
-{'تنظيف الكروبات ⌔','تنظيف المشتركين ⌔'},
-{'تفعيل البوت الخدمي ⌔','تعطيل البوت الخدمي ⌔'},
-{'اذاعه خاص ⌔','المطورين ⌔','اذاعه ⌔'},
-{'اذاعه بالتوجيه ⌔','اذاعه بالتوجيه خاص ⌔'},
-{'تفعيل الاذاعه ⌔','تعطيل الاذاعه ⌔'},
-{'تفعيل المغادره ⌔','تعطيل المغادره ⌔'},
-{'مسح قائمه العام ⌔','مسح المطورين ⌔'},
-{'حذف كليشه ستارت ⌔','ضع كليشه ستارت ⌔'},
-{'- تعطيل الاشتراك الاجباري ⌔ .'},
-{'- تغير الاشتراك ⌔ .','حذف رساله الاشتراك ⌔ .'},
-{'- تفعيل الاشتراك الاجباري ⌔ .'},
-{'- الاشتراك الاجباري ⌔ .'},
-{'- تعين قناة الاشتراك ⌔ .','- تغير رساله الاشتراك ⌔ .'},
-{'تحديث السورس ⌔','تحديث الملفات ⌔'},
-{'قائمه العام ⌔'},
-{'جلب نسخه احتياطيه ⌔'},
-{'الغاء ⌔'}
+{'◞احصائيات البوت◜','◞قناه تحديثات السورس◜'},
+{'◞تفعيل التواصل◜','◞تعطيل التواصل◜'},
+{'◞تنظيف الكروبات◜','◞تنظيف المشتركين◜'},
+{'◞تفعيل البوت الخدمي◜','◞تعطيل البوت الخدمي◜'},
+{'◞اذاعه خاص◜','◞اذاعه◜'},
+{'◞الثانويين◜','◞المطورين◜'},
+{'◞مسح الثانويين◜','◞مسح المطورين◜'},
+{'◞اذاعه بالتوجيه◜','◞اذاعه بالتوجيه خاص◜'},
+{'◞تفعيل الاذاعه◜','◞تعطيل الاذاعه◜'},
+{'◞تفعيل المغادره◜','◞تعطيل المغادره◜'},
+{'◞مسح قائمه العام◜'},
+{'◞حذف كليشه start◜','◞ضع كليشه start◜'},
+{'- ◞تعطيل الاشتراك الاجباري◜ .'},
+{'- ◞تغير الاشتراك◜ .','◞حذف رساله الاشتراك◜ .'},
+{'- ◞تفعيل الاشتراك الاجباري◜ .'},
+{'- ◞الاشتراك الاجباري◜ .'},
+{'◞تعين قناة الاشتراك◜','- ◞تغير رساله الاشتراك◜ .'},
+{'◞تحديث السورس◜','◞تحديث الملفات◜'},
+{'◞قائمه العام◜'},
+{'◞جلب نسخه احتياطيه◜'},
+{'◞ﭑلغاء◜'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
@@ -8495,23 +8641,23 @@ end
 sendText(Id_Sudo,Text..'\n'..'܁༯┆ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if Devkorpica(msg) then
-if text == 'تفعيل التواصل ⌔' then  
+if text == '◞تفعيل التواصل◜' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'܁༯┆ تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل ⌔' then  
+if text == '◞تعطيل التواصل◜' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'܁༯┆ تم تعطيل التواصل ') 
 end
-if text =='قناة التحديثات ⌔' then
-send(msg.chat_id_, msg.id_,'܁༯┆قناة تحديثات سورس البوت \n\n @infokora')
+if text == '◞قناه تحديثات السورس◜' then 
+send(msg.chat_id_, msg.id_,' ܁༯┆[تحديثات ﭑݪسورس](http://t.me/@infokora) \n ܁༯┆[قناه ﭑݪسورس](http://t.me/@KorpicA_TeaM)')
 end
-if text =='الاحصائيات ⌔' then
+if text =='◞احصائيات البوت◜' then
 local Groups = database:scard(bot_id..'korpica:Chek:Groups')  
 local Users = database:scard(bot_id..'korpica:UsersBot')  
 send(msg.chat_id_, msg.id_,'܁༯┆احصائيات البوت \n\n܁༯┆عدد المجموعات *~ '..Groups..'\n܁༯┆عدد المشتركين ~ '..Users..'*')
 end
-if text == "تنظيف المشتركين ⌔" then
+if text == "◞تنظيف المشتركين◜" then
 local pv = database:smembers(bot_id..'korpica:UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -8537,7 +8683,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات ⌔" then
+if text == "◞تنظيف الكروبات◜" then
 local group = database:smembers(bot_id..'korpica:Chek:Groups')  
 local w = 0
 local q = 0
@@ -8586,15 +8732,15 @@ end,nil)
 end
 return false
 end
-if text == 'تفعيل البوت الخدمي ⌔' then
+if text == '◞تفعيل البوت الخدمي◜' then
 database:del(bot_id..'korpica:Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'\n܁༯┆تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي ⌔' then
+if text == '◞تعطيل البوت الخدمي◜' then
 database:set(bot_id..'korpica:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n܁༯┆تم تعطيل البوت الخدمي') 
 end
-if text=="اذاعه خاص ⌔" and msg.reply_to_message_id_ == 0 then
+if text=="◞اذاعه خاص◜" and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
 send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8603,16 +8749,7 @@ database:setex(bot_id.."korpica:korpica:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sen
 send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
 return false
 end 
-if text=="اذاعه ⌔" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
-send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
-return false
-end
-database:setex(bot_id.."korpica:korpica:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n܁༯┆للخروج ارسل الغاء ") 
-return false
-end  
-if text=="اذاعه بالتوجيه ⌔" and msg.reply_to_message_id_ == 0  then
+if text=="◞اذاعه بالتوجيه◜" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
 send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8621,7 +8758,7 @@ database:setex(bot_id.."korpica:korpica:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg
 send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص ⌔" and msg.reply_to_message_id_ == 0  then
+if text=="◞اذاعه بالتوجيه خاص◜" and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."korpica:Status:Bc") and not Devkorpica(msg) then 
 send(msg.chat_id_, msg.id_,"܁༯┆الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8630,28 +8767,28 @@ database:setex(bot_id.."korpica:korpica:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.se
 send(msg.chat_id_, msg.id_,"܁༯┆ارسل لي التوجيه الان") 
 return false
 end 
-if text == "تفعيل الاذاعه ⌔" then
+if text == "◞تفعيل الاذاعه◜" then
 database:del(bot_id.."korpica:Status:Bc") 
 send(msg.chat_id_, msg.id_,"\n܁༯┆تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه ⌔" then
+if text == "◞تعطيل الاذاعه◜" then
 database:set(bot_id.."korpica:Status:Bc",true) 
 send(msg.chat_id_, msg.id_,"\n܁༯┆تم تعطيل الاذاعه") 
 return false
 end 
-if text == "تفعيل المغادره ⌔" then
+if text == "◞تفعيل المغادره◜" then
 database:del(bot_id.."korpica:Left:Bot"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"܁༯┆تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره ⌔" then
+if text == "◞تعطيل المغادره◜" then
 database:set(bot_id.."korpica:Left:Bot"..msg.chat_id_,true)   
 send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل مغادرة البوت") 
 return false 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء ⌔' then   
+if text == '◞ﭑلغاء◜' then   
 send(msg.chat_id_, msg.id_,"܁༯┆تم الغاء حفظ كليشه ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
@@ -8661,36 +8798,36 @@ send(msg.chat_id_, msg.id_,'܁༯┆تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت ⌔' then
+if text == '◞ضع كليشه start◜' then
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,'܁༯┆ارسل لي الكليشه الان') 
 return false
 end
-if text == 'حذف كليشه ستارت ⌔' then
+if text == '◞حذف كليشه start◜' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'܁༯┆تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك ⌔ .$") and Devkorpica(msg) then  
+if text and text:match("^- ◞تغير الاشتراك◜ .$") and Devkorpica(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^- تغير رساله الاشتراك ⌔ .$") and Devkorpica(msg) then  
+if text and text:match("^- ◞تغير رساله الاشتراك◜ .$") and Devkorpica(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك ⌔ ." and Devkorpica(msg) then  
+if text == "◞حذف رساله الاشتراك◜ ." and Devkorpica(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "܁༯┆تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك ⌔ .$") and Devkorpica(msg) then  
+if text and text:match("^◞تعين قناة الاشتراك◜$") and Devkorpica(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '܁༯┆حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ⌔ ." and Devkorpica(msg) then  
+if text == "- ◞تفعيل الاشتراك الاجباري◜ ." and Devkorpica(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"܁༯┆الاشتراك الاجباري مفعل \n܁༯┆على القناة » ["..addchusername.."]")
@@ -8700,13 +8837,13 @@ send(msg.chat_id_, msg.id_,"܁༯┆اهلا عزيزي المطور \n܁༯┆�
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري ⌔ ." and Devkorpica(msg) then  
+if text == "- ◞تعطيل الاشتراك الاجباري◜ ." and Devkorpica(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "܁༯┆تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "- الاشتراك الاجباري ⌔ ." and Devkorpica(msg) then  
+if text == "- ◞الاشتراك الاجباري◜ ." and Devkorpica(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "܁༯┆تم تفعيل الاشتراك الاجباري \n܁༯┆على القناة » ["..addchusername.."]")
@@ -8757,18 +8894,22 @@ local texxt = string.match(text, "(.*)")
 database:set(bot_id..'text:ch:user',texxt)
 send(msg.chat_id_, msg.id_,'܁༯┆تم تغيير رسالة الاشتراك ')
 end
-if text == ("مسح قائمه العام ⌔") and Devkorpica(msg) then
+if text == ("◞مسح قائمه العام◜") and Devkorpica(msg) then
 database:del(bot_id.."korpica:GBan:User")
 send(msg.chat_id_, msg.id_, "\n܁༯┆تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين ⌔") and Devkorpica(msg) then
+if text == ("◞مسح المطورين◜") and Devkorpica(msg) then
 database:del(bot_id.."korpica:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n܁༯┆ تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام ⌔") and Devkorpica(msg) then
+if text == ("◞مسح الثانويين◜") and VIP_DeV(msg) then
+database:del(bot_id.."DEV:Sudo:T")
+send(msg.chat_id_, msg.id_, "\n܁༯┆ تم مسح قائمة المطورين الثانويين  ")
+end
+if text == ("◞قائمه العام◜") and Devkorpica(msg) then
 local list = database:smembers(bot_id.."korpica:GBan:User")
-t = "\n܁༯┆قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n܁༯┆قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."korpica:User:Name" .. v)
 if username then
@@ -8783,9 +8924,9 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين ⌔") and Devkorpica(msg) then
+if text == ("◞المطورين◜") and Devkorpica(msg) then
 local list = database:smembers(bot_id.."korpica:Sudo:User")
-t = "\n܁༯┆قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+t = "\n܁༯┆قائمة مطورين البوت \n- — — — — — — — — \n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."korpica:User:Name" .. v)
 if username then
@@ -8799,7 +8940,23 @@ t = "܁༯┆لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'جلب نسخه احتياطيه ⌔' then
+if text == ("◞الثانويين◜") and Devkorpica(msg) then
+local list = database:smembers(bot_id.."DEV:Sudo:T")
+t = "\n܁༯┆قائمة مطورين الثانويين للبوت \n- — — — — — — — — \n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."korpica:User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "܁༯┆لا يوجد مطورين ثانويين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == '◞جلب نسخه احتياطيه◜' then
 local list = database:smembers(bot_id..'korpica:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -8866,7 +9023,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '܁༯┆ عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "تحديث السورس ⌔" then
+if text == "◞تحديث السورس◜" then
 send(msg.chat_id_,msg.id_,'܁༯┆تم التحديث')
 os.execute('rm -rf korpica.lua')
 os.execute('rm -rf start.lua')
@@ -8875,7 +9032,7 @@ os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/
 dofile('korpica.lua')  
 return false
 end
-if text == "تحديث الملفات ⌔" then
+if text == "◞تحديث الملفات◜" then
 dofile("korpica.lua")  
 send(msg.chat_id_, msg.id_, "܁༯┆تم التحديث")
 end
