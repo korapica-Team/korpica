@@ -8756,6 +8756,7 @@ if Devkorpica(msg) then
 local Text = '܁༯┆مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
 {'◞احصائيات البوت◜','◞قناه تحديثات السورس◜'},
+{'◞المطور◜'},
 {'◞تفعيل التواصل◜','◞تعطيل التواصل◜'},
 {'◞تنظيف الكروبات◜','◞تنظيف المشتركين◜'},
 {'◞تفعيل البوت الخدمي◜','◞تعطيل البوت الخدمي◜'},
@@ -8854,6 +8855,15 @@ send(msg.chat_id_, msg.id_,'܁༯┆ تم تعطيل التواصل ')
 end
 if text == '◞قناه تحديثات السورس◜' then 
 send(msg.chat_id_, msg.id_,' ܁༯┆[تحديثات ﭑݪسورس](http://t.me/@infokora) \n ܁༯┆[قناه ﭑݪسورس](http://t.me/@KorpicA_TeaM)')
+end
+if text == '◞المطور◜' or text == 'مطور' or text == 'المطورين' then
+local Text_Dev = database:get(bot_id..'korpica:Text_Dev')
+if Text_Dev then 
+send(msg.chat_id_, msg.id_,Text_Dev)
+else
+local Name = '܁༯┆مطور البوت  : [ '..UserName..' ]'
+sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+end
 end
 if text =='◞احصائيات البوت◜' then
 local Groups = database:scard(bot_id..'korpica:Chek:Groups')  
