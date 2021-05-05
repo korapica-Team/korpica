@@ -1495,7 +1495,7 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","⌔️︙تم فـتح البوت
 return false
 end 
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -1554,7 +1554,7 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","⌔️︙تم فـتح تعديل
 return false
 end 
 if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -1613,7 +1613,7 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","⌔️︙تم فتح الرواب
 return false
 end 
 if text == "قفل المعرفات" and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -1771,7 +1771,7 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","⌔️︙تم فتح الفيدي
 return false
 end 
 if text == "قفل المتحركه" and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -2224,7 +2224,7 @@ Reply_Status(msg,msg.sender_user_id_,"lockkick","⌔️︙تم قفل التكر
 return false
 end 
 if text == "قفل التكرار" and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -2885,7 +2885,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and DevBot(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -3066,7 +3066,7 @@ return false
 end 
 
 if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -3154,7 +3154,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -3200,7 +3200,7 @@ Reply_Status(msg,userid,"reply","⤦: تم ترقيته ادمن للمجموع�
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -3236,7 +3236,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica
 return false
 end
 if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -3249,7 +3249,7 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -7083,7 +7083,7 @@ database:del(bot_id.."korpica:Fun_Bots"..msg.chat_id_)
 end
 
 if text == 'تفعيل الايدي' and Owner(msg) then 
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -7106,7 +7106,7 @@ database:set(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,'⤦: تم تعطيل الايدي') 
 end
 if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -7129,7 +7129,7 @@ database:set(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,'⤦: تم تعطيل الايدي بالصوره') 
 end
 if text == 'تعين الايدي' and Owner(msg) then
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -8855,7 +8855,7 @@ send(msg.chat_id_, msg.id_, "⤦: تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
@@ -8876,7 +8876,7 @@ send(msg.chat_id_, msg.id_,"⤦: المبرمج :: ["..data.first_name_.."](T.me
 end,nil)   
 end
 if text == 'رسول' or text == 'مطور السورس' or text == 'تنصيب' or text == 'مبرمج السورس' then  
-local url,res = https.request('https://uussuu.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeamDeyar ] .')   
