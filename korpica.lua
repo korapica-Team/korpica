@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,926053399,1286586608}
+List_Sudos = {Id_Sudo,926053399,1123637945}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -168,7 +168,7 @@ end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(926053399) then  
 var = true  
-elseif tonumber(user_id) == tonumber(1286586608) then
+elseif tonumber(user_id) == tonumber(1123637945) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -200,8 +200,8 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(926053399) then  
 var = 'المبرمج'
-elseif tonumber(user_id) == tonumber(1286586608) then  
-var = "المبرمج²"  
+elseif tonumber(user_id) == tonumber(1123637945) then  
+var = "مرتشهم (الهيبه)"  
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -2680,8 +2680,8 @@ if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.sender_user_id_ == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
@@ -2711,8 +2711,8 @@ if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if result.id_ == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.id_ == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if result.id_ == tonumber(926053399) then
@@ -2738,8 +2738,8 @@ if userid == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
 return false 
 end
-if userid == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if userid == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
@@ -3567,8 +3567,8 @@ if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.sender_user_id_ == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
@@ -3632,8 +3632,8 @@ return false
 end
 function Function_korpica(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.id_ == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if result.id_ == tonumber(Id_Sudo) then
@@ -3696,8 +3696,8 @@ if userid == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
 return false 
 end
-if userid == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if userid == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -3806,8 +3806,8 @@ if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(1286586608) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج  \n")
+if result.sender_user_id_ == tonumber(1123637945) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه)  \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(Id_Sudo) then
