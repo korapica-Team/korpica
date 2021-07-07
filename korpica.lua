@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,926053399,1123637945}
+List_Sudos = {Id_Sudo,932565396,1123637945}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -166,7 +166,7 @@ end
 return var
 end 
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(926053399) then  
+if tonumber(user_id) == tonumber(932565396) then  
 var = true  
 elseif tonumber(user_id) == tonumber(1123637945) then
 var = true  
@@ -198,10 +198,10 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(926053399) then  
-var = 'المبرمج'
+if tonumber(user_id) == tonumber(932565396) then  
+var = 'CoDeR'
 elseif tonumber(user_id) == tonumber(1123637945) then  
-var = "مرتشهم (الهيبه)"  
+var = "developer"  
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -1526,7 +1526,7 @@ if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addict
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
@@ -1585,7 +1585,7 @@ if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:del(bot_id.."korpica:Lock:tagservrbot"..msg.chat_id_)   
@@ -1644,7 +1644,7 @@ if text == "قفل المعرفات" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"del")  
@@ -1802,7 +1802,7 @@ if text == "قفل المتحركه" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"del")  
@@ -2255,7 +2255,7 @@ if text == "قفل التكرار" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","del")  
@@ -2676,12 +2676,12 @@ if result.sender_user_id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.sender_user_id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
@@ -2712,11 +2712,11 @@ send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقي
 return false 
 end
 if result.id_ == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
-if result.id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 database:sadd(bot_id.."korpica:GBan:User", result.id_)
@@ -2734,12 +2734,12 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if userid == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if userid == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if userid == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
@@ -3099,7 +3099,7 @@ if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 local userid = text:match("^رفع مدير (%d+)$") 
@@ -3187,7 +3187,7 @@ if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 local username = text:match("^رفع ادمن @(.*)$")
@@ -3233,7 +3233,7 @@ if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 a
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 function Function_korpica(extra, result, success)
@@ -3269,7 +3269,7 @@ if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
@@ -3282,7 +3282,7 @@ if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and A
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3563,12 +3563,12 @@ send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد
 return false
 end
 function Function_korpica(extra, result, success)
-if result.sender_user_id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.sender_user_id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
@@ -3633,15 +3633,15 @@ end
 function Function_korpica(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
 if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if result.id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
@@ -3692,12 +3692,12 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if userid == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if userid == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if userid == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه) \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -3802,12 +3802,12 @@ end
 return false
 end
 function Function_korpica(extra, result, success)
-if result.sender_user_id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج  \n")
+if result.sender_user_id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR  \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(1123637945) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مرتشهم (الهيبه)  \n")
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} developer  \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(Id_Sudo) then
@@ -3845,8 +3845,8 @@ return false
 end
 function Function_korpica(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if result.id_ == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
@@ -3877,8 +3877,8 @@ end
 return false
 end
 local userid = text:match("^كتم (%d+)$")
-if userid == tonumber(926053399) then
-send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} المبرمج \n")
+if userid == tonumber(932565396) then
+send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} CoDeR \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -7177,7 +7177,7 @@ if text == 'تفعيل الايدي' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:del(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) 
@@ -7200,7 +7200,7 @@ if text == 'تفعيل الايدي بالصوره' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:del(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_) 
@@ -7223,7 +7223,7 @@ if text == 'تعين الايدي' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 database:setex(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
@@ -7337,6 +7337,15 @@ database:set(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'•┆تم تغير الايدي ارسل ايدي لرؤيته')
 end
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
@@ -7482,7 +7491,7 @@ if text == "اضف كت" then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 if not Dev_Bots(msg) then
@@ -7496,7 +7505,7 @@ if text == "حذف كت" then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 if not Dev_Bots(msg) then
@@ -7517,7 +7526,7 @@ if text == 'كت' then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
 if database:get(bot_id..'Tshak:Lock:Games'..msg.chat_id_) then
@@ -9054,40 +9063,56 @@ dofile("korpica.lua")
 send(msg.chat_id_, msg.id_, "⤦: تم التحديث")
 end
 
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+if text == 'source' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
 return false 
 end
-Text = [[
-╭ Source SHaHuM 🦖. 
-│Channel Source : @TeaMSHaHuM .
-│Channel SHaHuM : @iNFoSHaHuM . 
-│Source developer : @ByAeN .
-╰ Bot : @Uv0BoT .
+local Text =[[
+
+├ wᴇʟᴄᴏme ᴛᴏ Source SHaHuM 🦖.  ┤
+
 ]]
-send(msg.chat_id_, msg.id_,Text)
+keyboard = {} 
+keyboard.inline_keyboard = {
+
+{
+{text = '- Source SHaHuM .', url = "https://t.me/SouRceSHaHuM"}
+},
+{
+{text = '- Source info .', url = "https://t.me/iNFoSHaHuM"}
+},
+{
+{text = '- Coder .', url = "https://t.me/imshahum"}
+},
+{
+{text = '- TwS .', url = "https://t.me/Uv0BoT"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/NNAON/448&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'المبرمج' then
-tdcli_function ({ID = "GetUser",user_id_ = 926053399},function(arg,data) 
-send(msg.chat_id_, msg.id_,"⤦: المبرمج :: ["..data.first_name_.."](T.me/"..data.username_..")")  
+tdcli_function ({ID = "GetUser",user_id_ = 932565396},function(arg,data) 
+send(msg.chat_id_, msg.id_,"⤦: CoDeR :: ["..data.first_name_.."](T.me/"..data.username_..")")  
 end,nil)   
 end
-if text == 'عين' or text == 'المبرمج' or text == 'تنصيب' or text == 'مبرمج السورس' then  
-local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMSHaHuM ] .')   
-return false 
-end
-Text = [[
-╭ Source developer 🦖. 
-│[Communication⁦ .](http://t.me/ByAeN)
-╰ [Bot .](http://t.me/Uv0BoT)
-]]
-send(msg.chat_id_, msg.id_,Text)
+if text == 'شهم' or text == 'مبرمج السورس' then  
+local DevUser = '@Byshahum'
+local DevId = '932565396'
+local DevName = '[◟ٰ SHaHuM A!NjM 🇹🇷 .](tg://user?id=932565396)'
+local bio = GetBio(tonumber(932565396),msg.chat_id_)
+local text = '⤦: Dev Name : '..DevName..'\n⤦: *Dev User* : ['..DevUser..']\n⤦: *Dev Id* : ( '..DevId..' )\n⤦: *Dev Bio* : '..bio
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '- the source coder .', url="t.me/Byshahum"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/imshahum&caption=' .. URL.escape(text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9222,7 +9247,7 @@ Text = [[
 ⤦:  م4 » لعرض اوامر المنشئين
 ⤦:  م5 » لعرض اوامر المطورين
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9246,7 +9271,7 @@ Text = [[
 - رفع منظف - تنزيل منظف
 - المنظفين - مسح المنظفين
 ⎯ ⎯ ⎯ ⎯
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9293,7 +9318,7 @@ Text = [[
 ⤦: الكلايش
 ⤦: السيلفي
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9365,7 +9390,7 @@ Text = [[
 ⤦: مسح الصلاحيات
 ⤦: مسح الرابط
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9412,7 +9437,7 @@ Text = [[
 ⤦: تفعيل/تعطيل اوامر التحشيش
 ⤦: تفعيل/تعطيل الرابط/جلب الرابط
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9448,7 +9473,7 @@ Text = [[
 ⤦: اضف رسائل + العدد بالرد
 ⤦: اضف مجوهرات + العدد بالرد
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9498,7 +9523,7 @@ Text = [[
 ⤦: رفع/تنزيل منشئ اساسي
 ⤦: مسح المنشئين الاساسين
  — — — — — — — — — 
-[⤦: Ch Source](t.me/TeaMSHaHuM)
+[⤦: Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9679,7 +9704,7 @@ if audios.Info == true then
 local Text ='⤦: تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- SHaHuM TeAM .',url="t.me/TeaMSHaHuM"}},
+{{text = '- SHaHuM TeAM .',url="t.me/SouRceSHaHuM"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9761,7 +9786,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Test = '╭ Welcome To Your Bot .\n│Here iS Your Admin Power .\n│Chose One Of this Order .\n╰ Owner Of Source : @TeaMSHaHuM '
+Test = '╭ Welcome To Your Bot .\n│Here iS Your Admin Power .\n│Chose One Of this Order .\n╰ Owner Of Source : @SouRceSHaHuM '
 end
 
 send(msg.chat_id_, msg.id_, Test) 
@@ -9917,7 +9942,7 @@ if text == '◞السيرفر◜' and VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_, text2)  
 end
 if text == '◞قناه تحديثات السورس◜' then 
-send(msg.chat_id_, msg.id_,' ⤦: [تحديثات ﭑݪسورس](http://t.me/iNFoSHaHuM) \n ⤦: [قناه ﭑݪسورس](http://t.me/TeaMSHaHuM)')
+send(msg.chat_id_, msg.id_,' ⤦: [تحديثات ﭑݪسورس](http://t.me/iNFoSHaHuM) \n ⤦: [قناه ﭑݪسورس](http://t.me/SouRceSHaHuM)')
 end
 if text == '◞المطور◜' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'korpica:Text_Dev')
