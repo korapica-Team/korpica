@@ -339,6 +339,29 @@ else infile={ID="InputFilePersistentId",persistent_id_ = file}
 end 
 return infile 
 end
+function SendInline(chat_id,text,keyboard,inline,reply_id) 
+local response = {} 
+response.keyboard = keyboard 
+response.inline_keyboard = inline 
+response.resize_keyboard = true 
+response.one_time_keyboard = false 
+response.selective = false  
+local send_api = "https://api.telegram.org/bot"..token.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
+if reply_id then 
+send_api = send_api.."&reply_to_message_id="..reply_id 
+end 
+return GetApi(send_api) 
+end
+function GetApi(web) 
+local info, res = https.request(web) 
+local req = json:decode(info) if res ~= 200 then 
+return false 
+end 
+if not req.ok then 
+return false 
+end 
+return req 
+end
 function sendPhoto(chat_id,reply_id,photo,caption,func)
 tdcli_function({
 ID="SendMessage",
@@ -358,6 +381,27 @@ caption_ = caption or ""
 },func or dl_cb,nil)
 end
 	
+function GetBio(chat_id)
+local Check = https.request('https://api.telegram.org/bot'..token..'/getChat?chat_id='..chat_id)
+local GetInfo = JSON.decode(Check)
+if GetInfo.ok == true then
+if GetInfo.result.bio then 
+Muslim = GetInfo.result.bio
+else 
+Muslim = "لا يوجد"
+end
+end
+return Muslim
+end
+function getbioo(User)
+local var = "لا يوجد"
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
+data = json:decode(url)
+if data.result.bio then
+var = data.result.bio
+end
+return var
+end
 function sendVoice(chat_id,reply_id,voice,caption,func)
 tdcli_function({
 ID="SendMessage",
@@ -1522,11 +1566,32 @@ database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","⌔️︙تم فـتح البوتات")  
 return false
 end 
+if text == "توكن البوت" and Devkorpica(msg) or text == 'جلب التوكن' and Devkorpica(msg) then 
+if not VIP_DeV(msg) then
+send(msg.chat_id_, msg.id_,'هذا الامر خاص بمطور البوت')
+return false
+end
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' ..token) 
+send(msg.chat_id_, msg.id_,' ') 
+end
 if text == "فتح البوتات " and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
@@ -1585,7 +1650,19 @@ if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:del(bot_id.."korpica:Lock:tagservrbot"..msg.chat_id_)   
@@ -1644,7 +1721,19 @@ if text == "قفل المعرفات" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"del")  
@@ -1802,7 +1891,19 @@ if text == "قفل المتحركه" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"del")  
@@ -2255,7 +2356,19 @@ if text == "قفل التكرار" and Addictive(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","del")  
@@ -3099,7 +3212,19 @@ if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 local userid = text:match("^رفع مدير (%d+)$") 
@@ -3187,7 +3312,19 @@ if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 local username = text:match("^رفع ادمن @(.*)$")
@@ -3233,7 +3370,19 @@ if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 a
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 function Function_korpica(extra, result, success)
@@ -3269,7 +3418,19 @@ if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
@@ -3282,7 +3443,19 @@ if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and A
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -4868,32 +5041,46 @@ return false end
 end
 if text == "الرابط" then 
 if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "JJJ0U"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '• أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
 end
 local status_Link = database:get(bot_id.."korpica:Link_Group"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"⌔︙جلب الرابط معطل") 
+send(msg.chat_id_, msg.id_,"⤦: جلب الرابط معطل") 
 return false  
 end
-local link = database:get(bot_id.."korpica:Private:Group:Link"..msg.chat_id_)            
-if link then                              
-send(msg.chat_id_,msg.id_,"⌔︙LinK GrOup : \n ["..link.."]❳")                          
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local link = database:get(bot_id.."korpica:Private:Group:Link"..msg.chat_id_)
+if link then  
+local textLink = '⤦: Link Group ≥ \n ['..link..'] \n — — — — — — — — — — — '  
+local inline = {{{text = ' '..ta.title_..' ',url=''..link}},}
+msg_id =  msg.id_/2097152/0.5
+SendInline(msg.chat_id_,textLink,nil,inline,msg_id) 
 else                
-local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
-if InviteLink.result.invite_link then
-jk = InviteLink.result.invite_link
-elseif not InviteLink.result.invite_link then
-https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
-jk = InviteLink.result.invite_link
-end 
-send(msg.chat_id_,msg.id_,"⤦: LinK GrOup : \n ❲ ["..jk.."] ❳")                          
-end            
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+linkgp = '⤦: Link Group > \n ['..linkgpp.result..'] \n — — — — — — — — — — — '  
+local inline = {{{text = ' '..ta.title_..' ',url=''..linkgpp.result}},}
+msg_id =  msg.id_/2097152/0.5
+SendInline(msg.chat_id_,linkgp,nil,inline,msg_id) 
+else
+send(msg.chat_id_, msg.id_, 1, '⤦: لايوجد رابط ارسل ↫ ضع رابط او ارسل ↫ انشاء رابط للانشاء', 1, 'md')
+end  
+end      
+end,nil)
 end
 if text == "مسح الرابط" or text == "حذف الرابط" then
 if AddChannel(msg.sender_user_id_) == false then
@@ -5334,6 +5521,25 @@ end
 send(msg.chat_id_, msg.id_,"⤦: تم مسح جميع الاوامر التي تم اضافتها")  
 end
 end
+if text == "ترتيب الاوامر" and Constructor(msg) then
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":ا","ايدي")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"ا")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":م","رفع مميز")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"م")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":اد","رفع ادمن")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"اد")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":مد","رفع مدير")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"مد")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":من","رفع منشئ")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"من")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":اس","رفع منشئ اساسي")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"اس")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":تعط","تعطيل الايدي بالصوره")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"تعط")
+database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":تفع","تفعيل الايدي بالصوره")
+database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"تفع")
+send(msg.chat_id_, msg.id_,"⤦: تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .")  
+end
 if text == "اضف امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5763,7 +5969,7 @@ send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة 
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"⤦: ارسل الكلمه التي تريد اضافتها")
+send(msg.chat_id_, msg.id_," ⤦: ارسل الكلمه التي تريد اضافتها")
 database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -5867,6 +6073,112 @@ if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
 database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
 end  
+end
+end
+if text == ("الردود المتعدده") and Owner(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ꙳.︙لا تستطيع استخدام البوت \n  ꙳.︙يرجى الاشتراك بالقناه اولا \n  ꙳.︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id.."korpica:List:Rd:Sudo")
+text = "\nقائمة ردود المتعدده \n⋆ ┉  ┉  ┉  ┉ ┉  ┉  ┉  ┉ ⋆\n"
+for k,v in pairs(list) do
+db = "رساله "
+text = text..""..k.." => {"..v.."} => {"..db.."}\n"
+end
+if #list == 0 then
+text = "لا توجد ردود متعدده"
+end
+send(msg.chat_id_, msg.id_,"["..text.."]")
+end
+if text == "اضف رد متعدد" and Owner(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ꙳.︙لا تستطيع استخدام البوت \n  ꙳.︙يرجى الاشتراك بالقناه اولا \n  ꙳.︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"꙳.︙ارسل الرد الذي اريد اضافته")
+end
+if text == "حذف رد متعدد" and Owner(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ꙳.︙لا تستطيع استخدام البوت \n  ꙳.︙يرجى الاشتراك بالقناه اولا \n  ꙳.︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:set(bot_id.."korpica:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"꙳.︙ارسل الان الكلمه لحذفها ")
+end
+if text then  
+local test = database:get(bot_id.."korpica:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."korpica:Add:Rd:Sudo:Text"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"꙳.︙تم حفظ الرد الاول ارسل الرد الثاني")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."korpica:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
+database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."korpica:Add:Rd:Sudo:Text1"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"꙳.︙تم حفظ الرد الثاني ارسل الرد الثالث")
+return false  
+end  
+end
+if text then  
+local test = database:get(bot_id.."korpica:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
+database:set(bot_id.."korpica:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
+if text then   
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+database:set(bot_id.."korpica:Add:Rd:Sudo:Text2"..test, text)  
+end  
+send(msg.chat_id_, msg.id_,"꙳.︙تم حفظ الرد")
+return false  
+end  
+end
+if text then
+local Text = database:get(bot_id.."korpica:Add:Rd:Sudo:Text"..text)   
+local Text1 = database:get(bot_id.."korpica:Add:Rd:Sudo:Text1"..text)   
+local Text2 = database:get(bot_id.."korpica:Add:Rd:Sudo:Text2"..text)   
+if Text or Text1 or Text2 then 
+local texting = {
+Text,
+Text1,
+Text2
+}
+Textes = math.random(#texting)
+send(msg.chat_id_, msg.id_,texting[Textes])
 end
 end
 ------------------------------------------------------------------------
@@ -6737,7 +7049,7 @@ end
 if text == "بوت" then
 Namebot = (database:get(bot_id.."korpica:Name:Bot") or "كوربيكا")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
-end
+end 
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
 if Devkorpica(msg) then
 database:setex(bot_id.."korpica:Set:Name:Bot"..msg.sender_user_id_,300,true) 
@@ -7177,7 +7489,19 @@ if text == 'تفعيل الايدي' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:del(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) 
@@ -7200,7 +7524,19 @@ if text == 'تفعيل الايدي بالصوره' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:del(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_) 
@@ -7223,7 +7559,19 @@ if text == 'تعين الايدي' and Owner(msg) then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 database:setex(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
@@ -7336,20 +7684,32 @@ local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'•┆تم تغير الايدي ارسل ايدي لرؤيته')
 end
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbioo(msg.sender_user_id_)) 
+end 
+if text == 'متحركتي' then   
+send(msg.chat_id_, msg.id_,getgif(msg.sender_user_id_)) 
+end 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da)
+if da.status_.ID == "ChatMemberStatusCreator" then 
+rtpa = 'منشئ'
+elseif da.status_.ID == "ChatMemberStatusEditor" then 
+rtpa = 'ادمن' 
+elseif da.status_.ID == "ChatMemberStatusMember" then 
+rtpa = 'عضو'
+end
+
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
+tarek = 'لا يوجد ' 
+end
 if data.username_ then
 UserName_User = '@'..data.username_
 else
@@ -7358,18 +7718,17 @@ end
 local Id = msg.sender_user_id_
 local NumMsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
-local Status_Gps = Get_Rank(Id,msg.chat_id_)
+local Status_Gps = database:get(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..Id) or Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."korpica:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
-'صورتك فدشي 😘😔❤️',
-"صارلك شكد مخليه ",
-"وفالله 😔💘",
-"كشخه برب 😉💘",
-"دغيره شبي هذ 😒",
-"عمري الحلوين 💘",
+'وف يلحات',
+"لحيت بيها عمري",
+"دبل لافيو",
+"تشكك",
+"ممكن ابوس",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."korpica:Klesh:Id:Bot"..msg.chat_id_)
@@ -7388,10 +7747,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'⤦: '..Description..'\n⤦: ايديك » '..Id..'\n⤦: معرفك » '..UserName_User..'\n⤦: رتبتك » '..Status_Gps..'\n⤦: رسائلك » '..NumMsg..'\n⤦: السحكات » '..message_edit..' \n⤦: تتفاعلك » '..TotalMsg..'\n⤦:  مجوهراتك » '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'- '..Description..' .\n- ايديك : '..Id..' .\n- معرفك : '..UserName_User..' .\n- رتبتك : '..Status_Gps..' .\n- رتبة الكروب : '..rtpa..' .\nرسائلك : '..NumMsg..' .\n- السحكات : '..message_edit..' .\n- وقت الانضمام : '..tarek..' .\n- تفاعلك : '..TotalMsg..' .\n- مجوهراتك : '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'⤦: ليس لديك صوره \n'..'\n*⤦: ايديك » '..Id..'\n⤦: معرفك »* ['..UserName_User..']*\n⤦: رتبتك » '..Status_Gps..'\n⤦: رسائلك » '..NumMsg..'\n⤦: السحكات » '..message_edit..' \n⤦: تتفاعلك » '..TotalMsg..'\n⤦:  مجوهراتك » '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'- معندك صورة .\n'..'\n- ايديك : '..Id..' .\n- معرفك : ['..UserName_User..'] .\n- رتبتك : '..Status_Gps..'\n- رتبة الكروب : '..rtpa..' .\n📨┇رسائلك ~⪼ '..NumMsg..' .\n- السحكات : '..message_edit..' .\n- وقت الانضمام : '..tarek..' .\n- تفاعلك : '..TotalMsg..' .\n- مجوهراتك : '..Num_Games..' .') 
 end
 else
 if get_id then
@@ -7407,9 +7766,11 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*⤦: ايديك » '..Id..'\n⤦: معرفك »* ['..UserName_User..']*\n⤦: رتبتك » '..Status_Gps..'\n⤦: رسائلك » '..NumMsg..'\n⤦: السحكات » '..message_edit..' \n⤦: تتفاعلك » '..TotalMsg..'\n⤦:  مجوهراتك » '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n- ايديك : '..Id..' .\n- معرفك : ['..UserName_User..'] .\n- رتبتك : '..Status_Gps..' .\n- رتبة الكروب : '..rtpa..'\n- رسائلك " '..NumMsg..' .\n- السحكات : '..message_edit..' .\n- وقت الانضمام : '..tarek..' .\n- تفاعلك : '..TotalMsg..' .\n- مجوهراتك : '..Num_Games..' .') 
 end
 end
+end,nil)   
+end,nil)   
 end,nil)   
 end,nil)   
 end
@@ -7491,7 +7852,19 @@ if text == "اضف كت" then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 if not Dev_Bots(msg) then
@@ -7505,7 +7878,19 @@ if text == "حذف كت" then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 if not Dev_Bots(msg) then
@@ -7526,7 +7911,19 @@ if text == 'كت' then
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 if database:get(bot_id..'Tshak:Lock:Games'..msg.chat_id_) then
@@ -7914,7 +8311,7 @@ name = string.gsub(name,"بومه","🦉")
 name = string.gsub(name,"نحله","🐝")
 name = string.gsub(name,"ديك","🐓")
 name = string.gsub(name,"جمل","🐫")
-name = string.gsub(name,"بقره","🐄")
+name = string.gsub(name,"بقره","??")
 name = string.gsub(name,"دولفين","🐬")
 name = string.gsub(name,"تمساح","🐊")
 name = string.gsub(name,"قرش","🦈")
@@ -8103,11 +8500,11 @@ name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑🌚🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟??🌟????🌟🌟🌟⭐️🌟🌟🌟")
-name = string.gsub(name,"✨","💫💫💫💫💫✨💫💫💫💫")
+name = string.gsub(name,"✨","💫💫💫??💫✨💫💫💫💫")
 name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
-name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍??👩‍🔬")
+name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍??👨‍🔬👩‍🔬👩‍??👩‍🔬")
 name = string.gsub(name,"👨‍💻","👩‍💻👩‍💻👩‍‍💻👩‍‍💻👩‍💻👨‍💻👩‍💻👩‍💻👩‍💻")
 name = string.gsub(name,"👨‍⌔","👩‍⌔👩‍⌔👩‍⌔👩‍⌔👩‍⌔👩‍⌔👨‍⌔👩‍⌔")
 name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
@@ -8117,7 +8514,7 @@ name = string.gsub(name,"🧝‍♂","🧝‍♀🧝‍♀🧝‍♀🧝‍♀�
 name = string.gsub(name,"🙍‍♂️","🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙎‍♂️🙍‍♂️🙎‍♂️🙎‍♂️🙎‍♂️")
 name = string.gsub(name,"🧖‍♂️","🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♂️🧖‍♀️🧖‍♀️🧖‍♀️🧖‍♀️")
 name = string.gsub(name,"👬","👭??👭👭👭👬👭👭👭")
-name = string.gsub(name,"👨‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
+name = string.gsub(name,"??‍👨‍👧","👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👦👨‍👨‍👧👨‍👨‍👦👨‍👨‍👦")
 name = string.gsub(name,"🕒","🕒🕒🕒🕒🕒🕒🕓??🕒??")
 name = string.gsub(name,"🕤","🕥🕥🕥🕥🕥🕤🕥🕥🕥")
 name = string.gsub(name,"⌛️","⏳⏳⏳⏳⏳⏳⌛️⏳⏳")
@@ -8480,15 +8877,7 @@ end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and Devkorpica(msg) then  
-send(msg.chat_id_,msg.id_,'⤦: تم التحديث')
-os.execute('rm -rf korpica.lua')
-os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
-dofile('korpica.lua')  
-return false
-end
+
 if text == "راسلني" then
 rpl = {"ها هلاو","انطق","كول"};
 sender = rpl[math.random(#rpl)]
@@ -8917,16 +9306,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⤦:  عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'korpica:Text_Dev')
-if Text_Dev then 
-send(msg.chat_id_, msg.id_,Text_Dev)
-else
-tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"⤦: المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
-end,nil)   
-end
-end
+
 if text == 'الملفات' and Devkorpica(msg) then
 t = '⤦: جميع الملفات : \n — — — — — — — — — \n'
 i = 0
@@ -9067,7 +9447,19 @@ if text == 'source' or text == 'سورس' or text == 'ياسورس' or text == '
 local url,res = https.request('https://zaksat.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @SouRceSHaHuM ] .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس اولاً من ثم يمكنك استخدام الاوامر .
+— — — — — — — — — — —
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ' ⤦: shahum team .', url="t.me/SouRceSHaHuM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 local Text =[[
@@ -9092,7 +9484,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/NNAON/448&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/TheSHaHuM/5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'المبرمج' then
 tdcli_function ({ID = "GetUser",user_id_ = 932565396},function(arg,data) 
@@ -9109,10 +9501,11 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {
 {text = '- the source coder .', url="t.me/Byshahum"},
+{
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/imshahum&caption=' .. URL.escape(text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/byshahum&caption=' .. URL.escape(text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9704,7 +10097,363 @@ if audios.Info == true then
 local Text ='⤦: تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- SHaHuM TeAM .',url="t.me/SouRceSHaHuM"}},
+{{text = '᷂ءشياء ᷂حورا †',url="t.me/JUUIU"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text == "تويت" or text == "كت تويت" or text == "كت" then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "JJJ0U"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '• أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+local TWEET_Msg = { 
+"اخر افلام شاهدتها", 
+"ما هي وظفتك الحياه", 
+"اعز اصدقائك ?", 
+"اخر اغنية سمعتها ?", 
+"تكلم عن نفسك", 
+"ليه انت مش سالك", 
+"ما هيا عيوب سورس سون؟ ", 
+"اخر كتاب قرآته", 
+"روايتك المفضله ?", 
+"اخر اكله اكلتها", 
+"اخر كتاب قرآته", 
+"ليه باندا جدع؟ ", 
+"افضل يوم ف حياتك", 
+"ليه مضيفتش كل جهاتك", 
+"حكمتك ف الحياه", 
+"لون عيونك", 
+"كتابك المفضل", 
+"هوايتك المفضله", 
+"علاقتك مع اهلك", 
+" ما السيء في هذه الحياة ؟ ", 
+"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
+"سؤال ينرفزك ؟ ", 
+" هل يعجبك سورس سون؟؟ ", 
+" اكثر ممثل تحبه ؟ ", 
+"قد تخيلت شي في بالك وصار ؟ ", 
+"شيء عندك اهم من الناس ؟ ", 
+"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
+"وش أخر شي ضيعته؟ ", 
+"اي رايك في سورس سون؟ ", 
+"كم مره حبيت؟ ", 
+" اكثر المتابعين عندك باي برنامج؟", 
+" آخر مره ضربت عشره كانت متى ؟", 
+" نسبه الندم عندك للي وثقت فيهم ؟", 
+"تحب ترتبط بكيرفي ولا فلات؟", 
+" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
+" تجامل الناس ولا اللي بقلبك على لسانك؟", 
+" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
+"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
+" آخر غلطات عمرك؟ ", 
+" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
+" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
+" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
+" قدوتك من الأجيال السابقة؟ ", 
+" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
+"أكثر حيوان تخاف منه؟ ", 
+" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
+" إيموجي يعبّر عن مزاجك الحالي؟ ", 
+" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
+"أكثر شيء أسعدك اليوم؟ ", 
+"اي رايك في الدنيا دي ؟ ", 
+"ما هو أفضل حافز للشخص؟ ", 
+"ما الذي يشغل بالك في الفترة الحالية؟", 
+"آخر شيء ندمت عليه؟ ", 
+"شاركنا صورة احترافية من تصويرك؟ ", 
+"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
+"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
+"نصيحه تبدا ب -لا- ؟ ", 
+"كتاب أو رواية تقرأها هذه الأيام؟ ", 
+"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
+"يوم لا يمكنك نسيانه؟ ", 
+"شعورك الحالي في جملة؟ ", 
+"كلمة لشخص بعيد؟ ", 
+"صفة يطلقها عليك الشخص المفضّل؟ ", 
+"أغنية عالقة في ذهنك هاليومين؟ ", 
+"أكلة مستحيل أن تأكلها؟ ", 
+"كيف قضيت نهارك؟ ", 
+"تصرُّف ماتتحمله؟ ", 
+"موقف غير حياتك؟ ", 
+"اكثر مشروب تحبه؟ ", 
+"القصيدة اللي تأثر فيك؟ ", 
+"متى يصبح الصديق غريب ", 
+"وين نلقى السعاده برايك؟ ", 
+"تاريخ ميلادك؟ ", 
+"قهوه و لا شاي؟ ", 
+"من محبّين الليل أو الصبح؟ ", 
+"حيوانك المفضل؟ ", 
+"كلمة غريبة ومعناها؟ ", 
+"كم تحتاج من وقت لتثق بشخص؟ ", 
+"اشياء نفسك تجربها؟ ", 
+"يومك ضاع على؟ ", 
+"كل شيء يهون الا ؟ ", 
+"اسم ماتحبه ؟ ", 
+"وقفة إحترام للي إخترع ؟ ", 
+"أقدم شيء محتفظ فيه من صغرك؟ ", 
+"كلمات ماتستغني عنها بسوالفك؟ ", 
+"وش الحب بنظرك؟ ", 
+"حب التملك في شخصِيـتك ولا ؟ ", 
+"تخطط للمستقبل ولا ؟ ", 
+"موقف محرج ماتنساه ؟ ", 
+"من طلاسم لهجتكم ؟ ", 
+"اعترف باي حاجه ؟ ", 
+"عبّر عن مودك بصوره ؟ ",
+"آخر مره ضربت عشره كانت متى ؟", 
+"اسم دايم ع بالك ؟ ", 
+"اشياء تفتخر انك م سويتها ؟ ", 
+" لو بكيفي كان ؟ ", 
+  "أكثر جملة أثرت بك في حياتك؟ ",
+  "إيموجي يوصف مزاجك حاليًا؟ ",
+  "أجمل اسم بنت بحرف الباء؟ ",
+  "كيف هي أحوال قلبك؟ ",
+  "أجمل مدينة؟ ",
+  "كيف كان أسبوعك؟ ",
+  "شيء تشوفه اكثر من اهلك ؟ ",
+  "اخر مره فضفضت؟ ",
+  "قد كرهت احد بسبب اسلوبه؟ ",
+  "قد حبيت شخص وخذلك؟ ",
+  "كم مره حبيت؟ ",
+  "اكبر غلطة بعمرك؟ ",
+  "نسبة النعاس عندك حاليًا؟ ",
+  "شرايكم بمشاهير التيك توك؟ ",
+  "ما الحاسة التي تريد إضافتها للحواس الخمسة؟ ",
+  "اسم قريب لقلبك؟ ",
+  "مشتاق لمطعم كنت تزوره قبل الحظر؟ ",
+  "أول شيء يخطر في بالك إذا سمعت كلمة (ابوي يبيك)؟ ",
+  "ما أول مشروع تتوقع أن تقوم بإنشائه إذا أصبحت مليونير؟ ",
+  "أغنية عالقة في ذهنك هاليومين؟ ",
+  "متى اخر مره قريت قرآن؟ ",
+  "كم صلاة فاتتك اليوم؟ ",
+  "تفضل التيكن او السنقل؟ ",
+  "وش أفضل بوت برأيك؟ ",
+"كم لك بالتلي؟ ",
+"وش الي تفكر فيه الحين؟ ",
+"كيف تشوف الجيل ذا؟ ",
+"منشن شخص وقوله، تحبني؟ ",
+"لو جاء شخص وعترف لك كيف ترده؟ ",
+"مر عليك موقف محرج؟ ",
+"وين تشوف نفسك بعد سنتين؟ ",
+"لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟ ",
+"وش اجمل لهجة تشوفها؟ ",
+"قد سافرت؟ ",
+"افضل مسلسل عندك؟ ",
+"افضل فلم عندك؟ ",
+"مين اكثر يخون البنات/العيال؟ ",
+"متى حبيت؟ ",
+  "بالعادة متى تنام؟ ",
+  "شيء من صغرك ماتغير فيك؟ ",
+  "شيء بسيط قادر يعدل مزاجك بشكل سريع؟ ",
+  "تشوف الغيره انانيه او حب؟ ",
+"حاجة تشوف نفسك مبدع فيها؟ ",
+  "مع او ضد : يسقط جمال المراة بسبب قبح لسانها؟ ",
+  "عمرك بكيت على شخص مات في مسلسل ؟ ",
+  "‏- هل تعتقد أن هنالك من يراقبك بشغف؟ ",
+  "تدوس على قلبك او كرامتك؟ ",
+  "اكثر لونين تحبهم مع بعض؟ ",
+  "مع او ضد : النوم افضل حل لـ مشاكل الحياة؟ ",
+  "سؤال دايم تتهرب من الاجابة عليه؟ ",
+  "تحبني ولاتحب الفلوس؟ ",
+  "العلاقه السريه دايماً تكون حلوه؟ ",
+  "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
+"كيف ينطق الطفل اسمك؟ ",
+  "ما هي نقاط الضعف في شخصيتك؟ ",
+  "اكثر كذبة تقولها؟ ",
+  "تيكن ولا اضبطك؟ ",
+  "اطول علاقة كنت فيها مع شخص؟ ",
+  "قد ندمت على شخص؟ ",
+  "وقت فراغك وش تسوي؟ ",
+  "عندك أصحاب كثير؟ ولا ينعد بالأصابع؟ ",
+  "حاط نغمة خاصة لأي شخص؟ ",
+  "وش اسم شهرتك؟ ",
+  "أفضل أكلة تحبه لك؟ ",
+"عندك شخص تسميه ثالث والدينك؟ ",
+  "عندك شخص تسميه ثالث والدينك؟ ",
+  "اذا قالو لك تسافر أي مكان تبيه وتاخذ معك شخص واحد وين بتروح ومين تختار؟ ",
+  "أطول مكالمة كم ساعة؟ ",
+  "تحب الحياة الإلكترونية ولا الواقعية؟ ",
+  "كيف حال قلبك ؟ بخير ولا مكسور؟ ",
+  "أطول مدة نمت فيها كم ساعة؟ ",
+  "تقدر تسيطر على ضحكتك؟ ",
+  "أول حرف من اسم الحب؟ ",
+  "تحب تحافظ على الذكريات ولا تمسحه؟ ",
+  "اسم اخر شخص زعلك؟ ",
+"وش نوع الأفلام اللي تحب تتابعه؟ ",
+  "أنت انسان غامض ولا الكل يعرف عنك؟ ",
+  "لو الجنسية حسب ملامحك وش بتكون جنسيتك؟ ",
+  "عندك أخوان او خوات من الرضاعة؟ ",
+  "إختصار تحبه؟ ",
+  "إسم شخص وتحس أنه كيف؟ ",
+  "وش الإسم اللي دايم تحطه بالبرامج؟ ",
+  "وش برجك؟ ",
+  "لو يجي عيد ميلادك تتوقع يجيك هدية؟ ",
+  "اجمل هدية جاتك وش هو؟ ",
+  "الصداقة ولا الحب؟ ",
+"الصداقة ولا الحب؟ ",
+  "الغيرة الزائدة شك؟ ولا فرط الحب؟ ",
+    "هل انت دي تويت باعت باندا؟ ",
+  "قد حبيت شخصين مع بعض؟ وانقفطت؟ ",
+  "وش أخر شي ضيعته؟ ",
+  "قد ضيعت شي ودورته ولقيته بيدك؟ ",
+  "تؤمن بمقولة اللي يبيك مايحتار فيك؟ ",
+  "سبب وجوك بالتليجرام؟ ",
+  "تراقب شخص حاليا؟ ",
+  "عندك معجبين ولا محد درا عنك؟ ",
+  "لو نسبة جمالك بتكون بعدد شحن جوالك كم بتكون؟ ",
+  "أنت محبوب بين الناس؟ ولاكريه؟ ",
+"كم عمرك؟ ",
+  "لو يسألونك وش اسم امك تجاوبهم ولا تسفل فيهم؟ ",
+  "تؤمن بمقولة الصحبة تغنيك الحب؟ ",
+  "وش مشروبك المفضل؟ ",
+  "قد جربت الدخان بحياتك؟ وانقفطت ولا؟ ",
+  "أفضل وقت للسفر؟ الليل ولا النهار؟ ",
+  "انت من النوع اللي تنام بخط السفر؟ ",
+  "عندك حس فكاهي ولا نفسية؟ ",
+  "تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب؟ ",
+  "أفضل ممارسة بالنسبة لك؟ ",
+  "لو قالو لك تتخلى عن شي واحد تحبه بحياتك وش يكون؟ ",
+"لو احد تركك وبعد فتره يحاول يرجعك بترجع له ولا خلاص؟ ",
+  "برأيك كم العمر المناسب للزواج؟ ",
+  "اذا تزوجت بعد كم بتخلف عيال؟ ",
+  "فكرت وش تسمي أول اطفالك؟ ",
+  "من الناس اللي تحب الهدوء ولا الإزعاج؟ ",
+  "الشيلات ولا الأغاني؟ ",
+  "عندكم شخص مطوع بالعايلة؟ ",
+  "تتقبل النصيحة من اي شخص؟ ",
+  "اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟ ",
+  "جربت شعور احد يحبك بس انت مو قادر تحبه؟ ",
+  "دايم قوة الصداقة تكون بإيش؟ ",
+"أفضل البدايات بالعلاقة بـ وش؟ ",
+  "وش مشروبك المفضل؟ او قهوتك المفضلة؟ ",
+  "تحب تتسوق عبر الانترنت ولا الواقع؟ ",
+  "انت من الناس اللي بعد ماتشتري شي وتروح ترجعه؟ ",
+  "أخر مرة بكيت متى؟ وليش؟ ",
+  "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
+  "أفضل صفة تحبه بنفسك؟ ",
+  "كلمة تقولها للوالدين؟ ",
+  "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
+  "كم عدد سنينك بالتليجرام؟ ",
+  "تحب تعترف ولا تخبي؟ ",
+"انت من الناس الكتومة ولا تفضفض؟ ",
+  "أنت بعلاقة حب الحين؟ ",
+  "عندك اصدقاء غير جنسك؟ ",
+  "أغلب وقتك تكون وين؟ ",
+  "لو المقصود يقرأ وش بتكتب له؟ ",
+  "تحب تعبر بالكتابة ولا بالصوت؟ ",
+  "عمرك كلمت فويس احد غير جنسك؟ ",
+  "لو خيروك تصير مليونير ولا تتزوج الشخص اللي تحبه؟ ",
+  "لو عندك فلوس وش السيارة اللي بتشتريها؟ ",
+  "كم أعلى مبلغ جمعته؟ ",
+  "اذا شفت احد على غلط تعلمه الصح ولا تخليه بكيفه؟ ",
+"قد جربت تبكي فرح؟ وليش؟ ",
+"تتوقع إنك بتتزوج اللي تحبه؟ ",
+  "ما هو أمنيتك؟ ",
+  "وين تشوف نفسك بعد خمس سنوات؟ ",
+  "هل انت حرامي تويت بتعت باندا؟ ",
+  "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
+  "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
+  "تحب تطق الميانة ولا ثقيل؟ ",
+  "باقي معاك للي وعدك ما بيتركك؟ ",
+  "اول ماتصحى من النوم مين تكلمه؟ ",
+  "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
+  "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
+   "هل انت تحب باندا؟ ",
+"اذا قفطت احد تحب تفضحه ولا تستره؟ ",
+  "كلمة للشخص اللي يسب ويسطر؟ ",
+  "آية من القران تؤمن فيه؟ ",
+  "تحب تعامل الناس بنفس المعاملة؟ ولا تكون أطيب منهم؟ ",
+"حاجة ودك تغيرها هالفترة؟ ",
+  "كم فلوسك حاليا وهل يكفيك ام لا؟ ",
+  "وش لون عيونك الجميلة؟ ",
+  "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
+  "اذكر موقف ماتنساه بعمرك؟ ",
+  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
+  "ألطف شخص مر عليك بحياتك؟ ",
+   "هل باندا لطيف؟ ",
+"انت من الناس المؤدبة ولا نص نص؟ ",
+  "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
+  "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
+  "أكثر شي تخاف منه بالحياه وش؟ ",
+  "اكثر المتابعين عندك باي برنامج؟ ",
+  "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
+  "قد تمنيت شي وتحقق؟ ",
+  "قلبي على قلبك مهما صار لمين تقولها؟ ",
+  "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
+  "كم حساب عندك بالتليجرام؟ ",
+  "متى اخر مرة كذبت؟ ",
+"كذبت في الاسئلة اللي مرت عليك قبل شوي؟ ",
+  "تجامل الناس ولا اللي بقلبك على لسانك؟ ",
+  "قد تمصلحت مع أحد وليش؟ ",
+  "وين تعرفت على الشخص اللي حبيته؟ ",
+  "قد رقمت او احد رقمك؟ ",
+  "وش أفضل لعبته بحياتك؟ ",
+  "أخر شي اكلته وش هو؟ ",
+  "حزنك يبان بملامحك ولا صوتك؟ ",
+  "لقيت الشخص اللي يفهمك واللي يقرا افكارك؟ ",
+  "فيه شيء م تقدر تسيطر عليه ؟ ",
+  "منشن شخص متحلطم م يعجبه شيء؟ ",
+"اكتب تاريخ مستحيل تنساه ",
+  "شيء مستحيل انك تاكله ؟ ",
+  "تحب تتعرف على ناس جدد ولا مكتفي باللي عندك ؟ ",
+  "انسان م تحب تتعامل معاه ابداً ؟ ",
+  "شيء بسيط تحتفظ فيه؟ ",
+  "فُرصه تتمنى لو أُتيحت لك ؟ ",
+   "لي باندا ناك اليكس؟ ",
+  "شيء مستحيل ترفضه ؟. ",
+  "لو زعلت بقوة وش بيرضيك ؟ ",
+  "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
+  "ردك المعتاد اذا أحد ناداك ؟ ",
+  "مين الي تحب يكون مبتسم دائما ؟ ",
+" إحساسك في هاللحظة؟ ",
+  "وش اسم اول شخص تعرفت عليه فالتلقرام ؟ ",
+  "اشياء صعب تتقبلها بسرعه ؟ ",
+  "شيء جميل صار لك اليوم ؟ ",
+  "اذا شفت شخص يتنمر على شخص قدامك شتسوي؟ ",
+  "يهمك ملابسك تكون ماركة ؟ ",
+  "ردّك على شخص قال (أنا بطلع من حياتك)؟. ",
+  "مين اول شخص تكلمه اذا طحت بـ مصيبة ؟ ",
+  "تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟ ",
+  "كيف علاقتك مع اهلك؟ رسميات ولا ميانة؟ ",
+  "عمرك ضحيت باشياء لاجل شخص م يسوى ؟ ",
+"اكتب سطر من اغنية او قصيدة جا فـ بالك ؟ ",
+  "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
+  "مشاكلك بسبب ؟ ",
+  "نسبه الندم عندك للي وثقت فيهم ؟ ",
+  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
+  "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
+  "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
+  "كم عددكم بالبيت؟ ",
+  "عادي تتزوج من برا القبيلة؟ ",
+  "أجمل شي بحياتك وش هو؟ ",
+} 
+send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
+return false 
+end
+if text == "شعر" then
+data,res = https.request('https://alihaiedr.ml/SHaHuM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='⤦: تم اختيار الشعر لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '- SHaHuM TeAM .',url="t.me/TeaMSHaHuM"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9751,7 +10500,110 @@ end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 end
+if text == 'تعطيل متحركتي' then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "JJJ0U"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '• أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 
+return false 
+end
+if not Owner(msg) then
+return send(msg.chat_id_,msg.id_,'*• اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي *')
+end
+database:set(bot_id..'my_video:status:bot'..msg.chat_id_,'yazon')
+return send(msg.chat_id_, msg.id_, '• تم تعطيل - ( امر متحركتي ) ')
+end
+if text == 'تفعيل متحركتي' then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "JJJ0U"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '• أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+if not Owner(msg) then
+return send(msg.chat_id_,msg.id_,'*• اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي *')
+end
+database:del(bot_id..'my_video:status:bot'..msg.chat_id_)
+return send(msg.chat_id_, msg.id_, '• تم تفعيل - ( امر متحركتي ) ')
+end
+if text == "متحركتي" or text == 'افتاري' then
+local my_ph = database:get(bot_id..'my_video:status:bot'..msg.chat_id_)
+print(my_ph)
+if not my_ph then
+local function getpro(extra, result, success)
+if result.videos_[0] then
+sendvideo(msg.chat_id_,msg.id_,result.videos_[0].sizes_[1].video_.persistent_id_,'')
+else
+send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
+end 
+end
+tdcli_function ({ ID = "GetUserProfilevideos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
+end
+end
+if text == ("تحديث السورس") and Devkorpica(msg) then  
+send(msg.chat_id_,msg.id_,'⌯︙تم التحديث')
+os.execute('rm -rf korpica.lua)
+os.execute('rm -rf start.lua')
+os.execute('curl -O https://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@raw.githubusercontent.com/korapica-Team/korpica/korpica.lua')
+os.execute('curl -O https://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@raw.githubusercontent.com/korapica-Team/korpica/start.lua')
+
+dofile('korpica.lua')  
+return false
+end
+if text == 'شنو الوقت' or text == 'الوقت' or text == 'بيش الساعه' then 
+local htot = {'mathbf','mathit','mathfrak','mathrm'}
+local alwan = {'blue','green','yellow','magenta','Orange','DarkOrange','red'}
+local url1 = 'http://latex.codecogs.com/png.download?'..'\\dpi{600}%20\\huge%20\\'..htot[math.random(#htot)]..'{{\\color{'..alwan[math.random(#alwan)]..'}'..os.date("%H:%M")..'}}' 
+file = download_to_file(url1,'Miro.webp')
+print('TIMESSSS')
+ local Miro = 'https://api.telegram.org/bot' .. token .. '/sendDocument'
+local curl = 'curl "' .. Miro .. '" -F "chat_id=' .. msg.chat_id_ .. '" -F "document=@' .. 'Miro.webp' .. '"'
+io.popen(curl)
+end
+if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local DevText = database:get(bot_id.."DevText")
+if DevCh1 then DevCh = '\n⤦: *Dev Ch* : ['..DevCh1..']' else DevCh = '' end
+tdcli_function({ID="GetUser",user_id_=Sudo},function(arg,dp) 
+if dp.username_ ~= false then DevUser = '@'..dp.username_ else DevUser = dp.first_name_ end
+local DevName = '['..dp.first_name_..'](tg://user?id='..dp.id_..')'
+if DevText then
+send(msg.chat_id_, msg.id_, 1, DevText, 1, "md")
+else
+local bio = GetBio(dp.id_,msg.chat_id_)
+local Text = '⤦: Name : '..DevName..'\n⤦: User : ['..DevUser..']\n⤦: Id : ( '..Sudo..' )'..DevCh..'\n⤦: Bio : '..bio
+local UserName = (dp.username_ or "S0DRG"):gsub( "@", "")
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '⤦: '..dp.first_name_..' ',url="t.me/"..UserName}},  
+} 
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..UserName..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end,nil)
+end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'العوده' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9769,6 +10621,7 @@ local keyboard = {
 {'◞احصائيات البوت◜','◞قناه تحديثات السورس◜'},
 {'تغيير المطور الاساسي'},
 {'◞المطور◜'},
+{'توكن البوت'},
 {'◞اوامر الاشتراك◜'},
 {'◞اوامر المطورين + الثانويين◜'},
 {'◞اوامر التفعيل + التعطيل◜'},
@@ -9873,6 +10726,15 @@ local keyboard = {
 {'العوده'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
+end
+if text == "توكن البوت" and Devkorpica(msg) or text == 'جلب التوكن' and Devkorpica(msg) then 
+if not VIP_DeV(msg) then
+send(msg.chat_id_, msg.id_,'هذا الامر خاص بمطور البوت')
+return false
+end
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' ..token) 
+send(msg.chat_id_, msg.id_,' ') 
 end
 if text == '◞اوامر الاشتراك◜' then   
 local Text = '⤦: مرحبا بك في الاوامر المختصره'
@@ -10343,15 +11205,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⤦:  عدد مجموعات التي في البوت { '..#list..'}')
 end
-if text == "◞تحديث السورس◜" then
-send(msg.chat_id_,msg.id_,'⤦: تم التحديث')
-os.execute('rm -rf korpica.lua')
-os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua')
-os.execute('wget https://raw.githubusercontent.com/korapica-Team/korpica/master/start.lua')
-dofile('korpica.lua')  
-return false
-end
+
 if text == "◞تحديث الملفات◜" then
 dofile("korpica.lua")  
 send(msg.chat_id_, msg.id_, "⤦: تم التحديث")
