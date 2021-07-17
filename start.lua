@@ -71,7 +71,7 @@ Runkorpica:write([[
 cd $HOME/korpica
 token="]]..database:get(Server_korpica.."Token_korpica")..[["
 rm -fr korpica.lua
-wget --header 'Authorization: token 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' "https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua"
+wget "https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./korpica.lua -p PROFILE --bot=$token
