@@ -16,6 +16,7 @@ lua start.lua
 installall(){
 apt update
 apt upgrade
+apt install dnsutils
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install tmux
