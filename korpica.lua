@@ -8480,11 +8480,27 @@ dofile("korpica.lua")
 send(msg.chat_id_, msg.id_, "⤦: تم التحديث")
 end
 
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://shahum.ml/shahum/ashtrak.php?id='..msg.sender_user_id_)
+if text == 'source' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+local url,res = https.request('https://shahum.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'⤦: شترك في قناة السورس اولآ @SouRceSHaHuM .')   
+local Text =[[
+⤦: عذراً عزيزي .
+⤦: يجب عليك الاشتراك في قناة السورس من الأسفل .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❲ Source SHaHuM ❳', url = "https://t.me/SouRceSHaHuM"}
+},
+{
+{text = '❲ Source info ❳', url = "https://t.me/iNFoSHaHuM"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false 
 end
 local Text =[[
