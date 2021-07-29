@@ -8531,6 +8531,731 @@ if text == 'حاله الاشتراك' or text == 'حاله اشتراك الب�
 Text = [[⤦: حاله اشتراك البوت ( عادي ) .]]
 send(msg.chat_id_, msg.id_,Text)
 end
+----------------------------SHaHuM--------------------------------
+if text == ("رفع مشرف") or text == "اضف مشرف" and msg.reply_to_message_id_ ~= 0 then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '- أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+if not Constructor(msg) then
+send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
+return false
+end
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي ') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n⤦: العضو⇠ ['..data.first_name_..'](t.me/'..(data.username_ or 'hlil3')..') '
+status  = '\n⤦: تم رفعه مشرف بالقروب '
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^رفع مشرف @(.*)$") then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '- أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+if not Constructor(msg) then
+send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
+return false
+end
+local username = text:match("^رفع مشرف @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي ') 
+return false  
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+return false 
+end      
+usertext = '\n⤦:  العضو ⇠ ['..result.title_..'](t.me/'..(username or 'hlil3')..')'
+status  = '\n تم رفعه مشرف بالقروب '
+texts = usertext..status
+send(msg.chat_id_, msg.id_, texts)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+else
+send(msg.chat_id_, msg.id_, '• لا يوجد حساب بهذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end
+if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '- أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+if not Constructor(msg) then
+send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
+return false
+end
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي ') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n⤦:  العضو ⇠ ['..data.first_name_..'](t.me/'..(data.username_ or 'hlil3')..') '
+status  = '\n⤦: تم تنزيله مشرف'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^تنزيل مشرف @(.*)$") then
+
+if not Constructor(msg) then
+send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
+return false
+end
+local username = text:match("^تنزيل مشرف @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' البوت ليس مشرف يرجى ترقيتي ') 
+return false  
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⤦:  عذرا عزيزي المستخدم هذا معرف قناة يرجى استخدام الامر بصوره صحيحه ")   
+return false 
+end      
+usertext = '\n• العضو ⇠ ['..result.title_..'](t.me/'..(username or 'hlil3')..')'
+status  = '\n تم تنزيله مشرف من القروب'
+texts = usertext..status
+send(msg.chat_id_, msg.id_, texts)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+else
+send(msg.chat_id_, msg.id_, '• لا يوجد حساب بهذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end
+if text == ("رفع مشرف كامل") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ⤦: البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n ⤦: العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'imSHaHuM')..')'
+status  = '\n ​⤦: الايدي » '..result.sender_user_id_..'\n ⤦: تم رفعه مشرف بكل الصلاحيات'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^رفع مشرف كامل @(.*)$") and Constructor(msg) then
+local username = text:match("^رفع مشرف كامل @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ⤦: البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_," ⤦: عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+usertext = '\n ⤦: العضو » ['..result.title_..'](t.me/'..(username or 'imSHaHuM')..')'
+status  = '\n ⤦: تم رفعه مشرف بكل الصلاحيات'
+texts = usertext..status
+send(msg.chat_id_, msg.id_, texts)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
+else
+send(msg.chat_id_, msg.id_, ' ⤦: لا يوجد حساب بهاذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end
+if text == ("تنزيل مشرف كامل") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+function start_function(extra, result, success)
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ⤦: البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n ⤦: العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'imSHaHuM')..')'
+status  = '\n ⤦: لايدي » '..result.sender_user_id_..'\n ⤦:  تم تنزيله مشرف من الكروب بكل الصلاحيات'
+send(msg.chat_id_, msg.id_, usertext..status)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+if text and text:match("^تنزيل مشرف كامل @(.*)$") and Constructor(msg) then
+local username = text:match("^تنزيل مشرف كامل @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ⤦: البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⤦: عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+usertext = '\n ⤦: العضو » ['..result.title_..'](t.me/'..(username or 'imSHaHuM')..')'
+status  = '\n ⤦: تم تنزيله مشرف من الكروب بكل الصلاحيات'
+texts = usertext..status
+send(msg.chat_id_, msg.id_, texts)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+else
+send(msg.chat_id_, msg.id_, ' ⤦: لا يوجد حساب بهاذا المعرف')
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end
+if text == 'تفعيل all' and Constructor(msg) then   
+if database:get(bot_id..'Cick:all'..msg.chat_id_) then
+Text = '⤦: تم تفعيل امر @all'
+database:del(bot_id..'Cick:all'..msg.chat_id_)  
+else
+Text = '⤦: بالتاكيد تم تفعيل امر @all'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل all' and Constructor(msg) then  
+if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
+database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
+Text = '\n ⤦:  تم تعطيل امر @all'
+else
+Text = '\n ⤦:  بالتاكيد تم تعطيل امر @all'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == "@all" and Constructor(msg) then
+if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
+if database:get(bot_id.."imSHaHuM:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
+return 
+send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
+end
+database:setex(bot_id..'imSHaHuM:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,amir)
+x = 0
+tags = 0
+local list = amir.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = "#all"
+end
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 5 or x == tags or k == 0 then
+local Text = t:gsub('#all,','#all\n')
+sendText(msg.chat_id_,Text,0,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
+end
+if text == "تاك للمشرفين" and VIP_DeV(msg) then
+if database:get(bot_id.."bySHaHuM:admin:Time"..msg.chat_id_) then 
+return
+ send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
+end
+database:setex(bot_id..'VVVZVV:admin:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100 },function(extra,result,success)
+m = 0
+tgad = 0
+local ans = result.members_  
+for k, v in pairs(ans) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if m == 1 or m == tgad or k == 0 then
+tgad = m + 5
+t = "#Admin"
+end
+m = m + 1
+Adminame = data.first_name_
+Adminame = Adminame:gsub("]","")
+Adminame = Adminame:gsub("[[]","")
+t = t..", ["..Adminame.."](tg://user?id="..v.user_id_..")"
+if m == 1 or m == tgad or k == 0 then
+local Text = t:gsub('#Admin,','#Admin\n')
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end
+end,nil)
+end
+end,nil)
+end
+if text == 'قائمه المالك' and VIP_DeV(msg) then
+local list = database:smembers(bot_id..'creator'..msg.chat_id_)
+t = "\n ⤦: قائمه المالك \n≪SHaHuM≫\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = " ⤦: لا يوجد احد في قائمه المالك"
+end
+send(msg.chat_id_, msg.id_, t)
+return false
+end
+if text == ("صيح للمالك") or text == ("تاك للمالك") then
+local list = database:smembers(bot_id..'creator'..msg.chat_id_)
+t = "\n ⤦: وينكم تعالو يريدوكم بكروب \n≪SHaHuM≫\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- {[@"..username.."]}\n"
+else
+t = t..""..k.."- {"..v.."}\n"
+end
+end
+if #list == 0 then
+t = " ⤦: لا يوجد احد في قائمه المالك"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text and text:match('^الحساب (%d+)$') then
+local id = text:match('^الحساب (%d+)$')
+local text = 'اضغط لمشاهده الحساب'
+tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil)
+end
+local function oChat(chat_id,cb)
+tdcli_function ({
+ID = "OpenChat",
+chat_id_ = chat_id
+}, cb, nil)
+end
+if text == 'تفعيل تويت' and Constructor(msg) then   
+if database:get(bot_id..'kttwet'..msg.chat_id_) then
+Text = '⤦: تم تفعيل تويت'
+database:del(bot_id..'Cick:all'..msg.chat_id_)  
+else
+Text = '⤦: بالتاكيد تم تفعيل تويت'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل تويت' and Constructor(msg) then  
+if not database:get(bot_id..'kttwet'..msg.chat_id_) then
+database:set(bot_id..'kttwet'..msg.chat_id_,true)  
+Text = '\n ⤦: تم تعطيل تويت'
+else
+Text = '\n ⤦: بالتاكيد تم تعطيل تويت'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == "تويت" or text == "كت تويت" or text == "كت" then
+if AddChannel(msg.sender_user_id_) == false then
+local DevCh1 = database:get(bot_id.."add:ch:username")
+local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
+local Text =[[
+⤦: عذراً عزيزي  .
+⤦: أشترك في قناة البوت اولاً .
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+]]
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = '- أشترك الان •',url="t.me/"..channel}},  
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+return false 
+end
+local kttwet = { 
+"اخر افلام شاهدتها", 
+"ما هي وظفتك الحياه", 
+"اعز اصدقائك ?", 
+"اخر اغنية سمعتها ?", 
+"تكلم عن نفسك", 
+"ليه انت مش سالك", 
+"ما هيا عيوب سورسشهم؟ ", 
+"اخر كتاب قرآته", 
+"روايتك المفضله ?", 
+"اخر اكله اكلتها", 
+"اخر كتاب قرآته", 
+"ليه باندا جدع؟ ", 
+"افضل يوم ف حياتك", 
+"ليه مضيفتش كل جهاتك", 
+"حكمتك ف الحياه", 
+"لون عيونك", 
+"كتابك المفضل", 
+"هوايتك المفضله", 
+"علاقتك مع اهلك", 
+" ما السيء في هذه الحياة ؟ ", 
+"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
+"سؤال ينرفزك ؟ ", 
+" هل يعجبك سورسشهم؟؟ ", 
+" اكثر ممثل تحبه ؟ ", 
+"قد تخيلت شي في بالك وصار ؟ ", 
+"شيء عندك اهم من الناس ؟ ", 
+"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
+"وش أخر شي ضيعته؟ ", 
+"اي رايك في سورسشهم؟ ", 
+"كم مره حبيت؟ ", 
+" اكثر المتابعين عندك باي برنامج؟", 
+" آخر مره ضربت عشره كانت متى ؟", 
+" نسبه الندم عندك للي وثقت فيهم ؟", 
+"تحب ترتبط بكيرفي ولا فلات؟", 
+" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
+" تجامل الناس ولا اللي بقلبك على لسانك؟", 
+" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
+"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
+" آخر غلطات عمرك؟ ", 
+" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
+" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
+" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
+" قدوتك من الأجيال السابقة؟ ", 
+" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
+"أكثر حيوان تخاف منه؟ ", 
+" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
+" إيموجي يعبّر عن مزاجك الحالي؟ ", 
+" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
+"أكثر شيء أسعدك اليوم؟ ", 
+"اي رايك في الدنيا دي ؟ ", 
+"ما هو أفضل حافز للشخص؟ ", 
+"ما الذي يشغل بالك في الفترة الحالية؟", 
+"آخر شيء ندمت عليه؟ ", 
+"شاركنا صورة احترافية من تصويرك؟ ", 
+"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
+"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
+"نصيحه تبدا ب -لا- ؟ ", 
+"كتاب أو رواية تقرأها هذه الأيام؟ ", 
+"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
+"يوم لا يمكنك نسيانه؟ ", 
+"شعورك الحالي في جملة؟ ", 
+"كلمة لشخص بعيد؟ ", 
+"صفة يطلقها عليك الشخص المفضّل؟ ", 
+"أغنية عالقة في ذهنك هاليومين؟ ", 
+"أكلة مستحيل أن تأكلها؟ ", 
+"كيف قضيت نهارك؟ ", 
+"تصرُّف ماتتحمله؟ ", 
+"موقف غير حياتك؟ ", 
+"اكثر مشروب تحبه؟ ", 
+"القصيدة اللي تأثر فيك؟ ", 
+"متى يصبح الصديق غريب ", 
+"وين نلقى السعاده برايك؟ ", 
+"تاريخ ميلادك؟ ", 
+"قهوه و لا شاي؟ ", 
+"من محبّين الليل أو الصبح؟ ", 
+"حيوانك المفضل؟ ", 
+"كلمة غريبة ومعناها؟ ", 
+"كم تحتاج من وقت لتثق بشخص؟ ", 
+"اشياء نفسك تجربها؟ ", 
+"يومك ضاع على؟ ", 
+"كل شيء يهون الا ؟ ", 
+"اسم ماتحبه ؟ ", 
+"وقفة إحترام للي إخترع ؟ ", 
+"أقدم شيء محتفظ فيه من صغرك؟ ", 
+"كلمات ماتستغني عنها بسوالفك؟ ", 
+"وش الحب بنظرك؟ ", 
+"حب التملك في شخصِيـتك ولا ؟ ", 
+"تخطط للمستقبل ولا ؟ ", 
+"موقف محرج ماتنساه ؟ ", 
+"من طلاسم لهجتكم ؟ ", 
+"اعترف باي حاجه ؟ ", 
+"عبّر عن مودك بصوره ؟ ",
+"آخر مره ضربت عشره كانت متى ؟", 
+"اسم دايم ع بالك ؟ ", 
+"اشياء تفتخر انك م سويتها ؟ ", 
+" لو بكيفي كان ؟ ", 
+  "أكثر جملة أثرت بك في حياتك؟ ",
+  "إيموجي يوصف مزاجك حاليًا؟ ",
+  "أجمل اسم بنت بحرف الباء؟ ",
+  "كيف هي أحوال قلبك؟ ",
+  "أجمل مدينة؟ ",
+  "كيف كان أسبوعك؟ ",
+  "شيء تشوفه اكثر من اهلك ؟ ",
+  "اخر مره فضفضت؟ ",
+  "قد كرهت احد بسبب اسلوبه؟ ",
+  "قد حبيت شخص وخذلك؟ ",
+  "كم مره حبيت؟ ",
+  "اكبر غلطة بعمرك؟ ",
+  "نسبة النعاس عندك حاليًا؟ ",
+  "شرايكم بمشاهير التيك توك؟ ",
+  "ما الحاسة التي تريد إضافتها للحواس الخمسة؟ ",
+  "اسم قريب لقلبك؟ ",
+  "مشتاق لمطعم كنت تزوره قبل الحظر؟ ",
+  "أول شيء يخطر في بالك إذا سمعت كلمة (ابوي يبيك)؟ ",
+  "ما أول مشروع تتوقع أن تقوم بإنشائه إذا أصبحت مليونير؟ ",
+  "أغنية عالقة في ذهنك هاليومين؟ ",
+  "متى اخر مره قريت قرآن؟ ",
+  "كم صلاة فاتتك اليوم؟ ",
+  "تفضل التيكن او السنقل؟ ",
+  "وش أفضل بوت برأيك؟ ",
+"كم لك بالتلي؟ ",
+"وش الي تفكر فيه الحين؟ ",
+"كيف تشوف الجيل ذا؟ ",
+"منشن شخص وقوله، تحبني؟ ",
+"لو جاء شخص وعترف لك كيف ترده؟ ",
+"مر عليك موقف محرج؟ ",
+"وين تشوف نفسك بعد سنتين؟ ",
+"لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟ ",
+"وش اجمل لهجة تشوفها؟ ",
+"قد سافرت؟ ",
+"افضل مسلسل عندك؟ ",
+"افضل فلم عندك؟ ",
+"مين اكثر يخون البنات/العيال؟ ",
+"متى حبيت؟ ",
+  "بالعادة متى تنام؟ ",
+  "شيء من صغرك ماتغير فيك؟ ",
+  "شيء بسيط قادر يعدل مزاجك بشكل سريع؟ ",
+  "تشوف الغيره انانيه او حب؟ ",
+"حاجة تشوف نفسك مبدع فيها؟ ",
+  "مع او ضد : يسقط جمال المراة بسبب قبح لسانها؟ ",
+  "عمرك بكيت على شخص مات في مسلسل ؟ ",
+  "‏- هل تعتقد أن هنالك من يراقبك بشغف؟ ",
+  "تدوس على قلبك او كرامتك؟ ",
+  "اكثر لونين تحبهم مع بعض؟ ",
+  "مع او ضد : النوم افضل حل لـ مشاكل الحياة؟ ",
+  "سؤال دايم تتهرب من الاجابة عليه؟ ",
+  "تحبني ولاتحب الفلوس؟ ",
+  "العلاقه السريه دايماً تكون حلوه؟ ",
+  "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
+"كيف ينطق الطفل اسمك؟ ",
+  "ما هي نقاط الضعف في شخصيتك؟ ",
+  "اكثر كذبة تقولها؟ ",
+  "تيكن ولا اضبطك؟ ",
+  "اطول علاقة كنت فيها مع شخص؟ ",
+  "قد ندمت على شخص؟ ",
+  "وقت فراغك وش تسوي؟ ",
+  "عندك أصحاب كثير؟ ولا ينعد بالأصابع؟ ",
+  "حاط نغمة خاصة لأي شخص؟ ",
+  "وش اسم شهرتك؟ ",
+  "أفضل أكلة تحبه لك؟ ",
+"عندك شخص تسميه ثالث والدينك؟ ",
+  "عندك شخص تسميه ثالث والدينك؟ ",
+  "اذا قالو لك تسافر أي مكان تبيه وتاخذ معك شخص واحد وين بتروح ومين تختار؟ ",
+  "أطول مكالمة كم ساعة؟ ",
+  "تحب الحياة الإلكترونية ولا الواقعية؟ ",
+  "كيف حال قلبك ؟ بخير ولا مكسور؟ ",
+  "أطول مدة نمت فيها كم ساعة؟ ",
+  "تقدر تسيطر على ضحكتك؟ ",
+  "أول حرف من اسم الحب؟ ",
+  "تحب تحافظ على الذكريات ولا تمسحه؟ ",
+  "اسم اخر شخص زعلك؟ ",
+"وش نوع الأفلام اللي تحب تتابعه؟ ",
+  "أنت انسان غامض ولا الكل يعرف عنك؟ ",
+  "لو الجنسية حسب ملامحك وش بتكون جنسيتك؟ ",
+  "عندك أخوان او خوات من الرضاعة؟ ",
+  "إختصار تحبه؟ ",
+  "إسم شخص وتحس أنه كيف؟ ",
+  "وش الإسم اللي دايم تحطه بالبرامج؟ ",
+  "وش برجك؟ ",
+  "لو يجي عيد ميلادك تتوقع يجيك هدية؟ ",
+  "اجمل هدية جاتك وش هو؟ ",
+  "الصداقة ولا الحب؟ ",
+"الصداقة ولا الحب؟ ",
+  "الغيرة الزائدة شك؟ ولا فرط الحب؟ ",
+    "هل انت دي تويت باعت باندا؟ ",
+  "قد حبيت شخصين مع بعض؟ وانقفطت؟ ",
+  "وش أخر شي ضيعته؟ ",
+  "قد ضيعت شي ودورته ولقيته بيدك؟ ",
+  "تؤمن بمقولة اللي يبيك مايحتار فيك؟ ",
+  "سبب وجوك بالتليجرام؟ ",
+  "تراقب شخص حاليا؟ ",
+  "عندك معجبين ولا محد درا عنك؟ ",
+  "لو نسبة جمالك بتكون بعدد شحن جوالك كم بتكون؟ ",
+  "أنت محبوب بين الناس؟ ولاكريه؟ ",
+"كم عمرك؟ ",
+  "لو يسألونك وش اسم امك تجاوبهم ولا تسفل فيهم؟ ",
+  "تؤمن بمقولة الصحبة تغنيك الحب؟ ",
+  "وش مشروبك المفضل؟ ",
+  "قد جربت الدخان بحياتك؟ وانقفطت ولا؟ ",
+  "أفضل وقت للسفر؟ الليل ولا النهار؟ ",
+  "انت من النوع اللي تنام بخط السفر؟ ",
+  "عندك حس فكاهي ولا نفسية؟ ",
+  "تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب؟ ",
+  "أفضل ممارسة بالنسبة لك؟ ",
+  "لو قالو لك تتخلى عن شي واحد تحبه بحياتك وش يكون؟ ",
+"لو احد تركك وبعد فتره يحاول يرجعك بترجع له ولا خلاص؟ ",
+  "برأيك كم العمر المناسب للزواج؟ ",
+  "اذا تزوجت بعد كم بتخلف عيال؟ ",
+  "فكرت وش تسمي أول اطفالك؟ ",
+  "من الناس اللي تحب الهدوء ولا الإزعاج؟ ",
+  "الشيلات ولا الأغاني؟ ",
+  "عندكم شخص مطوع بالعايلة؟ ",
+  "تتقبل النصيحة من اي شخص؟ ",
+  "اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟ ",
+  "جربت شعور احد يحبك بس انت مو قادر تحبه؟ ",
+  "دايم قوة الصداقة تكون بإيش؟ ",
+"أفضل البدايات بالعلاقة بـ وش؟ ",
+  "وش مشروبك المفضل؟ او قهوتك المفضلة؟ ",
+  "تحب تتسوق عبر الانترنت ولا الواقع؟ ",
+  "انت من الناس اللي بعد ماتشتري شي وتروح ترجعه؟ ",
+  "أخر مرة بكيت متى؟ وليش؟ ",
+  "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
+  "أفضل صفة تحبه بنفسك؟ ",
+  "كلمة تقولها للوالدين؟ ",
+  "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
+  "كم عدد سنينك بالتليجرام؟ ",
+  "تحب تعترف ولا تخبي؟ ",
+"انت من الناس الكتومة ولا تفضفض؟ ",
+  "أنت بعلاقة حب الحين؟ ",
+  "عندك اصدقاء غير جنسك؟ ",
+  "أغلب وقتك تكون وين؟ ",
+  "لو المقصود يقرأ وش بتكتب له؟ ",
+  "تحب تعبر بالكتابة ولا بالصوت؟ ",
+  "عمرك كلمت فويس احد غير جنسك؟ ",
+  "لو خيروك تصير مليونير ولا تتزوج الشخص اللي تحبه؟ ",
+  "لو عندك فلوس وش السيارة اللي بتشتريها؟ ",
+  "كم أعلى مبلغ جمعته؟ ",
+  "اذا شفت احد على غلط تعلمه الصح ولا تخليه بكيفه؟ ",
+"قد جربت تبكي فرح؟ وليش؟ ",
+"تتوقع إنك بتتزوج اللي تحبه؟ ",
+  "ما هو أمنيتك؟ ",
+  "وين تشوف نفسك بعد خمس سنوات؟ ",
+  "هل انت حرامي تويت بتعت باندا؟ ",
+  "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
+  "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
+  "تحب تطق الميانة ولا ثقيل؟ ",
+  "باقي معاك للي وعدك ما بيتركك؟ ",
+  "اول ماتصحى من النوم مين تكلمه؟ ",
+  "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
+  "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
+   "هل انت تحب باندا؟ ",
+"اذا قفطت احد تحب تفضحه ولا تستره؟ ",
+  "كلمة للشخص اللي يسب ويسطر؟ ",
+  "آية من القران تؤمن فيه؟ ",
+  "تحب تعامل الناس بنفس المعاملة؟ ولا تكون أطيب منهم؟ ",
+"حاجة ودك تغيرها هالفترة؟ ",
+  "كم فلوسك حاليا وهل يكفيك ام لا؟ ",
+  "وش لون عيونك الجميلة؟ ",
+  "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
+  "اذكر موقف ماتنساه بعمرك؟ ",
+  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
+  "ألطف شخص مر عليك بحياتك؟ ",
+   "هل باندا لطيف؟ ",
+"انت من الناس المؤدبة ولا نص نص؟ ",
+  "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
+  "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
+  "أكثر شي تخاف منه بالحياه وش؟ ",
+  "اكثر المتابعين عندك باي برنامج؟ ",
+  "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
+  "قد تمنيت شي وتحقق؟ ",
+  "قلبي على قلبك مهما صار لمين تقولها؟ ",
+  "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
+  "كم حساب عندك بالتليجرام؟ ",
+  "متى اخر مرة كذبت؟ ",
+"كذبت في الاسئلة اللي مرت عليك قبل شوي؟ ",
+  "تجامل الناس ولا اللي بقلبك على لسانك؟ ",
+  "قد تمصلحت مع أحد وليش؟ ",
+  "وين تعرفت على الشخص اللي حبيته؟ ",
+  "قد رقمت او احد رقمك؟ ",
+  "وش أفضل لعبته بحياتك؟ ",
+  "أخر شي اكلته وش هو؟ ",
+  "حزنك يبان بملامحك ولا صوتك؟ ",
+  "لقيت الشخص اللي يفهمك واللي يقرا افكارك؟ ",
+  "فيه شيء م تقدر تسيطر عليه ؟ ",
+  "منشن شخص متحلطم م يعجبه شيء؟ ",
+"اكتب تاريخ مستحيل تنساه ",
+  "شيء مستحيل انك تاكله ؟ ",
+  "تحب تتعرف على ناس جدد ولا مكتفي باللي عندك ؟ ",
+  "انسان م تحب تتعامل معاه ابداً ؟ ",
+  "شيء بسيط تحتفظ فيه؟ ",
+  "فُرصه تتمنى لو أُتيحت لك ؟ ",
+   "لي باندا ناك اليكس؟ ",
+  "شيء مستحيل ترفضه ؟. ",
+  "لو زعلت بقوة وش بيرضيك ؟ ",
+  "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
+  "ردك المعتاد اذا أحد ناداك ؟ ",
+  "مين الي تحب يكون مبتسم دائما ؟ ",
+" إحساسك في هاللحظة؟ ",
+  "وش اسم اول شخص تعرفت عليه فالتلقرام ؟ ",
+  "اشياء صعب تتقبلها بسرعه ؟ ",
+  "شيء جميل صار لك اليوم ؟ ",
+  "اذا شفت شخص يتنمر على شخص قدامك شتسوي؟ ",
+  "يهمك ملابسك تكون ماركة ؟ ",
+  "ردّك على شخص قال (أنا بطلع من حياتك)؟. ",
+  "مين اول شخص تكلمه اذا طحت بـ مصيبة ؟ ",
+  "تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟ ",
+  "كيف علاقتك مع اهلك؟ رسميات ولا ميانة؟ ",
+  "عمرك ضحيت باشياء لاجل شخص م يسوى ؟ ",
+"اكتب سطر من اغنية او قصيدة جا فـ بالك ؟ ",
+  "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
+  "مشاكلك بسبب ؟ ",
+  "نسبه الندم عندك للي وثقت فيهم ؟ ",
+  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
+  "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
+  "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
+  "كم عددكم بالبيت؟ ",
+  "عادي تتزوج من برا القبيلة؟ ",
+  "أجمل شي بحياتك وش هو؟ ",
+} 
+send(msg.chat_id_, msg.id_,'['..kttwet[math.random(#kttwet)]..']')  
+return false 
+end
+if text == 'رابط الحذف' or text == 'رابط حذف' then
+t =[[
+رابط الحذف في جميع مواقع التواصل ●
+فكر قبل لا تتسرع وتروح
+ ● رابط حذف  [Telegram](https://my.telegram.org/auth?to=delete) ܁
+ ● رابط حذف [instagram](https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/) ܁
+ ● رابط حذف [Facebook](https://www.facebook.com/help/deleteaccount) ܁
+ ● رابط حذف [Snspchat](https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount) ܁
+]]
+send(msg.chat_id_, msg.id_,t) 
+return false
+end
+----------------------------SHaHuM--------------------------------
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9344,7 +10069,7 @@ local IdDe = text:match("^(%d+)$")
 send(msg.chat_id_,msg.id_, "⤦: تم تحفظ المعلومات اضغط ( تحديث الملفات ⌔ ) للتنفيذ")
 local A = io.open("sudo.lua", 'w')
 A:write([[
-s = "BGBBB"
+s = "SHaHuM"
 
 q = "SouRceSHaHuM"
 
@@ -10048,7 +10773,7 @@ print("\27[34m"..[[
 >> The Bot is Running
 >> Bot source > Black
 >>Source channel > @SouRceSHaHuM
->>Source developer > @BGBBB
+>>Source developer > @SHaHuM
  ____  _        _    ____ _  __
 | __ )| |      / \  / ___| |/ /
 |  _ \| |     / _ \| |   | ' / 
