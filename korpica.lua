@@ -1516,7 +1516,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
 end  
@@ -1535,10 +1535,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:AddMempar"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح اضافة الاعضاء")  
 return false
@@ -1549,10 +1549,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:text"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الدردشه")  
 return false
@@ -1563,10 +1563,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:Join"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح دخول الاعضاء")  
 return false
@@ -1577,10 +1577,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فـتح البوتات")  
 return false
@@ -1591,10 +1591,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","🍃\n⤦: تم فـتح البوتات")  
 return false
@@ -1605,7 +1605,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
 end  
@@ -1619,10 +1619,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:lockpin"..msg.chat_id_)  
 database:srem(bot_id.."korpica:Lock:pin",msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فـتح التثبيت هنا")  
@@ -1634,10 +1634,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:edit"..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فـتح تعديل")  
 return false
@@ -1653,10 +1653,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:del(bot_id.."korpica:Lock:tagservrbot"..msg.chat_id_)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1672,10 +1672,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:Link"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل الروابط")  
 return false
@@ -1701,10 +1701,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Link"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الروابط")  
 return false
@@ -1715,10 +1715,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:User:Name"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل المعرفات")  
 return false
@@ -1744,10 +1744,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:User:Name"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح المعرفات")  
 return false
@@ -1787,10 +1787,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:hashtak"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح التاك")  
 return false
@@ -1886,10 +1886,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:Animation"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل المتحركه")  
 return false
@@ -1915,10 +1915,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Animation"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح المتحركه")  
 return false
@@ -1929,10 +1929,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:geam"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل الالعاب")  
 return false
@@ -1958,10 +1958,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:geam"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الالعاب")  
 return false
@@ -2047,10 +2047,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:Sticker"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل الملصقات")  
 return false
@@ -2076,10 +2076,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Sticker"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الملصقات")  
 return false
@@ -2090,10 +2090,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:forward"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل التوجيه")  
 return false
@@ -2119,10 +2119,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:forward"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح التوجيه")  
 return false
@@ -2158,10 +2158,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفـل السيلفي")  
 return false
@@ -2187,10 +2187,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Unsupported"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح السيلفي")  
 return false
@@ -2221,10 +2221,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Markdaun"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الماركداون")  
 return false
@@ -2255,10 +2255,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Contact"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الجهات")  
 return false
@@ -2289,10 +2289,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Lock:Spam"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح الكلايش")  
 return false
@@ -2328,10 +2328,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","kick")  
 Reply_Status(msg,msg.sender_user_id_,"lockkick","⤦: تم قفل التكرار")
 return false
@@ -2342,10 +2342,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","⤦: تم قفل التكرار بالحذف")
 return false
@@ -2356,10 +2356,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","keed")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","⤦: تم قفل التكرار")
 return false
@@ -2370,10 +2370,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:hset(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood","mute")  
 Reply_Status(msg,msg.sender_user_id_,"lockktm","⤦: تم قفل التكرار")
 return false
@@ -2384,10 +2384,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 database:hdel(bot_id.."korpica:flooding:settings:"..msg.chat_id_ ,"flood")  
 Reply_Status(msg,msg.sender_user_id_,"unlock","⤦: تم فتح التكرار")
 return false
@@ -2490,10 +2490,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Constructor"..msg.chat_id_)
 texts = "⤦:  تم مسح المنشئين "
 send(msg.chat_id_, msg.id_, texts)
@@ -2504,10 +2504,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Manager"..msg.chat_id_)
 texts = "⤦:  تم مسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
@@ -2518,10 +2518,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Mod:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الادمنية  ")
 end
@@ -2531,10 +2531,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Special:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح  قائمة الاعضاء المميزين  ")
 end
@@ -2544,10 +2544,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Muted:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑︙ تم مسح قائمه المكتومين ")
 end
@@ -2557,10 +2557,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Ban:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "\n⤦: تم مسح المحظورين")
 end
@@ -2620,10 +2620,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local list = database:smembers(bot_id.."korpica:Constructor"..msg.chat_id_)
 t = "\n⤦: قائمة المنشئين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
@@ -2645,10 +2645,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local list = database:smembers(bot_id.."korpica:Manager"..msg.chat_id_)
 t = "\n⤦: قائمة المدراء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
@@ -2670,10 +2670,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local list = database:smembers(bot_id.."korpica:Mod:User"..msg.chat_id_)
 t = "\n⤦: قائمة الادمنيه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
@@ -2711,10 +2711,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local list = database:smembers(bot_id.."korpica:Muted:User"..msg.chat_id_)
 t = "\n⤦: قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
@@ -2737,10 +2737,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local list = database:smembers(bot_id.."korpica:Ban:User"..msg.chat_id_)
 t = "\n⤦: قائمة محظورين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
@@ -3000,10 +3000,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم ترقيته منشئ اساسي")  
@@ -3017,10 +3017,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^رفع منشئ اساسي @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3043,10 +3043,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
 database:sadd(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم ترقيته منشئ اساسي")  
@@ -3058,10 +3058,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم تنزيله من المنشئين")  
@@ -3075,10 +3075,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3098,10 +3098,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
 database:srem(bot_id.."korpica:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم تنزيله من المنشئين")  
@@ -3113,10 +3113,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:sadd(bot_id.."korpica:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم ترقيته منشئ في المجموعه")  
@@ -3129,10 +3129,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^رفع منشئ @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3155,10 +3155,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."korpica:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم ترقيته منشئ في المجموعه")  
@@ -3177,10 +3177,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تنزيل منشئ @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3199,10 +3199,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تنزيل منشئ (%d+)$")
 database:srem(bot_id.."korpica:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم تنزيله من المنشئين")  
@@ -3214,10 +3214,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:sadd(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم ترقيته مدير المجموعه")  
@@ -3231,10 +3231,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^رفع مدير @(.*)$") 
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3258,10 +3258,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."korpica:Manager"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم ترقيته مدير المجموعه")  
@@ -3273,10 +3273,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:srem(bot_id.."korpica:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم تنزيله من المدراء")  
@@ -3290,10 +3290,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تنزيل مدير @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3312,10 +3312,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تنزيل مدير (%d+)$") 
 database:srem(bot_id.."korpica:Manager"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم تنزيله من المدراء")  
@@ -3328,10 +3328,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
@@ -3349,10 +3349,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
@@ -3379,10 +3379,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
@@ -3398,10 +3398,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم تنزيله من ادمنيه المجموعه")  
@@ -3415,10 +3415,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تنزيل ادمن @(.*)$") 
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3437,10 +3437,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم تنزيله من ادمنيه المجموعه")  
@@ -3448,13 +3448,10 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3469,13 +3466,10 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
@@ -3500,13 +3494,10 @@ return false
 end
 
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
@@ -3520,13 +3511,10 @@ return false
 end
 
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 function Function_korpica(extra, result, success)
@@ -3542,10 +3530,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تنزيل مميز @(.*)$") 
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3564,10 +3552,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تنزيل مميز (%d+)$") 
 database:srem(bot_id.."korpica:Special:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم تنزيله من المميزين")  
@@ -3579,10 +3567,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local RTPA = text:match("رفع (.*)")
 if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
@@ -3614,10 +3602,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local RTPA = text:match("تنزيل (.*)")
 if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
@@ -3649,10 +3637,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
 if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
@@ -3687,10 +3675,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
 if database:sismember(bot_id.."korpica:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
@@ -3726,10 +3714,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
@@ -3793,10 +3781,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^حظر @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -3851,10 +3839,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^حظر (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -3897,10 +3885,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, "⤦: انا لست محظورا \n") 
@@ -3920,10 +3908,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^الغاء حظر @(.*)$") 
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -3948,10 +3936,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^الغاء حظر (%d+)$") 
 if tonumber(userid) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, "⤦: انا لست محظورا \n") 
@@ -3969,10 +3957,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 if result.sender_user_id_ == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
@@ -4044,10 +4032,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^كتم (%d+)$")
 if userid == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
@@ -4057,7 +4045,7 @@ if Rank_Checking(userid, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n⤦: عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"⤦: البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⤦:غو البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 database:sadd(bot_id.."korpica:Muted:User"..msg.chat_id_, userid)
@@ -4071,10 +4059,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم الغاء كتمه من هنا")  
@@ -4102,10 +4090,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."korpica:Muted:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⤦: تم الغاء كتمه من هنا")  
@@ -4151,10 +4139,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n⤦: عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
@@ -4173,10 +4161,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^تقيد @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -4204,10 +4192,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n⤦: عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
@@ -4224,10 +4212,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 function Function_korpica(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.sender_user_id_,"reply","⤦: تم الغاء تقييده")  
@@ -4242,10 +4230,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local username = text:match("^الغاء تقيد @(.*)$")
 function Function_korpica(extra, result, success)
 if result.id_ then
@@ -4265,10 +4253,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local userid = text:match("^الغاء تقيد (%d+)$")
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,userid,"reply","⤦: تم الغاء تقييده")  
@@ -4280,10 +4268,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
@@ -4315,10 +4303,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 local username = text:match("^طرد @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -4360,10 +4348,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end 
+end  
 local userid = text:match("^طرد (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'⤦: لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
@@ -4394,10 +4382,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
 send(msg.chat_id_, msg.id_, '⤦: تم تعطيل -› الحظر ~ والطرد ')
@@ -4410,10 +4398,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Constructor(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '⤦: تم تفعيل -› الحظر ~ والطرد ')
@@ -4426,10 +4414,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
 send(msg.chat_id_, msg.id_, '⤦: تم تعطيل رفع -› الادمن ~ المميز ')
@@ -4442,10 +4430,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Constructor(msg) then
 database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '⤦: تم تفعيل رفع -› الادمن ~ المميز ')
@@ -4525,10 +4513,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if database:sismember(bot_id.."korpica:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"⤦: التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
 return false  
@@ -4550,10 +4538,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if database:sismember(bot_id.."korpica:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"⤦: التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
 return false  
@@ -4575,10 +4563,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if database:sismember(bot_id.."korpica:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"⤦: التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
 return false  
@@ -4611,10 +4599,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
 send(msg.chat_id_,msg.id_,"⤦: ارسل رابط المجموعه او رابط قناة المجموعه")
 database:setex(bot_id.."korpica:Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
@@ -4627,10 +4615,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local status_Link = database:get(bot_id.."korpica:Link_Group"..msg.chat_id_)
 if not status_Link then
 send(msg.chat_id_, msg.id_,"⤦: جلب الرابط معطل") 
@@ -4656,10 +4644,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then  
 database:set(bot_id.."korpica:Link_Group"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"⤦: تم تفعيل جلب الرابط المجموعه") 
@@ -4672,10 +4660,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then  
 database:del(bot_id.."korpica:Link_Group"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"⤦: تم تعطيل جلب رابط المجموعه") 
@@ -4700,10 +4688,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then     
 send(msg.chat_id_,msg.id_,"⤦: تم مسح الرابط ")           
 database:del(bot_id.."korpica:Private:Group:Link"..msg.chat_id_) 
@@ -4756,10 +4744,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
 send(msg.chat_id_, msg.id_,"⤦: ارسل لي الصوره") 
 return false
@@ -4770,10 +4758,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"⤦: تم ازالة صورة المجموعه") 
@@ -4786,10 +4774,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then
 database:setex(bot_id.."korpica:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_,"⤦: ارسل الان الوصف")
@@ -4802,10 +4790,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then
 database:setex(bot_id.."korpica:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 t  = "⤦: ارسل لي الترحيب الان"
@@ -4820,10 +4808,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_)  
 else 
@@ -4838,10 +4826,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Chek:Welcome"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"⤦: تم تفعيل ترحيب المجموعه") 
 return false  
@@ -4852,10 +4840,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:del(bot_id.."korpica:Chek:Welcome"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"⤦: تم تعطيل ترحيب المجموعه") 
 return false  
@@ -4866,10 +4854,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 if Addictive(msg) then
 database:del(bot_id.."korpica:Get:Welcome:Group"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"⤦: تم ازالة ترحيب المجموعه") 
@@ -4882,10 +4870,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 database:set(bot_id.."korpica:Filter:msg",msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
 local Text ='⤦: قائمه الممنوعات'
@@ -4904,10 +4892,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 local listtext = database:smembers(bot_id.."korpica:List:Filter:text"..msg.chat_id_)  
 for k,v in pairs(listtext) do  
 database:srem(bot_id.."korpica:List:Filter:text"..msg.chat_id_,v)  
@@ -5192,6 +5180,12 @@ send(msg.chat_id_, msg.id_,"⤦: تم مسح جميع الاوامر التي ت
 end
 end
 if text == "ترتيب الاوامر" and Constructor(msg) then
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
+return false
+end
 database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":ا","ايدي")
 database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"ا")
 database:set(bot_id.."korpica:Set:Cmd:Group:New1"..msg.chat_id_..":م","رفع مميز")
@@ -5211,13 +5205,10 @@ database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"تفع")
 send(msg.chat_id_, msg.id_,"⤦: تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .")  
 end
 if text == "اضف امر" and Constructor(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 database:set(bot_id.."korpica:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
@@ -5225,13 +5216,10 @@ send(msg.chat_id_, msg.id_,"⤦: الان ارسل لي الامر القديم 
 return false
 end
 if text == "حذف امر" or text == "مسح امر" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 if Constructor(msg) then
@@ -5668,13 +5656,10 @@ return false
 end  
 end
 if text == "اضف رد" and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 send(msg.chat_id_, msg.id_,"⤦: ارسل الكلمه التي تريد اضافتها")
@@ -5682,13 +5667,10 @@ database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.cha
 return false 
 end
 if text == "حذف رد" and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 send(msg.chat_id_, msg.id_,"⤦: ارسل الكلمه التي تريد حذفها")
@@ -7100,13 +7082,10 @@ database:set(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,'⤦: تم تعطيل الايدي بالصوره') 
 end
 if text == 'تعين الايدي' and Owner(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 database:setex(bot_id.."korpica:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
@@ -7147,6 +7126,15 @@ send(msg.chat_id_, msg.id_,'⤦: تم تعين الايدي')
 end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
+end
+return false
+end  
 if not database:sismember(bot_id..'korpica:Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."korpica:Spam:Group"..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
@@ -7252,6 +7240,12 @@ end
 
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
+return false
+end
 function Function_korpica(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
@@ -8482,28 +8476,12 @@ dofile("korpica.lua")
 send(msg.chat_id_, msg.id_, "⤦: تم التحديث")
 end
 
-if text == 'source' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://shahum.ml/DEYAR/ashtrak.php?id='..msg.sender_user_id_)
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-local Text =[[
-⤦: عذراً عزيزي .
-⤦: يجب عليك الاشتراك في قناة السورس من الأسفل .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '❲ Source SHaHuM ❳', url = "https://t.me/SouRceSHaHuM"}
-},
-{
-{text = '❲ Source info ❳', url = "https://t.me/iNFoSHaHuM"}
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false 
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
+return false
 end
 local Text =[[
 
@@ -8536,22 +8514,14 @@ end
 ----------------------------SHaHuM--------------------------------
 if text == ("رفع مشرف") or text == "اضف مشرف" and msg.reply_to_message_id_ ~= 0 then
 if AddChannel(msg.sender_user_id_) == false then
-local DevCh1 = database:get(bot_id.."add:ch:username")
-local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
-local Text =[[
-⤦: عذراً عزيزي  .
-⤦: أشترك في قناة البوت اولاً .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = { 
-{{text = '- أشترك الان •',url="t.me/"..channel}},  
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
-return false 
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
+return false
+end  
 if not Constructor(msg) then
 send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
 return false
@@ -8573,22 +8543,14 @@ return false
 end
 if text and text:match("^رفع مشرف @(.*)$") then
 if AddChannel(msg.sender_user_id_) == false then
-local DevCh1 = database:get(bot_id.."add:ch:username")
-local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
-local Text =[[
-⤦: عذراً عزيزي  .
-⤦: أشترك في قناة البوت اولاً .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = { 
-{{text = '- أشترك الان •',url="t.me/"..channel}},  
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
-return false 
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
+return false
+end  
 if not Constructor(msg) then
 send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
 return false
@@ -8618,22 +8580,14 @@ return false
 end
 if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
 if AddChannel(msg.sender_user_id_) == false then
-local DevCh1 = database:get(bot_id.."add:ch:username")
-local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
-local Text =[[
-⤦: عذراً عزيزي  .
-⤦: أشترك في قناة البوت اولاً .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = { 
-{{text = '- أشترك الان •',url="t.me/"..channel}},  
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
-return false 
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
+return false
+end  
 if not Constructor(msg) then
 send(msg.chat_id_,msg.id_,'اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي فقط')
 return false
@@ -8906,22 +8860,14 @@ send(msg.chat_id_, msg.id_,Text)
 end
 if text == "تويت" or text == "كت تويت" or text == "كت" then
 if AddChannel(msg.sender_user_id_) == false then
-local DevCh1 = database:get(bot_id.."add:ch:username")
-local channel = (DevCh1 or "imSHaHuM"):gsub( "@", "")
-local Text =[[
-⤦: عذراً عزيزي  .
-⤦: أشترك في قناة البوت اولاً .
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-]]
-keyboard = {} 
-keyboard.inline_keyboard = { 
-{{text = '- أشترك الان •',url="t.me/"..channel}},  
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
-return false 
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
+return false
+end  
 local kttwet = { 
 "اخر افلام شاهدتها", 
 "ما هي وظفتك الحياه", 
@@ -9264,10 +9210,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 Text = [[⤦: @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -9277,10 +9223,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 Text = [[
 ⤦:  هناك {5} اوامر لعرضها
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
@@ -9301,10 +9247,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 Text = [[
 ⤦: اوامر حمايه المجموعه
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
@@ -9348,10 +9294,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 Text = [[
 ⤦: اوامر الادمنيه
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 
@@ -9420,8 +9366,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
+return false
+end  
 return false
 end
 Text = [[
@@ -9467,10 +9415,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'℘ : عذراً عزيزي .\n℘ : أشترك في قناة البوت اولاً .\n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄 ❲ ['..database:get(bot_id..'add:ch:username')..'] ❳')
 end
 return false
-end
+end  
 Text = [[
 ⤦: اوامر المنشئين الاساسين 
 𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄
@@ -9607,13 +9555,10 @@ end,nil)
 end,nil)
 end
 if text == 'تعطيل' and DevBot(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -9652,13 +9597,10 @@ end,nil)
 end,nil) 
 end
 if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'korpica:Free:Add:Bots') then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
 return false
 end
 if msg.can_be_deleted_ == false then 
@@ -9734,6 +9676,12 @@ end
 
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
+local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ [SHaHuM source .](t.me/SouRceSHaHuM) ] ❳')
+return false
+end
 if Devkorpica(msg) then
 local Text = '⤦: مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
@@ -10776,12 +10724,14 @@ print("\27[34m"..[[
 >> Bot source > Black
 >>Source channel > @SouRceSHaHuM
 >>Source developer > @SHaHuM
- ____  _        _    ____ _  __
-| __ )| |      / \  / ___| |/ /
-|  _ \| |     / _ \| |   | ' / 
-| |_) | |___ / ___ \ |___| . \ 
-|____/|_____/_/   \_\____|_|\_\
-
+   _____ _    _       _    _       __  __ 
+  / ____| |  | |     | |  | |     |  \/  |
+ | (___ | |__| | __ _| |__| |_   _| \  / |
+  \___ \|  __  |/ _` |  __  | | | | |\/| |
+  ____) | |  | | (_| | |  | | |_| | |  | |
+ |_____/|_|  |_|\__,_|_|  |_|\__,_|_|  |_|
+                                          
+                                          
 ]].."\27[m")
 local list = database:smembers(bot_id..'korpica:UsersBot')  
 for k,v in pairs(list) do 
