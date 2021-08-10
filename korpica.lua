@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,932565396,665877797}
+List_Sudos = {Id_Sudo,932565396,1850171326}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -20,12 +20,14 @@ Rtime = io.popen("date +'%Y-%m-%d %T'"):read('*a')
 print("\27[34m"..[[
 >> Best Source in Telegram
 >> Features fast and powerful
- ____  _        _    ____ _  __
-| __ )| |      / \  / ___| |/ /
-|  _ \| |     / _ \| |   | ' / 
-| |_) | |___ / ___ \ |___| . \ 
-|____/|_____/_/   \_\____|_|\_\
-
+   _____             _____           _____ _    _       _    _       __  __ 
+  / ____|           |  __ \         / ____| |  | |     | |  | |     |  \/  |
+ | (___   ___  _   _| |__) |___ ___| (___ | |__| | __ _| |__| |_   _| \  / |
+  \___ \ / _ \| | | |  _  // __/ _ \\___ \|  __  |/ _` |  __  | | | | |\/| |
+  ____) | (_) | |_| | | \ \ (__  __/____) | |  | | (_| | |  | | |_| | |  | |
+ |_____/ \___/ \__,_|_|  \_\___\___|_____/|_|  |_|\__,_|_|  |_|\__,_|_|  |_|
+                                                                            
+                                                                            
 Installation information
 
 User :: ]]..User..[[
@@ -168,7 +170,7 @@ end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(932565396) then  
 var = true  
-elseif tonumber(user_id) == tonumber(665877797) then
+elseif tonumber(user_id) == tonumber(1850171326) then
 var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
@@ -198,7 +200,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(932565396) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(665877797) then  
+elseif tonumber(user_id) == tonumber(1850171326) then  
 var = "مطور السورس"  
 elseif Devkorpicae(user_id) == true then
 var = "المطور الاساسي"  
@@ -2780,7 +2782,7 @@ if result.id_ == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(665877797) then
+if result.id_ == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -2807,7 +2809,7 @@ if userid == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(665877797) then
+if userid == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3737,7 +3739,7 @@ if result.sender_user_id_ == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(665877797) then
+if result.sender_user_id_ == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3802,7 +3804,7 @@ return false
 end
 function Function_korpica(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(665877797) then
+if result.id_ == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3866,7 +3868,7 @@ if userid == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(665877797) then
+if userid == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3976,7 +3978,7 @@ if result.sender_user_id_ == tonumber(932565396) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(665877797) then
+if result.sender_user_id_ == tonumber(1850171326) then
 send(msg.chat_id_, msg.id_, "⤦: لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
@@ -10030,15 +10032,17 @@ end
 if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
 print("\27[34m"..[[
 >> The Bot is Running
->> Bot source > Black
+>> Bot source > SHaHuM
 >>Source channel > @SouRceSHaHuM
->>Source developer > @BGBBB
- ____  _        _    ____ _  __
-| __ )| |      / \  / ___| |/ /
-|  _ \| |     / _ \| |   | ' / 
-| |_) | |___ / ___ \ |___| . \ 
-|____/|_____/_/   \_\____|_|\_\
-
+>>Source CoDeR > @imSHaHuM
+   _____             _____           _____ _    _       _    _       __  __ 
+  / ____|           |  __ \         / ____| |  | |     | |  | |     |  \/  |
+ | (___   ___  _   _| |__) |___ ___| (___ | |__| | __ _| |__| |_   _| \  / |
+  \___ \ / _ \| | | |  _  // __/ _ \\___ \|  __  |/ _` |  __  | | | | |\/| |
+  ____) | (_) | |_| | | \ \ (__  __/____) | |  | | (_| | |  | | |_| | |  | |
+ |_____/ \___/ \__,_|_|  \_\___\___|_____/|_|  |_|\__,_|_|  |_|\__,_|_|  |_|
+                                                                            
+                                                                            
 ]].."\27[m")
 local list = database:smembers(bot_id..'korpica:UsersBot')  
 for k,v in pairs(list) do 
