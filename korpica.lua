@@ -5187,21 +5187,19 @@ database:sadd(bot_id.."korpica:List:Cmd:Group:New"..msg.chat_id_,"تفع")
 send(msg.chat_id_, msg.id_,"⤦: تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .")  
 end
 if text == "اضف امر" and Constructor(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
+
 database:set(bot_id.."korpica:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
 send(msg.chat_id_, msg.id_,"⤦: الان ارسل لي الامر القديم ..")  
 return false
 end
 if text == "حذف امر" or text == "مسح امر" then 
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 if Constructor(msg) then
@@ -5211,10 +5209,13 @@ return false
 end
 end
 if text == ("رفع منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -5229,10 +5230,13 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match("^رفع منظف @(.*)$") and BasicConstructor(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 local username = text:match("^رفع منظف @(.*)$")
@@ -5252,10 +5256,13 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_korpica
 return false
 end
 if text and text:match("^رفع منظف (%d+)$") and BasicConstructor(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 local userid = text:match("^رفع منظف (%d+)$")
@@ -5629,10 +5636,13 @@ return false
 end  
 end
 if text == "اضف رد" and Owner(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 send(msg.chat_id_, msg.id_,"⤦: ارسل الكلمه التي تريد اضافتها")
@@ -5640,10 +5650,13 @@ database:set(bot_id.."korpica:Set:Manager:rd"..msg.sender_user_id_..":"..msg.cha
 return false 
 end
 if text == "حذف رد" and Owner(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 send(msg.chat_id_, msg.id_,"⤦: ارسل الكلمه التي تريد حذفها")
@@ -5998,10 +6011,13 @@ end
 
 
 if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 function Function_korpica(extra, result, success)
@@ -6058,10 +6074,13 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 end
 if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 function Function_korpica(extra, result, success)
@@ -6205,10 +6224,13 @@ end,nil)
 end,nil)
 end 
 if text == "اطردني" or text == "طردني" then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 if not database:get(bot_id.."korpica:Kick:Me"..msg.chat_id_) then
@@ -6994,40 +7016,52 @@ database:del(bot_id.."korpica:Fun_Bots"..msg.chat_id_)
 end
 
 if text == 'تفعيل الايدي' and Owner(msg) then 
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+  if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 database:del(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'⤦: تم تفعيل الايدي') 
 end
 if text == 'تعطيل الايدي' and Owner(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 database:set(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'⤦: تم تعطيل الايدي') 
 end
 if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 database:del(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'⤦: تم تفعيل الايدي بالصوره') 
 end
 if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 database:set(bot_id..'korpica:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
@@ -7184,12 +7218,6 @@ end
 
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'korpica:Lock:ID:Bot'..msg.chat_id_) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 function Function_korpica(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
@@ -7677,22 +7705,20 @@ end
 database:set(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_,true)
 end
 if text == "تعطيل الالعاب" and Owner(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
+return false
+end   
 database:del(bot_id.."Tshak:Lock:Games"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"\n⤦: تم تعطيل الالعاب") 
 end
 if text == "تفعيل الالعاب" and Owner(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
+
 database:set(bot_id.."Tshak:Lock:Games"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"\n⤦: تم تفعيل الالعاب") 
 end
@@ -7725,45 +7751,21 @@ Teext = [[
 send(msg.chat_id_, msg.id_,Teext) 
 end
 if text == 'رسائلي' then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 local nummsg = database:get(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 1
 local Text = '⤦: عدد رسائلك هنا *~ '..nummsg..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح رسائلي' then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 database:del(bot_id..'korpica:messageUser'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '⤦: تم مسح جميع رسائلك '
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'سحكاتي' or text == 'تعديلاتي' then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 local edit = database:get(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Text = '⤦: عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 database:del(bot_id..'korpica:message_edit'..msg.chat_id_..msg.sender_user_id_)
 send(msg.chat_id_, msg.id_, '⤦: تم مسح جميع تعديلاتك ') 
 end
@@ -8101,12 +8103,6 @@ end
 end
 end
 if text == "غنيلي" then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
 if res == 200 then
 audios = json:decode(data)
@@ -8479,76 +8475,6 @@ if text == 'حاله الاشتراك' or text == 'حاله اشتراك الب�
 Text = [[⤦: حاله اشتراك البوت ( عادي ) .]]
 send(msg.chat_id_, msg.id_,Text)
 end
-if text == 'تفعيل التاك' if text == 'تفعيل all' and Creator(msg) then  
-if database:get(bot_id..'Cick:all'..msg.chat_id_) then
-Text = ' ⤦:  تم تفعيل امر @all'
-database:del(bot_id..'Cick:all'..msg.chat_id_) 
-else
-Text = ' ⤦:  بالتاكيد تم تفعيل امر @all'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل التاك' if text == 'تعطيل all' and Creator(msg) then 
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-database:set(bot_id..'Cick:all'..msg.chat_id_,true) 
-Text = '\n ⤦:  تم تعطيل امر @all'
-else
-Text = '\n ⤦:  بالتاكيد تم تعطيل امر @all'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text and text:match("^all (.*)$") or text:match("^@all (.*)$") and Admin(msg) then 
-local ttag = text:match("^all (.*)$") or text:match("^@all (.*)$") 
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then 
-if database:get(bot_id.."tttttx:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then   
-return  
-send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك") 
-end 
-database:setex(bot_id..'tttttx:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true) 
-tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa)  
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,shahum) 
-x = 0 
-tags = 0 
-local list = shahum.members_ 
-for k, v in pairs(list) do 
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data) 
-if x == 5 or x == tags or k == 0 then 
-tags = x + 5 
-t = "#all "..ttag.."" 
-end 
-x = x + 1 
-tagname = data.first_name_ 
-tagname = tagname:gsub("]","") 
-tagname = tagname:gsub("[[]","") 
-t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")" 
-if x == 5 or x == tags or k == 0 then 
-local Text = t:gsub('#all '..ttag..',','#all '..ttag..'\n') 
-sendText(msg.chat_id_,Text,0,'md') 
-end 
-end,nil) 
-end 
-end,nil) 
-end,nil) 
-end 
-end
-if text == 'معلومات السيرفر' or text == 'السيرفر' then
- ioserver = io.popen([[
- linux_version=`lsb_release -ds`
- memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
- HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
- CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
- uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
- echo '⤦:  { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
- echo '*------------------------------\n*⤦:  { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
- echo '*------------------------------\n*⤦:  { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
- echo '*------------------------------\n*⤦:  { الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
- echo '*------------------------------\n*⤦:  { موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
- echo '*------------------------------\n*⤦:  { الــدخــول } ⊰•\n*»» '`whoami`'*'
- echo '*------------------------------\n*⤦:  { مـده تـشغيـل الـسـيـرفـر } ⊰• \n*»» '"$uptime"'*'
- ]]):read('*all')
- send(msg.chat_id_, msg.id_,ioserver)
- return false
- end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -8563,10 +8489,13 @@ Text = [[⤦: @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'الاوامر' and Addictive(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 Text = [[
@@ -8895,10 +8824,13 @@ end,nil)
 end,nil)
 end
 if text == 'تعطيل' and DevBot(msg) then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -8937,10 +8869,13 @@ end,nil)
 end,nil) 
 end
 if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'korpica:Free:Add:Bots') then  
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⤦: عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⤦: قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 if msg.can_be_deleted_ == false then 
@@ -9017,12 +8952,6 @@ end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if Devkorpica(msg) then
-local url,res = https.request('http://shahum.ml/subscrib-source/SouRceSHaHuM/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- اشترك في قناة السورس أولا\n[❲ @TeaMSHaHuM ] ❳')
-return false
-end
 local Text = '⤦: مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
 {'تفعيل البوت الخدمي ⌔','تعطيل البوت الخدمي ⌔'},
