@@ -74,7 +74,7 @@ RunBot:write([[
 cd $HOME/korpica
 token="]]..database:get(Server_Done.."Token_Write")..[["
 rm -fr korpica.lua
-wget "https://raw.githubusercontent.com/BLACKBOTSS/korpica/master/korpica.lua"
+wget "https://raw.githubusercontent.com/korapica-Team/korpica/master/korpica.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./korpica.lua -p PROFILE --bot=$token
