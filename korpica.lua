@@ -8628,12 +8628,65 @@ if data.Ch_Member.info ~= true then
 send(msg.chat_id_,msg.id_,'‹ : شترك في قناة السورس اولآ @TeaMSHaHuM .')   
 return false 
 end
-key = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url="t.me/TeaMSHaHuM"}},
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url="t.me/TwSLBlackBot"}},
+local Text =[[
+
+- 𝗐ᴇʟᴄᴏ𝗆𝖾 ᴛᴏ 𝗌𝗈𝗎𝗋𝖼𝖾 𝗌𝗁𝖺𝗁𝗎𝗆 .
+
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+
+{
+{text = '❲ Source SHaHuM ❳', url = "https://t.me/SouRceSHaHuM"}
+},
+{
+{text = '❲ Source info ❳', url = "https://t.me/iNFoSHaHuM"}
+},
+{
+{text = '❲ Coder ❳', url = "https://t.me/imshahum"}
+},
+{
+{text = '❲ TwS ❳', url = "https://t.me/Uv0BoT"}
+},
 }
-send_inline_key(msg.chat_id_,"*- WelCoMe To SouRce SHaHuM .*",nil,key,msg.id_/2097152/0.5)
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/NNAON/448&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+if text and text:match('^صلاحياته @(.*)') then   
+local username = text:match('صلاحياته @(.*)')   
+if tonumber(msg.reply_to_message_id_) == 0 then 
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+SendText(msg.chat_id_,msg.id_,"*℘ : المعرف غير صحيح \n*")   
+return false  end   
+
+Get_Info(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+end
+if text == "صلاحياتي" then 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
+end  
+end 
+if text == 'حاله الاشتراك' or text == 'حاله اشتراك البوت' then  
+local Text =[[
+‹ : حاله اشتراك البوت ( Normal ) 
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❲ To subscrib.e ❳', url = "https://t.me/tttttx"}
+},
+{
+{text = '❲ VIP version updates ❳', url = "https://t.me/ViPXSouRce"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false 
+end 
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
