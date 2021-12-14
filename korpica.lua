@@ -488,9 +488,9 @@ end
 function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
-local UserName = (data.username_ or "TeaMSHaHuM")
-local NameUser = "[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : بواسطه -› ["..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : اسم المستخدم -› ["..data.first_name_.."](T.me/"..UserName..")"
+local UserName = (data.username_ or "SouRceSHaHuM")
+local NameUser = "[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : بواسطه -› ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : اسم المستخدم -› ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
 send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n‹ : تم تنفيذ الامر بخاصيه ( المسح )\n")
 return false
@@ -3582,19 +3582,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_,result.sender_user_id_)  
 elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_,result.sender_user_id_)  
 elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
 database:sadd(bot_id.."korpica:Manager"..msg.chat_id_,result.sender_user_id_)  
 elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..RTPA.." هنا\n")
 end
 end,nil)   
 end   
@@ -3617,19 +3617,19 @@ function by_reply(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
 if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."korpica:Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."korpica:Manager"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "TeaMSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..data.first_name_.."](t.me/"..(data.username_ or "SouRceSHaHuM")..")".."\n‹ : تم تنزيله من "..RTPA.." هنا\n")  
 end
 end,nil)   
 end   
@@ -3652,19 +3652,19 @@ function py_username(extra, result, success)
 if result.id_ then
 local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."korpica:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."korpica:Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
 elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم رفعه "..text1[2].." هنا")   
 end
 else
 info = "‹ : المعرف غلط"
@@ -3690,19 +3690,19 @@ function py_username(extra, result, success)
 if result.id_ then
 local korpicart = database:get(bot_id.."korpica:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
 if korpicart == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."korpica:Special:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif korpicart == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."korpica:Mod:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif korpicart == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."korpica:Manager"..msg.chat_id_,result.id_)  
 database:del(bot_id.."korpica:Comd:New:rt:User:"..msg.chat_id_..result.id_)
 elseif korpicart == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/TeaMSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "TeaMSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
+send(msg.chat_id_, msg.id_,"[- 𝖲𝗈𝗎𝗋𝖼𝖾 SHaHuM .](https://t.me/SouRceSHaHuM)\n — — — — — — — — —\n‹ : العضو -› ["..result.title_.."](t.me/"..(text1[3] or "SouRceSHaHuM")..")".."\n‹ : تم تنريله من "..text1[2].." هنا")   
 end
 else
 info = "‹ : المعرف غلط"
@@ -6558,7 +6558,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"‹ :  حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "TeaMSHaHuM")
+local UserName = (b.username_ or "SouRceSHaHuM")
 send(msg.chat_id_, msg.id_,"‹ : منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
@@ -6578,7 +6578,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"‹ : حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "TeaMSHaHuM")
+local UserName = (b.username_ or "SouRceSHaHuM")
 send(msg.chat_id_, msg.id_,"‹ : تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 database:sadd(bot_id.."creator"..msg.chat_id_,b.id_)
 end,nil)   
@@ -8753,7 +8753,7 @@ Text = [[
 ‹ :  م4 -› لعرض اوامر المنشئين
 ‹ :  م5 -› لعرض اوامر المطورين
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8800,7 +8800,7 @@ Text = [[
 ‹ : الكلايش
 ‹ : السيلفي
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8872,7 +8872,7 @@ Text = [[
 ‹ : مسح الصلاحيات
 ‹ : مسح الرابط
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8919,7 +8919,7 @@ Text = [[
 ‹ : تفعيل/تعطيل اوامر التحشيش
 ‹ : تفعيل/تعطيل الرابط/جلب الرابط
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8955,7 +8955,7 @@ Text = [[
 ‹ : اضف رسائل + العدد بالرد
 ‹ : اضف مجوهرات + العدد بالرد
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9005,7 +9005,7 @@ Text = [[
 ‹ : رفع/تنزيل منشئ اساسي
 ‹ : مسح المنشئين الاساسين
  — — — — — — — — — 
-[‹ : Ch Source](t.me/TeaMSHaHuM)
+[‹ : Ch Source](t.me/SouRceSHaHuM)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -9549,7 +9549,7 @@ local A = io.open("sudo.lua", 'w')
 A:write([[
 s = "BGBBB"
 
-q = "TeaMSHaHuM"
+q = "SouRceSHaHuM"
 
 token = "]]..token..[["
 
@@ -9956,7 +9956,7 @@ gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.e
 br = JSON.decode(gk)
 x = {} 
 x.inline_keyboard = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(br.ok.hso)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
 end
@@ -9966,7 +9966,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="‹ : تم اللغاء منعها بنجاح"
 inline = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -9977,7 +9977,7 @@ local idchci = database:get(bot_id.."korpica:Filter:msg")
 local photo = DAata:match("^pito(.*)$")
 local Text ="‹ : تم اللغاء منعها بنجاح"
 inline = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -9989,7 +9989,7 @@ local idchci = "-100"..idch
 local Sticker = DAata:match("^Sticker(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="‹ : تم اللغاء منعه بنجاح"
 inline = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -9999,7 +9999,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="‹ : تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '‹ :  SouRce SHaHuM  .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ :  SouRce SHaHuM  .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -10012,7 +10012,7 @@ if DAata and DAata:match("^delallanimation(.*)$") and Addictive(data) then
 local delallmation = DAata:match("^delallanimation(.*)$")
 local Text ="‹ : تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -10025,7 +10025,7 @@ if DAata and DAata:match("^delallph(.*)$") and Addictive(data) then
 local delallph = DAata:match("^delallph(.*)$")
 local Text ="‹ : تم اللغاء منع كل الصور"
 inline = {
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -10050,7 +10050,7 @@ infovid = "*‹ :  اختر صيغه التنزيل الان*\n"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'فيديو', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":Mp4"},{text = 'صوت', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":mp3"},{text = 'بصمه', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":ogg"}},
-{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/TeaMSHaHuM'}},
+{{text = '‹ : SHaHuM 𝖲𝗈𝗎R𝖼𝖾 .',url='http://t.me/SouRceSHaHuM'}},
 }
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(infovid)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 InfoVid = https.request('https://black-source.tk/Api/BotYoutube.php?Id='..URL.escape(id_from_vid))
@@ -10489,7 +10489,7 @@ if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
 print("\27[34m"..[[
 >> The Bot is Running
 >> Bot source > SHaHuM
->>Source channel > @TeaMSHaHuM
+>>Source channel > @SouRceSHaHuM
 >>Source developer > @TttttX
    _____ _    _       _    _       __  __  _____             _____          
   / ____| |  | |     | |  | |     |  \/  |/ ____|           |  __ \         
